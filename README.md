@@ -11,13 +11,11 @@ with other software are also developed.
 ## Installation
 
 Copy the MagneticTB directory to any of the following four paths:
-*FileNameJoin[{$UserBaseDirectory, "Applications"}]
 
-*FileNameJoin[{$BaseDirectory, "Applications"}]
-
-*FileNameJoin[{$InstallationDirectory, "AddOns", "Packages"}]
-
-*FileNameJoin[{$InstallationDirectory, "AddOns", "Applications"}]
+* FileNameJoin[{$UserBaseDirectory, "Applications"}]
+* FileNameJoin[{$BaseDirectory, "Applications"}]
+* FileNameJoin[{$InstallationDirectory, "AddOns", "Packages"}]
+* FileNameJoin[{$InstallationDirectory, "AddOns", "Applications"}]
 
 
 Then one can use the package after running \lstinline!Needs["MagneticTB`"]!.
