@@ -12,9 +12,13 @@ with other software are also developed.
 
 Copy the MagneticTB directory to any of the following four paths:
 *FileNameJoin[{$UserBaseDirectory, "Applications"}]
+
 *FileNameJoin[{$BaseDirectory, "Applications"}]
+
 *FileNameJoin[{$InstallationDirectory, "AddOns", "Packages"}]
+
 *FileNameJoin[{$InstallationDirectory, "AddOns", "Applications"}]
+
 
 Then one can use the package after running \lstinline!Needs["MagneticTB`"]!.
 The version of Mathematica should higher or equal to 11.0.
