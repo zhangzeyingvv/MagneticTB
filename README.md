@@ -24,10 +24,10 @@ The version of Mathematica should higher or equal to 11.0.
 ## Capabilities of MagneticTB
 
 See https://arxiv.org/abs/2105.09504
-(please cite this paper if you use our code for your research.)
+(please cite this paper if you use our code for your research).
 
 ## Examples
 
-See examples.nb
+See examples.nb.
 
 
