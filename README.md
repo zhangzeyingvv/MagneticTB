@@ -27,7 +27,9 @@ The version of Mathematica should higher or equal to 11.0.
 * Get the matrix expression for symmetry operators
 * Interface with other software
 * Manipulate the energy band structure by parameters
+
 See https://arxiv.org/abs/2105.09504 for detail
+
 (please cite this paper if you use our code for your research).
 
 ## Examples
