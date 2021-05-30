@@ -10,7 +10,7 @@ with other software are also developed.
 
 ## Installation
 
- Unzip the "MagneticTB-main.zip" file and, copy the MagneticTB directory to any of the following four paths:
+ Unzip the "MagneticTB-main.zip" file and copy the MagneticTB directory to any of the following four paths:
 
 * ```FileNameJoin[{$UserBaseDirectory, "Applications"}]```
 * ```FileNameJoin[{$BaseDirectory, "Applications"}]```
