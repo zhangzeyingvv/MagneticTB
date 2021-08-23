@@ -5,11 +5,16 @@
 
 BeginPackage["MagneticTB`"]
 
+
+(* ::Subsubsection:: *)
+(*core*)
+
+
 (*set input data*)
 init ::usage = "Init the program"
 unsymham ::usage = "Get the unsymmetried Hamiltonian"
 symham ::usage = "Get the symmetried Hamiltonian in convenition I"
-symhamII ::usage = "Get the symmetried Hamiltonian in convenition II"
+
 kx ::usage = ""
 ky ::usage = ""
 kz ::usage = ""
@@ -44,6 +49,16 @@ latt ::usage=""
 wcc ::usage = "Wannier center"
 symmcompile ::usage = ""
 compactForm ::usage = ""
+lattice::usage = "Options for init"
+wyckoffposition::usage = "Options for init"
+symminformation::usage = "Options for init"
+basisFunctions::usage = "Options for init"
+symmetryset::usage = "Options for symham"
+lattpar::usage = "Options for init"
+
+
+(* ::Subsubsection:: *)
+(*Plot*)
 
 
 (*Plot*)
@@ -62,6 +77,10 @@ tokpathvasp ::usage = ""
 
 realham2d ::usage=""
 
+
+
+(* ::Subsubsection:: *)
+(*IO*)
 
 
 (*
@@ -88,12 +107,12 @@ texOutput ::usage =""
 
 
 
-lattice::usage = "Options for init"
-wyckoffposition::usage = "Options for init"
-symminformation::usage = "Options for init"
-basisFunctions::usage = "Options for init"
-symmetryset::usage = "Options for symham"
-lattpar::usage = "Options for init"
+(* ::Subsubsection:: *)
+(*Utilities*)
+
+
+symhamII ::usage = "Get the symmetried Hamiltonian in convenition II"
+showbonds ::usage = "Show the information of bond lengths and the classification of the bonds"
 
 
 EndPackage[]

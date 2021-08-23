@@ -16,20 +16,22 @@ bandManipulate[pathstr_,npoint_,h_]:=Module[
   {h0,params,mparams,m,rule,mpstr,klist},
   h0=TrigToExp[h];
   params=Variables[h0];
-  mparams=ToExpression["p"<>ToString[#]&/@params];
+  mparams=ToExpression["p"<>Hash[#,"SHA","Base36String"]<>ToString[#]&/@params];
   klist=2.Pi Flatten[Subdivide[#[[1]],#[[2]],npoint]&/@(Transpose[pathstr][[1]]),1];
   Print["Number of params:",Length@params];
   Print["params:",params];
 (*  Print["mparams:",mparams];*)
   rule=ToString[Thread[params->mparams],StandardForm](*~Join~{kx\[Rule]k[[1]],ky\[Rule]k[[2]],kz\[Rule]k[[3]]}*);
-  m=StringTake[ToString[{{#,0,StringTake[ToString[#],2;;]},-1,1}&/@mparams],{2;;-2}];
+(*  m=StringTake[ToString[{{#,0,StringTake[ToString[#],2;;]},-1,1}&/@mparams],{2;;-2}];*)
+  m=StringTake[ToString[{{#1,0,#2},-1,1}&@@@Transpose[{mparams,params}]],{2;;-2}];
 (*  Print[mparams,m];*)
   mpstr="Manipulate[\[IndentingNewLine]ListPlot[Transpose@Table[Eigenvalues[Evaluate["<>ToString[h,StandardForm]<>"/."<>rule<>"~Join~{kx\[Rule]k\[LeftDoubleBracket]1\[RightDoubleBracket],ky\[Rule]k\[LeftDoubleBracket]2\[RightDoubleBracket],kz\[Rule]k\[LeftDoubleBracket]3\[RightDoubleBracket]}]],{k,"<>ToString[klist]<>"}],
 PlotRange->All,PlotStyle->Black],"<>m<>"
 ,Button[\"ExportData\",Print["<>rule<>"]]
 
 ]";
-(*Print[mpstr];*)
+(*Print[m];
+Print[mpstr];*)
   ToExpression[mpstr]
 ];
 
@@ -48,6 +50,7 @@ PlotRange->All,PlotStyle->Black],ListPlot[Transpose@"<>ToString[eigdata[[;;,2]]]
 ,Button[\"ExportData\",Print["<>rule<>"]]
 
 ]";
+
 (*Print[mpstr];*)
   ToExpression[mpstr]
 ];

@@ -32,6 +32,8 @@ braLatt=<|"CubicP" -> {{{a, 0, 0}, {0, a, 0}, {0, 0, a}},
     {{-a/2, b/2, c/2}, {a/2, -b/2, c/2}, {a/2, b/2, -c/2}}}, 
   "OrthorhombicC" -> {{{a, 0, 0}, {0, b, 0}, {0, 0, c}}, 
     {{a/2, b/2, 0}, {-a/2, b/2, 0}, {0, 0, c}}}, 
+  "OrthorhombicA" -> {{{a, 0, 0}, {0, b, 0}, {0, 0, c}}, 
+    {{a, 0, 0}, {0,-b/2, c/2}, {0, b/2, c/2}}},
   "HexagonalP" -> {{{a, 0, 0}, {-a/2, (Sqrt[3]*a)/2, 0}, {0, 0, c}}, 
     {{a, 0, 0}, {-a/2, (Sqrt[3]*a)/2, 0}, {0, 0, c}}}, 
   "TrigonalR"->{{{Sqrt[3] a,0,0},{-((Sqrt[3] a)/2),(3 a)/2,0},{0,0,3 c}},
@@ -85,7 +87,25 @@ Inverse[tmp] . wcc[[k]]-wcc[[l]])],{k,Length[wcc]},{l,Length[wcc]}]
 ];
 
 compactForm:={#[[1]],#[[2]] . {"x","y","z"},#[[3]],#[[4]],MatrixForm[#[[5]]],
-MatrixForm[#[[6]]]}&/@((symminfo\[Transpose]~Join~{symmetryops}~Join~{symmetryopsII})\[Transpose])
+MatrixForm[#[[6]]]}&/@((symminfo\[Transpose]~Join~{symmetryops}~Join~{symmetryopsII})\[Transpose]);
+
+showbonds[n_]:=Module[{data,bondlength,grid,hasbond,bpos,head},
+data=bondclassify[[n]];
+
+bondlength=data[[1,1]];
+head=PadRight[{ToString[n-1]<>"-th neighbour, "<>"Bond length = "<> ToString@bondlength},3,SpanFromLeft];
+grid={head,{"Atom position","Num of bonds",DisplayForm@SubsuperscriptBox["p","k","'"]}};
+hasbond=bondclassify[[n]][[;;,3]][[;;,1,1]];
+Do[
+
+If[MemberQ[hasbond,pos],
+bpos=First@FirstPosition[hasbond,pos];
+grid=Append[grid,{pos,data[[bpos,2]],data[[bpos,3]][[;;,2]]}];,
+grid=Append[grid,{pos,0,None}];
+];
+,{pos,Flatten[atompos,1][[;;,1]]}];
+Grid[grid,Frame->All]
+]
 
 
 End[]
