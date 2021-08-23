@@ -37,17 +37,17 @@ Options[init]={
   };
 
 init[OptionsPattern[]]:=Module[{norm,repall,symopinit},
-  latt=OptionValue[lattice];
+  latt=(OptionValue[lattice]/.{x_?InexactNumberQ:>Rationalize@Round[x,.001]});
   norm=Cross[latt[[1]],latt[[2]]] . latt[[3]];
   reclatt=2 Pi/norm {
     Cross[latt[[2]],latt[[3]]],
     Cross[latt[[3]],latt[[1]]],
     Cross[latt[[1]],latt[[2]]]
     };
-  latpar=OptionValue[lattpar];
+  latpar=(OptionValue[lattpar]/.{x_?InexactNumberQ:>Rationalize@Round[x,.001]});
   lattplot=latt/.latpar;
-  wyckoff=OptionValue[wyckoffposition];
-  symminfo=OptionValue[symminformation];
+  wyckoff=(OptionValue[wyckoffposition]/.{x_?InexactNumberQ:>Rationalize@Round[x,.001]});
+  symminfo=(OptionValue[symminformation]/.{x_?InexactNumberQ:>Rationalize@Round[x,.001]});
   ops=symminfo[[;;,1]];
   Do[matrixRep[ops[[i]]]=symminfo[[i,2]],{i,Length[ops]}];
   Do[tran[ops[[i]]]=symminfo[[i,3]],{i,Length[ops]}];
@@ -73,6 +73,7 @@ init[OptionsPattern[]]:=Module[{norm,repall,symopinit},
     Inverse[Transpose[reclatt]] . ((Transpose[latt] . symminfo[[i,2]]) . Inverse@Transpose[latt]) . Transpose[reclatt]
       },{i,Length[symminfo]}];
   bondclassify=Split[SortBy[Flatten[findn[atompos[[;;,;;,1]],1],4],#[[1]]&],#1[[1]]==#2[[1]]&];
+  bondclassify=Table[{#[[1,1]],Total@#[[;;,2]],Flatten[#[[;;,3]],1]}&/@Values[GroupBy[neigh,#[[3,1,1]]&]],{neigh,bondclassify}];
   wcc=Module[{natomperwyck,nbasesperwyck},
   natomperwyck=Length/@atompos;
   nbasesperwyck=Length/@basis;
