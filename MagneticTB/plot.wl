@@ -16,7 +16,7 @@ bandManipulate[pathstr_,npoint_,h_]:=Module[
   {h0,params,mparams,m,rule,mpstr,klist},
   h0=TrigToExp[h];
   params=Variables[h0];
-  mparams=ToExpression["p"<>Hash[#,"SHA","Base36String"]<>ToString[#]&/@params];
+  mparams=ToExpression["p"<>ToString@Hash[#,"SHA"]<>ToString[#]&/@params];
   klist=2.Pi Flatten[Subdivide[#[[1]],#[[2]],npoint]&/@(Transpose[pathstr][[1]]),1];
   Print["Number of params:",Length@params];
   Print["params:",params];
