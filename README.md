@@ -28,7 +28,7 @@ The version of Mathematica should higher or equal to 11.0.
 * Interface with other software
 * Manipulate the energy band structure by parameters
 
-See Comput. [Phys. Commun. 270, 108153 (2022)](https://www.sciencedirect.com/science/article/abs/pii/S0010465521002654) [(arXiv:2012.08871)](https://arxiv.org/abs/2105.09504) for detail (please cite this paper if you use our code for your research).
+See [Comput. Phys. Commun. 270, 108153 (2022)](https://www.sciencedirect.com/science/article/abs/pii/S0010465521002654) [(arXiv:2012.08871)](https://arxiv.org/abs/2105.09504) for detail (please cite this paper if you use our code for your research).
 
 ## Examples
 
