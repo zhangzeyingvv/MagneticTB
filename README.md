@@ -43,4 +43,7 @@ v1.00b
 v1.00c
 * Add Chinese manual.
 
+v1.01
+* fix a bug for displaying the lattice vector of monoclinic lattice.
+
 
