@@ -70,7 +70,7 @@ init[OptionsPattern[]]:=Module[{norm,repall,symopinit},
 (*Print[symmetryops];*)
 (*Print[atompos];*)
   symmcompile=Table[{i,symminfo[[i]],symmetryops[[i]],
-    Inverse[Transpose[reclatt]] . ((Transpose[latt] . symminfo[[i,2]]) . Inverse@Transpose[latt]) . Transpose[reclatt]
+    (Inverse[Transpose[reclatt]] . ((Transpose[latt] . symminfo[[i,2]]) . Inverse@Transpose[latt]) . Transpose[reclatt])/.latpar
       },{i,Length[symminfo]}];
   bondclassify=Split[SortBy[Flatten[findn[atompos[[;;,;;,1]],1],4],#[[1]]&],#1[[1]]==#2[[1]]&];
   bondclassify=Table[{#[[1,1]],Total@#[[;;,2]],Flatten[#[[;;,3]],1]}&/@Values[GroupBy[neigh,#[[3,1,1]]&]],{neigh,bondclassify}];
@@ -364,7 +364,8 @@ symham[n_,OptionsPattern[]]:=Module[{conjh,h,phpmh,recR,para,sset,opset},
 (*Print[MatrixForm@ExpToTrig@h];*)
 
   phpmh=Table[
-  recR= Inverse[Transpose[reclatt]] . ((Transpose[latt] . symminfo[[i,2]]) . Inverse@Transpose[latt]) . Transpose[reclatt];
+  (*recR= Inverse[Transpose[reclatt]] . ((Transpose[latt] . symminfo[[i,2]]) . Inverse@Transpose[latt]) . Transpose[reclatt];*)
+  recR=symmcompile[[i,4]];
     recR=Inverse[recR];
   Which[
 
