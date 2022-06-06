@@ -38,7 +38,7 @@ See examples.nb.
 
 v1.00b
 
-* Add a new example for Charge-4 Weyl point in double magnetic space group [(arXiv:2112.10479)](https://arxiv.org/abs/2112.10479).
+* Add a new example for Charge-4 Weyl point in double magnetic space group [PRB 105, 104426 (2022)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.105.104426)([(arXiv:2112.10479)](https://arxiv.org/abs/2112.10479)).
 
 v1.00c
 * Add Chinese manual.
