@@ -91,7 +91,7 @@ basisdict=<|
   "pz"->z,
   "px+ipy"->x+I y,
   "px-ipy"->x-I y,
-  "dx2-y2"->(x^2 - y^2),
+  "dx2-y2"->Sqrt[3](x^2 - y^2),
   "dz2"->2z^2-x^2-y^2,
   "dxy" -> 2 x y,
   "dyz"-> 2 y z,
