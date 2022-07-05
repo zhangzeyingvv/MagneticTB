@@ -79,6 +79,10 @@ init[OptionsPattern[]]:=Module[{norm,repall,symopinit},
   nbasesperwyck=Length/@basis;
   Flatten[Table[Table[Table[atompos[[i,j,1]],nbasesperwyck[[i]]],{j,natomperwyck[[i]]}],{i,Length[natomperwyck]}],2]
   ];
+  If[Length[Intersection[VectorAngle@@@(Subsets[latt,{2}]/.latpar),{(2 \[Pi])/3,\[Pi]/3}]]>0,
+  basisdict["dx2-y2"]=(x^2 - y^2);
+  basisdict["dx2-y2dn"]->Reverse@{(x^2 - y^2),0};
+  basisdict["dx2-y2up"]->{(x^2 - y^2),0};
 ];
 
 
