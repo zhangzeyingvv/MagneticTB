@@ -57,15 +57,15 @@ init[OptionsPattern[]]:=Module[{norm,repall,symopinit},
     Which[#[[4]]=="F",Det[#[[2]]]#[[2]] . wyck[[2]],
     #[[4]]=="T",-Det[#[[2]]]#[[2]] . wyck[[2]]]}&/@symminfo),{wyck,wyckoff}];
   basis=OptionValue[basisFunctions];
-  If[Length[Intersection[VectorAngle@@@(Subsets[latt,{2}]/.latpar),{(2 \[Pi])/3,\[Pi]/3}]]>0,
+(*  If[Length[Intersection[VectorAngle@@@(Subsets[latt,{2}]/.latpar),{(2 \[Pi])/3,\[Pi]/3}]]>0,
   basisdict["dx2-y2"]=(x^2 - y^2);
   basisdict["dx2-y2dn"]->Reverse@{(x^2 - y^2),0};
   basisdict["dx2-y2up"]->{(x^2 - y^2),0};
-];
+];*)
   pointops=pointMatrix[symminfo,#,lattplot]&/@basis;
 (*Print[pointops];*)
   symopinit=Table[symop[i],{i,Length[wyckoff]}];
-  (*Print[Tr/@(symopinit[[1]])];*)
+(*  Print[(symopinit)];*)
   symmetryops=Table[
     ArrayFlatten[Table[times[KroneckerDelta[i,j],symopinit[[i]][[k]]],
       {i,Length[wyckoff]},
@@ -89,6 +89,70 @@ init[OptionsPattern[]]:=Module[{norm,repall,symopinit},
 ];
 
 
+Options[symmetrizationHRInit]={
+  "Lattice"->{{a,0,0},{-(a/2),(Sqrt[3] a)/2,0},{0,0,c}},
+  "LattPar"->{a->1,c->3},
+  "WyckoffPosition"->{{{2/3,1/3,0},{0,0,1/2}}},
+  "Symminformation"->{{"1",{{1,0,0},{0,1,0},{0,0,1}},{0,0,0},"F"}},
+  "BasisFunctions"->{"s"},
+  "Software"->"VASP"
+  };
+
+symmetrizationHRInit[OptionsPattern[]]:=Module[{norm,repall,symopinit},
+  latt=(OptionValue["Lattice"]/.{x_?InexactNumberQ:>Rationalize@Round[x,.001]});
+  latpar=(OptionValue["LattPar"]/.{x_?InexactNumberQ:>Rationalize@Round[x,.001]});
+  lattplot=latt/.latpar;
+  wyckoff=(OptionValue["WyckoffPosition"]/.{x_?InexactNumberQ:>Rationalize@Round[x,.001]});
+  symminfo=(OptionValue["Symminformation"]/.{x_?InexactNumberQ:>Rationalize@Round[x,.001]});
+  software=OptionValue["Software"];
+  ops=symminfo[[;;,1]];
+  
+  Do[matrixRep[ops[[i]]]=symminfo[[i,2]],{i,Length[ops]}];
+  Do[tran[ops[[i]]]=symminfo[[i,3]],{i,Length[ops]}];
+  Do[timere[ops[[i]]]=symminfo[[i,4]],{i,Length[ops]}];
+  atompos=DeleteDuplicates/@Table[
+    {Mod[#[[1]]+#[[2]],1],#[[3]]}&/@({#[[2]] . wyck[[1]],#[[3]],
+    Which[#[[4]]=="F",Det[#[[2]]]#[[2]] . wyck[[2]],
+    #[[4]]=="T",-Det[#[[2]]]#[[2]] . wyck[[2]]]}&/@symminfo),{wyck,wyckoff}];
+  basis=OptionValue["BasisFunctions"];
+  spinQ=Which[MissingQ[basisdict[#]],ListQ[#],
+              True,ListQ[basisdict[#]]]&@basis[[1,1]];
+ (* Print[basisdict[basis[[1,1]]],spinQ];*)
+(*  If[Length[Intersection[VectorAngle@@@(Subsets[latt,{2}]/.latpar),{(2 \[Pi])/3,\[Pi]/3}]]>0,
+  basisdict["dx2-y2"]=(x^2 - y^2);
+  basisdict["dx2-y2dn"]->Reverse@{(x^2 - y^2),0};
+  basisdict["dx2-y2up"]->{(x^2 - y^2),0};
+];*)
+  pointops=pointMatrix[symminfo,#,lattplot]&/@basis;
+  (*Print[pointops];*)
+  symopinit=Table[symopreal[i],{i,Length[wyckoff]}];
+  (*Print[(symopinit)];*)
+  symmetryops=Table[
+    ArrayFlatten[Table[times[KroneckerDelta[i,j],symopinit[[i]][[k]]],
+      {i,Length[wyckoff]},
+        {j,Length[wyckoff]}]],
+          {k,Length[ops]}
+      ];
+      
+  wcc=Module[{natomperwyck,nbasesperwyck},
+  natomperwyck=Length/@atompos;
+  nbasesperwyck=Length/@basis;
+  Flatten[Table[Table[Table[atompos[[i,j,1]],nbasesperwyck[[i]]],{j,natomperwyck[[i]]}],{i,Length[natomperwyck]}],2]
+  ];
+  Which[software=="VASP"&&spinQ,
+  reordre=Join[Table[2i-1,{i,Length[wcc]/2}],Table[2i,{i,Length[wcc]/2}]];
+  wcchr=wcc[[reordre]];
+  symmetryopshr=Map[N@Table[#[[i,j]],{i,reordre},{j,reordre}]&,symmetryops,1],
+  software=="VASP"&&Not[spinQ],
+  wcchr=wcc;
+  symmetryopshr=symmetryops
+  ];
+  (* Print[software=="VASP"&&Not[spinQ],spinQ,wcc,symmetryops];*)
+  Association[{"wcc"->wcchr,"DR"->symmetryopshr,"symmetry"->symminfo}]
+
+];
+
+
 basisdict=<|
   "s"->1,
   "px"->x,
@@ -96,7 +160,7 @@ basisdict=<|
   "pz"->z,
   "px+ipy"->x+I y,
   "px-ipy"->x-I y,
-  "dx2-y2"->Sqrt[3](x^2 - y^2),
+  "dx2-y2"->(*Sqrt[3]*)(x^2 - y^2),
   "dz2"->2z^2-x^2-y^2,
   "dxy" -> 2 x y,
   "dyz"-> 2 y z,
@@ -108,7 +172,7 @@ basisdict=<|
   "pzup"->{z,0},
   "px+ipy up"->{x+I y,0},
   "px-ipy up"->{x-I y,0},
-  "dx2-y2up"->{Sqrt[3](x^2 - y^2),0},
+  "dx2-y2up"->{(*Sqrt[3]*)(x^2 - y^2),0},
   "dz2up"->{2z^2-x^2-y^2,0},
   "dxyup" ->{ 2 x y,0},
   "dyzup"->{2 y z,0},
@@ -119,7 +183,7 @@ basisdict=<|
   "pzdn"->Reverse@{z,0},
   "px+ipy dn"->Reverse@{x+I y,0},
   "px-ipy dn"->Reverse@{x-I y,0},
-  "dx2-y2dn"->Reverse@{Sqrt[3](x^2 - y^2),0},
+  "dx2-y2dn"->Reverse@{(*Sqrt[3]*)(x^2 - y^2),0},
   "dz2dn"->Reverse@{2z^2-x^2-y^2,0},
   "dxydn" ->Reverse@{ 2 x y,0},
   "dyzdn"-> Reverse@{2 y z,0},
@@ -226,10 +290,15 @@ spinMatrix,spinrule,solve
 ,{i,Length[ops]}]
 ];
 
-If[And@@(FullSimplify[ConjugateTranspose[#] . #]==IdentityMatrix[nbases]&/@opmatrixs),(*Print["The opmatrices are unitarity."]*)1;
-(*Transpose/@*)opmatrixs,Print["Note: some of the opmatrices are not unitarity, I will make them unitarity."];
-tranU=DiagonalMatrix[Sqrt[#[[1]]]] . #[[2]]&[Eigensystem[Total[ConjugateTranspose[#] . #&/@opmatrixs]]];opmatrixs=tranU . # . Inverse[tranU]&/@opmatrixs(*;ConjugateTranspose[#].#&/@opmatrixs*)
-]
+If[And@@(FullSimplify[ConjugateTranspose[#] . #]==IdentityMatrix[nbases]&/@opmatrixs),opmatrixs,
+   tranU=DiagonalMatrix[Sqrt[#[[1]]]] . #[[2]]&[Eigensystem[Total[ConjugateTranspose[#] . #&/@opmatrixs]]];
+   tranU = SortBy[tranU, First@First@Position[#, _?(# != 0 &), 1] &];
+   If[DiagonalMatrixQ[tranU],
+   (*Print["Note: the basis functions cannot carry a unitary representation, I will multiply the basis functions by an array:", (#/(#[[1]]))&@Diagonal[tranU]];*)
+   opmatrixs=tranU . # . Inverse[tranU]&/@opmatrixs,
+   Print["Warning: your basis set cannot carry a unitary representation, I will do a linear combination of your basis functions:", tranU];
+   Print["However, I strongly recommend re-selecting the basis functions which can carry a unitary representation, because the order of basis functions in Hamiltonian may change"];
+   opmatrixs=tranU . # . Inverse[tranU]&/@opmatrixs]]
 
 ];
 
@@ -257,6 +326,23 @@ ArrayFlatten[Table[
            ]}));
 (*      Print[aftertr];*)
       aftertr==wyck[[j]],
+      pointops[[n]][[pos]],0],
+      {i,wyckn},
+        {j,wyckn}]],{symm,symminfo}]
+      ];
+      
+      
+symopreal[n_]:=(*symop[n]=*)Module[{wyckn,wyck,aftertr,irp,pos,qop},
+wyckn=Length[atompos[[n]]];
+wyck=atompos[[n]];
+pos=0;
+Table[pos+=1;
+ArrayFlatten[Table[
+(*  Print[symm];*)
+  qop=symm;
+  qop={#[[1]],Inverse[#[[2]]],-Inverse[#[[2]]] . #[[3]],#[[4]]}&@qop;
+  If[
+    i==j,
       pointops[[n]][[pos]],0],
       {i,wyckn},
         {j,wyckn}]],{symm,symminfo}]
