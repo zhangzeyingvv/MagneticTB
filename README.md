@@ -45,4 +45,4 @@ v1.00c
 * Fix a bug for displaying the lattice vector of monoclinic lattice.
 
 v1.01 2022/07/22
-* Fixed an issue where in very rare cases the order of basis functions would change due to automatic unitarization.
+* Fixed an issue where in very rare cases the order of basis functions would change due to the automatic unitarization.
