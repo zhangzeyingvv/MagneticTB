@@ -62,6 +62,6 @@ v1.02 2022/12/1
 
    * See  examples.nb for concrete example.
 
-   * Please also consider to cite ```MSGCorep``` package [arXiv:2211.10740](https://arxiv.org/abs/2211.10740) if you are using this capability.
+   * Please also consider to cite ```MSGCorep``` package ([arXiv:2211.10740])(https://arxiv.org/abs/2211.10740) if you are using this capability.
 
 
