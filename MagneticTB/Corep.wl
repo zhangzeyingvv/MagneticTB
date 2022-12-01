@@ -39,8 +39,8 @@ SpaceGroupIrep`b->MagneticTB`b,SpaceGroupIrep`c->MagneticTB`c,
 SpaceGroupIrep`\[Alpha]->MagneticTB`\[Alpha],
 SpaceGroupIrep`\[Beta]->MagneticTB`\[Beta],
 SpaceGroupIrep`\[Gamma]->MagneticTB`\[Gamma]};
-Print["Magnetic space group (BNS):",MSGSymStd[MSG]," No. ",StringRiffle[MSG,"."]];
-Print["Lattice: ",brav];
+(*Print["Magnetic space group (BNS):",MSGSymStd[MSG]," No. ",StringRiffle[MSG,"."]];
+Print["Lattice: ",brav];*)
 Print["Primitive Lattice Vactor: ",latt];
 Insert[#,getRotMat[brav,#[[1]]],2]&/@msgelem
 
@@ -129,8 +129,8 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
    , {kpoint, kset}];
   (*Print[tr];*)
   cr = getBandCorep[MSG, tr];
-  Print["Magnetic space group (BNS): ", MSGSymStd[MSG]," No. ",StringRiffle[MSG,"."]];
-  Print["Lattice: ",brav];
+(*  Print["Magnetic space group (BNS): ", MSGSymStd[MSG]," No. ",StringRiffle[MSG,"."]];
+  Print["Lattice: ",brav];*)
   (*Print[cr];*)
   Do[
   Print["k-name: "<>#2<>", k-point: "<>ToString[InputForm@#1]<>", little co-group: "<>ToString@#4 &@@cr["kinfo"][[k]]];
