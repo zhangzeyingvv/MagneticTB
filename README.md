@@ -50,7 +50,7 @@ v1.01 2022/07/22
 v1.02 2022/12/1
 * MagneticTB can calculate the band corep of tight-binding model!
 
- 1. Before using this capability, ``MSGCorep``` and ```SpaceGroupIrep``` package are needed to be install.
+ 1. Before using this capability, ```MSGCorep``` and ```SpaceGroupIrep``` package are needed to be install.
 
  2. Add two function ```getMSGElemFromMSGCorep``` and ```getTBBandCorep```, both two funcitons are depending on the ```MSGCorep``` package
 
