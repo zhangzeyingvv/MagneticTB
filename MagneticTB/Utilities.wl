@@ -6,6 +6,9 @@ BeginPackage["MagneticTB`"]
 Begin["`Private`"]
 
 
+directSum =(*FullSimplify@*)ArrayFlatten[{{#1, 0}, {0, #2}}] &;
+
+
 texOutput[mat_]:=Module[{ptex},
 ptex=ToString[TeXForm@mat];
 StringReplace[ToString[ptex],{
@@ -49,6 +52,7 @@ braLatt=<|"CubicP" -> {{{a, 0, 0}, {0, a, 0}, {0, 0, a}},
   "MonoclinicB" -> {{{a, 0, 0}, {0, 0, b}, {c*Cos[\[Beta]], 
       c*Sin[\[Beta]],0}}, {{a/2,  0, b/2}, {-a/2, 0, b/2}, 
      {c*Cos[\[Beta]], c*Sin[\[Beta]],0}}}, 
+     
   "TriclinicP" -> {{{a, 0, 0}, {b*Cos[\[Gamma]], b*Sin[\[Gamma]], 0}, 
      {c*Cos[\[Beta]], c*(Cos[\[Alpha]] - Cos[\[Beta]]*Cos[\[Gamma]])*
        Csc[\[Gamma]], c*Sqrt[1 - Cos[\[Alpha]]^2 - Cos[\[Beta]]^2 + 
@@ -70,8 +74,10 @@ msgop[number_]:=Module[{data},
 
 
 
-symhamII[ham_]:=Module[{U,hII},
-U=DiagonalMatrix[Table[Exp[-I{kx,ky,kz} . tau],{tau,wcc}]];
+Options[symhamII] = {"wcc"->None};
+symhamII[ham_, OptionsPattern[]]:=Module[{U,hII,wc},
+If[OptionValue["wcc"]===None,wc=wcc,wc=OptionValue["wcc"]];
+U=DiagonalMatrix[Table[Exp[-I{kx,ky,kz} . tau],{tau,wc}]];
 hII=ComplexExpand[ConjugateTranspose[U]] . ham . U;
 Expand[TrigToExp@FullSimplify@hII]
 ];

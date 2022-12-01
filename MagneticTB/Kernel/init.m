@@ -7,5 +7,5 @@ Get["MagneticTB`plot`"]
 Get["MagneticTB`IO`"]
 Get["MagneticTB`WilsonLoop`"]
 Get["MagneticTB`Utilities`"]
-
+Get["MagneticTB`Corep`"]
 

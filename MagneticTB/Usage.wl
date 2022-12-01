@@ -14,7 +14,8 @@ BeginPackage["MagneticTB`"]
 init ::usage = "Init the program"
 unsymham ::usage = "Get the unsymmetried Hamiltonian"
 symham ::usage = "Get the symmetried Hamiltonian in convenition I"
-
+basis::usage = "basis"
+basisdict::usage = "basis"
 kx ::usage = ""
 ky ::usage = ""
 kz ::usage = ""
@@ -55,6 +56,7 @@ symminformation::usage = "Options for init"
 basisFunctions::usage = "Options for init"
 symmetryset::usage = "Options for symham"
 lattpar::usage = "Options for init"
+symmetrizationHRInit::usage = "Options for init"
 
 
 (* ::Subsubsection:: *)
@@ -105,6 +107,10 @@ texOutput ::usage =""
 
 
 
+
+
+getMSGElemFromMSGCorep::usage = ""
+getTBBandCorep::usage = ""
 
 
 (* ::Subsubsection:: *)

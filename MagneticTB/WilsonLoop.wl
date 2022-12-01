@@ -1,11 +1,11 @@
 (* ::Package:: *)
 
-BeginPackage["MagneticTBDevelop`"]
+(*BeginPackage["MagneticTBDevelop`"]
+*)
 
 
 
-
-Begin["`Private`"]
+(*Begin["`Private`"]*)
 
 
 
@@ -298,8 +298,8 @@ Table[Eigenvalues[N@h[kp]],{kp,path1k}]\[Transpose]
 ];
 
 
-End[]
+(*End[]
 EndPackage[]
-
+*)
 
 

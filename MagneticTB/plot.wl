@@ -86,6 +86,7 @@ bandplot[pathstr_,npoint_,ham_,rule_,OptionsPattern[]]:=Module[{tmp,kps,hkps,hkp
   {maxenergy,minenergy}={Max[Flatten[data[[;;,;;,2]]]],Min[Flatten[data[[;;,;;,2]]]]};
   maxenergy=Max[Abs/@{maxenergy,minenergy}];
 (*  {maxenergy,minenergy}={.6,-.3};*)
+   (*Print[minenergy,maxenergy];*)
   yticks={#,
     Style[Round[#,.1],Black,FontFamily->font,24]}&/@Subdivide[-maxenergy,0,3];
   yticks=Join[yticks,Drop[{#,
@@ -120,10 +121,14 @@ Options[compareBand]= {plotRange->All};
 compareBand[pathstr_,npoint_,ham_,rule_,vaspband_,OptionsPattern[]]:=
   Module[{tmp,kps,hkps,hkp,xticks,yticks,font,data,oriband,norband,vaspplotdata,tbband},
   oriband=Partition[vaspband[[;;,2]],npoint];
+  (*Print[oriband];*)
   norband=Table[If[i==1,oriband[[i]],Join[{oriband[[i-1]][[-1]]},oriband[[i]]]],{i,Length[oriband]}];
-  vaspplotdata=Flatten[MapIndexed[{100(#2[[1]]-1)+#2[[3]]-1,#1}&,Transpose/@norband,{3}],1];
+  (*Print[norband];*)
+  If[Length[norband]>1,PrependTo[norband[[1]],norband[[1,1]]]];
+  vaspplotdata=Flatten[MapIndexed[{(npoint)(#2[[1]]-1)+#2[[3]]-1,#1}&,Transpose/@norband,{3}],1];
+  (*Print[vaspplotdata];*)
   hkp={};
-(*  hkps=Partition[Partition[StringSplit[pathstr],5][[;;,-1]],2];*)
+  (*hkps=Partition[Partition[StringSplit[pathstr],5][[;;,-1]],2];*)
   hkps=Transpose[pathstr][[2]];
   font="Times";
   Do[If[i==1,AppendTo[hkp,hkps[[i]][[1]]];AppendTo[hkp,hkps[[i]][[2]]],
@@ -141,7 +146,7 @@ compareBand[pathstr_,npoint_,ham_,rule_,vaspband_,OptionsPattern[]]:=
   data=Chop@Flatten[MapIndexed[{npoint(#2[[1]]-1)+#2[[3]]-1,#1}&,data,{3}],1];
   xticks=Transpose@{(npoint) Range[0,Length[hkp]-1],Style[#,Black,FontFamily->font,24]&/@hkp};
   {maxenergy,minenergy}={Max[Flatten[data[[;;,;;,2]]]],Min[Flatten[data[[;;,;;,2]]]]};
-  {maxenergy,minenergy}={.6,.1};
+  (*{maxenergy,minenergy}={.6,.1};*)
   yticks={#,
     Style[Round[#,.01],Black,FontFamily->font,24]}&/@Subdivide[-maxenergy,0,2];
   yticks=Join[yticks,Drop[{#,
