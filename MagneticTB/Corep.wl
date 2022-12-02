@@ -10,6 +10,7 @@ getSGLatt=SpaceGroupIrep`getSGLatt;
 BasicVectors=SpaceGroupIrep`BasicVectors;
 getRotMat=SpaceGroupIrep`getRotMat;
 getSpinRotOp=SpaceGroupIrep`getSpinRotOp;
+getRotName=SpaceGroupIrep`getRotName
 
 
 MSGSymStd=MSGCorep`MSGSymStd;
@@ -17,11 +18,18 @@ getMSGElem=MSGCorep`getMSGElem;
 getBandCorep=MSGCorep`getBandCorep;
 showBandCorep=MSGCorep`showBandCorep;
 spinMatrix[op_] := 
-    FullSimplify[Module[{\[Alpha], \[Beta], \[Gamma], nop},
-      If[Det[op] == -1, nop = -op, nop = op];
-        {\[Alpha], \[Beta], \[Gamma]} = -EulerAngles[nop];
-        Transpose@{{E^(I \[Gamma]/2) Cos[\[Beta]/2] E^(I \[Alpha] /2), E^(I \[Gamma]/2) Sin[\[Beta]/2] E^(-I \[Alpha] /2)},
-        {-E^(-I \[Gamma]/2) Sin[\[Beta]/2] E^(I \[Alpha] /2), E^(-I \[Gamma]/2) Cos[\[Beta]/2] E^(-I \[Alpha] /2)}}]];
+    N@Module[{\[Alpha], \[Beta], \[Gamma], nop,m,sx},
+    sx=PauliMatrix[2];
+    If[Det[op] == -1, nop = -op, nop = op];
+      {\[Alpha], \[Beta], \[Gamma]} = -EulerAngles[nop];
+      m={{E^(I \[Gamma]/2) Cos[\[Beta]/2] E^(I \[Alpha] /2), E^(I \[Gamma]/2) Sin[\[Beta]/2] E^(-I \[Alpha] /2)},
+      {-E^(-I \[Gamma]/2) Sin[\[Beta]/2] E^(I \[Alpha] /2), E^(-I \[Gamma]/2) Cos[\[Beta]/2] E^(-I \[Alpha] /2)}};
+      Transpose[m];
+      sx . Transpose@m . sx;
+      Transpose[m];
+      Transpose@m
+      ];
+        
 
 
 getMSGElemFromMSGCorep[MSG_]:=Module[
@@ -60,7 +68,7 @@ Keys[rk]
 
 
 getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
-  {rot,tmp, ops, wc, sym, tr, brav, msgele, eiv, little, trace, cr, coeff,
+  {rot,tmp, ops, wc, sym, tr, brav, msgele,mpgele, eiv, little, trace, cr, coeff,
    U, opII, actk
    },
   tr = Association[];
@@ -73,8 +81,8 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
   (*Print[tr["soc"]];*)
   (*basis*)
   tr["nsym"] = Length[sym];
-(*  brav = getSGLatt[MSG[[1]]];
-  msgele = getMSGElem[MSG];
+  brav = getSGLatt[MSG[[1]]];
+(*  msgele = getMSGElem[MSG];
   rot=getRotMat[brav, #[[1]]] & /@ msgele;*)
   rot=sym[[;;,2]];
   tr["rot"] = rot;
@@ -82,8 +90,15 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
   (*tr["srot"] = N@getSpinRotOp[#[[1]]][[1]] & /@ msgele;*)
   (*Print[rot];*)
   (*latt={{0,-a,0},{(Sqrt[3] a)/2,a/2,0},{0,0,c}};*)
-  tr["srot"] = N@spinMatrix[Transpose[latt] . # . Inverse@Transpose@latt] & /@ rot;
-  
+  (*tr["srot"] = N@spinMatrix[Transpose[latt] . # . Inverse@Transpose@latt] & /@ rot;
+  Print[MatrixForm/@tr["srot"]];
+  msgele = getMSGElem[MSG];
+  tr["srot"] = PauliMatrix[1].N@getSpinRotOp[#[[1]]][[1]].PauliMatrix[1] & /@ msgele;
+  Print[getRotName[brav,#]&/@rot];
+  *)
+  mpgele=getRotName[brav,#]&/@rot;
+  tr["srot"] = PauliMatrix[1] . N@getSpinRotOp[#][[1]] . PauliMatrix[1] & /@ mpgele;
+  (*Print[MatrixForm/@tr["srot"]];*)
   (*Abort[];*)
   tr["unitary"] = If[# == "F", 1, -1] & /@ sym[[;; , -1]];
   tr["nk"] = Length@kset;
@@ -127,7 +142,7 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
    AppendTo[tr["trace"], Partition[trace, Length[little]]];
    
    , {kpoint, kset}];
-  (*Print[tr];*)
+ (* Print[tr];*)
   cr = getBandCorep[MSG, tr];
 (*  Print["Magnetic space group (BNS): ", MSGSymStd[MSG]," No. ",StringRiffle[MSG,"."]];
   Print["Lattice: ",brav];*)
