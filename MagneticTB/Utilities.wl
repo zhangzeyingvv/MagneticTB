@@ -3,10 +3,40 @@
 BeginPackage["MagneticTB`"]
 
 
+
+
+
 Begin["`Private`"]
 
 
 directSum =(*FullSimplify@*)ArrayFlatten[{{#1, 0}, {0, #2}}] &;
+
+
+spinMatrix2[m_] := Module[
+  (*https://mathematica.stackexchange.com/questions/29924/axis-angle-
+  from-rotation-matrix*)
+  {ang, axis, ovec, nn, nvec, rm, s, w, w1, wm, xx, yy, zz, mat, 
+   axisAngle},
+  If[FullSimplify[Det[m]] == -1, mat = -m, mat = m];
+  axis = {mat[[3, 2]] - mat[[2, 3]], mat[[1, 3]] - mat[[3, 1]], 
+    mat[[2, 1]] - mat[[1, 2]]};
+  nn = Simplify[Norm[axis]];
+  If[nn == 0,
+   ang = \[Pi] Boole[Total[Diagonal[mat]] < 3];
+   rm = (mat + IdentityMatrix[3])/2;
+   axis = Normalize[Extract[rm, Ordering[Max /@ Abs[rm], -1]]],
+   
+   {xx, yy, zz} = Simplify[axis/nn];
+   s = 2 UnitStep[zz] - 1; w = -1/(s + zz); w1 = xx yy w;
+   ovec = {1 + s w xx xx, s w1, -s xx};
+   nvec = {w1, s + w yy yy, -yy};
+   wm = mat . ovec;
+   ang = Arg[Simplify[wm . ovec + I wm . nvec]]];
+  (*axisAngle = {FullSimplify@ang, axis};*)
+  ExpToTrig@
+   MatrixExp[-I FullSimplify@ang Sum[PauliMatrix[i] FullSimplify[(Normalize@axis)][[i]], {i, 3}]/2]
+  
+  ];
 
 
 texOutput[mat_]:=Module[{ptex},

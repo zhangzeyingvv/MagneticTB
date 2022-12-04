@@ -17,35 +17,11 @@ MSGSymStd=MSGCorep`MSGSymStd;
 getMSGElem=MSGCorep`getMSGElem;
 getBandCorep=MSGCorep`getBandCorep;
 showBandCorep=MSGCorep`showBandCorep;
-spinMatrix[op_] := 
-    N@Module[{\[Alpha], \[Beta], \[Gamma], nop,m,sx},
-    sx=PauliMatrix[2];
-    If[Det[op] == -1, nop = -op, nop = op];
-      {\[Alpha], \[Beta], \[Gamma]} = -EulerAngles[nop];
-      m={{E^(I \[Gamma]/2) Cos[\[Beta]/2] E^(I \[Alpha] /2), E^(I \[Gamma]/2) Sin[\[Beta]/2] E^(-I \[Alpha] /2)},
-      {-E^(-I \[Gamma]/2) Sin[\[Beta]/2] E^(I \[Alpha] /2), E^(-I \[Gamma]/2) Cos[\[Beta]/2] E^(-I \[Alpha] /2)}};
-      Transpose@m
-      ];
-FindOrder[mat_] := Module[{i,matn}, i = 1;
-  If[mat == IdentityMatrix[3], Return[1]];
-  matn=Det[mat] mat;
-  (*matn=mat;*)
-  While[
-   MatrixPower[matn, i] != IdentityMatrix[3],
-   i++
-   ];
-  i
-  ];
-transymmops[symmops_]:=Module[{order,sign},
-  order=FindOrder/@(symminfo[[;;,2]]);
-  sign=Table[First@First@MatrixPower[spinMatrix[Transpose[latt] . symminfo[[i,2]] . Inverse@Transpose@latt],order[[i]]],{i,Length[order]}];
-Table[Which[
-    order[[i]]==1,symmops[[i]],
-    OddQ[order[[i]]](*True*), -sign[[i]] (*Det[symminfo[[i,2]]]*)(*(-1)^(1/order[[i]])*) symmops[[i]],
-    EvenQ[order[[i]]], sign[[i]] (*Det[symminfo[[i,2]]]*) symmops[[i]]
-    ]
-  ,{i,Length[order]}]
-]
+
+
+
+
+
 
 
 getMSGElemFromMSGCorep[MSG_]:=Module[
@@ -91,6 +67,7 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
    },
   tr = Association[];
   ops = N@symmetryops;
+ (* ops[[-8]]=-ops[[-8]];*)
   (*ops=transymmops[ops];*)
   (*Print[ops];*)
   wc = N@wcc;
@@ -98,9 +75,6 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
   tr["nelec"] = Length[ham];
   (*Print[basisdict[#]&@basis[[1,1]]];*)
   tr["soc"] =If[ListQ[basisdict[#]&@basis[[1,1]]],1,0];
-  If[tr["soc"]==1,ops=transymmops[ops];];
-  (*Print[tr["soc"]];*)
-  (*basis*)
   tr["nsym"] = Length[sym];
   brav = getSGLatt[MSG[[1]]];
 (*  msgele = getMSGElem[MSG];
@@ -111,18 +85,15 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
   (*tr["srot"] = N@getSpinRotOp[#[[1]]][[1]] & /@ msgele;*)
   (*Print[rot];*)
   (*latt={{0,-a,0},{(Sqrt[3] a)/2,a/2,0},{0,0,c}};*)
-  srottb= N@spinMatrix[Transpose[latt] . # . Inverse@Transpose@latt] & /@ rot;
-  
-  (*msgele = getMSGElem[MSG];
-  tr["srot"] = PauliMatrix[1].N@getSpinRotOp[#[[1]]][[1]].PauliMatrix[1] & /@ msgele;
-  Print[getRotName[brav,#]&/@rot];*)
+  srottb= spinMatrix2[Transpose[latt] . # . Inverse@Transpose@latt] & /@ rot;
   
   mpgele=getRotName[brav,#]&/@rot;
   srot=PauliMatrix[1] . N@getSpinRotOp[#][[1]] . PauliMatrix[1] & /@ mpgele;
-  tr["srot"] = srot;
-  (*Print[MatrixForm/@srot];*)
-  (*Print[Table[MatrixForm/@{Chop@srot[[i]],PauliMatrix[1].srottb[[i]].PauliMatrix[1]},{i,Length[rot]}]];*)
-  (*Print[MatrixForm/@tr["srot"]];*)
+  
+  tr["srot"] = srottb;
+(*  Print[Table[sym[[i,1]]->MatrixForm[FullSimplify@srot[[i]]],{i,Length[rot]}]];
+  Print[Table[{Chop[srot[[i]]-srottb[[i]]]},{i,Length[rot]}]];
+  Print[Table[sym[[i,1]]->MatrixForm[FullSimplify@srottb[[i]]],{i,Length[rot]}]];*)
   (*Abort[];*)
   tr["unitary"] = If[# == "F", 1, -1] & /@ sym[[;; , -1]];
   tr["nk"] = Length@kset;
@@ -131,7 +102,7 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
   
   Table[tr[i] = {}, {i, {"ene", "deg", "knsym", "kisym", "trace"}}];
   Do[
-   U = N@DiagonalMatrix[Table[Exp[-2 Pi I kpoint . tau], {tau, wc}]];
+   U = N@DiagonalMatrix[Table[Exp[ - 2 Pi I kpoint . tau], {tau, wc}]];
    (*Print[MatrixForm@U];*)
    eiv = Eigensystem[
      ConjugateTranspose[
@@ -153,12 +124,13 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
        Table[
         actk = Inverse[Transpose[symminfo[[i, 2]]]];
         (*opII is from GB Liu's note*)
+        (*Print[N@Exp[-2 Pi I sym[[i, 3]] . (actk . (kpoint))]];*)
         opII = 
-         Exp[-2 Pi I symminfo[[i, 3]] . (actk . (kpoint))]  Table[
+         (*Exp[-2 Pi I sym[[i, 3]] . (actk . (kpoint))]*) Table[
            Exp[2 Pi I actk . 
-              kpoint . (wc[[m]] - (symminfo[[i, 2]] . wc[[l]]))], {m, 
+              kpoint . (wc[[m]] - (sym[[i, 2]] . wc[[l]]))], {m, 
             Length[wc]}, {l, Length[wc]}] ops[[i]];
-        Chop@Tr[Conjugate[e[[2]]] . (opII) . Transpose[e[[2]]]]
+        Chop@Tr[Conjugate@e[[2]] . (opII) . Transpose[e[[2]]]]
         , {i, little}]
        , {nr, Length[e[[1]]]}]
       , {e, eiv}]];

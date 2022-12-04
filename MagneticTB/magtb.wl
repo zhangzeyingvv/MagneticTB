@@ -233,10 +233,23 @@ basisdict=<|
 
 
 
+
+spinMatrix[op_] := 
+    Module[{\[Alpha], \[Beta], \[Gamma], nop,m,sx,order},
+    If[Det[op] == -1, nop = -op, nop = op];
+      {\[Alpha], \[Beta], \[Gamma]} = -EulerAngles[nop];
+      m=Transpose@{{E^(I \[Gamma]/2) Cos[\[Beta]/2] E^(I \[Alpha] /2), E^(I \[Gamma]/2) Sin[\[Beta]/2] E^(-I \[Alpha] /2)},
+      {-E^(-I \[Gamma]/2) Sin[\[Beta]/2] E^(I \[Alpha] /2), E^(-I \[Gamma]/2) Cos[\[Beta]/2] E^(-I \[Alpha] /2)}};
+      If[order==1,Return[IdentityMatrix[2]]];
+      If[FullSimplify[MatrixPower[m,order]]==-IdentityMatrix[2],m,-m]
+      ];
+
+
+
+
 pointMatrix[ops_,orbs_,latt_]:=
 Block[{(*x,y,z,*)xi,yi,zi,$Assumptions,dict,opsrule,
-nbases,bases,pbase,pbases,coeff,opmatrix,opmatrixs,tranU,
-spinMatrix,spinrule,solve
+nbases,bases,pbase,pbases,coeff,opmatrix,opmatrixs,tranU,spinrule,solve
 },
   $Assumptions={{x,y,z}\[Element]Reals};
   bases=basisdict[#]&/@orbs;
@@ -261,14 +274,15 @@ spinMatrix,spinrule,solve
     ,{rule,opsrule}]
   ,Length[bases[[1]]]==2,
   Print["Double Value Rep."];
-  spinMatrix[op_] := 
+(*  spinMatrix[op_] := 
     FullSimplify[Module[{\[Alpha], \[Beta], \[Gamma], nop},
       If[Det[op] == -1, nop = -op, nop = op];
         {\[Alpha], \[Beta], \[Gamma]} = -EulerAngles[nop];
         Transpose@{{E^(I \[Gamma]/2) Cos[\[Beta]/2] E^(I \[Alpha] /2), E^(I \[Gamma]/2) Sin[\[Beta]/2] E^(-I \[Alpha] /2)},
-        {-E^(-I \[Gamma]/2) Sin[\[Beta]/2] E^(I \[Alpha] /2), E^(-I \[Gamma]/2) Cos[\[Beta]/2] E^(-I \[Alpha] /2)}}]];
+        {-E^(-I \[Gamma]/2) Sin[\[Beta]/2] E^(I \[Alpha] /2), E^(-I \[Gamma]/2) Cos[\[Beta]/2] E^(-I \[Alpha] /2)}}]];*)
   opsrule=FullSimplify@Table[{MapThread[Rule,{{x,y,z},(Inverse[symm[[2]]] . ({x, y, z} . Inverse[latt]) . latt)}],symm[[4]]},{symm,ops}];
-  spinrule=Table[ExpToTrig@spinMatrix[Transpose[latt] . symm[[2]] . Inverse@Transpose@latt],{symm,ops}];
+  (*Table[Print[{Transpose[latt] . symm[[2]] . Inverse@Transpose@latt,spinMatrix2[Transpose[latt] . symm[[2]] . Inverse@Transpose@latt]}],{symm,ops}];*)
+  spinrule=Table[ExpToTrig@spinMatrix2[Transpose[latt] . symm[[2]] . Inverse@Transpose@latt],{symm,ops}];
   opmatrixs=Table[
     pbases=If[opsrule[[i]][[2]]=="T",(*Print[Simplify@Conjugate[(dict[#]&/@orbs)/.First[rule]]];*)
       pbases=ComplexExpand[I PauliMatrix[2] . Conjugate[#]]&/@bases;
