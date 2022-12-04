@@ -126,7 +126,7 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
         (*opII is from GB Liu's note*)
         (*Print[N@Exp[-2 Pi I sym[[i, 3]] . (actk . (kpoint))]];*)
         opII = 
-         (*Exp[-2 Pi I sym[[i, 3]] . (actk . (kpoint))]*) Table[
+         Exp[-2 Pi I sym[[i, 3]] . (actk . (kpoint))] Table[
            Exp[2 Pi I actk . 
               kpoint . (wc[[m]] - (sym[[i, 2]] . wc[[l]]))], {m, 
             Length[wc]}, {l, Length[wc]}] ops[[i]];
