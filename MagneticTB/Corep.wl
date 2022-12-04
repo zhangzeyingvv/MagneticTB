@@ -63,11 +63,12 @@ Keys[rk]
 getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
   {rot,tmp, ops, wc, sym, tr, brav, msgele,mpgele,srot,srottb, eiv, little, trace, cr, coeff,
    U, opII, actk,
-   order
+   order,sign
    },
   tr = Association[];
   ops = N@symmetryops;
- (* ops[[-8]]=-ops[[-8]];*)
+  (*ops[[19]]=-ops[[19]];*)
+  
   (*ops=transymmops[ops];*)
   (*Print[ops];*)
   wc = N@wcc;
@@ -86,14 +87,15 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
   (*Print[rot];*)
   (*latt={{0,-a,0},{(Sqrt[3] a)/2,a/2,0},{0,0,c}};*)
   srottb= spinMatrix2[Transpose[latt] . # . Inverse@Transpose@latt] & /@ rot;
-  
+  (*Print[MatrixForm/@srottb[[19;;21]]];*)
   mpgele=getRotName[brav,#]&/@rot;
   srot=PauliMatrix[1] . N@getSpinRotOp[#][[1]] . PauliMatrix[1] & /@ mpgele;
   
-  tr["srot"] = srottb;
+  tr["srot"] = N@srottb;
 (*  Print[Table[sym[[i,1]]->MatrixForm[FullSimplify@srot[[i]]],{i,Length[rot]}]];
-  Print[Table[{Chop[srot[[i]]-srottb[[i]]]},{i,Length[rot]}]];
+  Print[Table[First@First[Chop[srot[[i]].Inverse[srottb[[i]]]]],{i,Length[rot]}]];
   Print[Table[sym[[i,1]]->MatrixForm[FullSimplify@srottb[[i]]],{i,Length[rot]}]];*)
+  sign=Table[First@First[Chop[srot[[i]] . Inverse[srottb[[i]]]]],{i,Length[rot]}];
   (*Abort[];*)
   tr["unitary"] = If[# == "F", 1, -1] & /@ sym[[;; , -1]];
   tr["nk"] = Length@kset;
@@ -111,13 +113,13 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
    eiv = Transpose@SortBy[Transpose[eiv], #[[1]] &];
    eiv = Transpose /@ SplitBy[Transpose[eiv], Round[#[[1]], 0.0001] &];
    (*Print[eiv];*)
-   AppendTo[tr["ene"], Flatten@eiv[[;; , 1]]];
+   AppendTo[tr["ene"], Chop@Flatten@eiv[[;; , 1]]];
    AppendTo[tr["deg"], 
     Flatten[Table[#, {i, #}] & /@ Length /@ eiv[[;; , 1]]]];
    little = findLittleGroupOfK[kpoint];
    AppendTo[tr["knsym"], Length@little];
    AppendTo[tr["kisym"], little];
-   
+   (*Print[sign[[{1,4,6,19,20,21}]]];*)
    trace =
     Flatten[Table[
       Table[
@@ -126,11 +128,12 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
         (*opII is from GB Liu's note*)
         (*Print[N@Exp[-2 Pi I sym[[i, 3]] . (actk . (kpoint))]];*)
         opII = 
-         Exp[-2 Pi I sym[[i, 3]] . (actk . (kpoint))] Table[
+          Exp[-2 Pi I sym[[i, 3]] . (actk . (kpoint))] Table[
            Exp[2 Pi I actk . 
               kpoint . (wc[[m]] - (sym[[i, 2]] . wc[[l]]))], {m, 
             Length[wc]}, {l, Length[wc]}] ops[[i]];
-        Chop@Tr[Conjugate@e[[2]] . (opII) . Transpose[e[[2]]]]
+            (*Print[sign[[i]]];*)
+       If[tr["soc"]==1,sign[[i]],1] Chop@Tr[Conjugate@e[[2]] . (opII) . Transpose[e[[2]]]]
         , {i, little}]
        , {nr, Length[e[[1]]]}]
       , {e, eiv}]];
