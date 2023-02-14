@@ -36,7 +36,8 @@ Print[mpstr];*)
 ];
 
 bandManipulateEig[h_,klist_,eigdata_]:=Module[
-  {h0,params,mparams,m,rule,mpstr},
+  {h0,params,mparams,m,rule,mpstr,plotrange},
+  plotrange={Min[#]-.2,Max[#]+.2}&@Flatten[Transpose@eigdata[[;;,2]]];
   h0=TrigToExp[h];
   params=Variables[h0];
   mparams=ToExpression["p"<>ToString[#]&/@params];
@@ -45,8 +46,9 @@ bandManipulateEig[h_,klist_,eigdata_]:=Module[
   Print["mparams:",mparams];
   rule=ToString[Thread[params->mparams],StandardForm](*~Join~{kx\[Rule]k[[1]],ky\[Rule]k[[2]],kz\[Rule]k[[3]]}*);
   m=StringTake[ToString[{{#,0},-1,1}&/@mparams],{2;;-2}];
+  m=StringTake[ToString[{{#1,0,#2},-1,1}&@@@Transpose[{mparams,params}]],{2;;-2}];
   mpstr="Manipulate[\[IndentingNewLine]Show[ListPlot[Transpose@Table[Eigenvalues[Evaluate["<>ToString[h,StandardForm]<>"/."<>rule<>"~Join~{kx\[Rule]k\[LeftDoubleBracket]1\[RightDoubleBracket],ky\[Rule]k\[LeftDoubleBracket]2\[RightDoubleBracket],kz\[Rule]k\[LeftDoubleBracket]3\[RightDoubleBracket]}]],{k,"<>ToString[klist]<>"}],
-PlotRange->All,PlotStyle->Black],ListPlot[Transpose@"<>ToString[eigdata[[;;,2]]]<>"]],"<>m<>"
+PlotRange->All,PlotStyle->Black],ListPlot[Transpose@"<>ToString[eigdata[[;;,2]]]<>",PlotStyle->Red],PlotRange->"<>ToString[plotrange]<>"],"<>m<>"
 ,Button[\"ExportData\",Print["<>rule<>"]]
 
 ]";
