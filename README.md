@@ -33,7 +33,7 @@ See [Comput. Phys. Commun. 270, 108153 (2022)](https://www.sciencedirect.com/sci
 
 ## Examples
 
-See examples.nb.
+See Examples.
 
 ## Release Notes
 
@@ -61,8 +61,9 @@ v1.02 2022/12/1
 
    * For Orthorhombic and Monoclinic lattices, if you want to calculate the co-representations of tight-binding model please use ```getMSGElemFromMSGCorep```  to get the magnetic space group elements rather than ```msgop```. For other lattices both ```msgop``` and ```getMSGElemFromMSGCorep``` should OK.
 
-   * See  examples.nb for concrete example.
+   * See  Examples/Co-representationOfTBModel.nb for concrete example.
 
    * Please also consider to cite ```MSGCorep``` package \([arXiv:2211.10740](https://arxiv.org/abs/2211.10740)\) if you are using this capability.
 
-
+v1.02b 2023/2/14
+  * Add an example for getting  the TB parameters by hand, see Examples/ObtainTheTBParametersByHand.nb.
