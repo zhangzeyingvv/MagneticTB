@@ -65,4 +65,5 @@ v1.02 2022/12/1
 
    * Please also consider to cite ```MSGCorep``` package \([arXiv:2211.10740](https://arxiv.org/abs/2211.10740)\) if you are using this capability.
 
-
+v1.02b 2023/2/14
+  * Add an example for getting  the TB parameters by hand, see Examples/Obtain the TB parameters by hand.nb.
