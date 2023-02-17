@@ -49,7 +49,7 @@ v1.01 2022/07/22
 * Fixed an issue where in very rare cases the order of basis functions would change due to the automatic unitarization.
 
 v1.02 2022/12/1
-* MagneticTB can calculate the band co-representations of tight-binding model!
+* MagneticTB now has the capability to calculate the band co-representations of a tight-binding model!
 
    * Before using this capability, [```SpaceGroupIrep```](https://github.com/goodluck1982/SpaceGroupIrep) and [```MSGCorep```](https://github.com/goodluck1982/MSGCorep)  package needed to be installed.
 
@@ -70,4 +70,4 @@ v1.02b 2023/2/14
   * Add English manual.
 
 v.1.03 2023/2/17
-  * Using a greedy algorithm to automatically calculate the generators of a space group, significantly improves computational efficiency.
+  * Using a greedy algorithm to automatically find the generators of a space group, significantly improves computational efficiency.
