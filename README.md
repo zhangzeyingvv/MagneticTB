@@ -68,3 +68,5 @@ v1.02 2022/12/1
 v1.02b 2023/2/14
   * Add an example for getting  the TB parameters by hand, see Examples/ObtainTheTBParametersByHand.nb.
   * Add English manual.
+v.1.03 2023/2/17
+  * Using a greedy algorithm to automatically calculate the generators of a space group, significantly improves computational efficiency.
