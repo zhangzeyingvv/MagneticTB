@@ -84,7 +84,8 @@ init[OptionsPattern[]]:=Module[{norm,repall,symopinit},
   nbasesperwyck=Length/@basis;
   Flatten[Table[Table[Table[atompos[[i,j,1]],nbasesperwyck[[i]]],{j,natomperwyck[[i]]}],{i,Length[natomperwyck]}],2]
   ];
-  
+  genindex=findgenind[symminfo];
+  Print["Generators:" ,symminfo[[;;,{1,4}]][[genindex]]];
 
 ];
 
@@ -274,12 +275,6 @@ nbases,bases,pbase,pbases,coeff,opmatrix,opmatrixs,tranU,spinrule,solve
     ,{rule,opsrule}]
   ,Length[bases[[1]]]==2,
   Print["Double Value Rep."];
-(*  spinMatrix[op_] := 
-    FullSimplify[Module[{\[Alpha], \[Beta], \[Gamma], nop},
-      If[Det[op] == -1, nop = -op, nop = op];
-        {\[Alpha], \[Beta], \[Gamma]} = -EulerAngles[nop];
-        Transpose@{{E^(I \[Gamma]/2) Cos[\[Beta]/2] E^(I \[Alpha] /2), E^(I \[Gamma]/2) Sin[\[Beta]/2] E^(-I \[Alpha] /2)},
-        {-E^(-I \[Gamma]/2) Sin[\[Beta]/2] E^(I \[Alpha] /2), E^(-I \[Gamma]/2) Cos[\[Beta]/2] E^(-I \[Alpha] /2)}}]];*)
   opsrule=FullSimplify@Table[{MapThread[Rule,{{x,y,z},(Inverse[symm[[2]]] . ({x, y, z} . Inverse[latt]) . latt)}],symm[[4]]},{symm,ops}];
   (*Table[Print[{Transpose[latt] . symm[[2]] . Inverse@Transpose@latt,spinMatrix2[Transpose[latt] . symm[[2]] . Inverse@Transpose@latt]}],{symm,ops}];*)
   spinrule=Table[ExpToTrig@spinMatrix2[Transpose[latt] . symm[[2]] . Inverse@Transpose@latt],{symm,ops}];
@@ -447,7 +442,7 @@ unsymham[n_]:=Module[{bondends,bandind,hop,bonds,toband,nbh,hami},
 ];
 
 
-Options[symham]={symmetryset->All};
+Options[symham]={symmetryset->genindex};
 (*SetOptions[symham,symmetryset\[Rule]All];*)
 symham[n_,OptionsPattern[]]:=Module[{conjh,h,phpmh,recR,para,sset,opset},
   sset=OptionValue[symmetryset];

@@ -143,6 +143,48 @@ Grid[grid,Frame->All]
 ]
 
 
+
+GenerateGroup[gens_,identityElement_,multiply_]:=Module[{i,j,ng,MAXORDER=200,orders,subs,mlist,g1,g2,g3},ng=Length[gens];orders=subs=Range[ng]*0;
+For[i=1,i<=ng,i++,mlist=FoldList[multiply,Table[gens[[i]],MAXORDER]];
+orders[[i]]=FirstPosition[mlist,identityElement][[1]];
+subs[[i]]=mlist[[;;orders[[i]]]];];
+g1=Union@@subs;
+g2=Union@@Table[multiply[g1[[i]],g1[[j]]],{i,Length[g1]},{j,Length[g1]}];
+g3=Complement[g2,g1];g1=g2;
+While[g3!={},g2=Union@@Table[multiply[g3[[i]],g1[[j]]],{i,Length[g3]},{j,Length[g1]}];
+g3=Complement[g2,g1];g1=g2;];
+g2=SortBy[g2,#!=identityElement&]];
+getGenerator[groupele_,identityElement_,multiply_]:=Module[
+{try,group,tmptry,tmpgroup,seteq,groupeleDisorder,gereratorlist},
+(*Greedy Alg, may not give the minimal Generator set*)
+seteq[s1_,s2_]:=SubsetQ[s1,s2]&&SubsetQ[s2,s1];
+If[groupele=={identityElement},Return[groupele]];
+gereratorlist=Table[try={};
+(*groupeleDisorder=RandomSample[groupele];*)
+groupeleDisorder=groupele;
+Do[If[ele==identityElement,Continue[]];
+group=GenerateGroup[try,identityElement,multiply];
+tmptry=Append[try,ele];
+(*Print[group];*)
+tmpgroup=GenerateGroup[tmptry,identityElement,multiply];
+If[Not@seteq[group,tmpgroup],try=tmptry];
+If[seteq[groupele,group],Break[]];,{ele,groupeleDisorder}];
+try,1];
+First[SortBy[gereratorlist,Length[#]&]]];
+findgenind[sgop_]:=Module[{opm,times,identityElement,gens},
+(*opm=MapAt[Mod[#,1]&,sgop[[;;,2;;]],{;;,2}];
+opm=MapAt[#/.{"T"->1,"F"->0}&,opm,{;;,3}];*)
+opm=MapAt[#/.{"T"->1,"F"->0}&,sgop,{;;,4}];
+opm=opm[[;;,{2,4}]];
+(*times=FullSimplify@{#1[[1]].#2[[1]],Mod[#1[[1]].#2[[2]]+#1[[2]],1],Mod[(#1[[3]]+#2[[3]]),2]}&;
+identityElement={IdentityMatrix[3],{0,0,0},0};*)
+times=(*Full*)Simplify@{#1[[1]] . #2[[1]](*,Mod[#1[[1]].#2[[2]]+#1[[2]],1]*),Mod[(#1[[2]]+#2[[2]]),2]}&;
+identityElement={IdentityMatrix[3](*,{0,0,0}*),0};
+gens=getGenerator[opm,identityElement,times];
+Flatten[FirstPosition[opm,#]&/@gens]
+]
+
+
 End[]
 EndPackage[]
 
