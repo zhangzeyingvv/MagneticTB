@@ -144,6 +144,9 @@ Grid[grid,Frame->All]
 
 
 
+
+
+
 GenerateGroup[gens_,identityElement_,multiply_]:=Module[{i,j,ng,MAXORDER=200,orders,subs,mlist,g1,g2,g3},ng=Length[gens];orders=subs=Range[ng]*0;
 For[i=1,i<=ng,i++,mlist=FoldList[multiply,Table[gens[[i]],MAXORDER]];
 orders[[i]]=FirstPosition[mlist,identityElement][[1]];

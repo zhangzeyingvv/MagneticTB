@@ -65,10 +65,9 @@ symmetrizationHRInit::usage = "Options for init"
 
 (*Plot*)
 bandManipulate ::usage=""
-bandManipulateEig ::usage=""
+
 bandplot ::usage=""
-vaspEig ::usage=""
-compareBand ::usage=""
+
 
 
 (*Functions*)
@@ -93,6 +92,10 @@ plotslab ::usage = ""
 hop  ::usage =""
 
 
+(* ::Subsubsection:: *)
+(*Wilson*)
+
+
 (*Wilson loop (testing)*)
 wLoop ::usage = "init"
 berryph ::usage = ""
@@ -102,11 +105,8 @@ plotWilsonLoop ::usage =""
 
 
 
-msgop ::usage =""
-texOutput ::usage =""
-
-
-
+(* ::Subsubsection:: *)
+(*Corep*)
 
 
 getMSGElemFromMSGCorep::usage = ""
@@ -119,6 +119,19 @@ getTBBandCorep::usage = ""
 
 symhamII ::usage = "Get the symmetried Hamiltonian in convenition II"
 showbonds ::usage = "Show the information of bond lengths and the classification of the bonds"
+
+
+msgop ::usage =""
+texOutput ::usage =""
+
+
+(* ::Subsubsection:: *)
+(*Fitting*)
+
+
+bandManipulateEig ::usage=""
+vaspEig ::usage=""
+compareBand ::usage=""
 
 
 EndPackage[]
