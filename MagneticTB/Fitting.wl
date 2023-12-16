@@ -11,7 +11,7 @@ Begin["`Private`"]
 
 bandManipulateEig[h_, eigdata_] := Module[
      {h0, params, mparams, m, rule, mpstr, plotrange,klist},
-     klist = 2Pi eigdata2[[;;,1]];
+     klist = 2Pi eigdata[[;;,1]];
      plotrange = {Min[#] - .2, Max[#] + .2} &@
      Flatten[Transpose@eigdata[[;; , 2]]];
      h0 = TrigToExp[h];
