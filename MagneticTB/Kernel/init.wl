@@ -2,7 +2,7 @@
 
 (* Mathematica Init File *)
 Get["MagneticTB`Usage`"]
-Get["MagneticTB`MagTB`"]
+Get["MagneticTB`MagneticTB`"]
 Get["MagneticTB`Plot`"]
 Get["MagneticTB`IO`"]
 Get["MagneticTB`Utilities`"]
