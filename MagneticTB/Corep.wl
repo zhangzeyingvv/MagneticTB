@@ -75,7 +75,9 @@ getTBBandCorep[MSG_, ham_, param_, kset_] := Module[
   sym = symminfo;
   tr["nelec"] = Length[ham];
   (*Print[basisdict[#]&@basis[[1,1]]];*)
-  tr["soc"] =If[ListQ[basisdict[#]&@basis[[1,1]]],1,0];
+  tr["soc"] =If[If[MissingQ@(basisdict[#]&@basis[[1,1]]),ListQ[basis[[1,1]]],
+  ListQ[(basisdict[#]&@basis[[1,1]])]
+  ],1,0];
   tr["nsym"] = Length[sym];
   brav = getSGLatt[MSG[[1]]];
 (*  msgele = getMSGElem[MSG];
