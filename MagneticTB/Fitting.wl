@@ -9,8 +9,9 @@ Begin["`Private`"]
 
 
 
-bandManipulateEig[h_, klist_, eigdata_] := Module[
-     {h0, params, mparams, m, rule, mpstr, plotrange},
+bandManipulateEig[h_, eigdata_] := Module[
+     {h0, params, mparams, m, rule, mpstr, plotrange,klist},
+     klist = 2Pi eigdata2[[;;,1]];
      plotrange = {Min[#] - .2, Max[#] + .2} &@
      Flatten[Transpose@eigdata[[;; , 2]]];
      h0 = TrigToExp[h];
@@ -18,7 +19,7 @@ bandManipulateEig[h_, klist_, eigdata_] := Module[
      mparams = ToExpression["p" <> ToString[#] & /@ params];
      Print["Number of params:", Length@params];
      Print["params:", params];
-     Print["mparams:", mparams];
+     (*Print["mparams:", mparams];*)
      rule = ToString[Thread[params -> mparams], StandardForm](*~
    Join~{kx\[Rule]k[[1]],ky\[Rule]k[[2]],kz\[Rule]k[[3]]}*);
      m = StringTake[ToString[{{#, 0}, -1, 1} & /@ mparams], {2 ;; -2}];
