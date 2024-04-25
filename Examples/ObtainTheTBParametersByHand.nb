@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     85491,       2009]
-NotebookOptionsPosition[     82308,       1944]
-NotebookOutlinePosition[     82815,       1963]
-CellTagsIndexPosition[     82772,       1960]
+NotebookDataLength[     84289,       1983]
+NotebookOptionsPosition[     81237,       1920]
+NotebookOutlinePosition[     81709,       1938]
+CellTagsIndexPosition[     81666,       1935]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -184,7 +184,7 @@ Cell[BoxData[
       RowBox[{"0", ",", "0", ",", "c"}], "}"}]}], "}"}]}],
   SequenceForm[
   "Primitive Lattice Vactor: ", {{MagneticTB`a, 0, 0}, {
-    Rational[-1, 2] MagneticTB`a, Rational[1, 2] 3^Rational[1, 2] 
+    Rational[-1, 2] MagneticTB`a, (Rational[1, 2] 3^Rational[1, 2]) 
      MagneticTB`a, 0}, {0, 0, MagneticTB`c}}],
   Editable->False]], "Print",
  CellChangeTimes->{
@@ -227,7 +227,7 @@ Cell[BoxData[
       RowBox[{"0", ",", "0", ",", "c"}], "}"}]}], "}"}]}],
   SequenceForm[
   "Conventional Lattice Vactor: ", {{MagneticTB`a, 0, 0}, {
-    Rational[-1, 2] MagneticTB`a, Rational[1, 2] 3^Rational[1, 2] 
+    Rational[-1, 2] MagneticTB`a, (Rational[1, 2] 3^Rational[1, 2]) 
      MagneticTB`a, 0}, {0, 0, MagneticTB`c}}],
   Editable->False]], "Print",
  CellChangeTimes->{
@@ -1124,7 +1124,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"bandManipulateEig", "[", 
-  RowBox[{"ham", ",", "klist", ",", "eigdata"}], "]"}]], "Input",
+  RowBox[{"ham", ",", "eigdata"}], "]"}]], "Input",
  CellChangeTimes->{{3.819023835312713*^9, 3.8190238531391873`*^9}, 
    3.8190240066861825`*^9, 3.8193469907124166`*^9, {3.819347079329649*^9, 
    3.819347087125413*^9}, 3.8193488572967796`*^9, {3.8196064773622513`*^9, 
@@ -1137,8 +1137,9 @@ Cell[BoxData[
    3.8394714382614927`*^9}, {3.839471537969883*^9, 3.8394715447155066`*^9}, 
    3.8394768390862403`*^9, {3.8395704931869974`*^9, 3.839570525822199*^9}, 
    3.8398053366660366`*^9, {3.839818402763133*^9, 3.8398184136096697`*^9}, {
-   3.839818461730935*^9, 3.839818464602295*^9}, 3.8398186573231363`*^9},
- CellLabel->"In[89]:=",ExpressionUUID->"521ab30f-6fe2-44e7-a22e-64b721c0262c"],
+   3.839818461730935*^9, 3.839818464602295*^9}, 3.8398186573231363`*^9, {
+   3.9230285121131372`*^9, 3.923028512473447*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"521ab30f-6fe2-44e7-a22e-64b721c0262c"],
 
 Cell[CellGroupData[{
 
@@ -1150,10 +1151,10 @@ Cell[BoxData[
  CellChangeTimes->{{3.839818451453092*^9, 3.839818465149461*^9}, 
    3.839818657814723*^9, 3.8398188142546873`*^9, 3.8853402014573174`*^9, 
    3.8853403049437866`*^9, 3.885340349916514*^9, 3.885340549481308*^9, 
-   3.885340661963597*^9},
+   3.885340661963597*^9, 3.9230285168087873`*^9},
  CellLabel->
-  "\:6b63\:5728\:8ba1\:7b97In[89]:=",ExpressionUUID->"50213f3b-7f05-484c-a6a4-\
-8978d9b3ac5d"],
+  "During evaluation of \
+In[17]:=",ExpressionUUID->"416a6a7c-6cb9-41d0-81a7-32d7c16f7824"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -1170,45 +1171,22 @@ $CellContext`t6, $CellContext`t7, $CellContext`t8, $CellContext`t9}],
  CellChangeTimes->{{3.839818451453092*^9, 3.839818465149461*^9}, 
    3.839818657814723*^9, 3.8398188142546873`*^9, 3.8853402014573174`*^9, 
    3.8853403049437866`*^9, 3.885340349916514*^9, 3.885340549481308*^9, 
-   3.8853406619670424`*^9},
+   3.885340661963597*^9, 3.9230285168127766`*^9},
  CellLabel->
-  "\:6b63\:5728\:8ba1\:7b97In[89]:=",ExpressionUUID->"d881e2ef-bd7b-43f2-82e1-\
-d8780e1098f4"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"mparams:\"\>", "\[InvisibleSpace]", 
-   RowBox[{"{", 
-    RowBox[{
-    "pe1", ",", "pe2", ",", "pt1", ",", "pt2", ",", "pt3", ",", "pt4", ",", 
-     "pt5", ",", "pt6", ",", "pt7", ",", "pt8", ",", "pt9"}], "}"}]}],
-  SequenceForm[
-  "mparams:", {$CellContext`pe1, $CellContext`pe2, $CellContext`pt1, \
-$CellContext`pt2, $CellContext`pt3, $CellContext`pt4, $CellContext`pt5, \
-$CellContext`pt6, $CellContext`pt7, $CellContext`pt8, $CellContext`pt9}],
-  Editable->False]], "Print",
- CellChangeTimes->{{3.839818451453092*^9, 3.839818465149461*^9}, 
-   3.839818657814723*^9, 3.8398188142546873`*^9, 3.8853402014573174`*^9, 
-   3.8853403049437866`*^9, 3.885340349916514*^9, 3.885340549481308*^9, 
-   3.8853406619730253`*^9},
- CellLabel->
-  "\:6b63\:5728\:8ba1\:7b97In[89]:=",ExpressionUUID->"03ef53fc-d9f0-4831-83a7-\
-ca2cba0fe7dd"]
+  "During evaluation of \
+In[17]:=",ExpressionUUID->"2fe7d41f-257d-47d8-b348-23751a704c28"]
 }, Open  ]],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`pe1$$ = 0.915, $CellContext`pe2$$ = 
-    0.685, $CellContext`pt1$$ = 0.1, $CellContext`pt2$$ = 
-    0.09, $CellContext`pt3$$ = 
-    0.1, $CellContext`pt4$$ = -0.31399999999999995`, $CellContext`pt5$$ = 
-    0.050000000000000044`, $CellContext`pt6$$ = 
-    0.20500000000000007`, $CellContext`pt7$$ = 0.564, $CellContext`pt8$$ = 
-    0.304, $CellContext`pt9$$ = 0.365, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{{
+   DynamicModuleBox[{$CellContext`pe1$$ = 0, $CellContext`pe2$$ = 
+    0, $CellContext`pt1$$ = 0, $CellContext`pt2$$ = 0, $CellContext`pt3$$ = 
+    0, $CellContext`pt4$$ = 0, $CellContext`pt5$$ = 0, $CellContext`pt6$$ = 
+    0, $CellContext`pt7$$ = 0, $CellContext`pt8$$ = 0, $CellContext`pt9$$ = 0,
+     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`pe1$$], 0, $CellContext`e1}, -1, 1}, {{
        Hold[$CellContext`pe2$$], 0, $CellContext`e2}, -1, 1}, {{
        Hold[$CellContext`pt1$$], 0, $CellContext`t1}, -1, 1}, {{
@@ -1229,7 +1207,7 @@ $CellContext`pt4$$, $CellContext`t5 -> $CellContext`pt5$$, $CellContext`t6 -> \
 $CellContext`pt6$$, $CellContext`t7 -> $CellContext`pt7$$, $CellContext`t8 -> \
 $CellContext`pt8$$, $CellContext`t9 -> $CellContext`pt9$$}]]], 
       Manipulate`Dump`ThisIsNotAControl}}, Typeset`size$$ = {
-    396.00000000000006`, {119., 124.01875099932863`}}, Typeset`update$$ = 0, 
+    396.00000000000006`, {119., 124.01875097316909`}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
@@ -1259,34 +1237,30 @@ $CellContext`pt8$$, $CellContext`t9 -> $CellContext`pt9$$}]]],
                 E^(I MagneticTB`ky) (I $CellContext`t1 - $CellContext`t5) + 
                 E^(I (MagneticTB`kx + MagneticTB`ky)) ((-
                     I) $CellContext`t1 + $CellContext`t5) + 
-                E^((-I) 
-                   MagneticTB`kx) (((1/2) I) ($CellContext`t1 + 
-                    Sqrt[3] $CellContext`t2) + (1/2) (-$CellContext`t5 - 
-                    Sqrt[3] $CellContext`t7)) + 
-                E^(I (-MagneticTB`kx - MagneticTB`ky)) (((1/2) 
-                    I) (-$CellContext`t1 + Sqrt[3] $CellContext`t2) + (1/
+                E^((-I) MagneticTB`kx) ((1/2) 
+                   I ($CellContext`t1 + Sqrt[3] $CellContext`t2) + (1/
+                    2) (-$CellContext`t5 - Sqrt[3] $CellContext`t7)) + 
+                E^(I (-MagneticTB`kx - MagneticTB`ky)) ((1/2) 
+                   I (-$CellContext`t1 + Sqrt[3] $CellContext`t2) + (1/
                     2) ($CellContext`t5 - Sqrt[3] $CellContext`t7)) + 
-                E^((-I) 
-                   MagneticTB`ky) (((1/2) I) ($CellContext`t1 - 
-                    Sqrt[3] $CellContext`t2) + (1/2) (-$CellContext`t5 + 
-                    Sqrt[3] $CellContext`t7)) + 
-                E^(I MagneticTB`kx) (((-(1/2)) I) ($CellContext`t1 + 
-                    Sqrt[3] $CellContext`t2) + (1/2) ($CellContext`t5 + 
-                    Sqrt[3] $CellContext`t7)), 
-                E^(I (-MagneticTB`kx - MagneticTB`ky)) (((1/2) I) (
-                    Sqrt[3] $CellContext`t1 + $CellContext`t2) + (1/
+                E^((-I) MagneticTB`ky) ((1/2) 
+                   I ($CellContext`t1 - Sqrt[3] $CellContext`t2) + (1/
+                    2) (-$CellContext`t5 + Sqrt[3] $CellContext`t7)) + 
+                E^(I MagneticTB`kx) ((-(1/2)) 
+                   I ($CellContext`t1 + Sqrt[3] $CellContext`t2) + (1/
+                    2) ($CellContext`t5 + Sqrt[3] $CellContext`t7)), 
+                E^(I (-MagneticTB`kx - MagneticTB`ky)) ((1/2) 
+                   I (Sqrt[3] $CellContext`t1 + $CellContext`t2) + (1/
                     2) ((-Sqrt[3]) $CellContext`t5 - $CellContext`t7)) + 
-                E^((-I) 
-                   MagneticTB`ky) (((1/2) I) (
-                    Sqrt[3] $CellContext`t1 + $CellContext`t2) + (1/
+                E^((-I) MagneticTB`ky) ((1/2) 
+                   I (Sqrt[3] $CellContext`t1 + $CellContext`t2) + (1/
                     2) ((-Sqrt[3]) $CellContext`t5 - $CellContext`t7)) + 
-                E^(I MagneticTB`kx) (((-(1/2)) I) (
-                    Sqrt[3] $CellContext`t1 - $CellContext`t2) + (1/2) (
+                E^(I MagneticTB`kx) ((-(1/2)) 
+                   I (Sqrt[3] $CellContext`t1 - $CellContext`t2) + (1/2) (
                     Sqrt[3] $CellContext`t5 - $CellContext`t7)) + 
-                E^((-I) 
-                   MagneticTB`kx) (((1/2) 
-                    I) ((-Sqrt[3]) $CellContext`t1 + $CellContext`t2) + (1/
-                    2) (Sqrt[3] $CellContext`t5 - $CellContext`t7)) + 
+                E^((-I) MagneticTB`kx) ((1/2) 
+                   I ((-Sqrt[3]) $CellContext`t1 + $CellContext`t2) + (1/2) (
+                    Sqrt[3] $CellContext`t5 - $CellContext`t7)) + 
                 E^(I MagneticTB`ky) ((-I) $CellContext`t2 + $CellContext`t7) + 
                 E^(I (MagneticTB`kx + MagneticTB`ky)) ((-
                     I) $CellContext`t2 + $CellContext`t7)}, {
@@ -1294,18 +1268,18 @@ $CellContext`pt8$$, $CellContext`t9 -> $CellContext`pt9$$}]]],
                    MagneticTB`ky) ((-I) $CellContext`t1 - $CellContext`t5) + 
                 E^(I (-MagneticTB`kx - MagneticTB`ky)) (
                   I $CellContext`t1 + $CellContext`t5) + 
-                E^(I MagneticTB`kx) (((-(1/2)) I) ($CellContext`t1 + 
-                    Sqrt[3] $CellContext`t2) + (1/2) (-$CellContext`t5 - 
-                    Sqrt[3] $CellContext`t7)) + 
-                E^(I (MagneticTB`kx + MagneticTB`ky)) (((-(1/2)) 
-                    I) (-$CellContext`t1 + Sqrt[3] $CellContext`t2) + (1/
+                E^(I MagneticTB`kx) ((-(1/2)) 
+                   I ($CellContext`t1 + Sqrt[3] $CellContext`t2) + (1/
+                    2) (-$CellContext`t5 - Sqrt[3] $CellContext`t7)) + 
+                E^(I (MagneticTB`kx + MagneticTB`ky)) ((-(1/2)) 
+                   I (-$CellContext`t1 + Sqrt[3] $CellContext`t2) + (1/
                     2) ($CellContext`t5 - Sqrt[3] $CellContext`t7)) + 
-                E^(I MagneticTB`ky) (((-(1/2)) I) ($CellContext`t1 - 
-                    Sqrt[3] $CellContext`t2) + (1/2) (-$CellContext`t5 + 
-                    Sqrt[3] $CellContext`t7)) + 
-                E^((-I) 
-                   MagneticTB`kx) (((1/2) I) ($CellContext`t1 + 
-                    Sqrt[3] $CellContext`t2) + (1/2) ($CellContext`t5 + 
+                E^(I MagneticTB`ky) ((-(1/2)) 
+                   I ($CellContext`t1 - Sqrt[3] $CellContext`t2) + (1/
+                    2) (-$CellContext`t5 + Sqrt[3] $CellContext`t7)) + 
+                E^((-I) MagneticTB`kx) ((1/2) 
+                   I ($CellContext`t1 + Sqrt[3] $CellContext`t2) + (1/
+                    2) ($CellContext`t5 + 
                     Sqrt[3] $CellContext`t7)), $CellContext`e2 + 
                 E^(I (-MagneticTB`kx - MagneticTB`ky)) ((-
                     I) $CellContext`t3 - $CellContext`t6/Sqrt[
@@ -1317,52 +1291,54 @@ $CellContext`pt8$$, $CellContext`t9 -> $CellContext`pt9$$}]]],
                   3] - $CellContext`t8/Sqrt[3] + $CellContext`t9) + 
                 E^(I (MagneticTB`kx + MagneticTB`ky)) (
                   I $CellContext`t3 - $CellContext`t6/Sqrt[
-                  3] - $CellContext`t8/Sqrt[3] + $CellContext`t9) + ((1/6) 
-                  E^((-I) MagneticTB`kx)) (Sqrt[3] $CellContext`t6 + 
-                  Sqrt[3] $CellContext`t8 + 6 $CellContext`t9) + ((1/6) 
-                  E^(I MagneticTB`kx)) (Sqrt[3] $CellContext`t6 + 
+                  3] - $CellContext`t8/Sqrt[3] + $CellContext`t9) + (1/6) 
+                 E^((-I) MagneticTB`kx) (Sqrt[3] $CellContext`t6 + 
+                  Sqrt[3] $CellContext`t8 + 6 $CellContext`t9) + (1/6) 
+                 E^(I MagneticTB`kx) (Sqrt[3] $CellContext`t6 + 
                   Sqrt[3] $CellContext`t8 + 6 $CellContext`t9), 
                 E^((-I) MagneticTB`ky) (
-                  I ($CellContext`t3/Sqrt[3]) - $CellContext`t6) + 
-                E^(I (-MagneticTB`kx - MagneticTB`ky)) (-(
-                    I ($CellContext`t3/Sqrt[3])) + $CellContext`t6) + 
-                E^(I MagneticTB`kx) ((2 I) ($CellContext`t3/Sqrt[
-                    3]) + ($CellContext`t6 - $CellContext`t8)/2) + 
-                E^(I MagneticTB`ky) (-(
-                    I ($CellContext`t3/Sqrt[3])) - $CellContext`t8) + 
+                  I $CellContext`t3/Sqrt[3] - $CellContext`t6) + 
+                E^(I (-MagneticTB`kx - MagneticTB`ky)) (-(I $CellContext`t3/
+                    Sqrt[3]) + $CellContext`t6) + 
+                E^(I MagneticTB`kx) (
+                  2 I $CellContext`t3/Sqrt[
+                   3] + ($CellContext`t6 - $CellContext`t8)/2) + 
+                E^(I MagneticTB`ky) (-(I $CellContext`t3/Sqrt[
+                    3]) - $CellContext`t8) + 
                 E^(I (MagneticTB`kx + MagneticTB`ky)) (
-                  I ($CellContext`t3/Sqrt[3]) + $CellContext`t8) + 
+                  I $CellContext`t3/Sqrt[3] + $CellContext`t8) + 
                 E^((-I) 
-                   MagneticTB`kx) (-((2 I) ($CellContext`t3/Sqrt[3])) + (1/
+                   MagneticTB`kx) (-(2 I $CellContext`t3/Sqrt[3]) + (1/
                     2) (-$CellContext`t6 + $CellContext`t8))}, {
-               E^(I MagneticTB`ky) (((-(1/2)) I) (
-                    Sqrt[3] $CellContext`t1 + $CellContext`t2) + (1/
+               E^(I MagneticTB`ky) ((-(1/2)) 
+                   I (Sqrt[3] $CellContext`t1 + $CellContext`t2) + (1/
                     2) ((-Sqrt[3]) $CellContext`t5 - $CellContext`t7)) + 
-                E^(I (MagneticTB`kx + MagneticTB`ky)) (((-(1/2)) I) (
-                    Sqrt[3] $CellContext`t1 + $CellContext`t2) + (1/
+                E^(I (MagneticTB`kx + MagneticTB`ky)) ((-(1/2)) 
+                   I (Sqrt[3] $CellContext`t1 + $CellContext`t2) + (1/
                     2) ((-Sqrt[3]) $CellContext`t5 - $CellContext`t7)) + 
-                E^((-I) 
-                   MagneticTB`kx) (((1/2) I) (
-                    Sqrt[3] $CellContext`t1 - $CellContext`t2) + (1/2) (
+                E^((-I) MagneticTB`kx) ((1/2) 
+                   I (Sqrt[3] $CellContext`t1 - $CellContext`t2) + (1/2) (
                     Sqrt[3] $CellContext`t5 - $CellContext`t7)) + 
-                E^(I MagneticTB`kx) (((-(1/2)) 
-                    I) ((-Sqrt[3]) $CellContext`t1 + $CellContext`t2) + (1/
-                    2) (Sqrt[3] $CellContext`t5 - $CellContext`t7)) + 
+                E^(I MagneticTB`kx) ((-(1/2)) 
+                   I ((-Sqrt[3]) $CellContext`t1 + $CellContext`t2) + (1/2) (
+                    Sqrt[3] $CellContext`t5 - $CellContext`t7)) + 
                 E^(I (-MagneticTB`kx - MagneticTB`ky)) (
                   I $CellContext`t2 + $CellContext`t7) + 
                 E^((-I) MagneticTB`ky) (I $CellContext`t2 + $CellContext`t7), 
-                E^(I MagneticTB`ky) (-(
-                    I ($CellContext`t3/Sqrt[3])) - $CellContext`t6) + 
+                E^(I MagneticTB`ky) (-(I $CellContext`t3/Sqrt[
+                    3]) - $CellContext`t6) + 
                 E^(I (MagneticTB`kx + MagneticTB`ky)) (
-                  I ($CellContext`t3/Sqrt[3]) + $CellContext`t6) + 
+                  I $CellContext`t3/Sqrt[3] + $CellContext`t6) + 
                 E^((-I) 
-                   MagneticTB`kx) (-((2 I) ($CellContext`t3/Sqrt[
-                    3])) + ($CellContext`t6 - $CellContext`t8)/2) + 
+                   MagneticTB`kx) (-(2 I $CellContext`t3/Sqrt[
+                    3]) + ($CellContext`t6 - $CellContext`t8)/2) + 
                 E^((-I) MagneticTB`ky) (
-                  I ($CellContext`t3/Sqrt[3]) - $CellContext`t8) + 
-                E^(I (-MagneticTB`kx - MagneticTB`ky)) (-(
-                    I ($CellContext`t3/Sqrt[3])) + $CellContext`t8) + 
-                E^(I MagneticTB`kx) ((2 I) ($CellContext`t3/Sqrt[3]) + (1/
+                  I $CellContext`t3/Sqrt[3] - $CellContext`t8) + 
+                E^(I (-MagneticTB`kx - MagneticTB`ky)) (-(I $CellContext`t3/
+                    Sqrt[3]) + $CellContext`t8) + 
+                E^(I MagneticTB`kx) (
+                  2 I $CellContext`t3/Sqrt[
+                   3] + (1/
                     2) (-$CellContext`t6 + $CellContext`t8)), $CellContext`e2 + 
                 E^(I MagneticTB`ky) ((-I) $CellContext`t3 + $CellContext`t9) + 
                 E^(I (MagneticTB`kx + MagneticTB`ky)) ((-
@@ -1370,10 +1346,10 @@ $CellContext`pt8$$, $CellContext`t9 -> $CellContext`pt9$$}]]],
                 E^(I (-MagneticTB`kx - MagneticTB`ky)) (
                   I $CellContext`t3 + $CellContext`t9) + 
                 E^((-I) MagneticTB`ky) (I $CellContext`t3 + $CellContext`t9) + 
-                E^((-I) MagneticTB`kx) (-(Sqrt[3] ($CellContext`t6/2)) - 
-                  Sqrt[3] ($CellContext`t8/2) + $CellContext`t9) + 
-                E^(I MagneticTB`kx) (-(Sqrt[3] ($CellContext`t6/2)) - 
-                  Sqrt[3] ($CellContext`t8/2) + $CellContext`t9)}}, 
+                E^((-I) MagneticTB`kx) (-(Sqrt[3] $CellContext`t6/2) - 
+                  Sqrt[3] $CellContext`t8/2 + $CellContext`t9) + 
+                E^(I MagneticTB`kx) (-(Sqrt[3] $CellContext`t6/2) - 
+                  Sqrt[3] $CellContext`t8/2 + $CellContext`t9)}}, 
               
               Join[{$CellContext`e1 -> $CellContext`pe1$$, $CellContext`e2 -> \
 $CellContext`pe2$$, $CellContext`t1 -> $CellContext`pt1$$, $CellContext`t2 -> \
@@ -1384,24 +1360,23 @@ $CellContext`pt8$$, $CellContext`t9 -> $CellContext`pt9$$}, {
                MagneticTB`kx -> Part[$CellContext`k, 1], MagneticTB`ky -> 
                 Part[$CellContext`k, 2], MagneticTB`kz -> 
                 Part[$CellContext`k, 3]}]]]], {$CellContext`k, CompressedData["
-1:eJyNlHtIU1Ecx/feWpFWmsoqmIlJ4RBTIbU8aGlWhq1SBok0SoxMw1olgoqV
-IUZkJoKFlYiFWJkm1FRqkI80NM1JiXG1zKx8TLF8TF2C+53B7zTowv3nA/ee
-83t8vkptivqkgMfjxS29Qp7951tNsMNYuz7k37yV4a9KnmpUim6Gv2jL+Pyj
-vZfhmvnyKrWhn+HGWzdSfRSDDA/yL1Ks0n238/+fDPfXJtxr9hpjeIrp6tsj
-BhPDn9SlVYQlTzJ8JOdMnq9iiuFb1ceTlC2/GX5q49EoR900wx8O71VZlLN2
-+jnHcI9MH1Nf+jzDtfs8Otu8Fhl+39m1Wm+02KmXRzDvOddlbiriM1ynOZC0
-K1nAcKeQpr7a3UKG13iQKG+FiOFqub6hbILlk+PbVRtaxAzPNz4uKSiRMNyn
-bovDSp2U4R33H2Rm75cxPDlHYZpVrvhvHp+eEJnVKyPxpNs9gntG++ey+soJ
-foGMSEeNzWGcgXI4F3vwunDko0wkI37GgtkIrpPyS17yqdx6KbkQnfvLNbaH
-cqgL+6GsSk3M95aSufDzHfpwjvJPoTcvrx2SkE0Dz/v3cAOUQ9+wN9mtM9Nu
-sRLruUOUB8atX3fHQUKW6xumHOaCffoymHGtNEtMNLlpMV3yUcqLL94t3bxD
-bL3nOOUwd+xZmEXksq1CZL3/BOXmfHffSq2IvOv8Oh2wYPMP9gr7V+aWV17z
-QUiWz7f5d6zykcHvupBEJra9dIr9QznsLfZS7LcmIHhBYO3DDOUNTapDDbUC
-0rhYnT5ZZfMVvMC+JhwsanzjKSC3y057ciNmypfr5JPQwuKd7+ULlIN32OPm
-xKULRvOJY9Dh4fpwm8eZ5sCz7TI+4ZwNlhhfm8fgNfbbHofv8X/gPHwu3A/f
-E+rBdUH9uA/QL9w36C/uM8wDzwXmh+cI88Zzh/3AewL7hPcK9g/vIewr3lvY
-b7zn4AP2AvzBHoFv2DvwE3sKPmOvwX+cA5AXODcgX3DOQB7hXIL8wjkGeYdz
-D/IR5yTkKc5VyF+cw/aev4fwW8M=
+1:eJyNlH1IU2EUh+82t1nLYQkzzBJFSAnNlGFKzFdmMShZRZatsoy2Iq0RRVo0
+0v4wTbLIJVSmWBFUmH1gUEvJyKQmlRYqiGWmmZbTNm350VZ0d17hvI66cBk8
+3L0f55znF7rTuF4v5DhO9+cVcd6fgIvhZWaLJWlmbmV4ZnGX6lbzO4Z/vmvY
+ddbSyXDlN+ezxLSPDM89/nhTdXMvwx/Nyx8MSfniZf2vDI9YucQpjBtm+Jru
+tq4Vad8Z3lPzImjM3+HlPKMMl2trzPrCHwy/uuhKy8KUnwxPsJnlbe5xhr+u
+O7m6xDLJcP3po4Wrcn4xfHLrvkZXrJvhGkVM/pYcjmDO31fA8EDN2qn5cUKG
+83UQMbw6UJ3QYmM5Xx8fhqv7lYeLbooZztdNwvCOBxH3kw1ShvP19GX4/oIF
+I+Ohs/6b58kdfeIOXzJsvTA023SP1u9c2cvOuSXAn1IO++J5r71+pClyQur5
+vpXypuh1dco7UiKI+9CgDW6nHO6FPRhUcTdSg6Xk2JyN5Xujuimfet5esblV
+4lm/h3KoG/YjpL3g1AGVhPDr9VO+bHtGnmlUTA7awwJGsgYoh75gbzYY/bLP
+7xATo77oVazMRrnB2ZtZpRCTUk5Zmx01Qjn0HftUJDWnPjzhQ8RPciV+Jjvl
+l85kqRuX+5D6yqClXdemPYO5wp7x34kIf48xyt8stocP6ESe+zoph7nF/o3G
+V/kLmoRkm0s9MZQ17R9/PiFRvO8Lqy+doBy8wF5G/t1YQAovRx7K+DRFeWK6
+uz+mUkCSTdbyaJmLcvAO+5qx5/ZbjUxAdBXSnN1R077Gl6QXaxs4Ar//4vB/
+vA7sh/eF8+Fzwn3wveD+uA5QL1w3qC+uM/QD9wX6h/sI/cZ9h/mYeU4cSXiu
+YP7wHMK84rmF+cZzDj5gL8Af7BH4hr0DP7Gn4DP2GvzHOQB5gXMD8gXnDOQR
+ziXIL5xjkHc49yAfcU5CnuJc9fb8BiKFN24=
             "]}]], PlotRange -> All, PlotStyle -> Black], 
         ListPlot[
          Transpose[CompressedData["
@@ -1471,7 +1446,7 @@ $CellContext`pt4$$, $CellContext`t5 -> $CellContext`pt5$$, $CellContext`t6 -> \
 $CellContext`pt6$$, $CellContext`t7 -> $CellContext`pt7$$, $CellContext`t8 -> \
 $CellContext`pt8$$, $CellContext`t9 -> $CellContext`pt9$$}]]}, 
       "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{709., {155.34743643933908`, 161.65256356066092`}},
+     ImageSizeCache->{701., {166.34743637626525`, 172.65256362373475`}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -1485,8 +1460,9 @@ $CellContext`pt8$$, $CellContext`t9 -> $CellContext`pt9$$}]]},
  CellChangeTimes->{{3.8398184515056906`*^9, 3.839818465195882*^9}, 
    3.8398186578510237`*^9, 3.839818814297279*^9, 3.885340201523632*^9, 
    3.885340304999466*^9, 3.885340349972096*^9, 3.8853405495398655`*^9, 
-   3.8853406080769672`*^9, {3.8853406620181665`*^9, 3.885340664439568*^9}},
- CellLabel->"Out[89]=",ExpressionUUID->"aaa7e48d-23a2-49c6-a14a-554b702ad549"]
+   3.8853406080769672`*^9, {3.8853406620181665`*^9, 3.885340664439568*^9}, 
+   3.923028517178834*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"fd760483-456f-460b-8f0f-1a011946b9d3"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1942,12 +1918,11 @@ whweh14zO3oYyncIc6h15OaUuAvTH+awcF+q3/SnLA4AaUqBfQ==
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1428., 736.1999999999999},
+WindowSize->{1428, 735.75},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-TaggingRules->Association["TryRealOnly" -> False],
+TaggingRules-><|"TryRealOnly" -> False|>,
 Magnification:>1.1 Inherited,
-FrontEndVersion->"12.3 for Microsoft Windows (64-bit) (2021\:5e747\:670823\
-\:65e5)",
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (July 24, 2023)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"073d51a7-d608-4aae-b578-6d6f12032d28"
 ]
@@ -1971,43 +1946,42 @@ Cell[1539, 48, 2547, 60, 136, "Input",ExpressionUUID->"f5406948-c023-492e-b5f7-8
 Cell[CellGroupData[{
 Cell[4111, 112, 1658, 27, 24, "Print",ExpressionUUID->"82a4e4a5-6dba-4b9e-8d53-8bc0e7d59cd9"],
 Cell[5772, 141, 1556, 25, 24, "Print",ExpressionUUID->"bc8323a0-f8a1-4654-aede-dda7537827ea"],
-Cell[7331, 168, 2072, 41, 45, "Print",ExpressionUUID->"43f48938-b4bc-4c82-b163-9bc9e4a00a48"],
-Cell[9406, 211, 2078, 41, 45, "Print",ExpressionUUID->"f45594c8-8e5d-41f3-bb22-0305bb73ecba"]
+Cell[7331, 168, 2074, 41, 45, "Print",ExpressionUUID->"43f48938-b4bc-4c82-b163-9bc9e4a00a48"],
+Cell[9408, 211, 2080, 41, 45, "Print",ExpressionUUID->"f45594c8-8e5d-41f3-bb22-0305bb73ecba"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11533, 258, 1006, 21, 31, "Input",ExpressionUUID->"9913e849-9316-4d3e-9ca0-d6195fe0dfa9"],
+Cell[11537, 258, 1006, 21, 31, "Input",ExpressionUUID->"9913e849-9316-4d3e-9ca0-d6195fe0dfa9"],
 Cell[CellGroupData[{
-Cell[12564, 283, 608, 13, 24, "Print",ExpressionUUID->"8db45a36-41fb-4e13-a5c8-556f05da3e29"],
-Cell[13175, 298, 820, 18, 24, "Print",ExpressionUUID->"758ca015-b1cf-4b9b-93f2-ae09c92a0288"]
+Cell[12568, 283, 608, 13, 24, "Print",ExpressionUUID->"8db45a36-41fb-4e13-a5c8-556f05da3e29"],
+Cell[13179, 298, 820, 18, 24, "Print",ExpressionUUID->"758ca015-b1cf-4b9b-93f2-ae09c92a0288"]
 }, Open  ]],
-Cell[14010, 319, 23683, 701, 120, "Output",ExpressionUUID->"6e32d099-5a38-4f11-832b-79253e2ad07b"]
+Cell[14014, 319, 23683, 701, 120, "Output",ExpressionUUID->"6e32d099-5a38-4f11-832b-79253e2ad07b"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[37742, 1026, 181, 3, 74, "Section",ExpressionUUID->"7566bae7-20a5-4ee7-9c76-9b7b53726954"],
-Cell[37926, 1031, 504, 11, 161, "Subsubsection",ExpressionUUID->"00f39d80-35bd-432b-86a4-936376681856"],
+Cell[37746, 1026, 181, 3, 74, "Section",ExpressionUUID->"7566bae7-20a5-4ee7-9c76-9b7b53726954"],
+Cell[37930, 1031, 504, 11, 161, "Subsubsection",ExpressionUUID->"00f39d80-35bd-432b-86a4-936376681856"],
 Cell[CellGroupData[{
-Cell[38455, 1046, 196, 3, 41, "Subsection",ExpressionUUID->"b3928036-ab16-483b-b57a-f0f8f13b819a"],
-Cell[38654, 1051, 2429, 61, 262, "Input",ExpressionUUID->"86c93035-5e3c-4296-b186-6cf7e0f78910"]
+Cell[38459, 1046, 196, 3, 41, "Subsection",ExpressionUUID->"b3928036-ab16-483b-b57a-f0f8f13b819a"],
+Cell[38658, 1051, 2429, 61, 262, "Input",ExpressionUUID->"86c93035-5e3c-4296-b186-6cf7e0f78910"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[41120, 1117, 191, 3, 59, "Subsection",ExpressionUUID->"151af9f5-8d7f-441b-a191-2177043271a3"],
+Cell[41124, 1117, 191, 3, 59, "Subsection",ExpressionUUID->"151af9f5-8d7f-441b-a191-2177043271a3"],
 Cell[CellGroupData[{
-Cell[41336, 1124, 1163, 16, 31, "Input",ExpressionUUID->"521ab30f-6fe2-44e7-a22e-64b721c0262c"],
+Cell[41340, 1124, 1201, 17, 31, "Input",ExpressionUUID->"521ab30f-6fe2-44e7-a22e-64b721c0262c"],
 Cell[CellGroupData[{
-Cell[42524, 1144, 518, 11, 24, "Print",ExpressionUUID->"50213f3b-7f05-484c-a6a4-8978d9b3ac5d"],
-Cell[43045, 1157, 852, 18, 24, "Print",ExpressionUUID->"d881e2ef-bd7b-43f2-82e1-d8780e1098f4"],
-Cell[43900, 1177, 876, 18, 24, "Print",ExpressionUUID->"03ef53fc-d9f0-4831-83a7-ca2cba0fe7dd"]
+Cell[42566, 1145, 539, 11, 24, "Print",ExpressionUUID->"416a6a7c-6cb9-41d0-81a7-32d7c16f7824"],
+Cell[43108, 1158, 871, 18, 24, "Print",ExpressionUUID->"2fe7d41f-257d-47d8-b348-23751a704c28"]
 }, Open  ]],
-Cell[44791, 1198, 17407, 290, 337, "Output",ExpressionUUID->"aaa7e48d-23a2-49c6-a14a-554b702ad549"]
+Cell[43994, 1179, 17133, 285, 380, "Output",ExpressionUUID->"fd760483-456f-460b-8f0f-1a011946b9d3"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[62247, 1494, 182, 3, 59, "Subsection",ExpressionUUID->"391ff8dc-1bb3-4917-8eb4-1376b56c5560"],
+Cell[61176, 1470, 182, 3, 59, "Subsection",ExpressionUUID->"391ff8dc-1bb3-4917-8eb4-1376b56c5560"],
 Cell[CellGroupData[{
-Cell[62454, 1501, 1891, 32, 52, "Input",ExpressionUUID->"7c41e981-7607-4f44-935d-5152df5b144b"],
-Cell[64348, 1535, 17920, 404, 276, "Output",ExpressionUUID->"73e6d07e-a101-4cb6-aa07-24a749b81560"]
+Cell[61383, 1477, 1891, 32, 52, "Input",ExpressionUUID->"7c41e981-7607-4f44-935d-5152df5b144b"],
+Cell[63277, 1511, 17920, 404, 276, "Output",ExpressionUUID->"73e6d07e-a101-4cb6-aa07-24a749b81560"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
