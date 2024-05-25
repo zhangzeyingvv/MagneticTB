@@ -49,6 +49,19 @@ PlotRange->All,PlotStyle->Black],ListPlot[Transpose@" <>
 
 tokpathvasp[pathstr_,npoint_]:=2Pi Flatten[Subdivide[#[[1]],#[[2]],npoint]&/@ToExpression@Partition[Partition[StringSplit[pathstr],5][[;;,1;;3]],2],1];
 vasptoPath={Rationalize[ToExpression@Partition[Partition[StringSplit[#],5][[;;,{1,2,3}]],2]],Partition[Partition[StringSplit[#],5][[;;,-1]],2]}\[Transpose]&;
+(*
+pathstr="0.0 0.0 0.0 ! \\Gamma
+0.5 0.0 0.0 ! M
+
+0.5 0.0 0.0 ! M
+0.3333333333333333 0.3333333333333333 0.0 ! K
+
+0.3333333333333333 0.3333333333333333 0.0 ! K
+0.0 0.0 0.0 ! \\Gamma";
+klist=tokpathvasp[pathstr,30];
+vasptoPath={Rationalize[ToExpression@Partition[Partition[StringSplit[#],5][[;;,{1,2,3}]],2]],Partition[Partition[StringSplit[#],5][[;;,-1]],2]}\[Transpose]&;
+path=vasptoPath@pathstr;
+*)
 
 
 fittingTB[h_, eigdata_, krange_, initparms_] := Module[
