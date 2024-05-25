@@ -12,6 +12,7 @@ Begin["`Private`"]
 bandManipulateEig[h_, eigdata_] := Module[
      {h0, params, mparams, m, rule, mpstr, plotrange,klist},
      klist = 2Pi eigdata[[;;,1]];
+     klist = Chop@klist;
      plotrange = {Min[#] - .2, Max[#] + .2} &@
      Flatten[Transpose@eigdata[[;; , 2]]];
      h0 = TrigToExp[h];
@@ -41,7 +42,7 @@ PlotRange->All,PlotStyle->Black],ListPlot[Transpose@" <>
 
 ]";
    
-   (*Print[mpstr];*)
+  (* Print[klist,ToString[Chop@klist],mpstr];*)
      ToExpression[mpstr]
    ];
 
