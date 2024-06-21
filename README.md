@@ -66,7 +66,7 @@ v1.02b 2023/2/14
 v.1.03 2023/2/17
   * Using a greedy algorithm to automatically find the generators of a space group, significantly improves computational efficiency.
 
-v.1.04 2023/6/21
+v.1.04 2024/6/21
 
   * Add "CartesianCoordinates" option to generate the TB model in Cartesian coordinates for symham function . See MoS2 for example.
   * Add banddata to generate band.dat file. See MoS2 for example.
