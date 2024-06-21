@@ -442,10 +442,13 @@ unsymham[n_]:=Module[{bondends,bandind,hop,bonds,toband,nbh,hami},
 ];
 
 
-Options[symham]={symmetryset->genindex};
+Options[symham]={symmetryset->genindex,
+"CartesianCoordinates" -> False
+};
 (*SetOptions[symham,symmetryset\[Rule]All];*)
-symham[n_,OptionsPattern[]]:=Module[{conjh,h,phpmh,recR,para,sset,opset},
-  sset=OptionValue[symmetryset];
+symham[n_,OptionsPattern[]]:=Module[{conjh,h,phpmh,recR,para,sset,opset,cart},
+  sset=OptionValue["symmetryset"];
+  cart=OptionValue["CartesianCoordinates"];
   If[sset===All,opset=Range[Length[symminfo]],
   opset=sset,opset=Range[Length[symminfo]]
 (*Print["Use those symmetry constrains: ",TableForm[symminfo[[opset]],TableDepth\[Rule]2]]*)
@@ -504,6 +507,7 @@ True,#->Table[ToExpression["p"<>ToString[n]<>"n"<>ToString[i]],{i,Length[#]}]&@V
 ];
 
 h=h/.para;
+If[cart, h=h/.Thread[{kx,ky,kz}->({kx,ky,kz}(2Pi)) . Inverse@reclatt]];
 (*Print[para];*)
 Print["params:",Variables[h]];
 h
@@ -518,6 +522,4 @@ End[]
 
 
 EndPackage[]
-
-
 

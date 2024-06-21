@@ -88,6 +88,30 @@ bandplot[pathstr_,npoint_,ham_,rule_,OptionsPattern[]]:=Module[{tmp,kps,hkps,hkp
 
 
 
+banddata[pathstr_,npoint_,ham_,rule_,save_]:=Module[{tmp,kps,hkps,hkp,xticks,yticks,data},
+
+  hkp={};
+(*  hkps=Partition[Partition[StringSplit[pathstr],5][[;;,-1]],2];*)
+  hkps=Transpose[pathstr][[2]];
+(*Print[hkps];*)
+  Do[If[i==1,AppendTo[hkp,hkps[[i]][[1]]];AppendTo[hkp,hkps[[i]][[2]]],
+    If[hkps[[i]][[1]]==hkps[[i-1]][[2]],AppendTo[hkp,hkps[[i]][[2]]],
+    AppendTo[hkp,hkps[[i]][[2]]];hkp[[i]]=hkp[[i]]<>"|"<>hkps[[i]][[1]];
+      ]
+    ]
+  ,{i,Length[hkps]}];
+(*  tmp=ToExpression@Partition[Partition[StringSplit[pathstr],5][[;;,1;;3]],2];*)
+  tmp=Transpose[pathstr][[1]];
+  data=Table[kps=2Pi Subdivide[tmp[[i,1]],tmp[[i,2]],npoint];
+  Transpose@Table[Sort@Eigenvalues[Evaluate[(N@ham)/.rule/.{kx->kps[[k,1]],ky->kps[[k,2]],kz->kps[[k,3]]}]],{k,Length[kps]}]
+    ,{i,Length[tmp]}];
+  data=Chop@Flatten[MapIndexed[{npoint(#2[[1]]-1)+#2[[3]]-1,#1}&,data,{3}],1];
+data=(Flatten[#,1]&/@Transpose@Partition[data,Length[hkps]])[[;;,;;,2]];
+data=Transpose[Chop@data];
+Print@Export[save,data]
+]
+
+
 End[]
 EndPackage[]
 
