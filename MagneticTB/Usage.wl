@@ -67,7 +67,7 @@ symmetrizationHRInit::usage = "Options for init"
 bandManipulate ::usage=""
 
 bandplot ::usage=""
-
+banddata ::usage=""
 
 
 (*Functions*)
