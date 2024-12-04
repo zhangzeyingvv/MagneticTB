@@ -203,7 +203,7 @@ readHR[hrdat_, OptionsPattern[]] :=
   Do[
    (*Print[ele];*)
    hk[[ele[[2, 1]], ele[[2, 2]]]] += 
-    ele[[3]] Exp[-I (ele[[1]] - wcc[[ele[[2, 1]]]] + 
+    ele[[3]] Exp[I (ele[[1]] - wcc[[ele[[2, 1]]]] + 
           wcc[[ele[[2, 2]]]]) . {kx, ky, kz}]
    , {ele, smallhr}];
   hk = hk - efermi IdentityMatrix[nband];
