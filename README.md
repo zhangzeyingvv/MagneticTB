@@ -74,4 +74,4 @@ v.1.04 2024/6/21
 v.1.05 2024/12/4
 
   * Fix a bug for hop function (thanks Chaoxi Cui). 
-  * Add add readHR function to import wannier90_hr.dat file
+  * Add readHR function to import wannier90_hr.dat file
