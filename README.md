@@ -70,3 +70,8 @@ v.1.04 2024/6/21
 
   * Add "CartesianCoordinates" option to generate the TB model in Cartesian coordinates for symham function . See MoS2 for example.
   * Add banddata to generate band.dat file. See MoS2 for example.
+
+v.1.05 2024/12/4
+
+  * Fix a bug for hop function (thanks changxi cui). 
+  * Add add readHR function to import wannier90_hr.dat file
