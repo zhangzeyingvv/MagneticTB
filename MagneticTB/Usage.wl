@@ -90,6 +90,7 @@ Interface
 pythtbIO2d ::usage = "init"
 plotslab ::usage = ""
 hop  ::usage =""
+readHR ::usage =""
 
 
 (* ::Subsubsection:: *)
