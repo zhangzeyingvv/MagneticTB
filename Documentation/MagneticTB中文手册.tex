@@ -29,6 +29,9 @@ urlcolor=blue,
 \usepackage{courier}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{listings}
+\usepackage[normalem]{ulem}
+
+
 %\usepackage{xcolor}\lstset{}
 \lstset{
 	basicstyle={\sffamily\footnotesize},
@@ -278,6 +281,24 @@ hop[symham生成的哈密顿量,  参数大小]
 \end{lstlisting}
 具体例子见\ref{gra}。注意要用\lstinline|symham|生成的哈密顿量。\textbf{不要用自己化解后的哈密顿量作为输入，若想让某些参数等于$0$，直接在参数大小里指定某些参数为$0$。}
 
+\subsection{能带表示模块}
+能带表示模块可以计算紧束缚模型的能带表示。需要安装 \href{https://github.com/goodluck1982/SpaceGroupIrep}{\textsf{SpaceGroupIrep}} 和 \href{https://github.com/goodluck1982/MSGCorep}{\textsf{MSGCorep}} 软件包。能带表示模块主要有一下2个函数
+
+\begin{lstlisting}[numbers=none]
+	getMSGElemFromMSGCorep[{N1, N2}]
+\end{lstlisting} 
+从 \textsf{MSGCorep} 软件包中获取磁空间群元素，其中 N1.N2 是 BNS 磁空间群编号。
+\begin{lstlisting}[numbers=none]
+	getTBBandCorep[BNSNo, Hamiltonian, parameters, kset]
+\end{lstlisting} 
+给出紧束缚模型的共表示，其中 \lstinline!BNSNo! 是 BNS 磁空间群编号，\lstinline!Hamiltonian! 是由 \textsf{MagneticTB} 生成的哈密顿量，\lstinline!parameters! 是紧束缚模型中的参数，\lstinline!kset! 是包含多个 k 点的列表。
+
+计算紧束缚能带表示的一般流程是
+\begin{itemize}
+	\item 使用 \lstinline!getMSGElemFromMSGCorep! （而不是\lstinline|msgop|）获取磁群元素和对应的晶格向量
+	\item 用得到的磁群元素和对应的晶格向量结合自己设置 Wyckoff 位置和基函数构造紧束缚模型
+	\item 用\lstinline!getTBBandCorep!获取能带表示
+\end{itemize}
 \section{例子}
 \subsection{石墨烯}
 \label{gra}
@@ -414,16 +435,15 @@ basisFunctions -> {{{x + I y, 0}, {0, x - I y}}}]
     \setlength\itemsep{1.5em}
 	\litem{安装完以后运行没反应怎么办} 
 	
-	回答：仔细检查安装步骤，先把examples.nb文件中几个例子跑出来，实在不行在微信群里提问。
+	回答：仔细检查安装步骤，先把examples.nb文件中几个例子跑出来，实在不行在QQ群里提问。
 	
-	\litem{微信群怎么加} 
+	\litem{QQ群怎么加} 
 	
-	回答：可以扫描以下二维码：
+	回答：群号为625192239。可以扫描以下二维码：
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=.3\textwidth]{./figures/wechat}
+		\includegraphics[width=.3\textwidth]{./figures/QQ}
 	\end{figure}
-	若二维码过期，可联系zhangzeyingvv@gmail.com
 	
 	\litem{example.nb文件里二硫化钼的例子中的钼原子的Wyckoff点和BCS网站对不上，为什么}
 	
@@ -437,7 +457,7 @@ basisFunctions -> {{{x + I y, 0}, {0, x - I y}}}]
 	
 	\litem{我发现了Bug，该怎么办}
 	
-	回答：在微信群里提问（建议首选），在\url{https://github.com/zhangzeyingvv/MagneticTB/issues}上提问，给我发邮件zhangzeyingvv@gmail.com。
+	回答：在QQ群里提问，在\url{https://github.com/zhangzeyingvv/MagneticTB/issues}上提问，给我发邮件zhangzeyingvv@gmail.com。
 	
 	\litem{除了想构造TB模型，我还算模型的拓扑性质，该怎么办}
 	
@@ -458,7 +478,7 @@ basisFunctions -> {{{x + I y, 0}, {0, x - I y}}}]
 		
 	\litem{可以转发该手册吗}
 
-	回答：可以，但是转发时不要对该手册做任何修改。
+	回答：可以转发，同时如果想修改本手册，请通过github向我提issue(s)。
 
 	\litem{如何引用\textsf{MagneticTB}}
 
@@ -483,12 +503,13 @@ basisFunctions -> {{{x + I y, 0}, {0, x - I y}}}]
 \end{enumerate}
 
 \section{更新计划}
+划线为已经完成的部分
 \begin{itemize}
 	\item	优化算法
 %	\item   目前版本对于大体系仍然较慢，未来将优化约化参数的算法
 	\item	将支持磁层群，磁杆群和自旋空间群
-	\item	与\textsf{SpaceGroupIrep}和\textsf{MSGCorep}软件包接口
-	\item	增加拟合参数模块
+	\item	\sout{与\textsf{SpaceGroupIrep}和\textsf{MSGCorep}软件包接口}
+	\item	\sout{增加拟合参数模块}
 	\item	加入磁群的原点平移变换和晶格整体旋转变换
 	\item	...
 \end{itemize}
