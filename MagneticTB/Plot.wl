@@ -100,15 +100,15 @@ banddata[pathstr_,npoint_,ham_,rule_,save_]:=Module[{tmp,kps,hkps,hkp,xticks,yti
       ]
     ]
   ,{i,Length[hkps]}];
+  hkp=StringReplace[#,{"\\Gamma"->"\[CapitalGamma]"}]&/@hkp;
 (*  tmp=ToExpression@Partition[Partition[StringSplit[pathstr],5][[;;,1;;3]],2];*)
   tmp=Transpose[pathstr][[1]];
   data=Table[kps=2Pi Subdivide[tmp[[i,1]],tmp[[i,2]],npoint];
   Transpose@Table[Sort@Eigenvalues[Evaluate[(N@ham)/.rule/.{kx->kps[[k,1]],ky->kps[[k,2]],kz->kps[[k,3]]}]],{k,Length[kps]}]
     ,{i,Length[tmp]}];
-  data=Chop@Flatten[MapIndexed[{npoint(#2[[1]]-1)+#2[[3]]-1,#1}&,data,{3}],1];
-data=(Flatten[#,1]&/@Transpose@Partition[data,Length[hkps]])[[;;,;;,2]];
-data=Transpose[Chop@data];
-Print@Export[save,data]
+data=Transpose[Flatten/@Transpose[Chop@data]];
+(*Print[data];*)
+Print@Export[save,data,"CSV"]
 ]
 
 
