@@ -120,6 +120,8 @@ getTBBandCorep::usage = ""
 
 symhamII ::usage = "Get the symmetried Hamiltonian in convenition II"
 showbonds ::usage = "Show the information of bond lengths and the classification of the bonds"
+GenerateGroup::usage =""
+getGenerator::usage =""
 
 
 msgop ::usage =""
@@ -133,6 +135,14 @@ texOutput ::usage =""
 bandManipulateEig ::usage=""
 vaspEig ::usage=""
 compareBand ::usage=""
+
+
+(* ::Subsubsection:: *)
+(*SSG*)
+
+
+initSSG ::usage=""
+symhamSSG ::usage=""
 
 
 EndPackage[]
