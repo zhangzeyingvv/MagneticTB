@@ -74,4 +74,11 @@ v.1.04 2024/6/21
 v.1.05 2024/12/4
 
   * Fix a bug for hop function (thanks Chaoxi Cui). 
+
   * Add readHR function to import wannier90_hr.dat file
+
+    
+
+v.1.05 2024/12/4
+  * Support Spin sapce groups (beta verson, see Examples/SSG-Example.nb)
+  * Support show Wyckoff positions of magnetic space groups; show symmetry operations of Magnetic Layer Groups and Magnetic Rod Groups(see Examples/GeneralExamples.nb)
