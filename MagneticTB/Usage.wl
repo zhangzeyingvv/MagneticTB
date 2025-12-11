@@ -34,6 +34,8 @@ z ::usage = ""
 ops  ::usage ="ops"
 braLatt ::usage = ""
 gray ::usage = ""
+grayrod::usage = ""
+graylayer::usage = ""
 typeI ::usage = ""
 typeIII ::usage = ""
 typeIV ::usage = ""
@@ -122,9 +124,12 @@ symhamII ::usage = "Get the symmetried Hamiltonian in convenition II"
 showbonds ::usage = "Show the information of bond lengths and the classification of the bonds"
 GenerateGroup::usage =""
 getGenerator::usage =""
+showMSGWyckoff::usage=""
 
 
 msgop ::usage =""
+mlgop::usage=""
+mrgop::usage=""
 texOutput ::usage =""
 
 

@@ -15,7 +15,11 @@ Email: zhangzeyingvv@gmail.com
 Begin["`Private`"]
 
 installdir=DirectoryName[$InputFileName];
-MSGDATA=Import[installdir<>"MSGData.mx"];
+MSGDATA=Import[FileNameJoin[{installdir,"Data","MSGData.mx"}]];
+wyckoffmsg=Import[FileNameJoin[{installdir,"Data","wyckoffMSG.mx"}]];
+{rgOgToSymbol,rgToBrav,BasicVectorsMRG,rodop,grayrod}=Import[FileNameJoin[{installdir,"Data","rod.mx"}]];
+{lgOgToSymbol,lgToBrav,BasicVectorsMLG,layerop,graylayer}=Import[FileNameJoin[{installdir,"Data","layer.mx"}]];
+
 MSGOP=MSGDATA["MSGOP"];
 gray=MSGDATA["gray"];
 typeI=MSGDATA["typeI"];
@@ -24,6 +28,9 @@ typeIV=MSGDATA["typeIV"];
 bnsdict=MSGDATA["bnsdict"];
 ogdict=MSGDATA["ogdict"];
 ognumdict=MSGDATA["ognumdict"];
+
+
+
 
 (*Print[$InputFileName,vv];*)
 Options[init]={
