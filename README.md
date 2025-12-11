@@ -79,6 +79,6 @@ v.1.05 2024/12/4
 
     
 
-v.1.05 2024/12/4
+v.1.06 2025/12/11
   * Support Spin sapce groups (beta verson, see Examples/SSG-Example.nb)
   * Support show Wyckoff positions of magnetic space groups; show symmetry operations of Magnetic Layer Groups and Magnetic Rod Groups(see Examples/GeneralExamples.nb)
