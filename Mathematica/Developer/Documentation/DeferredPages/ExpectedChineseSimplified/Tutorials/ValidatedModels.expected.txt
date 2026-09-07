@@ -1,0 +1,3 @@
+MagneticTB 典型模型
+加载 MagneticTB
+MagneticTB/tutorial/ValidatedModels

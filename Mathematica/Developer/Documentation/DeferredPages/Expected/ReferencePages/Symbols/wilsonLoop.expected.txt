@@ -1,0 +1,14 @@
+wilsonLoop
+computes Wilson-loop eigenphases for an isolated occupied subspace along a forward reciprocal-lattice loop.
+Examples
+Related Functions
+MagneticTB/ref/wilsonLoop
+Options
+PathSubdivisions
+HermitianTolerance
+GapTolerance
+CovarianceTolerance
+OverlapTolerance
+Output
+msgop[bnsdict[{143,3}]]
+plotWilsonLoop[

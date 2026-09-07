@@ -1,0 +1,15 @@
+symham
+returns the symmetry-allowed contribution of bond shell n to the Bloch Hamiltonian.
+Examples
+Related Functions
+MagneticTB/ref/symham
+Options
+Hermitian
+KernelMethod
+ValidationLevel
+CartesianCoordinates
+Hermitian -> False
+KernelMethod -> \"Stacked\"
+ValidationLevel -> \"Full\"
+CartesianCoordinates -> True
+Possible Issues

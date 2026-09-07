@@ -1,0 +1,15 @@
+pointChernNumber
+computes the integer Chern charge enclosed by an oriented cube around a three-dimensional momentum point.
+Examples
+Related Functions
+MagneticTB/ref/pointChernNumber
+Options
+SurfaceSubdivisions
+HermitianTolerance
+SurfaceGapTolerance
+CenterGapTolerance
+OverlapTolerance
+IntegerTolerance
+RequireGaplessCenter
+MomentumSymbols
+Output

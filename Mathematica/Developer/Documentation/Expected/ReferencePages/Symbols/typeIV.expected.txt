@@ -1,0 +1,6 @@
+typeIV
+returns the database identifier of the type-IV magnetic space group with BNS number n.m.
+Examples
+Related Functions
+MagneticTB/ref/typeIV
+Possible Issues

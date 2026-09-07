@@ -1,0 +1,9 @@
+symham
+范例
+MagneticTB/ref/symham
+选项
+Hermitian -> False
+KernelMethod -> \"Stacked\"
+ValidationLevel -> \"Full\"
+CartesianCoordinates -> True
+把相同的精确对称约束合并为一个矩阵求解

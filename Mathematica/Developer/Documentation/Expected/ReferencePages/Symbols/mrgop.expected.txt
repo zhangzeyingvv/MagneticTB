@@ -1,0 +1,5 @@
+mrgop
+reads the symmetry operations of a magnetic rod group from the bundled database.
+Examples
+Related Functions
+MagneticTB/ref/mrgop

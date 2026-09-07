@@ -1,0 +1,8 @@
+RestoreCyclotomicExpression
+turns an exact matrix, null-space result, or common-kernel result into ordinary exact Wolfram Language expressions.
+Examples
+Related Functions
+MagneticTB/ref/RestoreCyclotomicExpression
+Applications
+Properties & Relations
+Possible Issues

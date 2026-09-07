@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Build MagneticTB from source on Windows, macOS and Linux.">
+  <title>从源码构建 · MagneticTB Python 用户帮助</title>
+  <link rel="stylesheet" href="../help.css?v=a0a09c187d71">
+  <script defer src="../help.js?v=6bee0b68d479"></script>
+</head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+  <div class="help-shell">
+    <aside id="helpSidebar" class="sidebar panel">
+      <a class="brand" href="../index.html" aria-label="MagneticTB 帮助主页"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a>
+      <nav class="nav" aria-label="构建导航">
+        <a href="Installation.html#source"><span>←</span><span class="locale-zh">安装方式</span><span class="locale-en">Installation methods</span></a>
+        <a class="active" href="#requirements"><span>01</span><span class="locale-zh">构建环境</span><span class="locale-en">Requirements</span></a>
+        <a href="#windows"><span>02</span>Windows</a>
+        <a href="#macos"><span>03</span>macOS</a>
+        <a href="#linux"><span>04</span>Linux / WSL</a>
+        <a href="#conda"><span>05</span>Conda</a>
+        <a href="#wheel"><span>06</span><span class="locale-zh">打包 wheel</span><span class="locale-en">Build a wheel</span></a>
+      </nav>
+      <div class="sidebar-foot"><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar panel">
+        <button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
+        <div class="top-title"><strong><span class="locale-zh">从源码构建</span><span class="locale-en">Build from source</span></strong><small>Installation · source build</small></div>
+        <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="helpSearch" type="search" autocomplete="off" placeholder="搜索构建步骤" aria-label="搜索帮助"><small id="searchCount" class="search-count" aria-live="polite"></small></label>
+        <div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button" aria-label="Switch to English">EN</button></div>
+      </header>
+      <main id="mainContent">
+        <section id="build" class="help-section" data-searchable data-search="source build compile Rust Cargo Maturin Windows macOS Linux Conda wheel">
+          <div class="section-heading"><div><p class="eyebrow">Source build · optional</p><h2><span class="locale-zh">从源码构建</span><span class="locale-en">Build from source</span></h2><p class="locale-zh">只有需要修改程序或没有匹配的 wheel 时才需要本页。普通用户请直接<a href="Installation.html#installation">安装 wheel</a>。</p><p class="locale-en">Use this page only to modify the program or when no matching wheel is available. Most users should <a href="Installation.html#installation">install a wheel</a>.</p></div><span class="section-index">S</span></div>
+          <div class="content-grid three">
+            <article id="requirements" class="card panel wide">
+              <h3><span class="locale-zh">从源码构建前需要什么</span><span class="locale-en">Source-build requirements</span></h3>
+              <div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">组件</span><span class="locale-en">Component</span></th><th><span class="locale-zh">要求与用途</span><span class="locale-en">Requirement and purpose</span></th></tr></thead><tbody>
+                <tr><td>CPython</td><td><span class="locale-zh">3.9 或更高版本；建立虚拟环境并运行 Python binding。</span><span class="locale-en">3.9 or newer; creates the virtual environment and runs the Python binding.</span></td></tr>
+                <tr><td><code>rustup</code></td><td><span class="locale-zh">Rust toolchain 管理器；安装和更新 stable Rust（1.85 或更高版本）。</span><span class="locale-en">Rust toolchain manager; installs and updates stable Rust (1.85 or newer).</span></td></tr>
+                <tr><td><code>rustc</code> / Cargo</td><td><span class="locale-zh">编译 Rust 核心并解析 <code>Cargo.lock</code> 中固定的 crate 依赖。</span><span class="locale-en">Compiles the Rust core and resolves crate dependencies locked by <code>Cargo.lock</code>.</span></td></tr>
+                <tr><td><code>maturin==1.14.1</code></td><td><span class="locale-zh">调用 Cargo 构建 Python extension，并安装开发版本或生成 wheel。</span><span class="locale-en">Invokes Cargo to build the Python extension and installs a development build or creates a wheel.</span></td></tr>
+                <tr><td><span class="locale-zh">系统编译工具</span><span class="locale-en">Platform compiler tools</span></td><td><span class="locale-zh">Windows 使用 MSVC，macOS 使用 Xcode Command Line Tools，Linux 使用 GCC/Clang、linker 和 Python headers。</span><span class="locale-en">MSVC on Windows, Xcode Command Line Tools on macOS, and GCC/Clang, a linker, and Python headers on Linux.</span></td></tr>
+              </tbody></table></div>
+              <div class="callout"><span class="locale-zh">下面三种系统最终都在仓库的 <code>python</code> 目录运行 Maturin。不要在仓库根目录直接运行这些命令。</span><span class="locale-en">All three platforms ultimately run Maturin from the repository's <code>python</code> directory. Do not run these commands from the repository root.</span></div>
+            </article>
+
+            <div class="platform-grid">
+            <article id="windows" class="card panel platform-card" data-search="Windows PowerShell MSVC Visual Studio Build Tools Windows SDK rustup-init.exe">
+              <div class="platform-heading"><span class="platform-badge windows">⊞</span><div><small>Windows 10 / 11</small><h3>PowerShell + MSVC</h3></div></div>
+              <ol class="step-list">
+                <li><span class="locale-zh">从 <a href="https://www.python.org/downloads/windows/">Python 官方网站</a>安装 64 位 CPython 3.9+；打开新的 PowerShell 检查：</span><span class="locale-en">Install 64-bit CPython 3.9+ from the <a href="https://www.python.org/downloads/windows/">official Python site</a>, then open a new PowerShell:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># 检查 Windows Python 的版本与 CPU 架构</span><span class="code-comment locale-en"># Check the Windows Python version and CPU architecture</span>
+py -3 --version
+py -3 -c "import platform; print(platform.machine())"</pre></div>
+                </li>
+                <li><span class="locale-zh">安装 <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Visual Studio Build Tools</a>，选择 <strong>Desktop development with C++</strong>，并保留 MSVC 与 Windows SDK。</span><span class="locale-en">Install <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Visual Studio Build Tools</a>, select <strong>Desktop development with C++</strong>, and keep MSVC and the Windows SDK.</span></li>
+                <li><span class="locale-zh">从 <a href="https://rustup.rs/">rustup.rs</a> 下载并运行 <code>rustup-init.exe</code>，选择默认 stable toolchain。关闭并重新打开 PowerShell：</span><span class="locale-en">Download and run <code>rustup-init.exe</code> from <a href="https://rustup.rs/">rustup.rs</a>, choose the default stable toolchain, and reopen PowerShell:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># 启用 stable Rust，并确认 rustup、rustc 与 Cargo 版本</span><span class="code-comment locale-en"># Enable stable Rust and verify the rustup, rustc, and Cargo versions</span>
+rustup default stable
+rustup show active-toolchain
+rustc --version
+cargo --version</pre></div>
+                </li>
+                <li><span class="locale-zh">进入源码的 <code>python</code> 目录并构建安装：</span><span class="locale-en">Enter the source <code>python</code> directory and build:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># 进入 python 目录，创建虚拟环境并编译 release binding</span><span class="code-comment locale-en"># Enter the python directory, create a virtual environment, and build the release binding</span>
+cd C:\path\to\MagneticTB-Rust-Python\python
+py -3 -m venv .venv
+.venv\Scripts\python.exe -m pip install --upgrade pip
+.venv\Scripts\python.exe -m pip install maturin==1.14.1
+.venv\Scripts\maturin.exe develop --release --locked</pre></div>
+                </li>
+              </ol>
+            </article>
+
+            <article id="macos" class="card panel platform-card" data-search="macOS Apple Silicon Intel Xcode Command Line Tools arm64 x86_64 rustup">
+              <div class="platform-heading"><span class="platform-badge mac">●</span><div><small>macOS</small><h3>Terminal + Xcode</h3></div></div>
+              <ol class="step-list">
+                <li><span class="locale-zh">安装 Apple Command Line Tools：</span><span class="locale-en">Install Apple Command Line Tools:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># 安装 macOS 编译 Rust 扩展所需的命令行工具</span><span class="code-comment locale-en"># Install the macOS command-line tools required to compile the Rust extension</span>
+xcode-select --install</pre></div>
+                </li>
+                <li><span class="locale-zh">准备 CPython 3.9+；如果终端没有 <code>python3</code>，从 <a href="https://www.python.org/downloads/macos/">Python 官方 macOS 下载页</a>安装。Apple Silicon 使用 arm64 Python，Intel Mac 使用 x86_64 Python；Python 与 Rust 必须采用相同架构：</span><span class="locale-en">Prepare CPython 3.9+; if <code>python3</code> is unavailable, install it from the <a href="https://www.python.org/downloads/macos/">official macOS downloads</a>. Use arm64 Python on Apple Silicon and x86_64 Python on Intel; Python and Rust must use the same architecture:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># 检查 Python 与本机编译器版本</span><span class="code-comment locale-en"># Check the Python and native compiler versions</span>
+python3 --version
+python3 -c 'import platform; print(platform.machine())'</pre></div>
+                </li>
+                <li><span class="locale-zh">使用 Rust 官方安装器安装 stable Rust；<code>rustup</code> 已经包含 Cargo：</span><span class="locale-en">Install stable Rust with the official installer; <code>rustup</code> includes Cargo:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># 安装 stable Rust 与 Cargo，并检查工具链版本</span><span class="code-comment locale-en"># Install stable Rust and Cargo, then verify the toolchain versions</span>
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
+rustup default stable
+rustc --version
+cargo --version</pre></div>
+                </li>
+                <li><span class="locale-zh">进入 <code>python</code> 目录并构建安装：</span><span class="locale-en">Enter the <code>python</code> directory and build:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># 进入 python 目录，创建虚拟环境并编译 release binding</span><span class="code-comment locale-en"># Enter the python directory, create a virtual environment, and build the release binding</span>
+cd /path/to/MagneticTB-Rust-Python/python
+python3 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install maturin==1.14.1
+.venv/bin/maturin develop --release --locked</pre></div>
+                </li>
+              </ol>
+            </article>
+
+            <article id="linux" class="card panel platform-card" data-search="Linux Ubuntu Debian Fedora RHEL WSL GCC build-essential python3-devel rustup">
+              <div class="platform-heading"><span class="platform-badge linux">⌘</span><div><small>Linux / WSL</small><h3>GCC + rustup</h3></div></div>
+              <ol class="step-list">
+                <li><span class="locale-zh">先安装 C/C++ 编译器、linker、Python headers 和虚拟环境支持：</span><span class="locale-en">Install a C/C++ compiler, linker, Python headers, and virtual-environment support:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># Ubuntu / Debian / WSL：安装编译器和 Python 开发文件</span><span class="code-comment locale-en"># Ubuntu / Debian / WSL: install the compiler and Python development files</span>
+sudo apt update
+sudo apt install -y build-essential curl python3 python3-dev python3-venv
+
+<span class="code-comment locale-zh"># Fedora / RHEL：对应的软件包名称</span><span class="code-comment locale-en"># Fedora / RHEL: corresponding package names</span>
+sudo dnf install -y gcc gcc-c++ make curl python3 python3-devel</pre></div>
+                </li>
+                <li><span class="locale-zh">安装 stable Rust 与 Cargo：</span><span class="locale-en">Install stable Rust and Cargo:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># 安装 stable Rust 与 Cargo，并检查工具链版本</span><span class="code-comment locale-en"># Install stable Rust and Cargo, then verify the toolchain versions</span>
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
+rustup default stable
+rustc --version
+cargo --version</pre></div>
+                </li>
+                <li><span class="locale-zh">确认 Python 不低于 3.9：</span><span class="locale-en">Confirm Python is at least 3.9:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># 检查 Python 与本机编译器版本</span><span class="code-comment locale-en"># Check the Python and native compiler versions</span>
+python3 --version
+cc --version</pre></div>
+                </li>
+                <li><span class="locale-zh">进入 <code>python</code> 目录并构建安装。WSL 也使用同一组 Linux 命令和 <code>.venv/bin/</code> 路径：</span><span class="locale-en">Enter the <code>python</code> directory and build. WSL uses the same Linux commands and <code>.venv/bin/</code> paths:</span>
+                  <div class="code-block"><pre><span class="code-comment locale-zh"># 进入 python 目录，创建虚拟环境并编译 release binding</span><span class="code-comment locale-en"># Enter the python directory, create a virtual environment, and build the release binding</span>
+cd /path/to/MagneticTB-Rust-Python/python
+python3 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install maturin==1.14.1
+.venv/bin/maturin develop --release --locked</pre></div>
+                </li>
+              </ol>
+            </article>
+            </div>
+
+            <article id="conda" class="card panel wide">
+              <h3><span class="locale-zh">在 Conda 环境中编译</span><span class="locale-en">Build in a Conda environment</span></h3>
+              <p class="locale-zh">先按对应系统准备 Rust 和系统编译工具。Conda 可以替代上面的 Python 与 <code>.venv</code> 环境步骤，但不能替代 Rust 或 linker。Windows 使用已启用 Conda 的终端，macOS / Linux 同理：</p>
+              <p class="locale-en">Prepare Rust and the platform build tools first. Conda replaces the Python and <code>.venv</code> setup above, not Rust or the linker. Use a Conda-enabled terminal on any platform:</p>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 已有同名环境时跳过创建，只激活环境</span><span class="code-comment locale-en"># Skip creation if the named environment exists; activate it instead</span>
+conda create -n magnetictb --override-channels -c conda-forge python=3.12 pip
+conda activate magnetictb
+
+<span class="code-comment locale-zh"># 从仓库根目录进入 python，并编译到当前 Conda 环境</span><span class="code-comment locale-en"># From the repository root, enter python and build into the active Conda environment</span>
+cd python
+python -m pip install "maturin==1.14.1"
+python -m maturin develop --release --locked
+
+<span class="code-comment locale-zh"># 检查安装并启动 Web</span><span class="code-comment locale-en"># Check the installation and start Web</span>
+python -c "import magnetictb; print(magnetictb.__version__)"
+magnetictb-web</pre></div>
+              <p class="locale-zh">若需生成 wheel，在同一环境的 <code>python/</code> 目录使用 <code>python -m maturin build --release --locked --out dist</code>。</p><p class="locale-en">To create a wheel, use <code>python -m maturin build --release --locked --out dist</code> from <code>python/</code> in the same environment.</p>
+            </article>
+            <article class="card panel wide">
+              <h3 id="wheel"><span class="locale-zh">生成可分发 wheel</span><span class="locale-en">Build a distributable wheel</span></h3>
+              <p class="locale-zh"><code>maturin develop</code> 适合当前源码环境；需要交给其他用户安装时，在已经准备好的同一环境运行：</p>
+              <p class="locale-en"><code>maturin develop</code> is for the current source environment. To produce a wheel for another user, run:</p>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># macOS / Linux / WSL：在当前虚拟环境构建 wheel</span><span class="code-comment locale-en"># macOS / Linux / WSL: build a wheel in the current virtual environment</span>
+.venv/bin/maturin build --release --locked --out dist
+
+<span class="code-comment locale-zh"># Windows PowerShell：使用对应的 maturin 可执行文件</span><span class="code-comment locale-en"># Windows PowerShell: use the corresponding maturin executable</span>
+.venv\Scripts\maturin.exe build --release --locked --out dist</pre></div>
+              <p class="locale-zh">生成文件位于 <code>python/dist/</code>。wheel 只能安装到与其平台、CPU 架构和 Python ABI 匹配的环境；安装该 wheel 的用户不再需要 Rust。</p>
+              <p class="locale-en">The wheel is written to <code>python/dist/</code>. It can only be installed on a matching platform, CPU architecture, and Python ABI; wheel users no longer need Rust.</p>
+            </article>
+          </div>
+          <p><a href="Installation.html#installation"><span class="locale-zh">← 返回普通用户安装说明</span><span class="locale-en">← Back to wheel installation</span></a></p>
+        </section>
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">没有匹配的构建步骤。</span><span class="locale-en">No matching build step.</span></div>
+      </main>
+      <footer><a href="../index.html"><span class="locale-zh">MagneticTB 帮助主页</span><span class="locale-en">MagneticTB help home</span></a></footer>
+    </div>
+  </div>
+</body>
+</html>

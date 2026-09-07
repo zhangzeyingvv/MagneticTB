@@ -1,0 +1,6 @@
+gray
+returns the database identifier of the gray magnetic space group associated with ordinary space-group number n.
+Examples
+Related Functions
+MagneticTB/ref/gray
+Possible Issues

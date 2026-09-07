@@ -1,0 +1,10 @@
+buildSlabHamiltonian
+builds a hybrid-space Hamiltonian with continuous momentum along selected periodic axes and finite cells along the others.
+Examples
+Related Functions
+MagneticTB/ref/buildSlabHamiltonian
+Options
+PeriodicDirections
+CellMatrix
+HermiticityTolerance
+Output

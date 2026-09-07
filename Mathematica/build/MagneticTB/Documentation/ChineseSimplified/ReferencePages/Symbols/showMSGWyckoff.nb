@@ -1,0 +1,1298 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     44558,       1289]
+NotebookOptionsPosition[     40754,       1217]
+NotebookOutlinePosition[     42497,       1258]
+CellTagsIndexPosition[     42454,       1255]
+WindowTitle->showMSGWyckoff
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["MAGNETIC T B SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "b4f9300b-f561-48f9-bc14-8f4abda4070c"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "398a9ed1-a601-4b71-8b05-94c5ae89950e"],
+        Background->LightDarkSwitched[
+          RGBColor[0.490196, 0.576471, 0.690196]],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "f1d30cae-f381-4dd5-8c8f-7fa38ae6bf7d"]
+         }],ExpressionUUID->"f066a5fd-1215-4e28-af79-cd081199dab9"],
+         StripOnInput->False],{
+        StyleBox["\"msgop\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/msgop"], 
+         StyleBox["\"init\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/init"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "92b096c7-d305-4f63-81e8-ff98e1ad42d0"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "47e35adf-7d77-4158-9e1a-e678bd7a80d6"]
+         }],ExpressionUUID->"168bf5c3-89d6-414d-ac50-78b024c2bdee"],
+         StripOnInput->False],{
+        "\"MagneticTB\"" :> 
+         Documentation`HelpLookup["paclet:MagneticTB/guide/MagneticTB"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "4b248437-87f7-41d4-af3e-c4102fe2a7d9"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "897e9cb7-f4bb-4e5d-8ec1-570e4358abbb"]
+         }],ExpressionUUID->"c2b1e21f-cab6-4441-b09e-fd38e9528be2"],
+         StripOnInput->False],{
+        "\"MagneticTB \:5165\:95e8\"" :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/tutorial/GettingStarted"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "4c5d4698-6384-4345-99c4-836ab3c3d76f"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "ad9fa5db-9739-44e6-849c-30bef51b427a"]
+         }],ExpressionUUID->"25178373-4f24-4432-9130-2d2b81f15974"],
+         StripOnInput->False],{
+        "\"MagneticTB/ref/showMSGWyckoff\"" :> None, 
+         "\"Copy Wolfram Documentation Center URL\"" :> 
+         CopyToClipboard["MagneticTB/ref/showMSGWyckoff"], Delimiter, 
+         "\"Copy web URL\"" :> 
+         Module[{DocumentationSearch`Private`nb$}, 
+           DocumentationSearch`Private`nb$ = 
+            NotebookPut[
+             Notebook[{
+               Cell[BoxData[
+                 MakeBoxes[
+                  Hyperlink[
+                   "http://reference.wolfram.com/language/MagneticTB/ref/\
+showMSGWyckoff.html"], StandardForm]], "Input", TextClipboardType -> 
+                 "PlainText"]}, Visible -> False]]; 
+           SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+           FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+           NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+         "\"Go to web URL\"" :> 
+         FrontEndExecute[{
+           NotebookLocate[{
+             URL[If[TrueQ[False], 
+                 "http://reference.wolfram.com/system-modeler/", 
+                 "http://reference.wolfram.com/language/"] <> 
+               "MagneticTB/ref/showMSGWyckoff" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "7703857d-ea75-423d-9a3f-9f54ae42f007"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "f7be0829-4f28-48a4-a363-4c7dc704744b"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"799d4c43-38c2-4f47-a081-50b9c7a70340"],
+
+Cell["MagneticTB`", "ContextNameCell",ExpressionUUID->"d5150f5b-4857-4e64-97b1-26bfe7896976"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "showMSGWyckoff", "ObjectName",ExpressionUUID->
+      "98ceb998-5672-41b8-91b9-9732d959f52e"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"dc6f632c-e225-4f97-b6cf-d42b6c3ad451"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "e10ce63a-7887-46c3-9324-6eeea9adb5d8"]
+    }],ExpressionUUID->"4ad3a205-b4bf-4948-919a-2648d6305d60"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"82cde70b-2f17-4bc3-baa9-\
+c19340946f54"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"showMSGWyckoff", "[", "group", "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "2a5406a6-d203-4b91-99d1-d346212ac7bc"],
+     " \[LineSeparator]",
+     "\:663e\:793a\:78c1\:7a7a\:95f4\:7fa4\:7684 Wyckoff \:4f4d\:7f6e\:4ee5\
+\:53ca\:5bf9\:79f0\:6027\:5141\:8bb8\:7684\:78c1\:77e9\:65b9\:5411\:3002"
+    }],ExpressionUUID->"afba450a-7e10-40cc-81af-23eba31c399d"]}
+  }]], "Usage",ExpressionUUID->"99f3e9d1-1ba4-4145-a388-4eed68ed08d2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[Cell[TextData[{
+  Cell[BoxData[
+   DynamicBox[ToBoxes[
+     If[CurrentValue[
+        EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], 
+      Rotate[
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+    ImageSizeCache->{
+     13.600000000000001`, {-0.1685058593749993, 13.768505859375}}]],
+   ExpressionUUID->"4ff6a1e9-dae2-4640-b258-b60b66c05bab"],
+  Cell[BoxData[
+   TemplateBox[{1},
+    "Spacer1"]],ExpressionUUID->"3a552c5e-08ec-4989-a7a0-5569668910c5"],
+  "Details and Options"
+ }], "NotesFrameText",ExpressionUUID->
+  "d64cba9d-abf6-413f-a800-c78fae793940"]],ExpressionUUID->"7433b9c3-494e-\
+4afc-b878-10dfb9b97ea1"]], "NotesSection",
+ ShowGroupOpener->"Thumbnail",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->884849688,ExpressionUUID->"43c3ea27-ca1d-43ec-9e49-5e8c3f89dc80"],
+
+Cell["group \:53ef\:4ee5\:662f gray[n] \:8fd9\:6837\:7684\:6570\:636e\:5e93\
+\:6807\:8bc6\:ff0c\:4e5f\:53ef\:4ee5\:662f\:76f8\:5e94\:7684\:78c1\:7fa4\:7f16\
+\:53f7\:3002", "Notes",ExpressionUUID->"9c781d51-5d32-4781-8600-367c560cfaba"],
+
+Cell["\<\
+\:6bcf\:884c\:7ed9\:51fa\:4e00\:4e2a\:4ee3\:8868\:4f4d\:7f6e\:3002x\:3001y\
+\:3001z \:662f\:81ea\:7531 Wyckoff \:5750\:6807\:ff0c\:78c1\:77e9\:4e00\:680f\
+\:7ed9\:51fa\:70b9\:7fa4\:5141\:8bb8\:7684\:65b9\:5411\:ff1bmultiplicity \
+\:8868\:793a\:5e38\:89c4\:6676\:80de\:4e2d\:7b49\:4ef7\:4f4d\:7f6e\:7684\:6570\
+\:76ee\:3002\
+\>", "Notes",ExpressionUUID->"586d2e63-3184-4b50-9b4c-edef9dc0c696"]
+}, Closed]],
+
+Cell["", "PageDelimiter",ExpressionUUID->"da9bd32f-24ff-45df-abd7-35b426b06c44"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {4.251494140625001, 9.348505859375}}]],
+  ExpressionUUID->"23950d99-aa16-47cf-bffe-42f972ec4877"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"694acc30-b75e-4c2f-a2f8-51f454414c32"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "ec92256d-e1a7-42b8-8f2b-4f75175a9da3"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->344450741,ExpressionUUID->"b199b53f-a7c1-4aa0-98b7-ba5099cdab1a"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}]], "Input", "ExampleInitialization",
+ CellLabel->"In[1]:=",ExpressionUUID->"21ab5bed-e8b1-459f-b362-41720e63b649"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "769b5c5a-3e9b-4fff-952f-696684aac517"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"56567c61-042d-4545-b9d1-641fc48419c8"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "d3e0abf7-2434-4b94-ac6c-9d4ea38d10a5"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->1715175322,ExpressionUUID->"ab27a00f-e8ce-4130-85bf-a089f677bf29"],
+
+Cell["\:663e\:793a\:7b2c 193 \:53f7\:7070\:78c1\:7a7a\:95f4\:7fa4\:7684 \
+Wyckoff \:8868\:ff1a", "ExampleText",ExpressionUUID->"881b7c9b-a13b-452a-bbfd-\
+a538632031ee"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showMSGWyckoff", "[", 
+  RowBox[{"gray", "[", "193", "]"}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"621873c2-e07d-499d-940a-f826e712056f"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Multiplicity\"\>", "\<\"Wyckoff Letter\"\>", "\<\"Atomic Positions \
+& Magnetization directions\"\>"},
+    {"2", "\<\"a\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"2", "\<\"b\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"4", "\<\"c\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "3"], ",", 
+           FractionBox["2", "3"], ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["2", "3"], ",", 
+           FractionBox["1", "3"], ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["2", "3"], ",", 
+           FractionBox["1", "3"], ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "3"], ",", 
+           FractionBox["2", "3"], ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"4", "\<\"d\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "3"], ",", 
+           FractionBox["2", "3"], ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["2", "3"], ",", 
+           FractionBox["1", "3"], ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["2", "3"], ",", 
+           FractionBox["1", "3"], ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "3"], ",", 
+           FractionBox["2", "3"], ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"4", "\<\"e\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"6", "\<\"f\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "2"], ",", "0", ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "2"], ",", 
+           FractionBox["1", "2"], ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           FractionBox["1", "2"], ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "2"], ",", "0", ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "2"], ",", 
+           FractionBox["1", "2"], ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           FractionBox["1", "2"], ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"6", "\<\"g\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", "x", ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "x", ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", "0", ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{"-", "x"}], ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"-", "x"}], ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"8", "\<\"h\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "3"], ",", 
+           FractionBox["2", "3"], ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["2", "3"], ",", 
+           FractionBox["1", "3"], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["2", "3"], ",", 
+           FractionBox["1", "3"], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "3"], ",", 
+           FractionBox["2", "3"], ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["2", "3"], ",", 
+           FractionBox["1", "3"], ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "3"], ",", 
+           FractionBox["2", "3"], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["1", "3"], ",", 
+           FractionBox["2", "3"], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["2", "3"], ",", 
+           FractionBox["1", "3"], ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"12", "\<\"i\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"2", " ", "x"}], ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", "x", ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "x"}], ",", 
+           RowBox[{"-", "x"}], ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "x"}], ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"-", "x"}], ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"2", " ", "x"}], ",", "x", ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "x"}], ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"-", "x"}], ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"2", " ", "x"}], ",", "x", ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", "x", ",", "0"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "x"}], ",", 
+           RowBox[{"-", "x"}], ",", 
+           FractionBox["1", "2"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"12", "\<\"j\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", "y", ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"x", "-", "y"}], ",", "x", ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "y"}], ",", 
+           RowBox[{"x", "-", "y"}], ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{"-", "y"}], ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", 
+           RowBox[{"-", "x"}], ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"y", ",", 
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"x", "-", "y"}], ",", 
+           RowBox[{"-", "y"}], ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"y", ",", "x", ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", 
+           FractionBox["1", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"x", "-", "y"}], ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", "y", ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "y"}], ",", 
+           RowBox[{"-", "x"}], ",", 
+           FractionBox["3", "4"]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"12", "\<\"k\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", "x", ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "x", ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", "0", ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{"-", "x"}], ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", "x", ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", "x", ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", "0", ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]},
+    {"24", "\<\"l\"\>", 
+     TagBox[GridBox[{
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", "y", ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"x", "-", "y"}], ",", "x", ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "y"}], ",", 
+           RowBox[{"x", "-", "y"}], ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{"-", "y"}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", 
+           RowBox[{"-", "x"}], ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"y", ",", 
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"x", "-", "y"}], ",", 
+           RowBox[{"-", "y"}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"y", ",", "x", ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"x", "-", "y"}], ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", "y", ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "y"}], ",", 
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{"-", "y"}], ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", 
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"y", ",", 
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", "y", ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"x", "-", "y"}], ",", "x", ",", 
+           RowBox[{"-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "y"}], ",", 
+           RowBox[{"x", "-", "y"}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "-", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", "y", ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "y"}], ",", 
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"x", "-", "y"}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], "+", "z"}]}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "x"}], ",", 
+           RowBox[{
+            RowBox[{"-", "x"}], "+", "y"}], ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"x", "-", "y"}], ",", 
+           RowBox[{"-", "y"}], ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]},
+        {
+         RowBox[{"{", 
+          RowBox[{"y", ",", "x", ",", "z"}], "}"}], 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}
+       },
+       AutoDelete->False,
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"]}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {
+       RGBColor[1, 1, 0.85], 
+       RGBColor[0.87, 0.94, 1]}, "Rows" -> {{None}}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"3335f63d-c1b0-4a52-afb0-bd5c0b45077b"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        ButtonBox["msgop",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/msgop"],
+        " \[FilledVerySmallSquare] ",
+        ButtonBox["init",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/init"]
+       }], "SeeAlso",ExpressionUUID->"d2eaa1ca-734a-4eb6-9bd9-40de6506839e"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"9e2a0853-784f-4a54-8020-\
+c30144c6f988"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Tech", " ", "Notes"}], "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["MagneticTB \:5165\:95e8"]], 
+           "paclet:MagneticTB/tutorial/GettingStarted"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "67788fbf-e285-4ef0-9ac6-cd61268d13ce"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"7810cde9-626b-4494-8508-\
+949c1412af67"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["MagneticTB"]], "paclet:MagneticTB/guide/MagneticTB"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "2fd58f1b-94cb-4798-bc89-91da8e8b4620"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"667598f7-63b5-4579-90ca-\
+bc137cff3d30"],
+
+Cell["\:5386\:53f2", "HistorySection",ExpressionUUID->"d4d3e1fc-826f-4644-9931-9e357d11e17c"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"153e66a5-0e44-4590-80aa-eb20aef88a39"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"showMSGWyckoff",
+Visible->True,
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "AllOptsTable" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "HasOptions" -> 
+  True, "RootCaptions" -> "", "HeaderCoreAreaLink" -> {}, 
+  "Metadata" -> {
+   "built" -> "{2026, 9, 7, 23, 7, 17.165374}", 
+    "history" -> {"2.0.0", "", "", ""}, "context" -> "MagneticTB`", 
+    "keywords" -> {"Wyckoff position", "magnetic moment", "database"}, 
+    "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> True,
+     "label" -> "Magnetic T B Symbol", "language" -> "en", "paclet" -> 
+    "MagneticTB", "status" -> "None", "summary" -> 
+    "showMSGWyckoff[group] \:663e\:793a\:78c1\:7a7a\:95f4\:7fa4\:7684 Wyckoff \
+\:4f4d\:7f6e\:4ee5\:53ca\:5bf9\:79f0\:6027\:5141\:8bb8\:7684\:78c1\:77e9\:65b9\
+\:5411\:3002", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "showMSGWyckoff", "titlemodifier" -> "", "metadescription" -> "", 
+    "windowtitle" -> "showMSGWyckoff", "type" -> "Symbol", "uri" -> 
+    "MagneticTB/ref/showMSGWyckoff"}},
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (2026\:5e747\:67082\:65e5)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb"],
+ExpressionUUID->"f44bc20f-0c4e-4c86-a639-5373cce8ddf4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[582, 21, 6000, 151, 70, "AnchorBarGrid",ExpressionUUID->"799d4c43-38c2-4f47-a081-50b9c7a70340",
+ CellID->1],
+Cell[6585, 174, 93, 0, 70, "ContextNameCell",ExpressionUUID->"d5150f5b-4857-4e64-97b1-26bfe7896976"],
+Cell[CellGroupData[{
+Cell[6703, 178, 557, 14, 70, "ObjectNameGrid",ExpressionUUID->"82cde70b-2f17-4bc3-baa9-c19340946f54"],
+Cell[7263, 194, 548, 10, 70, "Usage",ExpressionUUID->"99f3e9d1-1ba4-4145-a388-4eed68ed08d2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7848, 209, 1443, 34, 70, "NotesSection",ExpressionUUID->"43c3ea27-ca1d-43ec-9e49-5e8c3f89dc80",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->884849688],
+Cell[9294, 245, 235, 2, 70, "Notes",ExpressionUUID->"9c781d51-5d32-4781-8600-367c560cfaba"],
+Cell[9532, 249, 402, 6, 70, "Notes",ExpressionUUID->"586d2e63-3184-4b50-9b4c-edef9dc0c696"]
+}, Closed]],
+Cell[9949, 258, 80, 0, 70, "PageDelimiter",ExpressionUUID->"da9bd32f-24ff-45df-abd7-35b426b06c44"],
+Cell[CellGroupData[{
+Cell[10054, 262, 1400, 37, 70, "PrimaryExamplesSection",ExpressionUUID->"b199b53f-a7c1-4aa0-98b7-ba5099cdab1a",
+ CellID->344450741],
+Cell[11457, 301, 179, 2, 70, "Input",ExpressionUUID->"21ab5bed-e8b1-459f-b362-41720e63b649"],
+Cell[CellGroupData[{
+Cell[11661, 307, 1236, 31, 70, "ExampleSection",ExpressionUUID->"ab27a00f-e8ce-4130-85bf-a089f677bf29",
+ CellID->1715175322],
+Cell[12900, 340, 168, 2, 70, "ExampleText",ExpressionUUID->"881b7c9b-a13b-452a-bbfd-a538632031ee"],
+Cell[CellGroupData[{
+Cell[13093, 346, 213, 4, 70, "Input",ExpressionUUID->"621873c2-e07d-499d-940a-f826e712056f"],
+Cell[13309, 352, 24987, 792, 70, "Output",ExpressionUUID->"3335f63d-c1b0-4a52-afb0-bd5c0b45077b"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[38335, 1149, 749, 20, 70, "SeeAlsoSection",ExpressionUUID->"9e2a0853-784f-4a54-8020-c30144c6f988"],
+Cell[39087, 1171, 761, 20, 70, "TutorialsSection",ExpressionUUID->"7810cde9-626b-4494-8508-949c1412af67"],
+Cell[39851, 1193, 722, 18, 70, "MoreAboutSection",ExpressionUUID->"667598f7-63b5-4579-90ca-bc137cff3d30"],
+Cell[40576, 1213, 93, 0, 70, "HistorySection",ExpressionUUID->"d4d3e1fc-826f-4644-9931-9e357d11e17c"],
+Cell[40672, 1215, 78, 0, 70, "FooterCell",ExpressionUUID->"153e66a5-0e44-4590-80aa-eb20aef88a39"]
+}
+]
+*)
+
+(* End of internal cache information *)

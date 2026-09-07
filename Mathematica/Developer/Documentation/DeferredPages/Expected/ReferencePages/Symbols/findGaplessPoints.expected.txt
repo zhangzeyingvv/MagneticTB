@@ -1,0 +1,16 @@
+findGaplessPoints
+searches a periodic Brillouin zone for zeros of the direct gap between bands occupied and occupied+1.
+Examples
+Related Functions
+MagneticTB/ref/findGaplessPoints
+Options
+BrillouinZone
+GridSize
+CandidateCount
+GapTolerance
+MergeTolerance
+HermitianTolerance
+MaxIterations
+RefinementMethod
+MomentumSymbols
+Output

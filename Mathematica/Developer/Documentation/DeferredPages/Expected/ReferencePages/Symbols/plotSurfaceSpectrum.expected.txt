@@ -1,0 +1,28 @@
+plotSurfaceSpectrum
+plots the semi-infinite surface spectral weight along a two-dimensional surface-momentum path.
+Examples
+Related Functions
+MagneticTB/ref/plotSurfaceSpectrum
+Options
+MomentumSubdivisions
+EnergyPoints
+CellMatrix
+Broadening
+Tolerance
+MaxIterations
+Surface
+HermiticityTolerance
+Output
+ColorFunction
+ColorFunctionScaling
+PlotLegends
+PlotRange
+InterpolationOrder
+Mesh
+FrameLabel
+FontSize
+FontFamily
+AspectRatio
+ImageSize
+symmetry-generated P4 Chern insulator
+symmetry-generated gray-P4 Z2 model

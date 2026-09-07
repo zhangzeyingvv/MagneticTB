@@ -1,0 +1,6 @@
+Representative MagneticTB Models
+CsCl: a 1 by 3 rectangular s-p hopping block
+FeSe: two Wyckoff orbits with d and p orbitals
+Cubic p orbitals: DirectProduct and Induced representations
+E plus PT: antiunitary induction between two sites
+MagneticTB/tutorial/ValidatedModels

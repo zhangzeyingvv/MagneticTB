@@ -1,0 +1,9 @@
+standardKPath
+returns a conventional high-symmetry path for the current lattice in reciprocal fractional coordinates.
+Examples
+Related Functions
+MagneticTB/ref/standardKPath
+Options
+BravaisType
+Tolerance
+msgop[gray[221]]

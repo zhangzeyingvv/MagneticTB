@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="description" content="MagneticTB Python showHoppingParameters reference with all six Graphene nearest-neighbour occurrences."><title>showHoppingParameters · MagneticTB Python 用户帮助</title><link rel="stylesheet" href="../help.css?v=a0a09c187d71"><script defer src="../help.js?v=6bee0b68d479"></script></head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+  <div class="help-shell"><aside id="helpSidebar" class="sidebar panel"><a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a><nav class="nav" aria-label="showHoppingParameters 页面导航"><a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a><p class="nav-group">showHoppingParameters</p><a class="active" href="#usage"><span>01</span><span>Usage</span></a><a href="#source"><span>02</span><span>Representative</span></a><a href="#occurrences"><span>03</span><span>Occurrences</span></a><a href="#options"><span>04</span><span>Options</span></a><p class="nav-group">Links</p><a href="showbonds.html"><span>B</span><span>showbonds</span></a><a href="symham.html"><span>H</span><span>symham</span></a></nav><div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">5 个示例</span><span class="locale-en">5 examples</span></div><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div></aside>
+    <div class="workspace"><header class="topbar panel"><button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button><div class="top-title"><strong><code>showHoppingParameters</code></strong><small>Reference Page</small></div><label class="search-wrap"><span aria-hidden="true">⌕</span><input id="helpSearch" type="search" autocomplete="off" placeholder="搜索本页" aria-label="搜索本页"><small id="searchCount" class="search-count" aria-live="polite"></small></label><div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button" aria-label="Switch to English">EN</button></div></header>
+      <main id="mainContent">
+        <section id="usage" class="help-section" data-searchable data-search="showHoppingParameters parameter source occurrence representative row bra column ket model hermitian kernel validation"><div class="section-heading"><div><p class="eyebrow">Reference Page</p><h2><code>showHoppingParameters</code></h2><p class="locale-zh">把 <code>symham</code> 中的独立参数追溯到 Rust 求解得到的实空间 hopping。</p><p class="locale-en">Trace independent <code>symham</code> parameters back to Rust-solved real-space hoppings.</p></div><span class="section-index">01</span></div><article class="card panel"><p class="signature">showHoppingParameters(shell, parameter=None, *, model=None, hermitian=True, kernel_method="Iterative", validation_level="Basic") → TableReport</p><div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">参数</span><span class="locale-en">Parameter</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">作用</span><span class="locale-en">Purpose</span></th></tr></thead><tbody><tr><td><code>shell</code></td><td>—</td><td><span class="locale-zh">要检查的 1-based 已准备键层。</span><span class="locale-en">Prepared 1-based shell to inspect.</span></td></tr><tr><td><code>parameter</code></td><td><code>None</code></td><td><span class="locale-zh"><code>None</code> 为每个参数显示一个 representative source；指定名称则显示该参数的全部实空间出现位置。</span><span class="locale-en"><code>None</code> shows one representative source per parameter; a name shows every real-space occurrence of that parameter.</span></td></tr><tr><td><code>model</code></td><td><code>None</code></td><td><span class="locale-zh"><code>None</code> 使用当前会话；也可传入独立 <code>PreparedModel</code>。</span><span class="locale-en"><code>None</code> uses the current session; a detached <code>PreparedModel</code> may also be supplied.</span></td></tr><tr><td><code>hermitian</code></td><td><code>True</code></td><td><span class="locale-zh">是否按 Hermitian 模式构造参数空间。</span><span class="locale-en">Whether the parameter space is constructed in Hermitian mode.</span></td></tr><tr><td><code>kernel_method</code></td><td><code>"Iterative"</code></td><td><span class="locale-zh"><code>"Iterative"</code>、<code>"Stacked"</code> 或 <code>"Cyclotomic"</code>；失败时不自动换方法。</span><span class="locale-en"><code>"Iterative"</code>, <code>"Stacked"</code>, or <code>"Cyclotomic"</code>; failure never switches methods automatically.</span></td></tr><tr><td><code>validation_level</code></td><td><code>"Basic"</code></td><td><span class="locale-zh"><code>"None"</code>、<code>"Basic"</code> 或 <code>"Full"</code>。</span><span class="locale-en"><code>"None"</code>, <code>"Basic"</code>, or <code>"Full"</code>.</span></td></tr></tbody></table></div><div class="callout"><span class="locale-zh">方向约定固定为 row = bra/destination，column = ket/source。<code>CellTranslation</code> 是 column/source 所在晶胞相对 row/destination 原胞的整数平移。</span><span class="locale-en">The direction convention is row = bra/destination and column = ket/source. <code>CellTranslation</code> is the integer cell of the column/source relative to the row/destination home cell.</span></div></article></section>
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+        <section id="source" class="help-section" data-searchable data-search="input 1 Graphene t1 representative source"><div class="section-heading"><div><p class="eyebrow">Basic Example · input 1</p><h2><span class="locale-zh">Graphene 最近邻参数 t1 的代表键</span><span class="locale-en">Representative bond for Graphene t1</span></h2></div><span class="section-index">02</span></div><article class="card panel" data-example="1"><div class="code-block"><pre><span class="code-comment locale-zh"># 读取并检查 hopping 参数的实空间位置</span><span class="code-comment locale-en"># Read and inspect the real-space locations of hopping parameters</span>
+from fractions import Fraction
+from magnetictb import gray, init, msgop, showHoppingParameters
+from magnetictb import sqrt, symbol, symham
+
+a, c = symbol("a"), symbol("c")
+init(
+    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 3)),
+    wyckoffposition=(((Fraction(1, 3), Fraction(2, 3), 0), (0, 0, 0)),),
+    symminformation=msgop(gray[191]),
+    basisFunctions=(("pz",),),
+)
+nearest = symham(2)
+report = showHoppingParameters(2)
+print(report.title)
+for row in report.to_dict()["rows"]:
+    print(row["Parameter"], row["ConstraintOrbitIndex"],
+          row["BondIndex"], row["ColumnSiteIndex"],
+          row["RowSiteIndex"], row["CellTranslation"],
+          row["Coefficient"], row["Representative"])</pre></div><div class="code-block output"><pre>Magnetic space group (BNS): [191, 234]
+Lattice: HexagonalP
+Primitive Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Conventional Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Generators: [('"6z"', 'F'), ('"2x"', 'F'), ('"-1"', 'F'), ('"1"', 'T')]
+params: ['t1']
+Independent parameter sources for shell 2 (representative hoppings)
+t1 1 1 2 1 [-1, 0, 0] 1 True</pre></div><p class="locale-zh">代表键从 column/ket 的 site 2、晶胞 (−1,0,0) 跳到 row/bra 的原胞 site 1；系数为精确 1。</p><p class="locale-en">The representative hopping goes from column/ket site 2 in cell (−1,0,0) to row/bra site 1 in the home cell, with exact coefficient 1.</p></article></section>
+        <section id="occurrences" class="help-section" data-searchable data-search="input 2 all six occurrences t1"><div class="section-heading"><div><p class="eyebrow">Applications · input 2</p><h2><span class="locale-zh">t1 在整层中的 6 个出现位置</span><span class="locale-en">All six occurrences of t1</span></h2></div><span class="section-index">03</span></div><article class="card panel" data-example="2"><div class="code-block"><pre><span class="code-comment locale-zh"># 读取并检查 hopping 参数的实空间位置</span><span class="code-comment locale-en"># Read and inspect the real-space locations of hopping parameters</span>
+occurrences = showHoppingParameters(2, "t1").to_dict()["rows"]
+for row in occurrences:
+    print(row["BondIndex"], row["ColumnSiteIndex"],
+          row["RowSiteIndex"], row["CellTranslation"],
+          row["Coefficient"], row["Representative"])</pre></div><div class="code-block output"><pre>1 2 1 [-1, 0, 0] 1 True
+2 2 1 [0, 0, 0]  1 False
+3 2 1 [0, 1, 0]  1 False
+4 1 2 [0, -1, 0] 1 False
+5 1 2 [0, 0, 0]  1 False
+6 1 2 [1, 0, 0]  1 False</pre></div><p class="locale-zh">前三行产生 <code>symham(2)</code> 的右上矩阵元，后三行是其反向 hopping 并产生左下矩阵元。</p><p class="locale-en">The first three rows generate the upper-right entry of <code>symham(2)</code>; the last three are reverse hoppings generating the lower-left entry.</p></article></section>
+        <section id="options" class="help-section" data-searchable data-search="inputs 3 4 5 hermitian false stacked full"><div class="section-heading"><div><p class="eyebrow">Options · inputs 3–5</p><h2><span class="locale-zh">求解选项与报告必须一致</span><span class="locale-en">The report must use the same solve options</span></h2></div><span class="section-index">04</span></div><div class="content-grid three">
+          <article class="card panel" data-example="3"><h3><span class="locale-zh">输入 3 · 非厄米</span><span class="locale-en">Input 3 · non-Hermitian</span></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 非厄米</span><span class="code-comment locale-en"># non-Hermitian</span>
+symham(2, Hermitian=False)
+row = showHoppingParameters(2, hermitian=False).to_dict()["rows"][0]
+print(row["Parameter"], row["BondIndex"], row["CellTranslation"])</pre></div><div class="code-block output"><pre>params: ['t1']
+t1 1 [-1, 0, 0]</pre></div></article>
+          <article class="card panel" data-example="4"><h3><span class="locale-zh">输入 4 · Stacked</span><span class="locale-en">Input 4 · Stacked</span></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 读取并检查 hopping 参数的实空间位置</span><span class="code-comment locale-en"># Read and inspect the real-space locations of hopping parameters</span>
+symham(2, KernelMethod="Stacked")
+row = showHoppingParameters(2, kernel_method="Stacked").to_dict()["rows"][0]
+print(row["Parameter"], row["BondIndex"], row["CellTranslation"])</pre></div><div class="code-block output"><pre>params: ['t1']
+t1 1 [-1, 0, 0]</pre></div></article>
+          <article class="card panel" data-example="5"><h3><span class="locale-zh">输入 5 · Full</span><span class="locale-en">Input 5 · Full</span></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 读取并检查 hopping 参数的实空间位置</span><span class="code-comment locale-en"># Read and inspect the real-space locations of hopping parameters</span>
+symham(2, ValidationLevel="Full")
+row = showHoppingParameters(2, validation_level="Full").to_dict()["rows"][0]
+print(row["Parameter"], row["BondIndex"], row["CellTranslation"])</pre></div><div class="code-block output"><pre>params: ['t1']
+t1 1 [-1, 0, 0]</pre></div></article>
+        </div><p class="locale-zh">三个例子都得到同一个代表键，但报告调用仍显式传入与 Hamiltonian 求解相同的选项，避免把不同求解模式的结果混在一起解释。</p><p class="locale-en">All three examples yield the same representative bond, but the report explicitly repeats the Hamiltonian solve options so results from different modes are never mixed.</p></section>
+        <footer class="site-footer"><a href="../index.html"><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a></footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

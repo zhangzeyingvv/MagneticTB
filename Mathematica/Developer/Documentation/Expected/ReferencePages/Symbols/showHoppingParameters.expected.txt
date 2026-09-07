@@ -1,0 +1,9 @@
+showHoppingParameters
+shows the representative real-space hopping associated with each independent parameter in a solved shell.
+Examples
+Related Functions
+MagneticTB/ref/showHoppingParameters
+Options
+Hermitian
+KernelMethod
+ValidationLevel

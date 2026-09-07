@@ -1,0 +1,7 @@
+getGenerator
+finds a small generating subset of a complete finite group.
+Examples
+Related Functions
+MagneticTB/ref/getGenerator
+Options
+SameTest

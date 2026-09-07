@@ -1,0 +1,27 @@
+plotBerryCurvature2D
+samples occupied-subspace Berry curvature on an oriented momentum slice and returns a signed density plot.
+Examples
+Related Functions
+MagneticTB/ref/plotBerryCurvature2D
+Options
+Directions
+FixedCoordinates
+GridSize
+StepSize
+HermitianTolerance
+GapTolerance
+CovarianceTolerance
+OverlapTolerance
+SymmetricColorRange
+Output
+ColorFunction
+ColorFunctionScaling
+PlotLegends
+PlotRange
+InterpolationOrder
+Mesh
+FrameLabel
+FontSize
+FontFamily
+AspectRatio
+ImageSize

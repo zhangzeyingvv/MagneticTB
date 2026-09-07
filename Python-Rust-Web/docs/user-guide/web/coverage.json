@@ -1,0 +1,774 @@
+{
+  "schema": "magnetictb.python_web_help_coverage.v2",
+  "authority": "Mathematica stable 2.0.10 Documentation/ChineseSimplified",
+  "policy": {
+    "markdown_is_authority": false,
+    "include_only_verified_python_public_features": true,
+    "every_migrated_example_requires_actual_output": true
+  },
+  "totals": {
+    "pages": 61,
+    "inputs": 313,
+    "outputs": 254,
+    "messages": 14
+  },
+  "web_summary": {
+    "published_correspondence_pages": 43,
+    "source_input_positions_accounted_on_web": 235,
+    "source_input_positions_not_published": 78,
+    "source_input_positions_with_explicit_cell_evidence": 29,
+    "all_source_page_structures_inventoried": true,
+    "all_source_cells_semantically_verified": false,
+    "all_examples_claimed_one_to_one_compatible": false
+  },
+  "pages": [
+    {
+      "kind": "guide",
+      "mathematica_page": "Guides/MagneticTB",
+      "input_count": 0,
+      "output_count": 0,
+      "message_count": 0,
+      "python_exact_name_exported": null,
+      "web_status": "migrated",
+      "web_path": "guide/MagneticTB.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/CompileCyclotomicMatrices",
+      "input_count": 4,
+      "output_count": 4,
+      "message_count": 0,
+      "python_exact_name_exported": false,
+      "web_status": "omitted_no_verified_public_equivalent",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/CompileMagneticTBInput",
+      "input_count": 3,
+      "output_count": 3,
+      "message_count": 1,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/CompileMagneticTBInput.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/CurrentModelSession",
+      "input_count": 2,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/CurrentModelSession.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/CyclotomicCommonKernel",
+      "input_count": 4,
+      "output_count": 4,
+      "message_count": 0,
+      "python_exact_name_exported": false,
+      "web_status": "omitted_no_verified_public_equivalent",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/CyclotomicCommonNullSpace",
+      "input_count": 7,
+      "output_count": 7,
+      "message_count": 0,
+      "python_exact_name_exported": false,
+      "web_status": "omitted_no_verified_public_equivalent",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/CyclotomicNullSpace",
+      "input_count": 3,
+      "output_count": 3,
+      "message_count": 0,
+      "python_exact_name_exported": false,
+      "web_status": "omitted_no_verified_public_equivalent",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/CyclotomicRREF",
+      "input_count": 3,
+      "output_count": 3,
+      "message_count": 0,
+      "python_exact_name_exported": false,
+      "web_status": "omitted_no_verified_public_equivalent",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/GenerateGroup",
+      "input_count": 2,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "pending_result_order_alignment",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/RestoreCyclotomicExpression",
+      "input_count": 4,
+      "output_count": 4,
+      "message_count": 0,
+      "python_exact_name_exported": false,
+      "web_status": "omitted_no_verified_public_equivalent",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/bandManipulate",
+      "input_count": 9,
+      "output_count": 7,
+      "message_count": 3,
+      "python_exact_name_exported": true,
+      "web_status": "omitted_at_user_request",
+      "web_path": null,
+      "note": "The bandManipulate reference page and its nine examples were removed from user help at the user\u0027s request. The Python API was not changed."
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/bandManipulateEig",
+      "input_count": 2,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "omitted_at_user_request",
+      "web_path": null,
+      "note": "The reference page and its two examples were removed from user help at the user's request. The original page is archived outside the web directory; the Python API is unchanged."
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/bandManipulateold",
+      "input_count": 3,
+      "output_count": 3,
+      "message_count": 0,
+      "python_exact_name_exported": false,
+      "web_status": "omitted_no_verified_public_equivalent",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/banddata",
+      "input_count": 3,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/banddata.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/bandplot",
+      "input_count": 8,
+      "output_count": 7,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated_with_documented_signature_gap",
+      "web_path": "reference/bandplot.html",
+      "note": "All eight source inputs are accounted for; Mathematica bandplot[Automatic,...] maps to Python showband because current Python bandplot requires an explicit path."
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/bnsdict",
+      "input_count": 4,
+      "output_count": 4,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/bnsdict.html",
+      "cell_alignment": {
+        "status": "source_order_and_semantic_results_verified",
+        "input_cells": [1, 2, 3, 4],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/bnsdict.source.wl",
+        "evidence": [
+          "python/tests/test_modeling_api.py::HighLevelModelingApiTests::test_msgop_matches_stable_selectors_and_is_session_independent",
+          "python/src/magnetictb/data.py::_MagneticGroupDictionary",
+          "rust/crates/magnetictb-python/src/bindings/data.rs"
+        ],
+        "documented_difference": "Mathematica Missing[KeyAbsent,...] is represented by a tagged Python exception."
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/brokenSymmetryInitRules",
+      "input_count": 1,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/brokenSymmetryInitRules.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/compareBand",
+      "input_count": 4,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "pending_cross_language_result_alignment",
+      "web_path": "reference/compareBand.html",
+      "note": "The public function exists, but this page's four examples consume fitted parameters from the pending fittingTB workflow. Their numerical band results cannot be claimed equivalent until the stable 2.0.10 fitting outputs align. The HTML file is retained as an unlisted draft."
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/fittingTB",
+      "input_count": 12,
+      "output_count": 11,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "pending_cross_language_result_alignment",
+      "web_path": "reference/fittingTB.html",
+      "note": "The public function exists, but numerical outputs are not yet stable-equivalent. Confirmed differences include Input 10 (FiniteDifferenceStep=1e-4: stable iterations 30 and LSQ 3.774403522673393 versus the current draft's iterations 16 and loss 3.681303796376574), Input 11 (stable iterations 28 and final damping 1.0622118484416436e-8 versus 24 and 0.023230573125418787), and Input 12 (stable iterations 27 versus 12). The HTML file is retained as an unlisted draft."
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/getGenerator",
+      "input_count": 2,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/getGenerator.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/getMSGElemFromMSGCorep",
+      "input_count": 1,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "omitted_optional_msgcorep_dependency_not_bundled",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/getTBBandCorep",
+      "input_count": 2,
+      "output_count": 0,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "omitted_optional_msgcorep_dependency_not_bundled",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/gray",
+      "input_count": 3,
+      "output_count": 3,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/gray.html",
+      "cell_alignment": {
+        "status": "source_order_and_semantic_results_verified",
+        "input_cells": [1, 2, 3],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/gray.source.wl",
+        "evidence": [
+          "python/tests/test_modeling_api.py::HighLevelModelingApiTests::test_msgop_matches_stable_selectors_and_is_session_independent",
+          "Tests/cross-language/help-examples-v1/rust_python_consumer/TestStableStyleApi.py",
+          "python/src/magnetictb/data.py::_MagneticGroupDictionary"
+        ],
+        "documented_difference": "Mathematica Missing[KeyAbsent,...] is represented by a Python exception."
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/graylayer",
+      "input_count": 2,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/graylayer.html",
+      "cell_alignment": {
+        "status": "source_order_and_semantic_results_verified",
+        "input_cells": [1, 2],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/graylayer.source.wl",
+        "evidence": [
+          "rust/crates/magnetictb-data/resources/layer.json",
+          "python/tests/test_data.py::DataApiTests::test_subperiodic_public_operations_use_stable_og_order",
+          "rust/crates/magnetictb-python/src/bindings/data.rs"
+        ],
+        "documented_difference": "Mathematica Missing[KeyAbsent,...] is represented by DataError[UnknownSubperiodicGraySelector]."
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/grayrod",
+      "input_count": 2,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/grayrod.html",
+      "cell_alignment": {
+        "status": "source_order_and_semantic_results_verified",
+        "input_cells": [1, 2],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/grayrod.source.wl",
+        "evidence": [
+          "rust/crates/magnetictb-data/resources/rod.json",
+          "python/tests/test_data.py::DataApiTests::test_subperiodic_public_operations_use_stable_og_order",
+          "rust/crates/magnetictb-python/src/bindings/data.rs"
+        ],
+        "documented_difference": "Mathematica Missing[KeyAbsent,...] is represented by DataError[UnknownSubperiodicGraySelector]."
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/hop",
+      "input_count": 5,
+      "output_count": 5,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/hop.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/hoppingData",
+      "input_count": 1,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/hoppingData.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/init",
+      "input_count": 12,
+      "output_count": 11,
+      "message_count": 1,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/init.html",
+      "cell_mapping": {
+        "status": "current_source_order_mapped_semantic_gate_pending",
+        "input_cells": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/init.source.wl",
+        "source_sha256": "bf55f4ca080e3a844b7ac8225587027e54f5e5705a536eef7599b58c94ca25c4",
+        "note": "The Web page now follows the current 2.0.10 source-cell order. A current-source full semantic replay is still required before claiming item-by-item result equivalence."
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/initfromrep",
+      "input_count": 12,
+      "output_count": 11,
+      "message_count": 1,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/initfromrep.html",
+      "cell_mapping": {
+        "status": "current_source_order_mapped_semantic_gate_pending",
+        "input_cells": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/initfromrep.source.wl",
+        "source_sha256": "315986207cfaddb6cf251b647007023f548da44586dc0e8eb20616ba1560d01b",
+        "note": "The Web page now follows the current 2.0.10 source-cell order. A current-source full semantic replay is still required before claiming item-by-item result equivalence."
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/initold",
+      "input_count": 7,
+      "output_count": 7,
+      "message_count": 0,
+      "python_exact_name_exported": false,
+      "web_status": "omitted_no_verified_public_equivalent",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/mlgop",
+      "input_count": 1,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/mlgop.html",
+      "cell_alignment": {
+        "status": "source_order_and_semantic_results_verified",
+        "input_cells": [1],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/mlgop.source.wl",
+        "evidence": [
+          "rust/crates/magnetictb-data/resources/layer.json",
+          "python/tests/test_data.py::DataApiTests::test_subperiodic_public_operations_use_stable_og_order"
+        ]
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/mrgop",
+      "input_count": 1,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/mrgop.html",
+      "cell_alignment": {
+        "status": "source_order_and_semantic_results_verified",
+        "input_cells": [1],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/mrgop.source.wl",
+        "evidence": [
+          "rust/crates/magnetictb-data/resources/rod.json",
+          "python/tests/test_data.py::DataApiTests::test_subperiodic_public_operations_use_stable_og_order"
+        ]
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/msgop",
+      "input_count": 1,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/msgop.html",
+      "cell_alignment": {
+        "status": "source_order_and_semantic_results_verified",
+        "input_cells": [1],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/msgop.source.wl",
+        "evidence": [
+          "Tests/cross-language/help-examples-v1/rust_python_consumer/TestStableStyleApi.py",
+          "python/tests/test_modeling_api.py::HighLevelModelingApiTests::test_msgop_matches_stable_selectors_and_is_session_independent"
+        ]
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/orbitalTable",
+      "input_count": 1,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/orbitalTable.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/pointMatrix",
+      "input_count": 2,
+      "output_count": 2,
+      "message_count": 1,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/pointMatrix.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/readHR",
+      "input_count": 3,
+      "output_count": 3,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/readHR.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/showBrillouinZone",
+      "input_count": 8,
+      "output_count": 7,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/showBrillouinZone.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/showCrystalStructure",
+      "input_count": 11,
+      "output_count": 11,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated_with_documented_symbolic_moment_gap",
+      "web_path": "reference/showCrystalStructure.html",
+      "note": "All eleven source inputs are accounted for; the symbolic MomentRules example is an explicit current public gap."
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/showHamiltonianBasis",
+      "input_count": 2,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/showHamiltonianBasis.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/showHoppingParameters",
+      "input_count": 5,
+      "output_count": 5,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/showHoppingParameters.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/showMSGWyckoff",
+      "input_count": 1,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/showMSGWyckoff.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/showSymmetryRepresentations",
+      "input_count": 3,
+      "output_count": 3,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/showSymmetryRepresentations.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/showband",
+      "input_count": 7,
+      "output_count": 6,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/showband.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/showbonds",
+      "input_count": 2,
+      "output_count": 1,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/showbonds.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/standardKPath",
+      "input_count": 4,
+      "output_count": 3,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/standardKPath.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/symham",
+      "input_count": 10,
+      "output_count": 9,
+      "message_count": 2,
+      "python_exact_name_exported": true,
+      "web_status": "migrated_supported_subset_9_of_10",
+      "web_path": "reference/symham.html",
+      "cell_alignment": {
+        "status": "nine_cells_verified_one_parameter_basis_order_gap",
+        "verified_input_cells": [1, 2, 3, 4, 6, 7, 8, 9, 10],
+        "pending_input_cells": [5],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/symham.source.wl",
+        "evidence": [
+          "Tests/cross-language/help-examples-v1/rust_python_consumer/TestStableStyleApi.py::StableStyleApiReplayTests::test_symham_exact_matrix_phases_match_stable_graphene_cells",
+          "Tests/cross-language/fixtures/core_data_closure_v1/core/model.graphene_pz.json",
+          "python/tests/test_modeling_api.py::HighLevelModelingApiTests::test_symham_is_single_shell_hamiltonian_and_rust_combines_shells",
+          "python/src/magnetictb/model_schema.py::PreparedModel._validate_symham_options"
+        ],
+        "pending_reason": "Input 5 spans the same P3 Hamiltonian space, but stable names the even real basis coefficient t2 and the chiral imaginary coefficient t1 while current Python/Rust names them t1 and t2. Printed parameter basis order is not yet one-to-one."
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/symhamII",
+      "input_count": 2,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/symhamII.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/symhamold",
+      "input_count": 4,
+      "output_count": 4,
+      "message_count": 0,
+      "python_exact_name_exported": false,
+      "web_status": "omitted_no_verified_public_equivalent",
+      "web_path": null
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/transformHoppings",
+      "input_count": 5,
+      "output_count": 4,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/transformHoppings.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/typeI",
+      "input_count": 2,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/typeI.html",
+      "cell_alignment": {
+        "status": "source_order_and_semantic_results_verified",
+        "input_cells": [1, 2],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/typeI.source.wl",
+        "evidence": [
+          "python/tests/test_modeling_api.py::HighLevelModelingApiTests::test_msgop_matches_stable_selectors_and_is_session_independent",
+          "python/src/magnetictb/data.py::_MagneticGroupDictionary"
+        ],
+        "documented_difference": "Mathematica Missing[KeyAbsent,...] is represented by a Python exception."
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/typeIII",
+      "input_count": 2,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/typeIII.html",
+      "cell_alignment": {
+        "status": "source_order_and_semantic_results_verified",
+        "input_cells": [1, 2],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/typeIII.source.wl",
+        "evidence": [
+          "python/tests/test_modeling_api.py::HighLevelModelingApiTests::test_msgop_matches_stable_selectors_and_is_session_independent",
+          "rust/crates/magnetictb-python/src/bindings/data.rs"
+        ],
+        "documented_difference": "Mathematica Missing[KeyAbsent,...] is represented by DataError[UnknownMagneticGroupSelector]."
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/typeIV",
+      "input_count": 2,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/typeIV.html",
+      "cell_alignment": {
+        "status": "source_order_and_semantic_results_verified",
+        "input_cells": [1, 2],
+        "source": "Developer/Documentation/SourcesChineseSimplified/ReferencePages/Symbols/typeIV.source.wl",
+        "evidence": [
+          "python/tests/test_modeling_api.py::HighLevelModelingApiTests::test_msgop_matches_stable_selectors_and_is_session_independent",
+          "rust/crates/magnetictb-python/src/bindings/data.rs"
+        ],
+        "documented_difference": "Mathematica Missing[KeyAbsent,...] is represented by DataError[UnknownMagneticGroupSelector]."
+      }
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/unsymham",
+      "input_count": 3,
+      "output_count": 3,
+      "message_count": 1,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/unsymham.html"
+    },
+    {
+      "kind": "reference",
+      "mathematica_page": "ReferencePages/Symbols/vaspEig",
+      "input_count": 3,
+      "output_count": 3,
+      "message_count": 0,
+      "python_exact_name_exported": true,
+      "web_status": "migrated",
+      "web_path": "reference/vaspEig.html"
+    },
+    {
+      "kind": "tutorial",
+      "mathematica_page": "Tutorials/BandFitting",
+      "input_count": 7,
+      "output_count": 5,
+      "message_count": 0,
+      "python_exact_name_exported": null,
+      "web_status": "pending_cross_language_result_alignment",
+      "web_path": "tutorial/BandFitting.html",
+      "note": "The seven-cell tutorial uses the same not-yet-aligned fitting workflow as ReferencePages/Symbols/fittingTB. The HTML file is retained as an unlisted draft and is not counted as published."
+    },
+    {
+      "kind": "tutorial",
+      "mathematica_page": "Tutorials/ContinuousSymmetry",
+      "input_count": 9,
+      "output_count": 6,
+      "message_count": 0,
+      "python_exact_name_exported": null,
+      "web_status": "migrated",
+      "web_path": "tutorial/ContinuousSymmetry.html"
+    },
+    {
+      "kind": "tutorial",
+      "mathematica_page": "Tutorials/Corepresentations",
+      "input_count": 4,
+      "output_count": 3,
+      "message_count": 0,
+      "python_exact_name_exported": null,
+      "web_status": "omitted_optional_msgcorep_dependency_not_bundled",
+      "web_path": null
+    },
+    {
+      "kind": "tutorial",
+      "mathematica_page": "Tutorials/CrystalAndKPaths",
+      "input_count": 7,
+      "output_count": 5,
+      "message_count": 0,
+      "python_exact_name_exported": null,
+      "web_status": "migrated",
+      "web_path": "tutorial/CrystalAndKPaths.html"
+    },
+    {
+      "kind": "tutorial",
+      "mathematica_page": "Tutorials/GeneralExamples",
+      "input_count": 37,
+      "output_count": 22,
+      "message_count": 0,
+      "python_exact_name_exported": null,
+      "web_status": "migrated_supported_subset_23_of_37",
+      "web_path": "tutorial/GeneralExamples.html",
+      "mapped_input_count": 23,
+      "note": "Inputs 1-6, 8-18 and 32-37 are mapped with current public outputs; the bandManipulate card for input 7 was removed at the user\u0027s request. Inputs 19-31 require compound Mathematica symbolic slicing, parameter-coordinate rewriting, multivariate series, and recombination for which no equivalent public Python rewrite surface is available; they are intentionally omitted."
+    },
+    {
+      "kind": "tutorial",
+      "mathematica_page": "Tutorials/GettingStarted",
+      "input_count": 32,
+      "output_count": 19,
+      "message_count": 4,
+      "python_exact_name_exported": null,
+      "web_status": "migrated_with_documented_internal_gap",
+      "web_path": "tutorial/GettingStarted.html",
+      "note": "All 32 source input positions have a recorded disposition: installation inputs 1-5 are now in guide/Installation.html#maintenance; the current-model generator card for input 7, bandManipulate cards for inputs 15, 23 and 27, and the troubleshooting section for inputs 28-32 were removed at the user's request to simplify the tutorial; model inputs 6, 8-14, 16-22 and 24-26 remain in tutorial/GettingStarted.html. Input 19 uses a Mathematica-internal residual report without a public Python equivalent, so the page shows only the verified public covariance flag."
+    },
+    {
+      "kind": "tutorial",
+      "mathematica_page": "Tutorials/LegacyBackend",
+      "input_count": 5,
+      "output_count": 2,
+      "message_count": 0,
+      "python_exact_name_exported": null,
+      "web_status": "omitted_unimplemented_legacy_backend",
+      "web_path": null
+    }
+  ]
+}

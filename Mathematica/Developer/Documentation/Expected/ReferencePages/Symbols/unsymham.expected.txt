@@ -1,0 +1,9 @@
+unsymham
+returns the translation-periodic Hamiltonian of shell n before point-group, magnetic, or Hermitian constraints are imposed.
+Examples
+Related Functions
+MagneticTB/ref/unsymham
+msgop[gray[221]]
+complete cubic gray-group 221
+Properties & Relations
+Possible Issues

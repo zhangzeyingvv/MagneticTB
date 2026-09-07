@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="description" content="MagneticTB Python transformHoppings reference with complete transformed metadata."><title>transformHoppings · MagneticTB Python 用户帮助</title><link rel="stylesheet" href="../help.css?v=a0a09c187d71"><script defer src="../help.js?v=6bee0b68d479"></script></head><body data-locale="zh"><a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button><div class="help-shell"><aside id="helpSidebar" class="sidebar panel"><a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a><nav class="nav" aria-label="transformHoppings 页面导航"><a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a><p class="nav-group">transformHoppings</p><a class="active" href="#usage"><span>01</span><span>Usage</span></a><a href="#setup"><span>02</span><span>Setup</span></a><a href="#transform"><span>03</span><span>Transform</span></a><a href="#options"><span>04</span><span>Options</span></a><p class="nav-group">Links</p><a href="hoppingData.html"><span>H</span><span>hoppingData</span></a></nav><div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">5 个示例</span><span class="locale-en">5 examples</span></div></div></aside><div class="workspace"><header class="topbar panel"><button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button><div class="top-title"><strong><code>transformHoppings</code></strong><small>Reference Page</small></div><label class="search-wrap"><span aria-hidden="true">⌕</span><input id="helpSearch" type="search" autocomplete="off" placeholder="搜索本页" aria-label="搜索本页"><small id="searchCount" class="search-count" aria-live="polite"></small></label><div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button">EN</button></div></header><main id="mainContent">
+<section id="usage" class="help-section" data-searchable data-search="transformHoppings supercell cell matrix Wannier centers lattice"><div class="section-heading"><div><p class="eyebrow">Reference Page</p><h2><code>transformHoppings</code></h2><p class="locale-zh">按整数晶胞矩阵把数值实空间 hopping 变换到超胞，并重建平移、Wannier 中心和矩阵。</p><p class="locale-en">Transform numeric real-space hoppings to a supercell described by an integer cell matrix, rebuilding translations, Wannier centers, and matrices.</p></div><span class="section-index">01</span></div><article class="card panel"><p class="signature">transformHoppings(hopping_data, cell_matrix, *, WannierCenters="Automatic", Lattice="Automatic", HermiticityTolerance=1e-9) → dict</p><div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">参数</span><span class="locale-en">Parameter</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">作用</span><span class="locale-en">Purpose</span></th></tr></thead><tbody><tr><td><code>hopping_data</code></td><td>—</td><td><span class="locale-zh"><code>hoppingData</code> 返回的实空间 hopping 字典。</span><span class="locale-en">Real-space hopping dictionary returned by <code>hoppingData</code>.</span></td></tr><tr><td><code>cell_matrix</code></td><td>—</td><td><span class="locale-zh">定义新晶胞的整数 3×3 矩阵。</span><span class="locale-en">Integer 3-by-3 matrix defining the new cell.</span></td></tr><tr><td><code>WannierCenters</code></td><td><code>"Automatic"</code></td><td><span class="locale-zh"><code>"Automatic"</code> 沿用输入数据；<code>None</code> 删除该字段；也可提供显式中心。</span><span class="locale-en"><code>"Automatic"</code> keeps the input data, <code>None</code> removes the field, or explicit centers may be supplied.</span></td></tr><tr><td><code>Lattice</code></td><td><code>"Automatic"</code></td><td><span class="locale-zh"><code>"Automatic"</code> 沿用输入晶格；<code>None</code> 删除该字段；也可提供显式晶格。</span><span class="locale-en"><code>"Automatic"</code> keeps the input lattice, <code>None</code> removes the field, or an explicit lattice may be supplied.</span></td></tr><tr><td><code>HermiticityTolerance</code></td><td><code>1e-9</code></td><td><span class="locale-zh">变换后数值 hopping 的 Hermitian 检查容差。</span><span class="locale-en">Tolerance used to check Hermiticity of the transformed numerical hoppings.</span></td></tr></tbody></table></div></article></section><div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+<section id="setup" class="help-section" data-searchable data-search="chain setup tetragonal shell e1 t1"><div class="section-heading"><div><p class="eyebrow">Example setup · input 1</p><h2><span class="locale-zh">沿 z 的一维链数据</span><span class="locale-en">Chain data along z</span></h2></div><span class="section-index">02</span></div><article class="card panel" data-example="1"><div class="code-block"><pre><span class="code-comment locale-zh"># 变换并检查实空间 hopping 数据</span><span class="code-comment locale-en"># Transform and inspect real-space hopping data</span>
+from magnetictb import (
+    gray, hoppingData, init, msgop, symbol,
+    symham, transformHoppings,
+)
+
+a, c = symbol("a"), symbol("c")
+operations = msgop(gray[75])
+init(
+    lattice=((a, 0, 0), (0, a, 0), (0, 0, c)),
+    lattpar=((a, 3), (c, 1)),
+    wyckoffposition=(((0, 0, 0), (0, 0, 0)),),
+    symminformation=operations,
+    basis_functions=(("s",),),
+    initial_bond_shells=2,
+    generate_symmetry_group=False,
+)
+symham(1); symham(2)
+chain_data = hoppingData([1, 2], {"e1": 0.0, "t1": 1.0})
+print(chain_data["Translations"])
+print(chain_data["HoppingMatrices"])</pre></div><div class="code-block output"><pre>Magnetic space group (BNS): [75, 2]
+Lattice: TetragonalP
+Primitive Lattice Vactor: [['a', 0, 0], [0, 'a', 0], [0, 0, 'c']]
+Conventional Lattice Vactor: [['a', 0, 0], [0, 'a', 0], [0, 0, 'c']]
+Generators: [('"2z"', 'F'), ('"4z"', 'F'), ('"1"', 'T')]
+params: ['e1']
+params: ['t1']
+[[0, 0, -1], [0, 0, 0], [0, 0, 1]]
+[[[(1+0j)]], [[0j]], [[(1+0j)]]]</pre></div></article></section>
+<section id="transform" class="help-section" data-searchable data-search="double z cell NumWannier volume lattice centers"><div class="section-heading"><div><p class="eyebrow">Basic Example · input 2</p><h2><span class="locale-zh">把 z 方向晶胞加倍</span><span class="locale-en">Double the cell along z</span></h2></div><span class="section-index">03</span></div><article class="card panel" data-example="2"><div class="code-block"><pre><span class="code-comment locale-zh"># 变换并检查实空间 hopping 数据</span><span class="code-comment locale-en"># Transform and inspect real-space hopping data</span>
+cell = ((1, 0, 0), (0, 1, 0), (0, 0, 2))
+transformed = transformHoppings(chain_data, cell)
+print({key: transformed[key] for key in (
+    "NumWannier", "CellVolumeFactor", "Lattice", "WannierCenters"
+)})</pre></div><div class="code-block output"><pre>{'NumWannier': 2,
+ 'CellVolumeFactor': 2,
+ 'Lattice': [[3.0, 0.0, 0.0],
+             [0.0, 3.0, 0.0],
+             [0.0, 0.0, 2.0]],
+ 'WannierCenters': [[0.0, 0.0, 0.0], [0.0, 0.0, 0.5]]}</pre></div><p class="locale-zh">体积加倍后一个原胞轨道变为两个超胞 Wannier 轨道。</p><p class="locale-en">Doubling the cell volume maps one primitive-cell orbital to two supercell Wannier orbitals.</p></article></section>
+<section id="options" class="help-section" data-searchable data-search="WannierCenters Lattice HermiticityTolerance options"><div class="section-heading"><div><p class="eyebrow">Options · inputs 3–5</p><h2><span class="locale-zh">中心、晶格和 Hermitian 容差</span><span class="locale-en">Centers, lattice, and Hermitian tolerance</span></h2></div><span class="section-index">04</span></div><div class="content-grid"><article class="card panel" data-example="3"><h3><code>WannierCenters</code></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 设置 Wannier 中心并检查变换后的 hopping</span><span class="code-comment locale-en"># Set Wannier centers and inspect the transformed hoppings</span>
+shifted = transformHoppings(
+    chain_data, cell,
+    WannierCenters=((0.25, 0, 0),),
+)
+print({key: shifted[key] for key in ("NumWannier", "WannierCenters")})</pre></div><div class="code-block output"><pre>{'NumWannier': 2,
+ 'WannierCenters': [[0.25, 0.0, 0.0],
+                    [0.25, 0.0, 0.5]]}</pre></div></article><article class="card panel" data-example="4"><h3><code>Lattice</code></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 指定输出晶格并检查变换后的 hopping</span><span class="code-comment locale-en"># Set the output lattice and inspect the transformed hoppings</span>
+custom_lattice = transformHoppings(
+    chain_data, cell,
+    Lattice=((2, 0, 0), (0, 2, 0), (0, 0, 3)),
+)
+print(custom_lattice["Lattice"])</pre></div><div class="code-block output"><pre>[[2.0, 0.0, 0.0],
+ [0.0, 2.0, 0.0],
+ [0.0, 0.0, 6.0]]</pre></div></article><article class="card panel wide" data-example="5"><h3><code>HermiticityTolerance</code></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 设置厄米性容差并检查变换结果</span><span class="code-comment locale-en"># Set the Hermiticity tolerance and inspect the transformed result</span>
+identity = ((1, 0, 0), (0, 1, 0), (0, 0, 1))
+checked = transformHoppings(
+    chain_data, identity,
+    HermiticityTolerance=1e-12,
+)
+print({key: checked[key] for key in ("NumWannier", "HermitianResidual")})</pre></div><div class="code-block output"><pre>{'NumWannier': 1, 'HermitianResidual': 0.0}</pre></div></article></div></section>
+</main><footer class="site-footer"><a href="../index.html"><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a></footer></div></div></body></html>

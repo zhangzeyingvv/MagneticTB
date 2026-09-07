@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>MagneticTB · Web Workbench</title>
+  <link rel="stylesheet" href="static/katex/katex.min.css">
+  <link rel="stylesheet" href="static/styles.css?v=d1e63859d71f">
+  <script defer src="static/katex/katex.min.js"></script>
+  <script defer src="static/translations.js?v=061dd5c9526b"></script>
+  <script defer src="static/i18n.js?v=0.1.2"></script>
+  <script defer src="static/theme.js?v=b608643fb0f9"></script>
+  <script defer src="static/app.js?v=0.1.2"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <aside class="sidebar panel">
+      <a class="brand" href="#overview" aria-label="MagneticTB 首页">
+        <span class="brand-mark">M</span>
+        <span><strong>MagneticTB</strong><small>Rust exact core</small></span>
+      </a>
+      <nav class="nav" aria-label="工作区导航">
+        <a href="#overview" class="active"><span>01</span>概览</a>
+        <a href="#model"><span>02</span>模型</a>
+        <a href="#hamiltonian"><span>03</span>Hamiltonian</a>
+        <a href="#properties"><span>04</span>Properties</a>
+        <a href="#data"><span>05</span>Data / MSG</a>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="local-pill"><span></span>本机 · 单进程</div>
+        <a href="api/docs" target="_blank" rel="noreferrer">OpenAPI</a>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar panel">
+        <button id="menuButton" class="icon-button" type="button" aria-label="打开导航">☰</button>
+        <div class="top-title"><strong>对称性紧束缚工作台</strong><small>Python API → Rust mathematical kernel</small></div>
+        <div class="top-actions">
+          <a class="secondary-button" href="help/" target="_blank" rel="noopener noreferrer">帮助文档</a>
+          <span id="healthBadge" class="status-badge"><i></i>连接中</span>
+          <button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button>
+          <button id="languageButton" class="text-button" type="button" aria-label="Switch to English" title="Switch to English">EN</button>
+        </div>
+      </header>
+
+      <main>
+        <section id="overview" class="hero">
+          <div>
+            <h1>利用对称性构造紧束缚模型</h1>
+            <div class="hero-actions">
+              <button id="quickStartButton" class="primary-button" type="button">创建标准默认模型</button>
+              <a class="secondary-button" href="#model">自定义输入</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="metric-grid" aria-label="运行状态">
+          <article class="metric panel"><small>数学内核</small><strong>Rust</strong></article>
+          <article class="metric panel"><small>Data snapshot</small><strong id="dataCount">—</strong><span>MSG / Wyckoff / rod / layer</span></article>
+          <article class="metric panel"><small>当前模型</small><strong id="modelCount">0</strong><span>TTL / LRU 有界会话</span></article>
+          <article class="metric panel"><small>公式引擎</small><strong>KaTeX</strong><span>包内置、离线加载</span></article>
+        </section>
+
+        <section id="model" class="workspace-section">
+          <div class="section-heading"><div><p class="eyebrow">Model preparation</p><h2>建立模型</h2></div><span class="section-index">02</span></div>
+          <div class="model-workspace">
+            <article class="card panel">
+              <div class="card-heading"><div><h3>init 建模器</h3><p>普通路线全部使用选择器和结构化输入；精确标量可写 <code>1/2</code>、<code>sqrt(3)/2</code> 或符号名。</p></div></div>
+              <section class="example-library" aria-labelledby="exampleLibraryTitle">
+                <div class="subheading"><div><strong id="exampleLibraryTitle">已验证模型示例</strong></div></div>
+                <div id="exampleList" class="example-grid"><span class="muted">载入示例中…</span></div>
+              </section>
+              <form id="initForm" class="form-stack init-builder">
+                <label>模型名称<input id="initLabel" type="text" value="MagneticTB model" maxlength="120"></label>
+
+                <fieldset class="builder-block">
+                  <legend><span>1</span> 空间群与对称性来源</legend>
+                  <div class="segmented" role="radiogroup" aria-label="对称性来源"><button class="active" data-symmetry-source="msg" type="button">MSG Data</button><button data-symmetry-source="explicit" type="button">显式操作</button></div>
+                  <div id="msgSymmetryPanel">
+                    <div class="field-grid two">
+                      <label>空间群号<select id="spaceGroupNumber"></select></label>
+                      <label>磁空间群<select id="msgSelector"></select></label>
+                    </div>
+                    <div id="msgPreview" class="selection-preview">载入 MSG 选项中…</div>
+                  </div>
+                  <div id="explicitSymmetryPanel" hidden>
+                    <div id="operationList" class="repeating-list"></div>
+                    <button id="addOperation" class="secondary-button" type="button">＋ 对称操作</button>
+                  </div>
+                </fieldset>
+
+                <fieldset class="builder-block">
+                  <legend><span>2</span> Bravais 晶格与参数</legend>
+                  <div id="msgLatticePanel">
+                    <div id="bravaisPreview" class="selection-preview">根据所选空间群载入 Bravais 晶格…</div>
+                  </div>
+                  <div id="explicitLatticePanel" hidden>
+                    <label>显式晶格
+                      <select id="latticePreset"><option value="stable_default">Stable default (hexagonal)</option><option value="simple_cubic">Simple cubic identity</option><option value="custom">Custom 3 × 3 lattice</option></select>
+                    </label>
+                    <div id="customLattice" class="matrix-editor" hidden aria-label="自定义晶格矩阵"></div>
+                  </div>
+                  <div class="subheading"><strong>晶格自由参数</strong><button id="addLatticeParameter" class="mini-button" type="button" hidden>＋ 参数</button></div>
+                  <div id="latticeParameters" class="repeating-list lattice-parameter-fields"></div>
+                </fieldset>
+
+                <fieldset class="builder-block">
+                  <legend><span>3</span> Wyckoff / site 与轨道基</legend>
+                  <div id="orbitList" class="repeating-list"></div>
+                  <button id="addOrbit" class="secondary-button" type="button">＋ Wyckoff orbit</button>
+                </fieldset>
+
+                <fieldset class="builder-block">
+                  <legend><span>4</span> 求解选项</legend>
+                  <div class="field-grid two">
+                    <label>初始键层数<input id="initialBondShells" type="number" min="1" max="128" value="10"></label>
+                    <label>表示模式<select id="representationMode"><option>DirectProduct</option><option>Induced</option></select></label>
+                    <label>精确域<select id="exactField"><option value="crystallographic">Crystallographic · conductor 24</option><option value="rational">Rational</option><option value="gaussian">Gaussian</option><option value="custom">Custom</option></select></label>
+                    <label class="check-row"><input id="generateSymmetryGroup" type="checkbox"><span>从给定生成元生成完整群</span></label>
+                  </div>
+                  <div id="customField" class="field-grid two" hidden><label>Conductor<input id="fieldConductor" type="number" min="1" value="24"></label><label>分圆多项式系数<input id="fieldPolynomial" value="1,0,0,0,-1,0,0,0,1"></label></div>
+                  <div id="directRepresentationNotice" class="selection-preview" hidden>此示例使用稳定版 <code>initfromrep</code> 连续自旋表示；矩阵由示例固定输入，不由 Python 推测。</div>
+                </fieldset>
+
+                <button class="primary-button wide-button" type="submit">运行 init 并准备模型</button>
+              </form>
+
+              <details class="advanced-input">
+                <summary>高级兼容入口：initfromrep / prepare_model / canonical JSON</summary>
+                <form id="modelForm" class="form-stack">
+                  <label>入口<select id="entrypoint"><option value="initfromrep">initfromrep</option><option value="prepare_model">prepare_model</option><option value="prepare_model_from_rep">prepare_model_from_rep</option><option value="init">init · raw</option></select></label>
+                  <label>模型名称<input id="modelLabel" type="text" value="Advanced model" maxlength="120"></label>
+                  <label>参数 JSON<textarea id="modelArguments" spellcheck="false" rows="12">{}</textarea></label>
+                  <button class="secondary-button" type="submit">运行高级入口</button>
+                </form>
+              </details>
+            </article>
+
+            <details id="modelSummaryCard" class="card panel model-summary-card">
+              <summary><strong>当前浏览器模型</strong><span>建模完成后展开查看，不占用输入区宽度</span></summary>
+              <div class="card-heading compact-top"><div><p>显式 model_id，不共享 Python 全局会话。</p></div><select id="modelPicker" aria-label="选择模型"><option value="">尚无模型</option></select></div>
+              <div id="modelResult" class="empty-state"><span>◇</span><p>创建模型后，这里显示群阶、轨道和键层。</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section id="hamiltonian" class="workspace-section">
+          <div class="section-heading"><div><p class="eyebrow">symham · exact Fourier structure</p><h2>Hamiltonian</h2></div><span class="section-index">03</span></div>
+          <article class="card panel">
+            <form id="hamiltonianForm" class="inline-form">
+              <label>累计到第 n 壳<input id="shellInput" type="number" value="1" min="1" max="128"></label>
+              <label>Hermitian<select id="hermitianInput"><option value="true">True</option><option value="false">False</option></select></label>
+              <label>Validation<select id="validationInput"><option>Basic</option><option>Full</option><option>None</option></select></label>
+              <label>Kernel<select id="kernelInput"><option>Iterative</option><option>Stacked</option><option>Cyclotomic</option></select></label>
+              <button class="primary-button" type="submit">计算 symham</button>
+            </form>
+            <div class="tab-row"><button class="tab active" data-result-tab="matrix" type="button">公式矩阵</button><button class="tab" data-result-tab="hopping" type="button">Hopping</button><button class="tab" data-result-tab="tex" type="button">TeX</button></div>
+            <div id="hamiltonianResult" class="result-surface empty-state"><span>H</span><p>先建立模型，再选择一个 1-based 键层。</p></div>
+          </article>
+          <div class="two-column compact-top">
+            <article class="card panel"><div class="card-heading"><div><h3>数值求值</h3><p>参数按 symham 的稳定顺序生成；这里的 k 是相位 <code>exp(i k·d)</code> 使用的弧度坐标。</p></div></div><form id="evaluateForm" class="form-stack"><div><strong class="form-label">参数</strong><div id="parameterInputs" class="parameter-bindings field-grid two"><span class="fixed-constraint">先计算 symham</span></div></div><div><strong class="form-label">k = (kx, ky, kz)</strong><div id="momentumInputs" class="vector-editor"><input value="0" aria-label="kx"><input value="0" aria-label="ky"><input value="0" aria-label="kz"></div></div><button class="secondary-button" type="submit">Evaluate</button></form><div id="evaluateResult" class="mini-result"></div></article>
+            <article class="card panel"><div class="card-heading"><div><h3>完整求解证据</h3><p>参数、键、basis、零空间与 covariance 结构。</p></div></div><button id="spaceButton" class="secondary-button" type="button">读取 hamiltonian_space</button><div id="spaceResult" class="mini-result"></div></article>
+          </div>
+          <article class="card panel compact-top">
+            <div class="card-heading"><div><h3>2.0.10 模型报告</h3></div></div>
+            <form id="reportForm" class="inline-form report-controls">
+              <label>报告<select id="reportKind"><option value="orbitals">轨道顺序</option><option value="basis">H[row,column] basis</option><option value="bonds">键层</option><option value="symmetry">表示矩阵</option><option value="hopping">Hopping 参数</option><option value="unsymham">无约束 unsymham</option></select></label>
+              <label>Shell<input id="reportShell" type="number" min="1" max="128" value="1"></label>
+              <label>Row<input id="reportRow" type="number" min="1" value="1"></label>
+              <label>Column<input id="reportColumn" type="number" min="1" value="1"></label>
+              <label>Operation selection<select id="reportSelection"><option>Automatic</option><option>All</option></select></label>
+              <label>Parameter（留空显示全部来源）<input id="reportParameter" placeholder="例如 t1"></label>
+              <button class="secondary-button" type="submit">读取报告</button>
+            </form>
+            <div id="reportResult" class="report-result empty-state"><p>选择报告后显示标准有序记录。</p></div>
+          </article>
+        </section>
+
+        <section id="properties" class="workspace-section">
+          <div class="section-heading"><div><p class="eyebrow">Stable 2.0.10 numerical layer</p><h2>Properties</h2></div><span class="section-index">04</span></div>
+          <div class="property-grid">
+            <article class="card panel plot-card"><div class="card-heading"><div><h3>三维晶体结构 · showCrystalStructure</h3></div></div><form id="crystalForm" class="inline-form plot-control-form"><label>邻近 cell 范围 n<input id="crystalCellRange" type="number" min="0" max="4" value="0"></label><label class="check-row"><input id="crystalLabels" type="checkbox">显示 orbit.atom 标签</label><button class="primary-button" type="submit">显示三维晶体结构</button></form><div id="crystalResult" class="plot-result empty-state"><p>先建立模型。</p></div></article>
+            <article class="card panel plot-card"><div class="card-heading"><div><h3>三维第一布里渊区 · showBrillouinZone</h3></div></div><form id="brillouinForm" class="inline-form plot-control-form"><label>TranslationRange<input id="brillouinRange" type="number" min="1" max="16" value="2"></label><label>Tolerance<input id="brillouinTolerance" value="1e-8"></label><label class="check-row"><input id="brillouinPath" type="checkbox" checked>显示 KPath</label><button class="primary-button" type="submit">显示三维第一 BZ</button></form><div id="brillouinResult" class="plot-result empty-state"><p>先建立模型。</p></div></article>
+            <article class="card panel band-card">
+              <div class="card-heading"><div><h3>能带 · standardKPath</h3></div></div>
+              <form id="bandForm" class="band-settings-grid">
+                <div class="band-setting-group form-stack">
+                  <strong class="band-setting-title">路径设置</strong>
+                  <label>每段 subdivisions<input id="bandNpoint" type="number" min="1" max="2000" value="40"></label>
+                  <button class="primary-button" type="submit">计算能带</button>
+                </div>
+                <div class="band-setting-group form-stack">
+                  <strong class="band-setting-title">Hamiltonian 参数</strong>
+                  <label>壳层（逗号分隔，1-based）<input id="propertyShells" value="1"></label>
+                  <div>
+                    <strong class="form-label">数值参数</strong>
+                    <div id="propertyParameters" class="parameter-bindings field-grid two"><span class="fixed-constraint">先计算 symham</span></div>
+                    <small id="propertyParameterHint" class="parameter-note">已验证示例会载入 stable 参数；自定义模型请填写实际 onsite 与 hopping。</small>
+                  </div>
+                </div>
+              </form>
+              <div id="bandResult" class="band-result empty-state"><p>选择壳层和参数后计算。</p></div>
+            </article>
+            <div id="deferredProperties" hidden aria-hidden="true">
+            <article class="card panel"><div class="card-heading"><div><h3>H(R) / Bloch</h3><p>生成 hoppingData，并在 q 点计算 ΣR H(R)e^(2πiq·R)。</p></div></div><form id="blochForm" class="form-stack"><div><strong class="form-label">q</strong><div id="blochMomentum" class="vector-editor"><input value="0"><input value="0"><input value="0"></div></div><div class="form-actions"><button class="primary-button" type="submit">计算 Bloch Hamiltonian</button><button id="hoppingDataButton" class="secondary-button" type="button">查看 H(R)</button></div></form><div id="blochResult" class="mini-result"></div></article>
+            <article class="card panel"><div class="card-heading"><div><h3>有限体系</h3><p>矩形 cell 数与 Open/Periodic 边界。</p></div></div><form id="realSpaceForm" class="form-stack"><div><strong class="form-label">size</strong><div id="finiteSize" class="vector-editor"><input type="number" min="1" value="4"><input type="number" min="1" value="1"><input type="number" min="1" value="1"></div></div><div class="field-grid three" id="finiteBoundary"><select><option>Open</option><option>Periodic</option></select><select><option>Open</option><option>Periodic</option></select><select><option>Open</option><option>Periodic</option></select></div><button class="primary-button" type="submit">构造有限 Hamiltonian</button></form><div id="realSpaceResult" class="mini-result"></div></article>
+            <article class="card panel"><div class="card-heading"><div><h3>Slab</h3><p>默认轴 1、2 周期，轴 3 有限。</p></div></div><form id="slabForm" class="form-stack"><label>开放层数<input id="slabLayers" type="number" min="1" value="8"></label><div><strong class="form-label">q1, q2</strong><div id="slabMomentum" class="vector-editor two-vector"><input value="0"><input value="0"></div></div><button class="primary-button" type="submit">构造 slab</button></form><div id="slabResult" class="mini-result"></div></article>
+            <article class="card panel"><div class="card-heading"><div><h3>表面 Green function</h3><p>稳定 decimation；返回谱权重与收敛信息。</p></div></div><form id="surfaceForm" class="form-stack"><div><strong class="form-label">q1, q2</strong><div id="surfaceMomentum" class="vector-editor two-vector"><input value="0"><input value="0"></div></div><label>Energy<input id="surfaceEnergy" value="0"></label><label>Broadening<input id="surfaceBroadening" value="0.001"></label><button class="primary-button" type="submit">计算表面谱</button></form><div id="surfaceResult" class="mini-result"></div></article>
+            <article class="card panel"><div class="card-heading"><div><h3>Wilson / Berry</h3><p>占据子空间的 SVD link 与 reciprocal sewing。</p></div></div><form id="wilsonForm" class="form-stack"><label>Occupied bands<input id="wilsonOccupied" type="number" min="1" value="1"></label><div><strong class="form-label">start k</strong><div id="wilsonStart" class="vector-editor"><input value="0"><input value="0"><input value="0"></div></div><div><strong class="form-label">end k</strong><div id="wilsonEnd" class="vector-editor"><input value="6.283185307179586"><input value="0"><input value="0"></div></div><label>Subdivisions<input id="wilsonSubdivisions" type="number" min="1" value="50"></label><div class="form-actions"><button class="primary-button" type="submit">计算 Wilson loop</button><button id="berryPhaseButton" class="secondary-button" type="button">计算 Berry phase</button></div></form><div id="wilsonResult" class="mini-result"></div></article>
+            <article class="card panel"><div class="card-heading"><div><h3>Berry curvature</h3><p>指定 k 点与方向 1、2 的有向小 plaquette。</p></div></div><form id="curvatureForm" class="form-stack"><label>Occupied bands<input id="curvatureOccupied" type="number" min="1" value="1"></label><div><strong class="form-label">k point</strong><div id="curvaturePoint" class="vector-editor"><input value="0"><input value="0"><input value="0"></div></div><label>Step size<input id="curvatureStep" value="0.001"></label><button class="primary-button" type="submit">计算 Berry curvature</button></form><div id="curvatureResult" class="mini-result"></div></article>
+            <article class="card panel"><div class="card-heading"><div><h3>点 Chern 数</h3><p>围绕候选点的定向立方表面通量。</p></div></div><form id="chernForm" class="form-stack"><label>Occupied bands<input id="chernOccupied" type="number" min="1" value="1"></label><div><strong class="form-label">k point</strong><div id="chernPoint" class="vector-editor"><input value="0"><input value="0"><input value="0"></div></div><label>Radius<input id="chernRadius" value="0.1"></label><label>Subdivisions<input id="chernSubdivisions" type="number" min="1" value="8"></label><button class="primary-button" type="submit">计算 Chern charge</button></form><div id="chernResult" class="mini-result"></div></article>
+            <article class="card panel"><div class="card-heading"><div><h3>无隙点搜索</h3><p>周期网格候选 + Rust refinement，默认 [-π,π]^3。</p></div></div><form id="gaplessForm" class="form-stack"><label>Occupied bands<input id="gaplessOccupied" type="number" min="1" value="1"></label><label>Grid size<input id="gaplessGrid" type="number" min="2" value="15"></label><label>Candidate count<input id="gaplessCandidates" type="number" min="1" value="32"></label><select id="gaplessMethod"><option>PrincipalAxis</option><option>QuasiNewton</option></select><button class="primary-button" type="submit">搜索无隙点</button></form><div id="gaplessResult" class="mini-result"></div></article>
+            <article class="card panel plot-card"><div class="card-heading"><div><h3>表面谱路径</h3><p>沿 Γ→X 的二维表面动量路径扫描能量；每个像素都调用稳定 decimation。</p></div></div><form id="surfaceSpectrumForm" class="form-stack"><div class="field-grid two"><label>Energy min<input id="surfaceSpectrumMin" value="-3"></label><label>Energy max<input id="surfaceSpectrumMax" value="3"></label><label>路径 subdivisions<input id="surfaceSpectrumSubdivisions" type="number" min="1" value="30"></label><label>Energy points<input id="surfaceSpectrumPoints" type="number" min="2" value="81"></label></div><button class="primary-button" type="submit">绘制表面谱</button></form><div id="surfaceSpectrumResult" class="plot-result empty-state"><p>等待计算。</p></div></article>
+            <article class="card panel plot-card"><div class="card-heading"><div><h3>Wilson loop 分支</h3><p>固定闭合回路沿参数方向平移；显示所有 Wilson phase / π 分支。</p></div></div><form id="wilsonPlotForm" class="form-stack"><label>参数路径终点 (kx, ky, kz)<input id="wilsonOffsetEnd" value="0, 0.5, 0"></label><label>参数 subdivisions<input id="wilsonParameterSubdivisions" type="number" min="1" value="30"></label><button class="primary-button" type="submit">绘制 Wilson 分支</button></form><div id="wilsonPlotResult" class="plot-result empty-state"><p>等待计算。</p></div></article>
+            <article class="card panel plot-card"><div class="card-heading"><div><h3>Berry curvature 网格</h3><p>在 k1-k2 平面绘制有向 Berry 曲率；网格每一点都由 Rust Wilson plaquette 计算。</p></div></div><form id="berryGridForm" class="form-stack"><div class="field-grid two"><label>k min<input id="berryGridMin" value="-3.141592653589793"></label><label>k max<input id="berryGridMax" value="3.141592653589793"></label><label>Grid size<input id="berryGridSize" type="number" min="2" value="21"></label><label>Step size<input id="berryGridStep" value="0.001"></label></div><button class="primary-button" type="submit">绘制二维曲率</button><button id="berryVectorButton" class="secondary-button" type="button">计算三维向量网格</button></form><div id="berryGridResult" class="plot-result empty-state"><p>等待计算。</p></div></article>
+            <article class="card panel plot-card"><div class="card-heading"><div><h3>实空间波函数</h3><p>先构造开放有限体系，再按 Rust 返回的 BasisRecords 聚合概率；支持复振幅和相位着色。</p></div></div><form id="wavefunctionForm" class="form-stack"><div><strong class="form-label">cell size</strong><div id="wavefunctionSize" class="vector-editor"><input type="number" min="1" value="4"><input type="number" min="1" value="1"><input type="number" min="1" value="1"></div></div><label>振幅（逗号分隔，支持 i）<input id="wavefunctionState" value="1, i, 0, 0"></label><div class="field-grid two"><label>Aggregation<select id="wavefunctionAggregation"><option>Atom</option><option>Orbital</option></select></label><label class="check-row"><input id="wavefunctionPhase" type="checkbox" checked>相位着色</label></div><button class="primary-button" type="submit">绘制波函数</button></form><div id="wavefunctionResult" class="plot-result empty-state"><p>等待计算。</p></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="data" class="workspace-section">
+          <div class="section-heading"><div><p class="eyebrow">Frozen stable catalog</p><h2>Data 与 msgop</h2></div><span class="section-index">05</span></div>
+          <div>
+            <article class="card panel">
+              <div class="card-heading"><div><h3>磁群操作 / Wyckoff</h3><p><code>msgop</code> 磁空间群 · <code>mlgop</code> 磁层群 · <code>mrgop</code> 磁杆群 · <code>gray*</code> 对应灰群</p></div></div>
+              <form id="msgopForm" class="form-stack"><div class="field-grid two"><label>选择器<select id="msgopKind"><option value="source_index">磁空间群 msgop · source index</option><option value="bns">磁空间群 msgop · BNS (n,m)</option><option value="gray">磁空间灰群 gray(n)</option><option value="typeI">磁空间群 Type-I (n,m)</option><option value="typeIII">磁空间群 Type-III (n,m)</option><option value="typeIV">磁空间群 Type-IV (n,m)</option><option value="rod_og">磁杆群 mrgop · OG (n,m,k)</option><option value="layer_og">磁层群 mlgop · OG (n,m,k)</option><option value="grayrod">磁杆灰群 grayrod(n)</option><option value="graylayer">磁层灰群 graylayer(n)</option></select></label><label>索引 / key<input id="msgopValue" value="1" placeholder="例如 195,3"></label></div><div class="form-actions"><button class="primary-button" type="submit">读取操作</button><button id="wyckoffReportButton" class="secondary-button" type="button">读取 MSG Wyckoff 表</button></div></form>
+              <div id="msgopResult" class="mini-result"></div>
+            </article>
+          </div>
+        </section>
+
+      </main>
+      <footer>
+        MagneticTB · <a href="help/guide/Citation.html">引用文章</a>
+        <div>QQ 交流群：625192239</div>
+      </footer>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

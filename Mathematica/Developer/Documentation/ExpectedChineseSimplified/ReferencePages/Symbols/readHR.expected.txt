@@ -1,0 +1,5 @@
+readHR
+范例
+MagneticTB/ref/readHR
+buildBlochHamiltonian
+对称性生成 hopping 元

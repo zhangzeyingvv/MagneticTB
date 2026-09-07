@@ -1,0 +1,2165 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     90666,       2156]
+NotebookOptionsPosition[     82151,       2006]
+NotebookOutlinePosition[     83905,       2048]
+CellTagsIndexPosition[     83862,       2045]
+WindowTitle->showCrystalStructure
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["MAGNETIC T B SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "8a4f5f93-5fca-4f3f-bac5-bbc475d7fc1e"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "b25341ba-0210-4ca5-b5b3-2ff29788b776"],
+        Background->LightDarkSwitched[
+          RGBColor[0.490196, 0.576471, 0.690196]],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "a2c6abfc-df03-4cb7-bc22-9a23e99c034e"]
+         }],ExpressionUUID->"2f34fc7b-7740-41d4-a073-fb54bcf4ee32"],
+         StripOnInput->False],{
+        StyleBox[
+          "\"showBrillouinZone\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/showBrillouinZone"], 
+         StyleBox[
+          "\"orbitalTable\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/orbitalTable"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "3857a7ea-f7e0-45b2-be9d-8aa110a81297"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "7a05dafe-0322-484c-a366-45c879d04c76"]
+         }],ExpressionUUID->"d14adbd3-2396-403b-acb1-043d670da819"],
+         StripOnInput->False],{
+        "\"MagneticTB\"" :> 
+         Documentation`HelpLookup["paclet:MagneticTB/guide/MagneticTB"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "7a062f9d-c018-4b1a-954c-5778d38dfa3d"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "70dc5cc0-6196-47c5-b994-0d723106a182"]
+         }],ExpressionUUID->"915ad45d-3e25-4652-8691-dc1debe4f620"],
+         StripOnInput->False],{
+        "\"\:6676\:4f53\:7ed3\:6784\:3001Brillouin \:533a\:4e0e k \
+\:8def\:5f84\"" :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/tutorial/CrystalAndKPaths"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "bbce75fe-fbac-4999-b934-bd3cad77aa67"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "3663f774-d72b-4db1-8b44-ec465b389aeb"]
+         }],ExpressionUUID->"ea67f745-9a15-482b-8cfe-b03c9958f1b1"],
+         StripOnInput->False],{
+        "\"MagneticTB/ref/showCrystalStructure\"" :> None, 
+         "\"Copy Wolfram Documentation Center URL\"" :> 
+         CopyToClipboard["MagneticTB/ref/showCrystalStructure"], Delimiter, 
+         "\"Copy web URL\"" :> 
+         Module[{DocumentationSearch`Private`nb$}, 
+           DocumentationSearch`Private`nb$ = 
+            NotebookPut[
+             Notebook[{
+               Cell[BoxData[
+                 MakeBoxes[
+                  Hyperlink[
+                   "http://reference.wolfram.com/language/MagneticTB/ref/\
+showCrystalStructure.html"], StandardForm]], "Input", TextClipboardType -> 
+                 "PlainText"]}, Visible -> False]]; 
+           SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+           FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+           NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+         "\"Go to web URL\"" :> 
+         FrontEndExecute[{
+           NotebookLocate[{
+             URL[If[TrueQ[False], 
+                 "http://reference.wolfram.com/system-modeler/", 
+                 "http://reference.wolfram.com/language/"] <> 
+               "MagneticTB/ref/showCrystalStructure" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "bbe702ed-5f06-44df-aa59-183c7f78461f"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "cbcddb6d-e4ee-4c5e-aef9-99675f2b375e"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"11d08203-20d6-4b4c-9d1d-591c9e35dee3"],
+
+Cell["MagneticTB`", "ContextNameCell",ExpressionUUID->"d0233e7c-3373-4dc4-b183-f1c3e97783ad"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "showCrystalStructure", "ObjectName",ExpressionUUID->
+      "ea236b86-46f6-479e-9c98-b2b7bc261c4b"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"edd02047-5c4d-400c-8e78-044aa3f69ff2"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "fb5e4bec-a865-42cc-8d89-9e1caf463946"]
+    }],ExpressionUUID->"d899744c-624a-49cd-adcf-86bd1c403a15"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"c008ec87-0bd5-487b-8fb1-\
+ba0e4f161977"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"showCrystalStructure", "[", "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "f9733884-4ad8-4b6d-be7d-e95b8443c366"],
+     " \[LineSeparator]",
+     "\:7ed8\:5236\:5f53\:524d\:6a21\:578b\:7684\:539f\:80de\:3001\:539f\:5b50\
+\:548c\:975e\:96f6\:78c1\:77e9\:3002"
+    }],ExpressionUUID->"48a18938-e269-4d74-a298-5eb7eef7257b"]}
+  }]], "Usage",ExpressionUUID->"92668044-570c-445f-9329-a3c06f574baf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[Cell[TextData[{
+  Cell[BoxData[
+   DynamicBox[ToBoxes[
+     If[CurrentValue[
+        EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], 
+      Rotate[
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+    ImageSizeCache->{
+     13.600000000000001`, {-0.1685058593749993, 13.768505859375}}]],
+   ExpressionUUID->"ced5b6ab-084d-4f3b-951e-37f0807cae76"],
+  Cell[BoxData[
+   TemplateBox[{1},
+    "Spacer1"]],ExpressionUUID->"dbbdf7d4-d316-4dc6-b74b-711c3cd9cc90"],
+  "Details and Options"
+ }], "NotesFrameText",ExpressionUUID->
+  "3750a29a-6939-4c86-88ba-5d9ab0b20a2c"]],ExpressionUUID->"f7be1473-dc28-\
+43a1-bdf1-32a4d0a045e1"]], "NotesSection",
+ ShowGroupOpener->"Thumbnail",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->323166088,ExpressionUUID->"01c08789-0f54-4d91-b022-8e7ce02376e6"],
+
+Cell["\:539f\:5b50\:4f4d\:7f6e\:4e0e\:78c1\:77e9\:6765\:81ea init \
+\:51c6\:5907\:7684\:6a21\:578b\:3002\:78c1\:77e9\:968f\:6b63\:683c\:5b50\:53d8\
+\:6362\:ff0c\:5e76\:663e\:793a\:4e3a\:7ea2\:8272\:7bad\:5934\:3002", "Notes",E\
+xpressionUUID->"4e77fdf6-5332-4a47-b903-ea3f23d5c406"],
+
+Cell["\<\
+\:5bf9\:79f0\:64cd\:4f5c\:4f1a\:4ece\:6bcf\:4e2a Wyckoff \:4ee3\:8868\:4f4d\
+\:7f6e\:751f\:6210\:5168\:90e8\:7b49\:4ef7\:539f\:5b50\:ff0cCellRange \:518d\
+\:5c06\:5b83\:4eec\:5e73\:79fb\:5230\:90bb\:8fd1\:539f\:80de\:3002\:7403\:4f53\
+\:989c\:8272\:533a\:5206\:4e0d\:540c\:7684 Wyckoff \:8f68\:9053\:ff1b\:7bad\
+\:5934\:8868\:793a\:78c1\:77e9\:65b9\:5411\:ff0c\:957f\:5ea6\:4e0d\:4ee3\:8868\
+\:78c1\:77e9\:5927\:5c0f\:3002\
+\>", "Notes",ExpressionUUID->"6c749239-b269-4e66-8f90-1127dee98ec2"],
+
+Cell["\<\
+\:7ed3\:679c\:662f Graphics3D\:ff0c\:5e76\:56fa\:5b9a\:91c7\:7528 Axes -> \
+False\:3001Boxed -> False \:4e0e ViewProjection -> \"Orthographic\"\:ff1b\
+\:8fd9\:4e09\:9879\:662f\:5f53\:524d\:56fa\:5b9a\:663e\:793a\:884c\:4e3a\:ff0c\
+\:4e0d\:662f\:516c\:5f00\:9009\:9879\:3002\
+\>", "Notes",ExpressionUUID->"6272538a-421f-4978-b36a-3f6f633a840e"],
+
+Cell["\<\
+\:5f53\:5f53\:524d\:6a21\:578b\:7f3a\:5c11\:6709\:6548\:6676\:683c\:6216\:539f\
+\:5b50\:6570\:636e\:3001CellRange \:683c\:5f0f\:9519\:8bef\:3001\:7b26\:53f7\
+\:78c1\:77e9\:672a\:88ab\:8d4b\:503c\:ff0c\:6216\:8005\:6b63\:5c3a\:5bf8\:9009\
+\:9879\:975e\:6cd5\:65f6\:ff0cshowCrystalStructure \:53d1\:51fa\:6d88\:606f\
+\:5e76\:8fd4\:56de $Failed\:ff1b\:5b83\:4e0d\:4f1a\:4fee\:8865\:8f93\:5165\
+\:6216\:5207\:6362\:5230\:8fd1\:4f3c fallback\:3002\
+\>", "Notes",ExpressionUUID->"17400114-fc08-488f-bdeb-8f83119409c9"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "bf65d9dd-ae2b-4ac6-8633-9eaf85820b3b"], "\"\<CellRange\>\"", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]}], "}"}], Cell[
+    "\:6574\:6570\:6676\:80de\:8fb9\:754c\:ff1b\:4e5f\:53ef\:7528 n \:8868\
+\:793a\:6bcf\:4e2a\:8f74\:4ece -n \:5230 n \:7684\:5e73\:79fb\:3002", 
+     "TableText",ExpressionUUID->"e37301b6-55bf-440b-8ff7-f5cbc88d2a50"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "69ff8962-ed81-4ffc-b853-3814ba8501e4"], "\"\<MomentRules\>\"", 
+    RowBox[{"{", "}"}], Cell[
+    "\:628a\:7b26\:53f7\:78c1\:77e9\:5206\:91cf\:6570\:503c\:5316\:7684\:89c4\
+\:5219\:3002", "TableText",ExpressionUUID->
+     "fae30901-fb18-4f33-9141-2f8a4187c92a"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "bb3b6681-72f0-436c-9eea-a136973d9994"], "\"\<MomentScale\>\"", 
+    "Automatic", Cell[
+    "Automatic \:6216\:6b63\:6570\:7bad\:5934\:957f\:5ea6\:6bd4\:4f8b\:3002", 
+     "TableText",ExpressionUUID->"80735d6e-d4d2-4834-b136-af075bb1e4c7"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "5ec90d25-8a23-4630-981f-ae93d617108e"], "\"\<AtomRadius\>\"", 
+    "Automatic", Cell[
+    "Automatic \:6216\:6b63\:6570\:7403\:4f53\:534a\:5f84\:3002", "TableText",
+     ExpressionUUID->"f6da1d66-bf61-46af-83a8-3e06024d2a55"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "3a309f5f-244d-475a-9367-e042c552f43d"], "\"\<ShowAtomLabels\>\"", 
+    "False", Cell[
+    "\:662f\:5426\:7528\:8f68\:9053\:7f16\:53f7\:4e0e\:7b49\:4ef7\:539f\:5b50\
+\:7f16\:53f7\:6807\:6ce8\:6bcf\:4e2a\:539f\:5b50\:3002", "TableText",
+     ExpressionUUID->"63c4c09c-a60f-44a1-87f0-3af4372047de"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "e5f15802-621c-4c36-92c4-608fdb61b663"], "FontSize", "14", Cell[
+    "\:663e\:793a\:539f\:5b50\:6807\:7b7e\:65f6\:4f7f\:7528\:7684\:5b57\:53f7\
+\:3002", "TableText",ExpressionUUID->
+     "30943101-075f-4b59-a45b-3b2cd8108ee3"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "af98e972-d23e-4d88-b543-10528ccb064d"], "ImageSize", "Large", Cell[
+    "\:6700\:7ec8 Graphics3D \:56fe\:50cf\:5c3a\:5bf8\:3002", "TableText",
+     ExpressionUUID->"317dbb4e-96ae-45c4-b014-8364d7b7ca5d"]}
+  },
+  GridBoxAlignment->{"Columns" -> {{Left}}},
+  GridBoxDividers->{"Rows" -> {{False}}},
+  GridBoxSpacings->{"Columns" -> {
+      Offset[0.27999999999999997`], {
+       Offset[0.7]}, 
+      Offset[0.27999999999999997`]}, "Rows" -> {
+      Offset[0.2], {
+       Offset[0.8]}, 
+      Offset[0.2]}}]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, 
+   "Rows" -> {None, None, None, None, None, None, {None}}},
+ GridBoxDividers->{
+  "Rows" -> {{
+     True, True, True, True, True, True, True, 
+      True}}}},ExpressionUUID->"99fd8a10-17fd-4b45-a261-bacaf837bc84"]
+}, Closed]],
+
+Cell["", "PageDelimiter",ExpressionUUID->"266c3ee5-4b34-46fe-a1bd-b9382ad2b5e1"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {4.251494140625001, 9.348505859375}}]],
+  ExpressionUUID->"fac14b84-edf5-433d-b883-c6626bd895b0"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"0872bd5a-89aa-4fff-adea-eae501db4a15"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(8)", "ExampleCount",ExpressionUUID->
+  "7dd207fe-8a45-4c50-ba1e-b4482b4b74dc"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->466297753,ExpressionUUID->"5704fe08-2185-4c66-88af-7cc90af5d893"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}]], "Input", "ExampleInitialization",
+ CellLabel->"In[1]:=",ExpressionUUID->"5a9ccf0f-6fc2-4858-8ece-076e1997caa0"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "bd60d0be-df8b-446d-8aca-db4c3ef85030"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"64d08869-1280-455e-8d10-87b95fc8090a"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "bba21064-43eb-47d2-9cb8-1598611ab32b"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->898506768,ExpressionUUID->"b0f739a5-01f6-45bc-9f69-37d734f7176c"],
+
+Cell["\:94c1\:78c1\:5e8f\:ff1a\:753b\:51fa ab \:9762\:5185 2\[Times]2 \:4e2a\
+\:539f\:80de\:ff0c\:516b\:4e2a\:539f\:5b50\:7684\:78c1\:77e9\:5168\:90e8\:6307\
+\:5411 +z\:ff1a", "ExampleText",ExpressionUUID->"c1dc518a-739b-45e2-b21f-\
+db2e6a71a083"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"DiagonalMatrix", "[", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", " ", "a", ",", " ", "c"}], "}"}], "]"}]}], ",", "\n",
+     "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", "2"}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", "\n", "    ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "}"}]}], "}"}], ",", 
+       "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "/", "2"}], ",", " ", 
+           RowBox[{"1", "/", "2"}], ",", " ", 
+           RowBox[{"1", "/", "2"}]}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "}"}]}], "}"}]}], "\n",
+       "  ", "}"}]}], ",", "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", 
+     RowBox[{"msgop", "[", 
+      RowBox[{"bnsdict", "[", 
+       RowBox[{"{", 
+        RowBox[{"75", ",", " ", "1"}], "}"}], "]"}], "]"}]}], ",", "\n", "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "\"\<s\>\"", "}"}], ",", " ", 
+       RowBox[{"{", "\"\<s\>\"", "}"}]}], "}"}]}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{"showCrystalStructure", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"\"\<CellRange\>\"", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0"}], "}"}]}], "}"}]}], ",", "\n", "  ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "]"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"11910bd3-8d00-4e95-b90f-f2624a0d8ce8"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 2., 0.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {0., 2., 2.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{0., 2., 0.}, {0., 2., 2.}}], 
+     Line3DBox[{{0., 2., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{0., 2., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 0.}, {2., 0., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 2.}, {2., 0., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 0., 0.}, {2., 0., 2.}}], 
+     Line3DBox[{{2., 0., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{2., 0., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{1., 1., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 1., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {2., 2., 0.}}], 
+     Line3DBox[{{1., 2., 2.}, {2., 2., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 2., 0.}}], 
+     Line3DBox[{{2., 1., 2.}, {2., 2., 2.}}], 
+     Line3DBox[{{2., 2., 0.}, {2., 2., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0., 0., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.5, 0.5, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0., 1., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.5, 1.5, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1., 0., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.5, 0.5, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1., 1., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.5, 1.5, 1.}, 0.08]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0., 0., 0.}, {0., 0., 0.55}}], 
+     Arrow3DBox[{{0.5, 0.5, 1.}, {0.5, 0.5, 1.55}}], 
+     Arrow3DBox[{{0., 1., 0.}, {0., 1., 0.55}}], 
+     Arrow3DBox[{{0.5, 1.5, 1.}, {0.5, 1.5, 1.55}}], 
+     Arrow3DBox[{{1., 0., 0.}, {1., 0., 0.55}}], 
+     Arrow3DBox[{{1.5, 0.5, 1.}, {1.5, 0.5, 1.55}}], 
+     Arrow3DBox[{{1., 1., 0.}, {1., 1., 0.55}}], 
+     Arrow3DBox[{{1.5, 1.5, 1.}, {1.5, 1.5, 1.55}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"0fe7322d-5a55-4593-af46-c095af1a78ce"]
+}, Open  ]],
+
+Cell["\:53cd\:94c1\:78c1\:5e8f\:ff1a\:540c\:6837\:7684\:516b\:4e2a\:539f\:5b50\
+\:5206\:5c5e\:4e24\:4e2a\:5b50\:6676\:683c\:ff0c\:78c1\:77e9\:5927\:5c0f\:76f8\
+\:7b49\:3001\:65b9\:5411\:76f8\:53cd\:3002\:7ea2\:8272\:7bad\:5934\:4ea4\:66ff\
+\:6307\:5411 +z \:548c -z\:ff1a", "ExampleText",ExpressionUUID->"3932d1be-\
+e0c8-4e71-8e3d-e513b6849bd1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"DiagonalMatrix", "[", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", " ", "a", ",", " ", "c"}], "}"}], "]"}]}], ",", "\n",
+     "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", "2"}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", "\n", "    ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "}"}]}], "}"}], ",", 
+       "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "/", "2"}], ",", " ", 
+           RowBox[{"1", "/", "2"}], ",", " ", 
+           RowBox[{"1", "/", "2"}]}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", 
+           RowBox[{"-", "1"}]}], "}"}]}], "}"}]}], "\n", "  ", "}"}]}], ",", 
+    "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", 
+     RowBox[{"msgop", "[", 
+      RowBox[{"bnsdict", "[", 
+       RowBox[{"{", 
+        RowBox[{"75", ",", " ", "1"}], "}"}], "]"}], "]"}]}], ",", "\n", "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "\"\<s\>\"", "}"}], ",", " ", 
+       RowBox[{"{", "\"\<s\>\"", "}"}]}], "}"}]}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{"showCrystalStructure", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"\"\<CellRange\>\"", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0"}], "}"}]}], "}"}]}], ",", "\n", "  ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "]"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[3]:=",ExpressionUUID->"ae28ce3a-35c9-4a50-995d-57b8b5059848"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 2., 0.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {0., 2., 2.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{0., 2., 0.}, {0., 2., 2.}}], 
+     Line3DBox[{{0., 2., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{0., 2., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 0.}, {2., 0., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 2.}, {2., 0., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 0., 0.}, {2., 0., 2.}}], 
+     Line3DBox[{{2., 0., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{2., 0., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{1., 1., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 1., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {2., 2., 0.}}], 
+     Line3DBox[{{1., 2., 2.}, {2., 2., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 2., 0.}}], 
+     Line3DBox[{{2., 1., 2.}, {2., 2., 2.}}], 
+     Line3DBox[{{2., 2., 0.}, {2., 2., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0., 0., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.5, 0.5, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0., 1., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.5, 1.5, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1., 0., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.5, 0.5, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1., 1., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.5, 1.5, 1.}, 0.08]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0., 0., 0.}, {0., 0., 0.55}}], 
+     Arrow3DBox[{{0.5, 0.5, 1.}, {0.5, 0.5, 0.44999999999999996`}}], 
+     Arrow3DBox[{{0., 1., 0.}, {0., 1., 0.55}}], 
+     Arrow3DBox[{{0.5, 1.5, 1.}, {0.5, 1.5, 0.44999999999999996`}}], 
+     Arrow3DBox[{{1., 0., 0.}, {1., 0., 0.55}}], 
+     Arrow3DBox[{{1.5, 0.5, 1.}, {1.5, 0.5, 0.44999999999999996`}}], 
+     Arrow3DBox[{{1., 1., 0.}, {1., 1., 0.55}}], 
+     Arrow3DBox[{{1.5, 1.5, 1.}, {1.5, 1.5, 0.44999999999999996`}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[4]=",ExpressionUUID->"994d25ae-5cf9-4967-935d-878507d6744c"]
+}, Open  ]],
+
+Cell["\:4e9a\:94c1\:78c1\:5e8f\:ff1a\:6bcf\:4e2a\:539f\:80de\:6709\:4e24\:4e2a\
+ +z \:78c1\:77e9\:548c\:4e00\:4e2a -z \:78c1\:77e9\:ff0c\:56db\:4e2a\:539f\
+\:80de\:5171\:5341\:4e8c\:4e2a\:539f\:5b50\:ff0c\:51c0\:78c1\:77e9\:4e0d\:4e3a\
+\:96f6\:ff1a", "ExampleText",ExpressionUUID->"109b6d9b-1368-4dac-9e67-\
+8de0968ac703"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"DiagonalMatrix", "[", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", " ", "a", ",", " ", "c"}], "}"}], "]"}]}], ",", "\n",
+     "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", "2"}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", "\n", "    ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "}"}]}], "}"}], ",", 
+       "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "/", "2"}], ",", " ", 
+           RowBox[{"1", "/", "2"}], ",", " ", 
+           RowBox[{"1", "/", "3"}]}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "}"}]}], "}"}], ",", 
+       "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "/", "2"}], ",", " ", 
+           RowBox[{"1", "/", "2"}], ",", " ", 
+           RowBox[{"2", "/", "3"}]}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", 
+           RowBox[{"-", "1"}]}], "}"}]}], "}"}]}], "\n", "  ", "}"}]}], ",", 
+    "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", 
+     RowBox[{"msgop", "[", 
+      RowBox[{"bnsdict", "[", 
+       RowBox[{"{", 
+        RowBox[{"75", ",", " ", "1"}], "}"}], "]"}], "]"}]}], ",", "\n", "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "\"\<s\>\"", "}"}], ",", " ", 
+       RowBox[{"{", "\"\<s\>\"", "}"}], ",", " ", 
+       RowBox[{"{", "\"\<s\>\"", "}"}]}], "}"}]}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{"showCrystalStructure", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"\"\<CellRange\>\"", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0"}], "}"}]}], "}"}]}], ",", "\n", "  ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "]"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[5]:=",ExpressionUUID->"1be8ab16-6f23-42b1-a0af-2c7eaed9b831"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 2., 0.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {0., 2., 2.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{0., 2., 0.}, {0., 2., 2.}}], 
+     Line3DBox[{{0., 2., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{0., 2., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 0.}, {2., 0., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 2.}, {2., 0., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 0., 0.}, {2., 0., 2.}}], 
+     Line3DBox[{{2., 0., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{2., 0., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{1., 1., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 1., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {2., 2., 0.}}], 
+     Line3DBox[{{1., 2., 2.}, {2., 2., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 2., 0.}}], 
+     Line3DBox[{{2., 1., 2.}, {2., 2., 2.}}], 
+     Line3DBox[{{2., 2., 0.}, {2., 2., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0., 0., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.5, 0.5, 0.6666666666666666}, 0.08]}, 
+     {RGBColor[0.560181, 0.691569, 0.194885], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.5, 0.5, 1.3333333333333333`}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0., 1., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.5, 1.5, 0.6666666666666666}, 0.08]}, 
+     {RGBColor[0.560181, 0.691569, 0.194885], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.5, 1.5, 1.3333333333333333`}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1., 0., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.5, 0.5, 0.6666666666666666}, 0.08]}, 
+     {RGBColor[0.560181, 0.691569, 0.194885], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.5, 0.5, 1.3333333333333333`}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1., 1., 0.}, 0.08]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.5, 1.5, 0.6666666666666666}, 0.08]}, 
+     {RGBColor[0.560181, 0.691569, 0.194885], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.5, 1.5, 1.3333333333333333`}, 0.08]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0., 0., 0.}, {0., 0., 0.55}}], 
+     Arrow3DBox[{{0.5, 0.5, 0.6666666666666666}, {0.5, 0.5, 
+      1.2166666666666668`}}], 
+     Arrow3DBox[{{0.5, 0.5, 1.3333333333333333`}, {0.5, 0.5, 
+      0.7833333333333332}}], Arrow3DBox[{{0., 1., 0.}, {0., 1., 0.55}}], 
+     Arrow3DBox[{{0.5, 1.5, 0.6666666666666666}, {0.5, 1.5, 
+      1.2166666666666668`}}], 
+     Arrow3DBox[{{0.5, 1.5, 1.3333333333333333`}, {0.5, 1.5, 
+      0.7833333333333332}}], Arrow3DBox[{{1., 0., 0.}, {1., 0., 0.55}}], 
+     Arrow3DBox[{{1.5, 0.5, 0.6666666666666666}, {1.5, 0.5, 
+      1.2166666666666668`}}], 
+     Arrow3DBox[{{1.5, 0.5, 1.3333333333333333`}, {1.5, 0.5, 
+      0.7833333333333332}}], Arrow3DBox[{{1., 1., 0.}, {1., 1., 0.55}}], 
+     Arrow3DBox[{{1.5, 1.5, 0.6666666666666666}, {1.5, 1.5, 
+      1.2166666666666668`}}], 
+     Arrow3DBox[{{1.5, 1.5, 1.3333333333333333`}, {1.5, 1.5, 
+      0.7833333333333332}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[6]=",ExpressionUUID->"a195ff67-e6ec-4731-90a2-9c961c1d813a"]
+}, Open  ]],
+
+Cell["\<\
+\:975e\:5171\:7ebf\:78c1\:5e8f\:ff1aP4 \:4ece\:4e00\:4e2a\:4ee3\:8868\:539f\
+\:5b50\:751f\:6210\:56db\:4e2a\:9762\:5185\:78c1\:77e9\:3002\:5e73\:79fb\:539f\
+\:80de\:540e\:ff0c\:56fe\:4e2d\:5171\:6709\:5341\:516d\:4e2a\:539f\:5b50\:ff0c\
+\:78c1\:77e9\:5206\:522b\:6cbf +x\:3001-x\:3001+y \:548c -y\:ff1a\
+\>", "ExampleText",ExpressionUUID->"8443b982-93fd-4372-a1bd-9080ae79eda7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"DiagonalMatrix", "[", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", " ", "a", ",", " ", "c"}], "}"}], "]"}]}], ",", "\n",
+     "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", "2"}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", "\n", "    ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "/", "4"}], ",", " ", 
+          RowBox[{"1", "/", "8"}], ",", " ", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", " ", "0", ",", " ", "0"}], "}"}]}], "}"}], "\n", 
+      "  ", "}"}]}], ",", "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", 
+     RowBox[{"msgop", "[", 
+      RowBox[{"bnsdict", "[", 
+       RowBox[{"{", 
+        RowBox[{"75", ",", " ", "1"}], "}"}], "]"}], "]"}]}], ",", "\n", "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", "\"\<s\>\"", "}"}], "}"}]}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{"showCrystalStructure", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"\"\<CellRange\>\"", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0"}], "}"}]}], "}"}]}], ",", "\n", "  ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "\n", "]"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[7]:=",ExpressionUUID->"a040ef55-d366-4b54-85da-9298427a444e"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 2., 0.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {0., 2., 2.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{0., 2., 0.}, {0., 2., 2.}}], 
+     Line3DBox[{{0., 2., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{0., 2., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 0.}, {2., 0., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 2.}, {2., 0., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 0., 0.}, {2., 0., 2.}}], 
+     Line3DBox[{{2., 0., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{2., 0., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 2., 0.}}], 
+     Line3DBox[{{1., 1., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 1., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {1., 2., 2.}}], 
+     Line3DBox[{{1., 2., 0.}, {2., 2., 0.}}], 
+     Line3DBox[{{1., 2., 2.}, {2., 2., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 2., 0.}}], 
+     Line3DBox[{{2., 1., 2.}, {2., 2., 2.}}], 
+     Line3DBox[{{2., 2., 0.}, {2., 2., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.125, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.875, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.875, 0.25, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.125, 0.75, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 1.125, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 1.875, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.875, 1.25, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.125, 1.75, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.25, 0.125, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.75, 0.875, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.875, 0.25, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.125, 0.75, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.25, 1.125, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.75, 1.875, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.875, 1.25, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.125, 1.75, 0.}, 0.08]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0.25, 0.125, 0.}, {0.8, 0.125, 0.}}], 
+     Arrow3DBox[{{0.75, 0.875, 0.}, {0.19999999999999996`, 0.875, 0.}}], 
+     Arrow3DBox[{{0.875, 0.25, 0.}, {0.875, 0.8, 0.}}], 
+     Arrow3DBox[{{0.125, 0.75, 0.}, {0.125, 0.19999999999999996`, 0.}}], 
+     Arrow3DBox[{{0.25, 1.125, 0.}, {0.8, 1.125, 0.}}], 
+     Arrow3DBox[{{0.75, 1.875, 0.}, {0.19999999999999996`, 1.875, 0.}}], 
+     Arrow3DBox[{{0.875, 1.25, 0.}, {0.875, 1.8, 0.}}], 
+     Arrow3DBox[{{0.125, 1.75, 0.}, {0.125, 1.2, 0.}}], 
+     Arrow3DBox[{{1.25, 0.125, 0.}, {1.8, 0.125, 0.}}], 
+     Arrow3DBox[{{1.75, 0.875, 0.}, {1.2, 0.875, 0.}}], 
+     Arrow3DBox[{{1.875, 0.25, 0.}, {1.875, 0.8, 0.}}], 
+     Arrow3DBox[{{1.125, 0.75, 0.}, {1.125, 0.19999999999999996`, 0.}}], 
+     Arrow3DBox[{{1.25, 1.125, 0.}, {1.8, 1.125, 0.}}], 
+     Arrow3DBox[{{1.75, 1.875, 0.}, {1.2, 1.875, 0.}}], 
+     Arrow3DBox[{{1.875, 1.25, 0.}, {1.875, 1.8, 0.}}], 
+     Arrow3DBox[{{1.125, 1.75, 0.}, {1.125, 1.2, 0.}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[8]=",ExpressionUUID->"02aea94f-032e-4a96-bc98-21f331bb75fe"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "6ca71b9f-5a9c-4419-9fa3-f8c17957bec0"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"bbb85931-0f65-4957-9ec7-d5012d01d85a"],
+ "\:9009\:9879",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(7)", "ExampleCount",ExpressionUUID->
+  "a816516f-ef81-42e6-aab7-e43749ed721f"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"89b88aec-394f-4909-98f0-bef81d71b443"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "e1b5c2b4-b20b-4e76-8e5b-2e9b43113678"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"72985137-4e46-467f-b08f-a0dc6b80812f"],
+ "CellRange",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "75fc96bb-2b0e-4d30-95f1-57150d3aeca5"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"02696012-b4f9-4045-bc75-9c5b1bb788e6"],
+
+Cell["\"CellRange\" - \:663e\:793a\:4e0a\:8ff0\:975e\:5171\:7ebf\:6a21\:578b\
+\:7684\:4e24\:4e2a\:76f8\:90bb\:539f\:80de\:ff0c\:6bcf\:4e2a\:539f\:80de\:6709\
+\:56db\:4e2a\:539f\:5b50\:ff1a", "ExampleText",ExpressionUUID->"c7d11248-2c54-\
+48c5-ae43-dfe5135b1e7a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showCrystalStructure", "[", 
+  RowBox[{
+   RowBox[{"\"\<CellRange\>\"", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0"}], "}"}]}], "}"}]}], ",", " ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"0a1a1aa1-ed07-4587-b946-efdbab96a523"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 0.}, {2., 0., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 2.}, {2., 0., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{1., 1., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 0., 0.}, {2., 0., 2.}}], 
+     Line3DBox[{{2., 0., 0.}, {2., 1., 0.}}], 
+     Line3DBox[{{2., 0., 2.}, {2., 1., 2.}}], 
+     Line3DBox[{{2., 1., 0.}, {2., 1., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.125, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.875, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.875, 0.25, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.125, 0.75, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.25, 0.125, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.75, 0.875, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.875, 0.25, 0.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{1.125, 0.75, 0.}, 0.08]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0.25, 0.125, 0.}, {0.8, 0.125, 0.}}], 
+     Arrow3DBox[{{0.75, 0.875, 0.}, {0.19999999999999996`, 0.875, 0.}}], 
+     Arrow3DBox[{{0.875, 0.25, 0.}, {0.875, 0.8, 0.}}], 
+     Arrow3DBox[{{0.125, 0.75, 0.}, {0.125, 0.19999999999999996`, 0.}}], 
+     Arrow3DBox[{{1.25, 0.125, 0.}, {1.8, 0.125, 0.}}], 
+     Arrow3DBox[{{1.75, 0.875, 0.}, {1.2, 0.875, 0.}}], 
+     Arrow3DBox[{{1.875, 0.25, 0.}, {1.875, 0.8, 0.}}], 
+     Arrow3DBox[{{1.125, 0.75, 0.}, {1.125, 0.19999999999999996`, 0.}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"fc41f996-2f4d-4abd-a649-e5569df2c8a4"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "14c9be1f-0392-4815-be15-494b40619fc9"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"0408a1a8-e63a-4894-a55f-468c510f78dd"],
+ "MomentRules",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "296cf493-1c69-428e-ae3d-2059f27ad3be"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"7af359c1-527d-488b-87c0-434a4f7e0500"],
+
+Cell["\"MomentRules\" - P4 \:4ece\:4ee3\:8868\:4f4d\:7f6e\:751f\:6210\:4e00\
+\:4e2a\:539f\:80de\:5185\:7684\:56db\:4e2a\:539f\:5b50\:3002\:4ee4 m = -1\
+\:ff0c\:4f7f\:56db\:4e2a\:78c1\:77e9\:90fd\:6307\:5411 -z\:ff1a", \
+"ExampleText",ExpressionUUID->"36040b16-0863-4fba-9a42-f9debae311fc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "a", ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "0", ",", " ", "c"}], "}"}]}], "}"}]}], ",", 
+    "\n", "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", "2"}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "/", "4"}], ",", " ", 
+          RowBox[{"1", "/", "4"}], ",", " ", 
+          RowBox[{"1", "/", "2"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "m"}], "}"}]}], "}"}], "}"}]}],
+     ",", "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", 
+     RowBox[{"msgop", "[", 
+      RowBox[{"bnsdict", "[", 
+       RowBox[{"{", 
+        RowBox[{"75", ",", " ", "1"}], "}"}], "]"}], "]"}]}], ",", "\n", "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", "\"\<s\>\"", "}"}], "}"}]}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{"showCrystalStructure", "[", 
+  RowBox[{
+   RowBox[{"\"\<MomentRules\>\"", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{"m", " ", "->", " ", 
+      RowBox[{"-", "1"}]}], "}"}]}], ",", " ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "]"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"f6b1f334-62f7-433e-aa47-936f48666609"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.25, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.75, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.25, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.75, 1.}, 0.08]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0.25, 0.25, 1.}, {0.25, 0.25, 
+      0.44999999999999996`}}], 
+     Arrow3DBox[{{0.75, 0.75, 1.}, {0.75, 0.75, 0.44999999999999996`}}], 
+     Arrow3DBox[{{0.75, 0.25, 1.}, {0.75, 0.25, 0.44999999999999996`}}], 
+     Arrow3DBox[{{0.25, 0.75, 1.}, {0.25, 0.75, 0.44999999999999996`}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"63f91004-a0b1-42c2-9284-c13cf788a2eb"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "9d2ae8d2-b271-4e36-a692-a1e30c3b5296"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"671d7688-c5fb-4ea1-8c7d-984719622a20"],
+ "MomentScale",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "c2ab24d7-065c-415f-aa69-61dabb64b555"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"03d3a617-c364-4e3c-8038-aa5f5299374f"],
+
+Cell["\"MomentScale\" - \
+\:4fdd\:7559\:76f8\:540c\:7684\:56db\:539f\:5b50\:6392\:5217\:ff0c\:5c06\:78c1\
+\:77e9\:8bbe\:4e3a +z \:5e76\:7f29\:77ed\:7bad\:5934\:ff1b\:8fd9\:4e2a\:9009\
+\:9879\:53ea\:6539\:53d8\:7bad\:5934\:7684\:663e\:793a\:957f\:5ea6\:ff1a", \
+"ExampleText",ExpressionUUID->"3b86b3aa-f9d6-4598-9887-35ccc0e0c709"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "a", ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "0", ",", " ", "c"}], "}"}]}], "}"}]}], ",", 
+    "\n", "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", "2"}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "/", "4"}], ",", " ", 
+          RowBox[{"1", "/", "4"}], ",", " ", 
+          RowBox[{"1", "/", "2"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "}"}]}], "}"}], "}"}]}],
+     ",", "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", 
+     RowBox[{"msgop", "[", 
+      RowBox[{"bnsdict", "[", 
+       RowBox[{"{", 
+        RowBox[{"75", ",", " ", "1"}], "}"}], "]"}], "]"}]}], ",", "\n", "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", "\"\<s\>\"", "}"}], "}"}]}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{"showCrystalStructure", "[", 
+  RowBox[{
+   RowBox[{"\"\<MomentScale\>\"", " ", "->", " ", "0.35"}], ",", " ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "]"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"5d23bec8-e285-470b-932d-3e5630e63ea6"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.25, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.75, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.25, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.75, 1.}, 0.08]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0.25, 0.25, 1.}, {0.25, 0.25, 1.35}}], 
+     Arrow3DBox[{{0.75, 0.75, 1.}, {0.75, 0.75, 1.35}}], 
+     Arrow3DBox[{{0.75, 0.25, 1.}, {0.75, 0.25, 1.35}}], 
+     Arrow3DBox[{{0.25, 0.75, 1.}, {0.25, 0.75, 1.35}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"15bc2c50-7f8e-4bd5-ba3d-ee96678bf18b"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "8cd0a38e-0533-459b-bb66-3847c82c1bb0"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"02c37e78-1130-4182-87d9-656bc04990b7"],
+ "AtomRadius",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "b3ea48cd-c523-426f-8268-6c9372708ccc"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"6d7a4957-6f2c-4a02-89c2-9d9294e3178c"],
+
+Cell["\"AtomRadius\" - \:7f29\:5c0f\:56db\:4e2a\:539f\:5b50\:7403\:4f53\:7684\
+\:534a\:5f84\:ff1a", "ExampleText",ExpressionUUID->"60be419b-1002-402a-afc4-\
+8a4574def8bb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showCrystalStructure", "[", 
+  RowBox[{
+   RowBox[{"\"\<AtomRadius\>\"", " ", "->", " ", "0.06"}], ",", " ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"735b0139-9852-4cac-ab92-d4ef721ae394"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.25, 1.}, 0.06]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.75, 1.}, 0.06]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.25, 1.}, 0.06]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.75, 1.}, 0.06]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0.25, 0.25, 1.}, {0.25, 0.25, 1.55}}], 
+     Arrow3DBox[{{0.75, 0.75, 1.}, {0.75, 0.75, 1.55}}], 
+     Arrow3DBox[{{0.75, 0.25, 1.}, {0.75, 0.25, 1.55}}], 
+     Arrow3DBox[{{0.25, 0.75, 1.}, {0.25, 0.75, 1.55}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"62b1ccb4-b5d0-49d3-b932-f3e3538666b1"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "d2a383af-2982-4ae7-8fcf-879016fe374e"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"fd651ace-990f-4a58-8ff0-d79000f7d245"],
+ "ShowAtomLabels",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "14e1c785-664e-4f25-8094-6c93f5d439a7"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"928675d5-d0f0-4d39-9f6c-bd11e8a615b9"],
+
+Cell["\"ShowAtomLabels\" - \:5c06\:56db\:4e2a\:7b49\:4ef7\:539f\:5b50\:6807\
+\:4e3a 1.1 \:81f3 1.4\:ff0c\:7b2c\:4e00\:4e2a\:6570\:5b57\:8868\:793a Wyckoff \
+\:8f68\:9053\:7f16\:53f7\:ff1a", "ExampleText",ExpressionUUID->"4aea48e5-ce2d-\
+4471-a5e7-a28a92edce77"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showCrystalStructure", "[", 
+  RowBox[{
+   RowBox[{"\"\<ShowAtomLabels\>\"", " ", "->", " ", "True"}], ",", " ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"db2abe73-9324-4e4f-856f-6a7fd09581a9"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.25, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.75, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.25, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.75, 1.}, 0.08]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0.25, 0.25, 1.}, {0.25, 0.25, 1.55}}], 
+     Arrow3DBox[{{0.75, 0.75, 1.}, {0.75, 0.75, 1.55}}], 
+     Arrow3DBox[{{0.75, 0.25, 1.}, {0.75, 0.25, 1.55}}], 
+     Arrow3DBox[{{0.25, 0.75, 1.}, {0.25, 0.75, 1.55}}]}, {Text3DBox[
+      FormBox[
+       StyleBox[
+        TemplateBox[{"1", "\".\"", "1"},
+         "RowDefault"],
+        StripOnInput->False,
+        LineColor->GrayLevel[0],
+        FrontFaceColor->GrayLevel[0],
+        BackFaceColor->GrayLevel[0],
+        GraphicsColor->GrayLevel[0],
+        FontSize->14,
+        FontColor->GrayLevel[0]], StandardForm], {0.25, 0.25, 1.12}], 
+     Text3DBox[
+      FormBox[
+       StyleBox[
+        TemplateBox[{"1", "\".\"", "2"},
+         "RowDefault"],
+        StripOnInput->False,
+        LineColor->GrayLevel[0],
+        FrontFaceColor->GrayLevel[0],
+        BackFaceColor->GrayLevel[0],
+        GraphicsColor->GrayLevel[0],
+        FontSize->14,
+        FontColor->GrayLevel[0]], StandardForm], {0.75, 0.75, 1.12}], 
+     Text3DBox[
+      FormBox[
+       StyleBox[
+        TemplateBox[{"1", "\".\"", "3"},
+         "RowDefault"],
+        StripOnInput->False,
+        LineColor->GrayLevel[0],
+        FrontFaceColor->GrayLevel[0],
+        BackFaceColor->GrayLevel[0],
+        GraphicsColor->GrayLevel[0],
+        FontSize->14,
+        FontColor->GrayLevel[0]], StandardForm], {0.75, 0.25, 1.12}], 
+     Text3DBox[
+      FormBox[
+       StyleBox[
+        TemplateBox[{"1", "\".\"", "4"},
+         "RowDefault"],
+        StripOnInput->False,
+        LineColor->GrayLevel[0],
+        FrontFaceColor->GrayLevel[0],
+        BackFaceColor->GrayLevel[0],
+        GraphicsColor->GrayLevel[0],
+        FontSize->14,
+        FontColor->GrayLevel[0]], StandardForm], {0.25, 0.75, 1.12}]}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"85d0a8a5-597a-4032-9004-8865fc9725ce"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "7a694cb4-5789-42c6-be76-14ed5fbb9f6a"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"fe922d3c-f590-4f44-8b70-e4e52cbecf29"],
+ "FontSize",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "cc9afacf-7a19-454f-b36b-3baeb0d1a1c4"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"eac8936d-4aef-461b-a91e-f814769792f9"],
+
+Cell["FontSize - \
+\:653e\:5927\:56db\:4e2a\:539f\:5b50\:7684\:6807\:7b7e\:ff1a", "ExampleText",E\
+xpressionUUID->"1ab594e0-7b76-4bb4-8c0d-6fca58bc239f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showCrystalStructure", "[", 
+  RowBox[{
+   RowBox[{"\"\<ShowAtomLabels\>\"", " ", "->", " ", "True"}], ",", " ", 
+   RowBox[{"FontSize", " ", "->", " ", "18"}], ",", " ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"519e77ea-8ba1-4c34-bd76-b5e724ab9468"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.25, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.75, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.25, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.75, 1.}, 0.08]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0.25, 0.25, 1.}, {0.25, 0.25, 1.55}}], 
+     Arrow3DBox[{{0.75, 0.75, 1.}, {0.75, 0.75, 1.55}}], 
+     Arrow3DBox[{{0.75, 0.25, 1.}, {0.75, 0.25, 1.55}}], 
+     Arrow3DBox[{{0.25, 0.75, 1.}, {0.25, 0.75, 1.55}}]}, {Text3DBox[
+      FormBox[
+       StyleBox[
+        TemplateBox[{"1", "\".\"", "1"},
+         "RowDefault"],
+        StripOnInput->False,
+        LineColor->GrayLevel[0],
+        FrontFaceColor->GrayLevel[0],
+        BackFaceColor->GrayLevel[0],
+        GraphicsColor->GrayLevel[0],
+        FontSize->18,
+        FontColor->GrayLevel[0]], StandardForm], {0.25, 0.25, 1.12}], 
+     Text3DBox[
+      FormBox[
+       StyleBox[
+        TemplateBox[{"1", "\".\"", "2"},
+         "RowDefault"],
+        StripOnInput->False,
+        LineColor->GrayLevel[0],
+        FrontFaceColor->GrayLevel[0],
+        BackFaceColor->GrayLevel[0],
+        GraphicsColor->GrayLevel[0],
+        FontSize->18,
+        FontColor->GrayLevel[0]], StandardForm], {0.75, 0.75, 1.12}], 
+     Text3DBox[
+      FormBox[
+       StyleBox[
+        TemplateBox[{"1", "\".\"", "3"},
+         "RowDefault"],
+        StripOnInput->False,
+        LineColor->GrayLevel[0],
+        FrontFaceColor->GrayLevel[0],
+        BackFaceColor->GrayLevel[0],
+        GraphicsColor->GrayLevel[0],
+        FontSize->18,
+        FontColor->GrayLevel[0]], StandardForm], {0.75, 0.25, 1.12}], 
+     Text3DBox[
+      FormBox[
+       StyleBox[
+        TemplateBox[{"1", "\".\"", "4"},
+         "RowDefault"],
+        StripOnInput->False,
+        LineColor->GrayLevel[0],
+        FrontFaceColor->GrayLevel[0],
+        BackFaceColor->GrayLevel[0],
+        GraphicsColor->GrayLevel[0],
+        FontSize->18,
+        FontColor->GrayLevel[0]], StandardForm], {0.25, 0.75, 1.12}]}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"3582fe07-0ebc-434f-93b0-c7844ccb0baf"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "7551b86c-3c48-48a3-bf0c-d0e2a7fbaafd"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"5f68ab65-25ad-4a2c-a6f0-2a4ab3a6a06d"],
+ "ImageSize",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "3a83f524-0246-453c-a02f-aea1b75900f2"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"fc09e14f-3380-46c9-99f6-3c235660c583"],
+
+Cell["ImageSize - \
+\:7f29\:5c0f\:56db\:539f\:5b50\:539f\:80de\:56fe\:7684\:663e\:793a\:5c3a\:5bf8\
+\:ff1a", "ExampleText",ExpressionUUID->"c492511c-c96c-4142-b83c-a21a78014810"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showCrystalStructure", "[", 
+  RowBox[{"ImageSize", " ", "->", " ", "360"}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"cb287b52-56e7-4559-850f-60289fe37858"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[0.35], Thickness[
+    Tiny], {Line3DBox[{{0., 0., 0.}, {0., 0., 2.}}], 
+     Line3DBox[{{0., 0., 0.}, {0., 1., 0.}}], 
+     Line3DBox[{{0., 0., 0.}, {1., 0., 0.}}], 
+     Line3DBox[{{0., 0., 2.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 0., 2.}, {1., 0., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {0., 1., 2.}}], 
+     Line3DBox[{{0., 1., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{0., 1., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 0., 2.}}], 
+     Line3DBox[{{1., 0., 0.}, {1., 1., 0.}}], 
+     Line3DBox[{{1., 0., 2.}, {1., 1., 2.}}], 
+     Line3DBox[{{1., 1., 0.}, {1., 1., 2.}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.25, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.75, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.75, 0.25, 1.}, 0.08]}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], Specularity[
+       GrayLevel[1], 20], SphereBox[{0.25, 0.75, 1.}, 0.08]}}}, 
+   {RGBColor[1, 0, 0], Thickness[Large], Arrowheads[
+    0.035], {Arrow3DBox[{{0.25, 0.25, 1.}, {0.25, 0.25, 1.55}}], 
+     Arrow3DBox[{{0.75, 0.75, 1.}, {0.75, 0.75, 1.55}}], 
+     Arrow3DBox[{{0.75, 0.25, 1.}, {0.75, 0.25, 1.55}}], 
+     Arrow3DBox[{{0.25, 0.75, 1.}, {0.25, 0.75, 1.55}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->360,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"e6d47db6-85dd-4fee-930f-2418890144e5"]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        ButtonBox["showBrillouinZone",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/showBrillouinZone"],
+        " \[FilledVerySmallSquare] ",
+        ButtonBox["orbitalTable",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/orbitalTable"]
+       }], "SeeAlso",ExpressionUUID->"60d511de-9cde-4183-ac83-8b4d62db8758"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"ba111355-5e9c-4714-81f8-\
+3dbc7d262a94"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Tech", " ", "Notes"}], "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData[
+            "\:6676\:4f53\:7ed3\:6784\:3001Brillouin \:533a\:4e0e k \:8def\
+\:5f84"]], "paclet:MagneticTB/tutorial/CrystalAndKPaths"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "0d6501b6-bd9f-4ef2-be24-fd2cd2dd2ee2"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"0a4cffd3-3b06-4598-932e-\
+cee44a324074"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["MagneticTB"]], "paclet:MagneticTB/guide/MagneticTB"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "9d8fcfe9-b148-4bda-abc7-d0ee9812acb7"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"aac0a138-b77c-4afa-9cb8-\
+5aba5210036c"],
+
+Cell["\:5386\:53f2", "HistorySection",ExpressionUUID->"c74519c2-481c-44ca-86da-51014ba8bf85"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"ff0dfec0-4c75-4195-a393-9aab72e87169"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"showCrystalStructure",
+Visible->True,
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "AllOptsTable" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "HasOptions" -> 
+  True, "RootCaptions" -> "", "HeaderCoreAreaLink" -> {}, 
+  "Metadata" -> {
+   "built" -> "{2026, 9, 7, 23, 7, 14.685458}", 
+    "history" -> {"2.0.0", "", "", ""}, "context" -> "MagneticTB`", 
+    "keywords" -> {
+     "crystal structure", "magnetic moment", "orthographic view"}, 
+    "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> True,
+     "label" -> "Magnetic T B Symbol", "language" -> "en", "paclet" -> 
+    "MagneticTB", "status" -> "None", "summary" -> 
+    "showCrystalStructure[] \:7ed8\:5236\:5f53\:524d\:6a21\:578b\:7684\:539f\
+\:80de\:3001\:539f\:5b50\:548c\:975e\:96f6\:78c1\:77e9\:3002", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "showCrystalStructure", 
+    "titlemodifier" -> "", "metadescription" -> "", "windowtitle" -> 
+    "showCrystalStructure", "type" -> "Symbol", "uri" -> 
+    "MagneticTB/ref/showCrystalStructure"}},
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (2026\:5e747\:67082\:65e5)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb"],
+ExpressionUUID->"f44bc20f-0c4e-4c86-a639-5373cce8ddf4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[588, 21, 6134, 154, 70, "AnchorBarGrid",ExpressionUUID->"11d08203-20d6-4b4c-9d1d-591c9e35dee3",
+ CellID->1],
+Cell[6725, 177, 93, 0, 70, "ContextNameCell",ExpressionUUID->"d0233e7c-3373-4dc4-b183-f1c3e97783ad"],
+Cell[CellGroupData[{
+Cell[6843, 181, 563, 14, 70, "ObjectNameGrid",ExpressionUUID->"c008ec87-0bd5-487b-8fb1-ba0e4f161977"],
+Cell[7409, 197, 512, 10, 70, "Usage",ExpressionUUID->"92668044-570c-445f-9329-a3c06f574baf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7958, 212, 1443, 34, 70, "NotesSection",ExpressionUUID->"01c08789-0f54-4d91-b022-8e7ce02376e6",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->323166088],
+Cell[9404, 248, 282, 3, 70, "Notes",ExpressionUUID->"4e77fdf6-5332-4a47-b903-ea3f23d5c406"],
+Cell[9689, 253, 502, 7, 70, "Notes",ExpressionUUID->"6c749239-b269-4e66-8f90-1127dee98ec2"],
+Cell[10194, 262, 353, 5, 70, "Notes",ExpressionUUID->"6272538a-421f-4978-b36a-3f6f633a840e"],
+Cell[10550, 269, 522, 7, 70, "Notes",ExpressionUUID->"17400114-fc08-488f-bdeb-8f83119409c9"],
+Cell[11075, 278, 3007, 62, 70, "3ColumnTableMod",ExpressionUUID->"99fd8a10-17fd-4b45-a261-bacaf837bc84"]
+}, Closed]],
+Cell[14097, 343, 80, 0, 70, "PageDelimiter",ExpressionUUID->"266c3ee5-4b34-46fe-a1bd-b9382ad2b5e1"],
+Cell[CellGroupData[{
+Cell[14202, 347, 1400, 37, 70, "PrimaryExamplesSection",ExpressionUUID->"5704fe08-2185-4c66-88af-7cc90af5d893",
+ CellID->466297753],
+Cell[15605, 386, 179, 2, 70, "Input",ExpressionUUID->"5a9ccf0f-6fc2-4858-8ece-076e1997caa0"],
+Cell[CellGroupData[{
+Cell[15809, 392, 1235, 31, 70, "ExampleSection",ExpressionUUID->"b0f739a5-01f6-45bc-9f69-37d734f7176c",
+ CellID->898506768],
+Cell[17047, 425, 247, 3, 70, "ExampleText",ExpressionUUID->"c1dc518a-739b-45e2-b21f-db2e6a71a083"],
+Cell[CellGroupData[{
+Cell[17319, 432, 2256, 59, 70, "Input",ExpressionUUID->"11910bd3-8d00-4e95-b90f-f2624a0d8ce8"],
+Cell[19578, 493, 3978, 82, 70, "Output",ExpressionUUID->"0fe7322d-5a55-4593-af46-c095af1a78ce"]
+}, Open  ]],
+Cell[23571, 578, 345, 4, 70, "ExampleText",ExpressionUUID->"3932d1be-e0c8-4e71-8e3d-e513b6849bd1"],
+Cell[CellGroupData[{
+Cell[23941, 586, 2281, 60, 70, "Input",ExpressionUUID->"ae28ce3a-35c9-4a50-995d-57b8b5059848"],
+Cell[26225, 648, 4042, 82, 70, "Output",ExpressionUUID->"994d25ae-5cf9-4967-935d-878507d6744c"]
+}, Open  ]],
+Cell[30282, 733, 322, 4, 70, "ExampleText",ExpressionUUID->"109b6d9b-1368-4dac-9e67-8de0968ac703"],
+Cell[CellGroupData[{
+Cell[30629, 741, 2684, 71, 70, "Input",ExpressionUUID->"1be8ab16-6f23-42b1-a0af-2c7eaed9b831"],
+Cell[33316, 814, 5092, 99, 70, "Output",ExpressionUUID->"a195ff67-e6ec-4731-90a2-9c961c1d813a"]
+}, Open  ]],
+Cell[38423, 916, 388, 5, 70, "ExampleText",ExpressionUUID->"8443b982-93fd-4372-a1bd-9080ae79eda7"],
+Cell[CellGroupData[{
+Cell[38836, 925, 1874, 48, 70, "Input",ExpressionUUID->"a040ef55-d366-4b54-85da-9298427a444e"],
+Cell[40713, 975, 5558, 106, 70, "Output",ExpressionUUID->"02aea94f-032e-4a96-bc98-21f331bb75fe"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46320, 1087, 1213, 30, 70, "ExampleSection",ExpressionUUID->"89b88aec-394f-4909-98f0-bef81d71b443"],
+Cell[CellGroupData[{
+Cell[47558, 1121, 1216, 30, 70, "ExampleSubsection",ExpressionUUID->"02696012-b4f9-4045-bc75-9c5b1bb788e6"],
+Cell[48777, 1153, 262, 3, 70, "ExampleText",ExpressionUUID->"c7d11248-2c54-48c5-ae43-dfe5135b1e7a"],
+Cell[CellGroupData[{
+Cell[49064, 1160, 561, 14, 70, "Input",ExpressionUUID->"0a1a1aa1-ed07-4587-b946-efdbab96a523"],
+Cell[49628, 1176, 2973, 58, 70, "Output",ExpressionUUID->"fc41f996-2f4d-4abd-a649-e5569df2c8a4"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[52650, 1240, 1218, 30, 70, "ExampleSubsection",ExpressionUUID->"7af359c1-527d-488b-87c0-434a4f7e0500"],
+Cell[53871, 1272, 289, 3, 70, "ExampleText",ExpressionUUID->"36040b16-0863-4fba-9a42-f9debae311fc"],
+Cell[CellGroupData[{
+Cell[54185, 1279, 1872, 49, 70, "Input",ExpressionUUID->"f6b1f334-62f7-433e-aa47-936f48666609"],
+Cell[56060, 1330, 1709, 35, 70, "Output",ExpressionUUID->"63f91004-a0b1-42c2-9284-c13cf788a2eb"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[57818, 1371, 1218, 30, 70, "ExampleSubsection",ExpressionUUID->"03d3a617-c364-4e3c-8038-aa5f5299374f"],
+Cell[59039, 1403, 330, 4, 70, "ExampleText",ExpressionUUID->"3b86b3aa-f9d6-4598-9887-35ccc0e0c709"],
+Cell[CellGroupData[{
+Cell[59394, 1411, 1791, 46, 70, "Input",ExpressionUUID->"5d23bec8-e285-470b-932d-3e5630e63ea6"],
+Cell[61188, 1459, 1638, 34, 70, "Output",ExpressionUUID->"15bc2c50-7f8e-4bd5-ba3d-ee96678bf18b"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[62875, 1499, 1217, 30, 70, "ExampleSubsection",ExpressionUUID->"6d7a4957-6f2c-4a02-89c2-9d9294e3178c"],
+Cell[64095, 1531, 171, 2, 70, "ExampleText",ExpressionUUID->"60be419b-1002-402a-afc4-8a4574def8bb"],
+Cell[CellGroupData[{
+Cell[64291, 1537, 314, 6, 70, "Input",ExpressionUUID->"735b0139-9852-4cac-ab92-d4ef721ae394"],
+Cell[64608, 1545, 1638, 34, 70, "Output",ExpressionUUID->"62b1ccb4-b5d0-49d3-b932-f3e3538666b1"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[66295, 1585, 1221, 30, 70, "ExampleSubsection",ExpressionUUID->"928675d5-d0f0-4d39-9f6c-bd11e8a615b9"],
+Cell[67519, 1617, 261, 3, 70, "ExampleText",ExpressionUUID->"4aea48e5-ce2d-4471-a5e7-a28a92edce77"],
+Cell[CellGroupData[{
+Cell[67805, 1624, 318, 6, 70, "Input",ExpressionUUID->"db2abe73-9324-4e4f-856f-6a7fd09581a9"],
+Cell[68126, 1632, 3150, 81, 70, "Output",ExpressionUUID->"85d0a8a5-597a-4032-9004-8865fc9725ce"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[71325, 1719, 1215, 30, 70, "ExampleSubsection",ExpressionUUID->"eac8936d-4aef-461b-a91e-f814769792f9"],
+Cell[72543, 1751, 153, 2, 70, "ExampleText",ExpressionUUID->"1ab594e0-7b76-4bb4-8c0d-6fca58bc239f"],
+Cell[CellGroupData[{
+Cell[72721, 1757, 376, 7, 70, "Input",ExpressionUUID->"519e77ea-8ba1-4c34-bd76-b5e724ab9468"],
+Cell[73100, 1766, 3150, 81, 70, "Output",ExpressionUUID->"3582fe07-0ebc-434f-93b0-c7844ccb0baf"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[76299, 1853, 1216, 30, 70, "ExampleSubsection",ExpressionUUID->"fc09e14f-3380-46c9-99f6-3c235660c583"],
+Cell[77518, 1885, 178, 2, 70, "ExampleText",ExpressionUUID->"c492511c-c96c-4142-b83c-a21a78014810"],
+Cell[CellGroupData[{
+Cell[77721, 1891, 230, 4, 70, "Input",ExpressionUUID->"cb287b52-56e7-4559-850f-60289fe37858"],
+Cell[77954, 1897, 1638, 34, 70, "Output",ExpressionUUID->"e6d47db6-85dd-4fee-930f-2418890144e5"]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+Cell[79643, 1937, 789, 20, 70, "SeeAlsoSection",ExpressionUUID->"ba111355-5e9c-4714-81f8-3dbc7d262a94"],
+Cell[80435, 1959, 810, 21, 70, "TutorialsSection",ExpressionUUID->"0a4cffd3-3b06-4598-932e-cee44a324074"],
+Cell[81248, 1982, 722, 18, 70, "MoreAboutSection",ExpressionUUID->"aac0a138-b77c-4afa-9cb8-5aba5210036c"],
+Cell[81973, 2002, 93, 0, 70, "HistorySection",ExpressionUUID->"c74519c2-481c-44ca-86da-51014ba8bf85"],
+Cell[82069, 2004, 78, 0, 70, "FooterCell",ExpressionUUID->"ff0dfec0-4c75-4195-a393-9aab72e87169"]
+}
+]
+*)
+
+(* End of internal cache information *)

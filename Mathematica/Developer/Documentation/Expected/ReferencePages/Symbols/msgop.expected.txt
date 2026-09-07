@@ -1,0 +1,5 @@
+msgop
+reads the symmetry operations of a magnetic space group from the bundled database.
+Examples
+Related Functions
+MagneticTB/ref/msgop

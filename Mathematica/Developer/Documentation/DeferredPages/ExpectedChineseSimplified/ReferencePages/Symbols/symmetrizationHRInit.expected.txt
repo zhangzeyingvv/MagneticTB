@@ -1,0 +1,3 @@
+symmetrizationHRInit
+范例
+MagneticTB/ref/symmetrizationHRInit

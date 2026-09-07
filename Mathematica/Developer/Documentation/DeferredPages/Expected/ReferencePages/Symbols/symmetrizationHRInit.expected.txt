@@ -1,0 +1,15 @@
+symmetrizationHRInit
+prepares the orbital centers and symmetry matrices needed to symmetrize a Wannier90 HR model.
+Examples
+Related Functions
+MagneticTB/ref/symmetrizationHRInit
+Options
+Lattice
+LattPar
+WyckoffPosition
+Symminformation
+BasisFunctions
+Software
+msgop[gray[75]]
+complete gray-group 75
+Possible Issues

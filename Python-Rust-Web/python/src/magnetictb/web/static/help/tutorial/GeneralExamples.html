@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="MagneticTB Python/Rust user documentation.">
+  <title>一般范例 · MagneticTB Python 用户帮助</title>
+  <link rel="stylesheet" href="../help.css?v=a0a09c187d71">
+  <script defer src="../help.js?v=6bee0b68d479"></script>
+</head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <button id="sidebarScrim" class="sidebar-scrim" type="button"></button>
+  <div class="help-shell">
+    <aside id="helpSidebar" class="sidebar panel">
+      <a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a>
+      <nav class="nav">
+        <a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a>
+        <p class="nav-group">General examples</p>
+        <a class="active" href="#graphene"><span>01</span><span>Graphene</span></a>
+        <a href="#spinful"><span>02</span><span>Spinful Graphene</span></a>
+        <a href="#mos2"><span>03</span><span>MoS₂</span></a>
+        <a href="#broken"><span>04</span><span>Broken symmetry</span></a>
+        <a href="#data"><span>05</span><span>Data examples</span></a>
+        <p class="nav-group">Links</p>
+        <a href="GettingStarted.html"><span>G</span><span>Getting Started</span></a>
+        <a href="../reference/symham.html"><span>H</span><span>symham</span></a>
+      </nav>
+      <div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">24 个完整示例</span><span class="locale-en">24 complete examples</span></div><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar panel"><button id="menuButton" class="icon-button" type="button">☰</button><div class="top-title"><strong><span class="locale-zh">一般范例</span><span class="locale-en">General examples</span></strong><small>Tutorial</small></div><label class="search-wrap"><span>⌕</span><input id="helpSearch" type="search" aria-label="搜索本页"><small id="searchCount" class="search-count"></small></label><div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button">EN</button></div></header>
+      <main id="mainContent">
+        <section id="graphene" class="help-section" data-searchable data-search="inputs 1 2 3 4 Graphene complete Hamiltonian bands">
+          <div class="section-heading"><div><p class="eyebrow">Tutorial · examples 1–4</p><h2>Graphene · <span class="locale-zh">完整两带模型</span><span class="locale-en">complete two-band model</span></h2><p class="locale-zh">这里直接给出三个键层之和、轨道顺序和完整相位，不用矩阵尺寸代替输出。</p><p class="locale-en">This section shows the three-shell sum, basis order, and complete phases directly rather than replacing the output with matrix dimensions.</p></div><span class="section-index">01</span></div>
+          <article class="card panel"><h3>Inputs 1–2 · <span class="locale-zh">初始化与 Hamiltonian</span><span class="locale-en">initialization and Hamiltonian</span></h3><div class="example-cell" data-example="1"><div class="code-block"><pre><span class="code-comment locale-zh"># 初始化与 Hamiltonian</span><span class="code-comment locale-en"># initialization and Hamiltonian</span>
+from fractions import Fraction
+from magnetictb import (
+    bandplot, gray, hamiltonian_object,
+    hop, init, msgop, sqrt, symbol,
+)</pre></div><div class="code-block output"><pre>MagneticTB Python imported</pre></div></div>
+<div class="example-cell" data-example="2"><div class="code-block"><pre><span class="code-comment locale-zh"># 初始化与 Hamiltonian</span><span class="code-comment locale-en"># initialization and Hamiltonian</span>
+a, c = symbol("a"), symbol("c")
+third = Fraction(1, 3)
+init(
+    lattice=((a,0,0),(-a/2,sqrt(3)*a/2,0),(0,0,c)),
+    lattpar=(("a",1),("c",3)),
+    wyckoffposition=(((third,2*third,0),(0,0,0)),),
+    symminformation=msgop(gray[191]),
+    basisFunctions=(("pz",),),
+    InitialBondShells=3,
+    GenerateSymmetryGroup=False,
+)
+graphene = hamiltonian_object(1) + hamiltonian_object(2) + hamiltonian_object(3)
+print(graphene.shape, graphene.parameter_names)</pre></div><div class="code-block output"><pre>Magnetic space group (BNS): [191, 234]
+Lattice: HexagonalP
+Generators: [('"6z"','F'), ('"2x"','F'), ('"-1"','F'), ('"1"','T')]
+(2, 2) ('e1', 't1', 'r1')</pre></div><div class="formula" data-tex>H(\mathbf k)=\begin{pmatrix}e_1+2r_1[\cos k_x+\cos k_y+\cos(k_x+k_y)]&amp;t_1f(\mathbf k)\\t_1f(\mathbf k)^*&amp;e_1+2r_1[\cos k_x+\cos k_y+\cos(k_x+k_y)]\end{pmatrix},</div><div class="formula" data-tex>f(\mathbf k)=e^{-i(2k_x+k_y)/3}+e^{i(k_x-k_y)/3}+e^{i(k_x+2k_y)/3}.</div></div></article>
+          <article class="card panel"><h3>Inputs 3–4 · <span class="locale-zh">路径与实际能带</span><span class="locale-en">path and actual bands</span></h3><div class="example-cell" data-example="3"><div class="code-block"><pre><span class="code-comment locale-zh"># 路径与实际能带</span><span class="code-comment locale-en"># path and actual bands</span>
+graphene_path = (
+    (((0,0,0),(0,Fraction(1,2),0)), (r"\Gamma","M")),
+    (((0,Fraction(1,2),0),(third,third,0)), ("M","K")),
+    (((third,third,0),(0,0,0)), ("K",r"\Gamma")),
+)</pre></div><div class="code-block output"><pre>3 segments: G → M → K → G</pre></div></div>
+<div class="example-cell" data-example="4"><div class="code-block"><pre><span class="code-comment locale-zh"># 路径与实际能带</span><span class="code-comment locale-en"># path and actual bands</span>
+bands = bandplot(
+    graphene_path, 60, graphene,
+    {"e1":0.05, "r1":0.02, "t1":0.5},
+)
+for index in (0,60,120,182):
+    print(index, bands.eigenvalues[index])
+<span class="figure-export"><span class="code-comment locale-zh"># 保存本函数生成的图；交互显示可用 .show()</span><span class="code-comment locale-en"># Save the function-generated figure; use .show() for interactive display</span>
+bands.savefig("graphene-material-bands.svg")</span></pre></div>
+<figure class="result-figure function-figure" data-function="bandplot"><a href="../assets/function-plots/graphene-material-bands.svg"><img src="../assets/function-plots/graphene-material-bands.svg" alt="bandplot" loading="lazy" style="max-width: 640px"></a><figcaption><span class="locale-zh">bandplot</span><span class="locale-en">bandplot</span></figcaption></figure><div class="code-block output"><pre>0   (-1.33, 1.67)
+60  (-0.49, 0.51)
+120 (-0.01, -0.01)
+182 (-1.33, 1.67)</pre></div></div></article>
+        </section>
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+        <section id="spinful" class="help-section" data-searchable data-search="inputs 5 6 7 8 9 spinful Graphene Hamiltonian Wannier90">
+          <div class="section-heading"><div><p class="eyebrow">Inputs 5–9</p><h2><span class="locale-zh">自旋 Graphene</span><span class="locale-en">Spinful Graphene</span></h2></div><span class="section-index">02</span></div>
+          <div class="example-cell" data-example="5"></div>
+          <article class="card panel"><h3>Input 5 · <span class="locale-zh">模型结果</span><span class="locale-en">model result</span></h3><p class="locale-zh">把上一节的 <code>basisFunctions</code> 改成 <code>(("pzup","pzdn"),)</code>：</p><p class="locale-en">Replace the basis above by <code>(("pzup","pzdn"),)</code>:</p><div class="code-block output"><pre>(4, 4)
+('e1', 't1', 'r1', 'r2')</pre></div></article>
+          <div class="example-cell" data-example="6"></div>
+          <article class="card panel"><h3>Input 6 · <span class="locale-zh">完整 4×4 Hamiltonian</span><span class="locale-en">complete 4-by-4 Hamiltonian</span></h3><div class="formula" data-tex>S=e^{-i(k_x+k_y)}+e^{-ik_x}+e^{-ik_y}+e^{ik_y}+e^{ik_x}+e^{i(k_x+k_y)},</div><div class="formula" data-tex>Q=e^{-i(k_x+k_y)}-e^{-ik_x}-e^{-ik_y}+e^{ik_y}+e^{ik_x}-e^{i(k_x+k_y)},\quad D_\pm=e_1+r_1S\pm i r_2Q,</div><div class="formula" data-tex>H_{\mathrm{spin}}(\mathbf k)=\begin{pmatrix}D_-&amp;0&amp;t_1f&amp;0\\0&amp;D_+&amp;0&amp;t_1f\\t_1f^*&amp;0&amp;D_+&amp;0\\0&amp;t_1f^*&amp;0&amp;D_-\end{pmatrix}.</div><p class="locale-zh"><code>f(k)</code> 是上一节完整定义的三个最近邻相位之和；全部 16 个矩阵位置均已给出。</p><p class="locale-en"><code>f(k)</code> is the fully defined three-phase nearest-neighbour sum above; all 16 matrix positions are specified.</p></article>
+          <div><span class="example-cell" data-example="8"></span></div>
+          <div class="content-grid"><article class="card panel wide"><h3>Input 8 · <span class="locale-zh">实际带能</span><span class="locale-en">actual eigenvalues</span></h3><div class="code-block output"><pre>Γ (-1.38,-1.38,1.62,1.62)
+M (-0.54,-0.54,0.46,0.46)
+K (-0.075020,-0.075020,-0.044944,-0.044944)
+Γ (-1.38,-1.38,1.62,1.62)</pre></div></article></div>
+          <div class="example-cell" data-example="9"></div>
+          <article class="card panel"><h3>Input 9 · <span class="locale-zh">实际 HR 文件前 12 行</span><span class="locale-en">actual first 12 HR lines</span></h3><div class="code-block output"><pre>Generated by MagneticTB
+4
+7
+1 1 1 1 1 1 1
+-1 -1 0 1 1 0.020000000000 0.000000000000
+-1 -1 0 2 1 0.000000000000 0.000000000000
+-1 -1 0 3 1 0.000000000000 0.000000000000
+-1 -1 0 4 1 0.000000000000 0.000000000000
+-1 -1 0 1 2 0.000000000000 0.000000000000
+-1 -1 0 2 2 0.020000000000 0.000000000000
+-1 -1 0 3 2 0.000000000000 0.000000000000
+-1 -1 0 4 2 0.000000000000 0.000000000000</pre></div></article>
+        </section>
+        <section id="mos2" class="help-section" data-searchable data-search="inputs 10 11 12 MoS2 three band">
+          <div class="section-heading"><div><p class="eyebrow">Inputs 10–12</p><h2>MoS₂ · <span class="locale-zh">三带模型</span><span class="locale-en">three-band model</span></h2></div><span class="section-index">03</span></div>
+          <div><span class="example-cell" data-example="10"></span><span class="example-cell" data-example="11"></span><span class="example-cell" data-example="12"></span></div>
+          <article class="card panel"><p class="locale-zh">使用夹角为 60° 的面内晶格，在原点放置 <code>dz2</code>、<code>dxy</code>、<code>dx2-y2</code> 三个轨道。先把数据库中的对称操作换到该晶格坐标基，再构造 onsite 与最近邻 Hamiltonian。</p><p class="locale-en">Use in-plane lattice vectors at 60° and place three orbitals, <code>dz2</code>, <code>dxy</code>, and <code>dx2-y2</code>, at the origin. First express the database symmetry operations in this lattice basis, then construct the onsite and nearest-neighbour Hamiltonians.</p><div class="code-block"><pre>from fractions import Fraction
+import numpy as np
+from magnetictb import (
+    gray, hamiltonian_object, init, msgop, sqrt, symham,
+)
+
+<span class="code-comment locale-zh"># P 与其精确逆矩阵：只转换旋转部分，保留其余字段及操作顺序</span><span class="code-comment locale-en"># P and its exact inverse: transform rotations only; retain other fields and operation order</span>
+P = np.array(((1, -1, 0), (0, 1, 0), (0, 0, 1)), dtype=object)
+P_inverse = np.array(((1, 1, 0), (0, 1, 0), (0, 0, 1)), dtype=object)
+mo_s2_operations = [
+    [label, (P @ np.array(rotation, dtype=object) @ P_inverse).tolist(),
+     translation, parity]
+    for label, rotation, translation, parity in msgop(gray[187])
+]
+
+<span class="code-comment locale-zh"># 安装三带 MoS₂ 模型，并准备 onsite 与最近邻两个 shell</span><span class="code-comment locale-en"># Install the three-band MoS2 model and prepare onsite and nearest-neighbour shells</span>
+init(
+    lattice=((1, 0, 0), (Fraction(1, 2), sqrt(3) / 2, 0), (0, 0, 100)),
+    lattpar=(),
+    wyckoffposition=(((0, 0, 0), (0, 0, 0)),),
+    symminformation=mo_s2_operations,
+    basis_functions=(("dz2", "dxy", "dx2-y2"),),
+    initial_bond_shells=2,
+    generate_symmetry_group=False,
+)
+
+<span class="code-comment locale-zh"># 普通用户直接得到两个完整的 3×3 二维矩阵</span><span class="code-comment locale-en"># Ordinary users directly receive two complete 3-by-3 matrices</span>
+mo_s2_onsite = symham(1)
+mo_s2_nearest = symham(2)
+print(len(mo_s2_onsite), len(mo_s2_onsite[0]))
+
+<span class="code-comment locale-zh"># 合并 shell 时使用高级 Hamiltonian 对象，而不是把两个 list 相加</span><span class="code-comment locale-en"># Combine shells with advanced Hamiltonian objects, not by adding two lists</span>
+mo_s2 = hamiltonian_object(1) + hamiltonian_object(2)
+print(mo_s2.parameter_names)</pre></div><p class="locale-zh">下面的参数以 eV 为单位，直接按 Python 返回的 <code>mo_s2.parameter_names</code> 赋值，不交换参数名称。</p><p class="locale-en">The following parameters are in eV. Assign them directly using the names returned by Python in <code>mo_s2.parameter_names</code>, without swapping parameter names.</p><div class="code-block"><pre>from magnetictb import bandplot
+
+<span class="code-comment locale-zh"># 本例采用的物理参数名称及数值（eV）</span><span class="code-comment locale-en"># Parameter names and numerical values used in this example (eV)</span>
+mo_s2_parameters = {
+    "e1": 1.046, "e2": 2.104,
+    "t1": -0.184, "t2": 0.401, "t3": 0.218,
+    "t4": 0.507, "t5": 0.338, "t6": 0.057,
+}
+<span class="code-comment locale-zh"># 直接使用上面这组 Python 参数赋值</span><span class="code-comment locale-en"># Use the Python parameter assignments above directly</span>
+mo_s2_rules = mo_s2_parameters
+
+<span class="code-comment locale-zh"># 按 Γ–K–M–Γ 顺序取样，每段细分 60 次</span><span class="code-comment locale-en"># Sample Γ–K–M–Γ with 60 subdivisions per segment</span>
+G = (0, 0, 0)
+K = (Fraction(2, 3), Fraction(1, 3), 0)
+M = (Fraction(1, 2), Fraction(1, 2), 0)
+mo_s2_path = (
+    ((G, K), (r"\Gamma", "K")),
+    ((K, M), ("K", "M")),
+    ((M, G), ("M", r"\Gamma")),
+)
+mo_s2_bands = bandplot(mo_s2_path, 60, mo_s2, mo_s2_rules)
+for label, index in zip(mo_s2_bands.boundary_labels, (0, 60, 121, 182)):
+    print(label, tuple(round(value, 6) for value in mo_s2_bands.eigenvalues[index]))
+
+<span class="figure-export"><span class="code-comment locale-zh"># 保存 bandplot 生成的图；交互显示可用 mo_s2_bands.show()</span><span class="code-comment locale-en"># Save the bandplot-generated figure; use mo_s2_bands.show() for interactive display</span>
+mo_s2_bands.savefig("mos2-material-bands.svg")</span></pre></div><figure class="result-figure function-figure" data-function="bandplot"><a href="../assets/function-plots/mos2-material-bands.svg"><img src="../assets/function-plots/mos2-material-bands.svg" alt="MoS2 three-band structure along Gamma-K-M-Gamma, generated by bandplot" loading="lazy" style="max-width:640px"></a><figcaption><span class="locale-zh">由上述 <code>bandplot</code> 调用生成的能带图；能量单位为 eV。</span><span class="locale-en">Band structure generated by the <code>bandplot</code> call above; energies are in eV.</span></figcaption></figure><div class="code-block output"><pre>Γ (-0.058, 2.929, 2.929)
+K (-0.0648, 1.598, 3.4478)
+M (-0.568033, 2.151, 3.489033)
+Γ (-0.058, 2.929, 2.929)</pre></div></article>
+        </section>
+        <section id="broken" class="help-section" data-searchable data-search="inputs 13 14 15 16 17 18 broken symmetry orbital order matrices init symham">
+          <div class="section-heading"><div><p class="eyebrow">Inputs 13–18</p><h2><span class="locale-zh">破缺对称与轨道顺序</span><span class="locale-en">Broken symmetry and orbital order</span></h2></div><span class="section-index">04</span></div>
+          <article class="card panel">
+            <p class="locale-zh">下面两组代码均可从头运行：建立六轨道模型，选择要保留的对称操作，用返回的参数重新初始化，再计算完整的 onsite Hamiltonian。两组只改变轨道顺序，晶格、原子位置和对称性相同。</p>
+            <p class="locale-en">Each example runs independently: build a six-orbital model, select the symmetries to retain, reinitialize with the returned arguments, and compute the complete onsite Hamiltonian. Only the orbital order changes; the lattice, atomic position, and symmetry are identical.</p>
+            <p class="locale-zh"><a href="../reference/brokenSymmetryInitRules.html"><code>brokenSymmetryInitRules((9, 11, 13))</code></a> 中的数字是原模型完整操作表中<strong>要保留</strong>的操作编号，从 1 开始，并不是要删除的编号。程序会生成它们的闭包；本例选出的三个操作仍生成完整的 24 个操作，因此<strong>本例没有降低对称性</strong>，主要用于说明重新初始化与轨道顺序的关系。</p>
+            <p class="locale-en">The numbers in <a href="../reference/brokenSymmetryInitRules.html"><code>brokenSymmetryInitRules((9, 11, 13))</code></a> are the 1-based indices of operations to <strong>retain</strong> in the original model's full operation table, not operations to remove. Their closure is generated; here these three operations generate all 24 original operations, so <strong>this example does not lower the symmetry</strong>. It illustrates reinitialization and the effect of orbital order.</p>
+          </article>
+          <article class="card panel" id="broken-order-a">
+            <h3><span class="locale-zh">顺序 A · 先按自旋分组</span><span class="locale-en">Order A · grouped by spin</span></h3>
+            <div class="example-cell" data-example="13"><div class="code-block"><pre>from magnetictb import (
+    brokenSymmetryInitRules, gray, init, msgop, sqrt, symbol, symham,
+)
+
+<span class="code-comment locale-zh"># 符号晶格；a、c 的数值仅用于键搜索</span><span class="code-comment locale-en"># Symbolic lattice; numerical a and c are used for bond search</span>
+a, c = symbol("a"), symbol("c")
+<span class="code-comment locale-zh"># 顺序 A：先排三个自旋向上轨道，再排三个自旋向下轨道</span><span class="code-comment locale-en"># Order A: three spin-up orbitals, followed by three spin-down orbitals</span>
+basis_a = ('dz2up', 'dxyup', 'dx2-y2up', 'dz2dn', 'dxydn', 'dx2-y2dn')
+<span class="code-comment locale-zh"># 读取完整有序操作表，然后初始化位于原点的六轨道模型</span><span class="code-comment locale-en"># Read the full ordered operation table, then initialize six orbitals at the origin</span>
+operations_a = msgop(gray[187])
+init(
+    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 4)),
+    wyckoffposition=(((0, 0, 0), (0, 0, 0)),),
+    symminformation=operations_a,
+    basisFunctions=(basis_a,),
+    <span class="code-comment locale-zh"># 本例只准备 onsite 层，不包含原子间 hopping</span><span class="code-comment locale-en"># Prepare the onsite shell only; no intersite hopping in this example</span>
+    InitialBondShells=1,
+    GenerateSymmetryGroup=False,
+)
+
+<span class="code-comment locale-zh"># 用原模型中的 1-based 操作编号选择保留的生成元</span><span class="code-comment locale-en"># Select retained generators by their 1-based indices in the original model</span>
+rules_a = brokenSymmetryInitRules((9, 11, 13))
+
+<span class="code-comment locale-zh"># 上一步只返回参数字典；这一行才用它重新初始化当前模型</span><span class="code-comment locale-en"># The preceding call returns arguments; this call reinitializes the current model</span>
+init(**rules_a)</pre></div></div>
+            <p class="example-cell" data-example="14"><span class="locale-zh">矩阵的行、列均按 <code>basis_a</code> 的顺序排列；六个轨道都位于 <code>(0, 0, 0)</code>。</span><span class="locale-en">Both matrix axes follow <code>basis_a</code>; all six orbitals are located at <code>(0, 0, 0)</code>.</span></p>
+            <div class="example-cell" data-example="15"><div class="code-block"><pre><span class="code-comment locale-zh"># 计算并显示 onsite Hamiltonian（Notebook 中运行本单元）</span><span class="code-comment locale-en"># Compute and display the onsite Hamiltonian (run this cell in a notebook)</span>
+h_a = symham(1)
+h_a</pre></div><div class="code-block output"><pre>params: ['e1', 'e2', 'e3']
+[[e1, 0, 0, 0, 0, 0],
+ [0, e2, I*e3, 0, 0, 0],
+ [0, -I*e3, e2, 0, 0, 0],
+ [0, 0, 0, e1, 0, 0],
+ [0, 0, 0, 0, e2, -I*e3],
+ [0, 0, 0, 0, I*e3, e2]]</pre></div></div>
+          </article>
+          <article class="card panel" id="broken-order-b">
+            <h3><span class="locale-zh">顺序 B · 按空间轨道成对排列</span><span class="locale-en">Order B · paired by spatial orbital</span></h3>
+            <div class="example-cell" data-example="16"><div class="code-block"><pre>from magnetictb import (
+    brokenSymmetryInitRules, gray, init, msgop, sqrt, symbol, symham,
+)
+
+<span class="code-comment locale-zh"># 符号晶格；a、c 的数值仅用于键搜索</span><span class="code-comment locale-en"># Symbolic lattice; numerical a and c are used for bond search</span>
+a, c = symbol("a"), symbol("c")
+<span class="code-comment locale-zh"># 顺序 B：每个空间轨道后紧接其另一自旋分量</span><span class="code-comment locale-en"># Order B: place the two spin components of each spatial orbital together</span>
+basis_b = ('dz2up', 'dz2dn', 'dxyup', 'dxydn', 'dx2-y2up', 'dx2-y2dn')
+<span class="code-comment locale-zh"># 读取完整有序操作表，然后初始化位于原点的六轨道模型</span><span class="code-comment locale-en"># Read the full ordered operation table, then initialize six orbitals at the origin</span>
+operations_b = msgop(gray[187])
+init(
+    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 4)),
+    wyckoffposition=(((0, 0, 0), (0, 0, 0)),),
+    symminformation=operations_b,
+    basisFunctions=(basis_b,),
+    <span class="code-comment locale-zh"># 本例只准备 onsite 层，不包含原子间 hopping</span><span class="code-comment locale-en"># Prepare the onsite shell only; no intersite hopping in this example</span>
+    InitialBondShells=1,
+    GenerateSymmetryGroup=False,
+)
+
+<span class="code-comment locale-zh"># 用原模型中的 1-based 操作编号选择保留的生成元</span><span class="code-comment locale-en"># Select retained generators by their 1-based indices in the original model</span>
+rules_b = brokenSymmetryInitRules((9, 11, 13))
+
+<span class="code-comment locale-zh"># 上一步只返回参数字典；这一行才用它重新初始化当前模型</span><span class="code-comment locale-en"># The preceding call returns arguments; this call reinitializes the current model</span>
+init(**rules_b)</pre></div></div>
+            <p class="example-cell" data-example="17"><span class="locale-zh">矩阵的行、列均按 <code>basis_b</code> 的顺序排列；六个轨道都位于 <code>(0, 0, 0)</code>。</span><span class="locale-en">Both matrix axes follow <code>basis_b</code>; all six orbitals are located at <code>(0, 0, 0)</code>.</span></p>
+            <div class="example-cell" data-example="18"><div class="code-block"><pre><span class="code-comment locale-zh"># 计算并显示 onsite Hamiltonian（Notebook 中运行本单元）</span><span class="code-comment locale-en"># Compute and display the onsite Hamiltonian (run this cell in a notebook)</span>
+h_b = symham(1)
+h_b</pre></div><div class="code-block output"><pre>params: ['e1', 'e2', 'e3']
+[[e1, 0, 0, 0, 0, 0],
+ [0, e1, 0, 0, 0, 0],
+ [0, 0, e2, 0, I*e3, 0],
+ [0, 0, 0, e2, 0, -I*e3],
+ [0, 0, -I*e3, 0, e2, 0],
+ [0, 0, 0, I*e3, 0, e2]]</pre></div></div>
+          </article>
+          <article class="card panel" id="broken-order-comparison">
+            <h3><span class="locale-zh">为什么两张矩阵看起来不同？</span><span class="locale-en">Why do the matrices look different?</span></h3>
+            <p class="locale-zh">它们描述同一个模型，只是行、列的排列不同。将 A 的行和列同时按显示编号 <code>(1, 4, 2, 5, 3, 6)</code> 重排，就得到 B；三个独立实参数仍是 <code>e1</code>、<code>e2</code>、<code>e3</code>。这里的 <code>I</code> 表示虚数单位。</p>
+            <p class="locale-en">They describe the same model in different row and column orders. Reordering both axes of A by the displayed indices <code>(1, 4, 2, 5, 3, 6)</code> gives B. The three independent real parameters remain <code>e1</code>, <code>e2</code>, and <code>e3</code>; <code>I</code> denotes the imaginary unit.</p>
+            <div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">B 中的行/列</span><span class="locale-en">Row/column in B</span></th><th><span class="locale-zh">轨道</span><span class="locale-en">Orbital</span></th><th><span class="locale-zh">A 中的行/列</span><span class="locale-en">Row/column in A</span></th></tr></thead><tbody>
+              <tr><td>1</td><td><code>dz2up</code></td><td>1</td></tr>
+              <tr><td>2</td><td><code>dz2dn</code></td><td>4</td></tr>
+              <tr><td>3</td><td><code>dxyup</code></td><td>2</td></tr>
+              <tr><td>4</td><td><code>dxydn</code></td><td>5</td></tr>
+              <tr><td>5</td><td><code>dx2-y2up</code></td><td>3</td></tr>
+              <tr><td>6</td><td><code>dx2-y2dn</code></td><td>6</td></tr>
+            </tbody></table></div>
+            <p class="locale-zh">本节输出只来自 <code>symham(1)</code> 的 onsite 层，所以不含动量变量，也不是含 hopping 的完整能带模型。脚本中若需要输出矩阵，将单独一行 <code>h_a</code> 或 <code>h_b</code> 改为 <code>print(h_a)</code> 或 <code>print(h_b)</code>。</p>
+            <p class="locale-en">These outputs contain only the onsite shell from <code>symham(1)</code>, so there are no momentum variables; they are not hopping-inclusive band models. In a script, replace the standalone <code>h_a</code> or <code>h_b</code> expression with <code>print(h_a)</code> or <code>print(h_b)</code> to print the matrix.</p>
+          </article>
+        </section>
+        <section id="data" class="help-section" data-searchable data-search="inputs 32 33 34 35 36 37 Wyckoff layer rod">
+          <div class="section-heading"><div><p class="eyebrow">Data examples</p><h2><span class="locale-zh">空间群、层群和杆群 Data</span><span class="locale-en">Space-, layer-, and rod-group Data</span></h2></div><span class="section-index">05</span></div>
+          <div><span class="example-cell" data-example="32"></span><span class="example-cell" data-example="33"></span><span class="example-cell" data-example="34"></span><span class="example-cell" data-example="35"></span><span class="example-cell" data-example="36"></span><span class="example-cell" data-example="37"></span></div>
+          <article class="card panel"><h3>Inputs 32–33 · <code>showMSGWyckoff</code></h3><div class="code-block output"><pre>gray[193]
+MSG: (193, 254) P6_3/mcm1'
+[(2,'a',2),(2,'b',2),(4,'c',4),(4,'d',4),(4,'e',4),
+ (6,'f',6),(6,'g',6),(8,'h',8),(12,'i',12),(12,'j',12),
+ (12,'k',12),(24,'l',24)]
+
+bnsdict[(187,211)]
+MSG: (187, 211) P-6'm'2
+[(1,'a',1),(1,'b',1),(1,'c',1),(1,'d',1),(1,'e',1),
+ (1,'f',1),(2,'g',2),(2,'h',2),(2,'i',2),(3,'j',3),
+ (3,'k',3),(6,'l',6),(6,'m',6),(6,'n',6),(12,'o',12)]</pre></div><p><a href="../reference/showMSGWyckoff.html"><span class="locale-zh">查看 gray[193] 的全部坐标与磁矩 →</span><span class="locale-en">See every coordinate and moment for gray[193] →</span></a></p></article>
+          <div class="content-grid"><article class="card panel"><h3>Inputs 34–35 · <code>mlgop</code></h3><div class="code-block output"><pre>graylayer[25] → ['25.2.144', "pba21'"]
+E    [[1,0,0],[0,1,0],[0,0,1]]       [0,0,0]     F
+C2z  [[-1,0,0],[0,-1,0],[0,0,1]]     [0,0,0]     F
+σx   [[-1,0,0],[0,1,0],[0,0,1]]      [1/2,1/2,0] F
+σy   [[1,0,0],[0,-1,0],[0,0,1]]      [1/2,1/2,0] F
+
+(25,3,145) → ['25.3.145', "pb'a'2"]
+E    [[1,0,0],[0,1,0],[0,0,1]]       [0,0,0]     F
+C2z  [[-1,0,0],[0,-1,0],[0,0,1]]     [0,0,0]     F
+σx   [[-1,0,0],[0,1,0],[0,0,1]]      [1/2,1/2,0] T
+σy   [[1,0,0],[0,-1,0],[0,0,1]]      [1/2,1/2,0] T</pre></div></article><article class="card panel"><h3>Inputs 36–37 · <code>mrgop</code></h3><div class="code-block output"><pre>grayrod[25] → ['25.2.129', "p4_21'"]
+E     [[1,0,0],[0,1,0],[0,0,1]]      [0,0,0]   F
+C2z   [[-1,0,0],[0,-1,0],[0,0,1]]    [0,0,0]   F
+C4z+  [[0,-1,0],[1,0,0],[0,0,1]]     [0,0,1/2] F
+C4z-  [[0,1,0],[-1,0,0],[0,0,1]]     [0,0,1/2] F
+
+(25,3,130) → ['25.3.130', "p4_2'"]
+E     [[1,0,0],[0,1,0],[0,0,1]]      [0,0,0]   F
+C4z+  [[0,-1,0],[1,0,0],[0,0,1]]     [0,0,1/2] T
+C2z   [[-1,0,0],[0,-1,0],[0,0,1]]    [0,0,0]   F
+C4z-  [[0,1,0],[-1,0,0],[0,0,1]]     [0,0,1/2] T</pre></div></article></div>
+        </section>
+        <footer class="site-footer"><span><span class="locale-zh">本页给出 24 个可直接运行的 Python 示例及实际结果。</span><span class="locale-en">This page provides 24 directly runnable Python examples with actual results.</span></span><a href="../index.html"><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a></footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

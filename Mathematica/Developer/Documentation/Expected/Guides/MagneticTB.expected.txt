@@ -1,0 +1,26 @@
+MagneticTB constructs analytical tight-binding Hamiltonians
+Tutorials: start here
+Model setup and inspection
+Crystal, symmetry, and group theory
+Hamiltonians and band calculations
+Band fitting and VASP comparison
+Fitting MagneticTB bands to VASP
+MagneticTB/tutorial/BandFitting
+Plotting and reciprocal-space paths
+The MagneticTB 1.0 functions are included under MagneticTBOld`
+Getting Started with MagneticTB
+General MagneticTB Examples
+Crystal structure, Brillouin zone, and k paths
+Band corepresentations with MSGCorep
+High-symmetry tetragonal antiferromagnet: spin symmetry and SOC
+MagneticTB/tutorial/ContinuousSymmetry
+MagneticTB/tutorial/LegacyBackend
+gray
+bnsdict
+typeI
+typeIII
+typeIV
+graylayer
+grayrod
+fittingTB
+MagneticTB/guide/MagneticTB

@@ -1,0 +1,15 @@
+Wyckoff Database Models in Seven Crystal Systems
+DirectProduct representation
+Induced representation
+How the two constructions are compared
+MagneticTB/tutorial/WyckoffCrystalSystems
+1.3-a
+2.6-i
+3.3-e
+3.4-a
+16.3-q
+16.3-r
+75.3-c
+143.3-a
+168.111-b
+195.3-a

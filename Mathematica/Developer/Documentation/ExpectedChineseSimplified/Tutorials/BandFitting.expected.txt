@@ -1,0 +1,8 @@
+将 MagneticTB 能带拟合到 VASP
+读取并检查三条 VASP 能带
+MagneticTB/tutorial/BandFitting
+拟合 onsite 与最近邻模型
+加入第二近邻 hopping
+只拟合关心的能量范围
+只拟合 K 点附近
+根据能带图判断，不要只看损失

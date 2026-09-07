@@ -1,0 +1,3 @@
+buildBlochHamiltonian
+范例
+MagneticTB/ref/buildBlochHamiltonian

@@ -1,0 +1,6 @@
+showSymmetryRepresentations
+shows how selected symmetry operations act on the complete Hamiltonian basis.
+Examples
+Related Functions
+MagneticTB/ref/showSymmetryRepresentations
+showSymmetryRepresentations[{1, 3, 25}]

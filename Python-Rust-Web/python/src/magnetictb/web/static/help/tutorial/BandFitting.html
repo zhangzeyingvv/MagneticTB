@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="description" content="Unpublished MagneticTB Python VASP band-fitting results draft."><title>VASP 能带拟合结果草稿 · Python 用户帮助</title><link rel="stylesheet" href="../help.css?v=a0a09c187d71"><script defer src="../help.js?v=6bee0b68d479"></script></head>
+<body data-locale="zh"><a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><button id="sidebarScrim" class="sidebar-scrim" type="button"></button><div class="help-shell">
+  <aside id="helpSidebar" class="sidebar panel"><a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a><nav class="nav"><a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a><p class="nav-group">Band fitting · draft</p><a class="active" href="#data"><span>01</span><span>VASP data</span></a><a href="#model"><span>02</span><span>Model</span></a><a href="#nearest"><span>03</span><span>Nearest fit</span></a><a href="#second"><span>04</span><span>Second neighbour</span></a><a href="#focused"><span>05</span><span>Focused fits</span></a><p class="nav-group">Links</p><a href="../reference/fittingTB.html"><span>F</span><span>fittingTB draft</span></a></nav><div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">未发布草稿</span><span class="locale-en">Unpublished draft</span></div><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div></aside>
+  <div class="workspace"><header class="topbar panel"><button id="menuButton" class="icon-button" type="button">☰</button><div class="top-title"><strong><span class="locale-zh">VASP 能带拟合</span><span class="locale-en">VASP band fitting</span></strong><small>Unpublished results draft</small></div><label class="search-wrap"><span>⌕</span><input id="helpSearch" type="search" aria-label="搜索本页"><small id="searchCount" class="search-count"></small></label><div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button">EN</button></div></header><main id="mainContent">
+    <section class="help-section" data-searchable data-search="draft fitting results"><article class="card panel"><div class="callout warning"><span class="locale-zh">本页是未发布的拟合接口草稿，暂不列入帮助主页和 Guide 的正式入口。</span><span class="locale-en">This is an unpublished fitting-API draft and is not linked from the help home or Guide.</span></div></article></section>
+    <section id="data" class="help-section" data-searchable data-search="inputs 1 2 VASP EIGENVAL three bands"><div class="section-heading"><div><p class="eyebrow">Tutorial · examples 1–2</p><h2><span class="locale-zh">读取并检查三条 VASP 能带</span><span class="locale-en">Read and inspect three VASP bands</span></h2><p class="locale-zh">Python 负责输入与返回对象；解析、Hamiltonian 求值和拟合都由 Rust 完成。</p><p class="locale-en">Python supplies the inputs and result objects; parsing, Hamiltonian evaluation, and fitting run in Rust.</p></div><span class="section-index">01</span></div><article class="card panel"><h3>Example 1 · import</h3><div class="code-block"><pre><span class="code-comment locale-zh"># 导入精确数、建模、VASP 读取和拟合入口</span><span class="code-comment locale-en"># Import exact-number, modeling, VASP-reading, and fitting APIs</span>
+from fractions import Fraction
+from magnetictb import (
+    compareBand, fittingTB, gray, hamiltonian_object,
+    init, msgop, sqrt, symbol, vaspEig,
+)</pre></div><div class="code-block output"><pre>MagneticTB import: OK</pre></div></article><article class="card panel"><h3>Input 2 · EIGENVAL</h3><div class="code-block"><pre><span class="code-comment locale-zh"># 读取 EIGENVAL 的第 21–23 条能带并检查记录</span><span class="code-comment locale-en"># Read bands 21–23 from EIGENVAL and inspect the records</span>
+eigenval_file = "/path/to/EIGENVAL"
+vasp_bands = vaspEig(eigenval_file, -0.0072, 1, 21, 23)
+print(len(vasp_bands), vasp_bands[0], vasp_bands[59])</pre></div><div class="code-block output"><pre>90
+[[0.0, 0.0, 0.0], [-0.337773, 2.612089, 2.612105]]
+[[0.3333333, 0.3333333, 0.0], [-0.127918, 0.126005, 2.431383]]</pre></div>
+<details id="example-reference"><summary><span class="locale-zh">没有 EIGENVAL 文件？使用本例数据</span><span class="locale-en">No EIGENVAL file? Use the example data</span></summary><p class="locale-zh"><a href="../assets/examples/compareband-reference.json" download="compareband-reference.json">下载参考数据</a>到当前工作目录，用下面代码替代上面的文件读取。数据包含本例使用的 90 个 k 点及三条能带。</p><p class="locale-en"><a href="../assets/examples/compareband-reference.json" download="compareband-reference.json">Download the reference data</a> to your working directory and use this code instead of the file-reading code above. It contains this example’s 90 k points and three bands.</p><div class="code-block"><pre><span class="code-comment locale-zh"># 读取随教程提供的参考能带，供下面各个拟合例子使用</span><span class="code-comment locale-en"># Load the tutorial reference bands for the fitting examples below</span>
+import json
+with open("compareband-reference.json", encoding="utf-8") as stream:
+    vasp_bands = json.load(stream)["records"]</pre></div></details></article></section>
+    <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+    <section id="model" class="help-section" data-searchable data-search="input 3 three orbital gray 156 Hamiltonian"><div class="section-heading"><div><p class="eyebrow">Input 3</p><h2><span class="locale-zh">建立三轨道拟合模型</span><span class="locale-en">Build the three-orbital fitting model</span></h2></div><span class="section-index">02</span></div><article class="card panel"><div class="code-block"><pre><span class="code-comment locale-zh"># 初始化三轨道模型，组合两个键层并设置拟合初值</span><span class="code-comment locale-en"># Initialize the three-orbital model, combine two shells, and set initial fit values</span>
+a, c = symbol("a"), symbol("c")
+init(
+    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 10)),
+    wyckoffposition=(((Fraction(2, 3), Fraction(1, 3), 0), (0, 0, 0)),),
+    symminformation=msgop(gray[156])[:6],
+    basisFunctions=(("dz2", "dxy", "dx2-y2"),),
+    InitialBondShells=3,
+    GenerateSymmetryGroup=True,
+)
+fitting_hamiltonian = hamiltonian_object(1) + hamiltonian_object(2)
+fitting_path = (
+    (((0, 0, 0), (Fraction(1, 2), 0, 0)), ("Γ", "M")),
+    (((Fraction(1, 2), 0, 0), (Fraction(1, 3), Fraction(1, 3), 0)), ("M", "K")),
+    (((Fraction(1, 3), Fraction(1, 3), 0), (0, 0, 0)), ("K", "Γ")),
+)
+initial = {
+    "e1": 0.915, "e2": 0.685,
+    "t1": 0.1, "t2": 0.09, "t3": 0.1,
+    "t4": -0.38, "t5": 0.34, "t6": 0.245,
+    "t7": 0.565, "t8": 0.305, "t9": 0.365,
+}
+print(fitting_hamiltonian.shape)
+print(fitting_hamiltonian.parameter_names)</pre></div><div class="code-block output"><pre>Magnetic space group (BNS): [156, 50]
+Lattice: HexagonalP
+Generators: [('"1"','F'), ('"3z"','F'), ('"3z-1"','F'),
+             ('"mx"','F'), ('"mxy"','F'), ('"my"','F')]
+(3, 3)
+('e1', 'e2', 't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9')</pre></div></article></section>
+    <section id="nearest" class="help-section" data-searchable data-search="input 4 nearest fitting 13 iterations 3.681"><div class="section-heading"><div><p class="eyebrow">Input 4</p><h2><span class="locale-zh">最近邻拟合与能带对比</span><span class="locale-en">Nearest-neighbour fit and comparison</span></h2></div><span class="section-index">03</span></div><article class="card panel"><div class="code-block"><pre><span class="code-comment locale-zh"># 拟合最近邻模型，并返回与参考数据的能带对比</span><span class="code-comment locale-en"># Fit the nearest-neighbour model and compare its bands with the reference data</span>
+nearest_fit = fittingTB(
+    fitting_hamiltonian,
+    vasp_bands,
+    list(range(1, len(vasp_bands) + 1)),
+    initial,
+)
+nearest_comparison = compareBand(
+    fitting_path, 30, fitting_hamiltonian,
+    dict(nearest_fit.fitted_parameters), vasp_bands,
+    plotRange=(-1.5, 3),
+)
+print(nearest_fit.converged, nearest_fit.iterations)
+print(nearest_fit.initial_loss, nearest_fit.fitted_loss)
+print(len(nearest_comparison.model.eigenvalues),
+      len(nearest_comparison.reference_bands))
+print(nearest_comparison.model.eigenvalues[0])
+print(nearest_comparison.reference_bands[0])
+<span class="figure-export"><span class="code-comment locale-zh"># 保存能带对比图；交互显示可用 nearest_comparison.show()</span><span class="code-comment locale-en"># Save the band comparison; use nearest_comparison.show() for interactive display</span>
+nearest_comparison.savefig("bandfitting-nearest.svg")</span></pre></div><div class="code-block output"><pre>True 13
+143.1410875648821 3.6813037963888706
+93 90
+(-0.41620768255750884, 2.4537921207343953, 2.4537921207343953)
+(-0.337773, 2.612089, 2.612105)</pre></div>
+<figure class="result-figure function-figure" data-function="compareBand"><a href="../assets/function-plots/bandfitting-nearest.svg"><img src="../assets/function-plots/bandfitting-nearest.svg" alt="Nearest-neighbour TB and reference bands along Gamma–M–K–Gamma" loading="lazy" style="max-width: 640px"></a><figcaption><span class="locale-zh">最近邻拟合：使用本例保存的参数，由 <code>compareBand(...).savefig(...)</code> 生成。紫色为 TB，浅蓝色为参考能带；能量单位为 eV。</span><span class="locale-en">Nearest-neighbour fit, generated by <code>compareBand(...).savefig(...)</code> using this example’s saved parameters. Purple: TB; light blue: reference bands. Energies are in eV.</span></figcaption></figure>
+<p class="locale-zh">模型每段包含两端点，所以 3×31=93 点；VASP 文件每段 30 点，共 90 点。两组数据绘制在同一路径横坐标上。</p><p class="locale-en">The model includes both endpoints of each segment, giving 3×31=93 points; the VASP file has 30 records per segment, or 90 total. Both are plotted on the same path coordinate.</p>
+<details id="redraw-nearest"><summary><span class="locale-zh">不重新拟合，只重画这张图</span><span class="locale-en">Redraw this figure without refitting</span></summary><p class="locale-zh">先执行上面的导入与模型代码，并<a href="../assets/examples/compareband-reference.json" download="compareband-reference.json">下载参考数据</a>到当前工作目录。下列参数与 <a href="../reference/fittingTB.html#nearest">fittingTB 示例的保存结果</a>相同，不需要运行优化器。</p><p class="locale-en">Run the imports and model code above, then <a href="../assets/examples/compareband-reference.json" download="compareband-reference.json">download the reference data</a> to your working directory. These parameters match the <a href="../reference/fittingTB.html#nearest">saved fittingTB example result</a>; no optimizer run is needed.</p><div class="code-block"><pre><span class="code-comment locale-zh"># 读取本例的参考能带，直接使用保存的最近邻参数</span><span class="code-comment locale-en"># Load this example’s reference bands and reuse the saved nearest-neighbour parameters</span>
+import json
+with open("compareband-reference.json", encoding="utf-8") as stream:
+    vasp_bands = json.load(stream)["records"]
+saved_nearest_parameters = {
+    "e1": -0.178810705201303, "e2": 1.4791055401880806,
+    "t1": -0.03956616289270096, "t2": -0.08646977730344792,
+    "t3": -0.12609189892787226, "t4": 0.3752021134889403,
+    "t5": 0.3652457747928622, "t6": 0.23148554072858285,
+    "t7": -0.015791860765235078, "t8": 0.19415587636289922,
+    "t9": -0.003933982373039839,
+}
+<span class="code-comment locale-zh"># compareBand 计算能带，返回对象的 savefig 方法生成图片</span><span class="code-comment locale-en"># compareBand evaluates the bands; the returned object’s savefig method generates the image</span>
+nearest_comparison = compareBand(
+    fitting_path, 30, fitting_hamiltonian,
+    saved_nearest_parameters, vasp_bands, plotRange=(-1.5, 3),
+)
+<span class="figure-export">nearest_comparison.savefig("bandfitting-nearest.svg")</span></pre></div></details></article></section>
+    <section id="second" class="help-section" data-searchable data-search="input 5 second neighbour fit 0.130363"><div class="section-heading"><div><p class="eyebrow">Input 5</p><h2><span class="locale-zh">加入第二近邻</span><span class="locale-en">Add second neighbours</span></h2></div><span class="section-index">04</span></div><article class="card panel"><div class="code-block"><pre><span class="code-comment locale-zh"># 加入第二近邻参数，继续拟合并比较能带</span><span class="code-comment locale-en"># Add second-neighbour parameters, continue fitting, and compare the bands</span>
+second_hamiltonian = fitting_hamiltonian + hamiltonian_object(3)
+second_initial = dict(nearest_fit.fitted_parameters)
+second_initial.update({f"r{i}": 0.0 for i in range(1, 11)})
+second_fit = fittingTB(
+    second_hamiltonian, vasp_bands,
+    list(range(1, 91)), second_initial,
+)
+second_comparison = compareBand(
+    fitting_path, 30, second_hamiltonian,
+    dict(second_fit.fitted_parameters), vasp_bands,
+    plotRange=(-1.5, 3),
+)
+print(second_fit.converged, second_fit.iterations)
+print(second_fit.initial_loss, second_fit.fitted_loss)
+print(second_comparison.model.eigenvalues[0])
+print(second_comparison.model.eigenvalues[60])
+<span class="figure-export"><span class="code-comment locale-zh"># 保存加入第二近邻后的能带对比图；交互显示可用 second_comparison.show()</span><span class="code-comment locale-en"># Save the second-neighbour comparison; use second_comparison.show() for interactive display</span>
+second_comparison.savefig("compareband-full.svg")</span></pre></div><div class="code-block output"><pre>True 32
+3.6813037963888706 0.13036395929362382
+(-0.30885635496703756, 2.6028739005231274, 2.6028739005231274)
+(-0.10881749148798939, 0.15671209576878298, 2.419268293156152)</pre></div>
+<figure class="result-figure function-figure" data-function="compareBand"><a href="../assets/function-plots/compareband-full.svg"><img src="../assets/function-plots/compareband-full.svg" alt="Second-neighbour TB and reference bands along Gamma–M–K–Gamma" loading="lazy" style="max-width: 640px"></a><figcaption><span class="locale-zh">第二近邻拟合：本例保存参数对应的 <code>compareBand</code> 实际输出。紫色为 TB，浅蓝色为参考能带，坐标范围与上一张图相同。</span><span class="locale-en">Second-neighbour fit: actual <code>compareBand</code> output for this example’s saved parameters. Purple: TB; light blue: reference bands. Axis limits match the preceding figure.</span></figcaption></figure>
+<p class="locale-zh">只需重画时，可使用 <a href="../reference/compareBand.html#fit">compareBand 页面提供的完整保存参数与绘图代码</a>，无需重新拟合。</p><p class="locale-en">To redraw without refitting, use the <a href="../reference/compareBand.html#fit">complete saved parameters and plotting code on the compareBand page</a>.</p>
+</article></section>
+    <section id="focused" class="help-section" data-searchable data-search="inputs 6 7 EnergyWindow K point neighborhood"><div class="section-heading"><div><p class="eyebrow">Inputs 6–7</p><h2><span class="locale-zh">限制能窗或 K 点邻域</span><span class="locale-en">Restrict the energy window or K neighbourhood</span></h2></div><span class="section-index">05</span></div><article id="energy-window" class="card panel"><h3>Input 6 · <code>EnergyWindow</code></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 限制拟合能量窗口，并检查优化结果</span><span class="code-comment locale-en"># Restrict the fitting energy window and inspect the optimization result</span>
+fermi_fit = fittingTB(
+    fitting_hamiltonian, vasp_bands, list(range(1, 91)), initial,
+    EnergyWindow=(-0.5, 0.5),
+)
+fermi_comparison = compareBand(
+    fitting_path, 30, fitting_hamiltonian,
+    dict(fermi_fit.fitted_parameters), vasp_bands,
+    plotRange=(-1.5, 3),
+)
+print(fermi_fit.converged, fermi_fit.iterations)
+print(fermi_fit.initial_loss, fermi_fit.fitted_loss)
+print(len(fermi_fit.used_k_point_indices), fermi_fit.residual_count)
+print(fermi_comparison.model.eigenvalues[60])
+<span class="figure-export"><span class="code-comment locale-zh"># 保存本次能窗拟合的能带图；交互显示可用 fermi_comparison.show()</span><span class="code-comment locale-en"># Save the energy-window fit plot; use fermi_comparison.show() for interactive display</span>
+fermi_comparison.savefig("bandfitting-energy-window.svg")</span></pre></div><div class="code-block output"><pre>True 24
+16.772988964303096 0.00017166800200888645
+28 41
+(-0.13931254335422114, 0.13763489474515225, 1.5049173141544039)</pre></div>
+<figure class="result-figure function-figure" data-function="compareBand"><a href="../assets/function-plots/bandfitting-energy-window.svg"><img src="../assets/function-plots/bandfitting-energy-window.svg" alt="Energy-window fit: TB and reference bands along Gamma–M–K–Gamma" loading="lazy" style="max-width: 640px"></a><figcaption><span class="locale-zh"><code>fermi_comparison.savefig(...)</code> 的实际输出。仅用 −0.5 到 0.5 eV 内的参考能量拟合；图中仍展示完整路径与较宽能区，窗外能带不保证吻合。紫色为 TB，浅蓝色为参考能带。</span><span class="locale-en">Actual output from <code>fermi_comparison.savefig(...)</code>. Only reference energies from −0.5 to 0.5 eV enter the fit. The plot still shows the full path and a wider energy range; agreement outside the fitted window is not guaranteed. Purple: TB; light blue: reference bands.</span></figcaption></figure></article>
+<article id="k-neighborhood" class="card panel"><h3>Input 7 · <code>KPointNeighborhood</code></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 限制拟合的 k 点邻域，并检查优化结果</span><span class="code-comment locale-en"># Restrict the fitted k-point neighborhoods and inspect the optimization result</span>
+k_fit = fittingTB(
+    fitting_hamiltonian, vasp_bands, list(range(1, 91)), initial,
+    KPointNeighborhood={
+        "Center": (Fraction(1, 3), Fraction(1, 3), 0),
+        "Radius": 0.15,
+        "Periodic": True,
+    },
+)
+<span class="code-comment locale-zh"># 使用这次 K 邻域拟合的参数，绘制完整路径以比较邻域内外的效果</span><span class="code-comment locale-en"># Plot the full path with this K-neighbourhood fit’s parameters to compare behaviour inside and outside the fitted region</span>
+k_comparison = compareBand(
+    fitting_path, 30, fitting_hamiltonian,
+    dict(k_fit.fitted_parameters), vasp_bands,
+    plotRange=(-1.5, 3),
+)
+print(k_fit.converged, k_fit.iterations)
+print(k_fit.initial_loss, k_fit.fitted_loss)
+print(k_fit.used_k_point_indices)
+print(k_fit.comparison.fitted_bands[0])
+print(k_fit.comparison.reference_bands[0])
+<span class="figure-export"><span class="code-comment locale-zh"># 保存 K 邻域拟合的能带图；交互显示可用 k_comparison.show()</span><span class="code-comment locale-en"># Save the K-neighbourhood fit plot; use k_comparison.show() for interactive display</span>
+k_comparison.savefig("bandfitting-k-neighborhood.svg")</span></pre></div><div class="code-block output"><pre>True 20
+29.378270550141963 0.0024843950327300217
+(49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+ 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70)
+(-0.5253262755254161, 0.6362529410871435, 2.278716163645225)
+(-0.54489, 0.619663, 2.26239)</pre></div>
+<figure class="result-figure function-figure" data-function="compareBand"><a href="../assets/function-plots/bandfitting-k-neighborhood.svg"><img src="../assets/function-plots/bandfitting-k-neighborhood.svg" alt="K-neighbourhood fit: TB and reference bands along Gamma–M–K–Gamma" loading="lazy" style="max-width: 640px"></a><figcaption><span class="locale-zh"><code>k_comparison.savefig(...)</code> 的实际输出。拟合只使用 K 点邻域选中的参考记录；图中画出完整路径，便于同时检查邻域外的偏差。紫色为 TB，浅蓝色为参考能带。</span><span class="locale-en">Actual output from <code>k_comparison.savefig(...)</code>. The fit uses only the selected reference records near K; plotting the full path also exposes deviations outside that neighbourhood. Purple: TB; light blue: reference bands.</span></figcaption></figure></article></section>
+    <footer class="site-footer"><span><span class="locale-zh">未发布的拟合结果草稿。</span><span class="locale-en">Unpublished fitting-results draft.</span></span><a href="../index.html"><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a></footer>
+  </main></div>
+</div></body></html>

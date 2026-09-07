@@ -1,0 +1,7 @@
+initfromrep
+范例
+MagneticTB/ref/initfromrep
+选项
+InitialBondShells -> 2
+RepresentationMode -> \"Induced\"
+C4z^-1

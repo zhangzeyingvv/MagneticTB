@@ -1,0 +1,35 @@
+[package]
+name = "magnetictb-python"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Python bindings for the MagneticTB Rust core"
+license = "GPL-3.0-only"
+
+[lib]
+name = "_core"
+crate-type = ["cdylib"]
+
+[dependencies]
+cyclotomic-nullspace = { path = "../cyclotomic-nullspace" }
+magnetictb-abstract-group = { path = "../magnetictb-abstract-group" }
+magnetictb-crystal-geometry = { path = "../magnetictb-crystal-geometry" }
+magnetictb-data = { path = "../magnetictb-data" }
+magnetictb-fitting = { path = "../magnetictb-fitting" }
+magnetictb-linear-algebra = { path = "../magnetictb-linear-algebra" }
+magnetictb-properties = { path = "../magnetictb-properties" }
+magnetictb-representation = { path = "../magnetictb-representation" }
+magnetictb-symmetry = { path = "../magnetictb-symmetry" }
+magnetictb-tight-binding = { path = "../magnetictb-tight-binding" }
+nalgebra = { version = "=0.33.2", default-features = false, features = ["std"] }
+pyo3 = { version = "=0.28.3", features = ["extension-module", "abi3-py39", "num-complex"] }
+serde = "1"
+serde_json = "1"
+sha2 = "0.10"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"

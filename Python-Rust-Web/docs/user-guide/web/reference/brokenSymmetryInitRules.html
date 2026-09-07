@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="description" content="MagneticTB Python brokenSymmetryInitRules reference."><title>brokenSymmetryInitRules · MagneticTB Python 用户帮助</title><link rel="stylesheet" href="../help.css?v=a0a09c187d71"><script defer src="../help.js?v=6bee0b68d479"></script></head><body data-locale="zh"><a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button><div class="help-shell"><aside id="helpSidebar" class="sidebar panel"><a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a><nav class="nav" aria-label="brokenSymmetryInitRules 页面导航"><a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a><p class="nav-group">brokenSymmetryInitRules</p><a class="active" href="#usage"><span>01</span><span>Usage</span></a><a href="#example"><span>02</span><span>Basic Example</span></a><a href="#result"><span>03</span><span>Complete result</span></a><p class="nav-group">Links</p><a href="init.html"><span>I</span><span>init</span></a><a href="msgop.html"><span>M</span><span>msgop</span></a></nav><div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">1 个示例</span><span class="locale-en">1 example</span></div></div></aside><div class="workspace"><header class="topbar panel"><button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button><div class="top-title"><strong><code>brokenSymmetryInitRules</code></strong><small>Reference Page</small></div><label class="search-wrap"><span aria-hidden="true">⌕</span><input id="helpSearch" type="search" autocomplete="off" placeholder="搜索本页" aria-label="搜索本页"><small id="searchCount" class="search-count" aria-live="polite"></small></label><div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button">EN</button></div></header><main id="mainContent">
+<section id="usage" class="help-section" data-searchable data-search="brokenSymmetryInitRules subgroup replay init selector labels indices"><div class="section-heading"><div><p class="eyebrow">Reference Page</p><h2><code>brokenSymmetryInitRules</code></h2><p class="locale-zh">从当前模型选择保留子群，拆分必要的 site orbit，并返回可直接交给 <code>init(**rules)</code> 的参数字典。</p><p class="locale-en">Select a retained subgroup of the current model, split site orbits as required, and return a dictionary ready for <code>init(**rules)</code>.</p></div><span class="section-index">01</span></div><article class="card panel"><p class="signature">brokenSymmetryInitRules(selector) → dict</p><div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">参数</span><span class="locale-en">Parameter</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">作用</span><span class="locale-en">Purpose</span></th></tr></thead><tbody><tr><td><code>selector</code></td><td><span class="locale-zh">必填</span><span class="locale-en">required</span></td><td><span class="locale-zh">接受 <code>"All"</code>、正整数、非空标签或其序列。<code>"All"</code> 保留完整操作表；整数按 1-based 操作编号解释；字符串按操作标签解释。</span><span class="locale-en">Accepts <code>"All"</code>, positive integers, nonempty labels, or their sequences. <code>"All"</code> retains the full operation table; integers are 1-based operation indices and strings are operation labels.</span></td></tr></tbody></table></div><p class="locale-zh">函数读取当前会话，而且当前模型必须保留原始 <code>init</code> recipe；返回字典不会自动重新安装模型。</p><p class="locale-en">The function reads the current session and requires the model's original <code>init</code> recipe; the returned dictionary does not reinstall the model automatically.</p></article></section><div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+<section id="example" class="help-section" data-searchable data-search="Graphene generator 2 C6 subgroup"><div class="section-heading"><div><p class="eyebrow">Basic Example · input 1</p><h2><span class="locale-zh">保留石墨烯的第二个生成元</span><span class="locale-en">Retain Graphene generator 2</span></h2></div><span class="section-index">02</span></div><article class="card panel" data-example="1"><div class="code-block"><pre><span class="code-comment locale-zh"># 生成并使用破缺对称性模型的初始化参数</span><span class="code-comment locale-en"># Generate and use initialization arguments for a broken-symmetry model</span>
+from fractions import Fraction
+from pprint import pprint
+from magnetictb import (
+    brokenSymmetryInitRules, gray, init, msgop,
+    sqrt, symbol,
+)
+
+a, c = symbol("a"), symbol("c")
+operations = msgop(gray[191])
+init(
+    lattice=((a, 0, 0), (-a/2, sqrt(3)*a/2, 0), (0, 0, c)),
+    lattpar=((a, 1), (c, 3)),
+    wyckoffposition=(((Fraction(1, 3), Fraction(2, 3), 0), (0, 0, 0)),),
+    symminformation=operations,
+    basis_functions=(("pz",),),
+)
+rules = brokenSymmetryInitRules([2])
+pprint(rules, sort_dicts=False)</pre></div><div class="code-block output"><pre>Magnetic space group (BNS): [191, 234]
+Lattice: HexagonalP
+Primitive Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Conventional Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Generators: [('"6z"', 'F'), ('"2x"', 'F'), ('"-1"', 'F'), ('"1"', 'T')]
+{'lattice': ((a, 0, 0), (((-1*a)*1/2), (((3)^(1/2)*a)*1/2), 0), (0, 0, c)),
+ 'lattpar': (('a', 1), ('c', 3)),
+ 'wyckoffposition': (((Fraction(1, 3), Fraction(2, 3), 0), (0, 0, 0)),),
+ 'symminformation': (
+   ('"1"', ((1, 0, 0), (0, 1, 0), (0, 0, 1)), (0, 0, 0), 'F'),
+   ('"6z"', ((1, -1, 0), (1, 0, 0), (0, 0, 1)), (0, 0, 0), 'F'),
+   ('"3z"', ((0, -1, 0), (1, -1, 0), (0, 0, 1)), (0, 0, 0), 'F'),
+   ('"2z"', ((-1, 0, 0), (0, -1, 0), (0, 0, 1)), (0, 0, 0), 'F'),
+   ('"3z-1"', ((-1, 1, 0), (-1, 0, 0), (0, 0, 1)), (0, 0, 0), 'F'),
+   ('"6z-1"', ((0, 1, 0), (-1, 1, 0), (0, 0, 1)), (0, 0, 0), 'F')),
+ 'basis_functions': (('pz',),),
+ 'debug_q': False,
+ 'initial_bond_shells': 10,
+ 'generate_symmetry_group': False,
+ 'representation_mode': 'DirectProduct',
+ 'exact_field': ExactField(
+   conductor=24,
+   cyclotomic_polynomial=(1, 0, 0, 0, -1, 0, 0, 0, 1))}</pre></div></article></section>
+<section id="result" class="help-section" data-searchable data-search="result fields init kwargs replay"><div class="section-heading"><div><p class="eyebrow">Complete result</p><h2><span class="locale-zh">结果如何使用</span><span class="locale-en">How to use the result</span></h2></div><span class="section-index">03</span></div><article class="card panel"><div class="code-block"><pre><span class="code-comment locale-zh"># 生成并使用破缺对称性模型的初始化参数</span><span class="code-comment locale-en"># Generate and use initialization arguments for a broken-symmetry model</span>
+init(**rules)</pre></div><p class="locale-zh">字典完整保留晶格、参数、拆分后的 Wyckoff 输入、六个保留操作、基底、键层数与精确域。它不修改原字典，也不会静默加入被删除的对称操作。</p><p class="locale-en">The dictionary retains the lattice, parameters, split Wyckoff input, six retained operations, basis, shell count, and exact field. It does not mutate the original dictionary or silently restore removed operations.</p></article></section>
+</main><footer class="site-footer"><a href="../index.html"><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a></footer></div></div></body></html>

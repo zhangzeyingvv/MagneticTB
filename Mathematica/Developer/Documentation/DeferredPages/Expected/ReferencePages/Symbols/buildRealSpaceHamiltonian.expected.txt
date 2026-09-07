@@ -1,0 +1,9 @@
+buildRealSpaceHamiltonian
+assembles a rectangular sparse finite Hamiltonian from numerical hopping blocks.
+Examples
+Related Functions
+MagneticTB/ref/buildRealSpaceHamiltonian
+Options
+BoundaryConditions
+HermiticityTolerance
+Output

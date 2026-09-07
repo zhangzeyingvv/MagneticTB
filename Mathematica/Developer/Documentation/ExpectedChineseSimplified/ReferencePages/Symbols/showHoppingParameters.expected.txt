@@ -1,0 +1,3 @@
+showHoppingParameters
+范例
+MagneticTB/ref/showHoppingParameters

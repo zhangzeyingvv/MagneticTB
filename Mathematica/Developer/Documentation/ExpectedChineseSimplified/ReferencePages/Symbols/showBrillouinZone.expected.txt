@@ -1,0 +1,11 @@
+showBrillouinZone
+范例
+MagneticTB/ref/showBrillouinZone
+msgop[gray[191]]
+msgop[gray[123]]
+msgop[gray[47]]
+msgop[gray[10]]
+六棱柱
+简单四方晶格
+简单正交晶格
+单斜晶格

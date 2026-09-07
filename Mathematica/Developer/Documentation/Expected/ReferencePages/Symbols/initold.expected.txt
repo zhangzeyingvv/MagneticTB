@@ -1,0 +1,13 @@
+initold
+sets up a model with the original MagneticTB implementation.
+Examples
+Related Functions
+MagneticTB/ref/initold
+Options
+latticeold
+lattparold
+wyckoffpositionold
+symminformationold
+basisFunctionsold
+debugQold
+debugQold -> False

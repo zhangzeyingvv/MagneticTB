@@ -1,0 +1,6 @@
+graylayer
+returns the database identifier of the gray magnetic layer group associated with layer-group number n.
+Examples
+Related Functions
+MagneticTB/ref/graylayer
+Possible Issues

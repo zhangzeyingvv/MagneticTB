@@ -1,0 +1,9 @@
+Getting Started with MagneticTB
+Install, update, uninstall, and load
+MagneticTB help home
+PacletUninstall[\"MagneticTB\"]
+The five physical inputs
+Solve the Hamiltonian shell by shell
+Multiple orbitals and multiple Wyckoff positions
+MatrixForm[csclHamiltonian]
+MagneticTB/tutorial/GettingStarted

@@ -1,0 +1,5 @@
+showbonds
+shows the bond length and all directed bonds in prepared shell n.
+Examples
+Related Functions
+MagneticTB/ref/showbonds

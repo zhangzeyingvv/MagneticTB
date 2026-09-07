@@ -1,0 +1,11 @@
+berryPhase
+computes the total gauge-invariant occupied-subspace Berry phase along an explicitly sampled closed path.
+Examples
+Related Functions
+MagneticTB/ref/berryPhase
+Options
+HermitianTolerance
+GapTolerance
+CovarianceTolerance
+OverlapTolerance
+Output

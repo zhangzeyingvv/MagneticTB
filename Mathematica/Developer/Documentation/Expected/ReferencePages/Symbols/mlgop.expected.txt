@@ -1,0 +1,5 @@
+mlgop
+reads the symmetry operations of a magnetic layer group from the bundled database.
+Examples
+Related Functions
+MagneticTB/ref/mlgop

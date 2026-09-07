@@ -1,0 +1,5 @@
+getMSGElemFromMSGCorep
+converts the magnetic-space-group operations of an explicitly loaded MSGCorep application to MagneticTB's ordered operation records.
+Examples
+Related Functions
+MagneticTB/ref/getMSGElemFromMSGCorep

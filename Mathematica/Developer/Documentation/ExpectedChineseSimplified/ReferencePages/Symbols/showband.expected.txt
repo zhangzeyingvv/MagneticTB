@@ -1,0 +1,3 @@
+showband
+范例
+MagneticTB/ref/showband

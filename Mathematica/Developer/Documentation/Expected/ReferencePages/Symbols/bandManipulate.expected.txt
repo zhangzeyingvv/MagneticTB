@@ -1,0 +1,6 @@
+bandManipulate
+draws the bands of H along path and provides sliders for the tight-binding parameters.
+Examples
+Related Functions
+MagneticTB/ref/bandManipulate
+Possible Issues

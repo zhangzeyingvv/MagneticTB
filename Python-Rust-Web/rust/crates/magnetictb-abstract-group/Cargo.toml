@@ -1,0 +1,18 @@
+[package]
+name = "magnetictb-abstract-group"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Deterministic table-based finite-group algorithms for MagneticTB"
+license = "GPL-3.0-only"
+
+[lib]
+name = "magnetictb_abstract_group"
+path = "src/lib.rs"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"

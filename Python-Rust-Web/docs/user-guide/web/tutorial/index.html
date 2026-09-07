@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="MagneticTB Python tutorials index.">
+  <title>Tutorials · MagneticTB Python 用户帮助</title>
+  <link rel="stylesheet" href="../help.css?v=a0a09c187d71">
+  <script defer src="../help.js?v=6bee0b68d479"></script>
+</head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+  <div class="help-shell">
+    <aside id="helpSidebar" class="sidebar panel">
+      <a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a>
+      <nav class="nav" aria-label="教程索引导航">
+        <a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a>
+        <p class="nav-group"><span class="locale-zh">教程目录</span><span class="locale-en">Tutorial index</span></p>
+        <a class="active" href="#start"><span>01</span><span class="locale-zh">建议顺序</span><span class="locale-en">Suggested order</span></a>
+        <a href="#models"><span>02</span><span class="locale-zh">模型教程</span><span class="locale-en">Model tutorials</span></a>
+        <a href="#advanced"><span>03</span><span class="locale-zh">进阶主题</span><span class="locale-en">Advanced topics</span></a>
+      </nav>
+      <div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">6 篇完整教程</span><span class="locale-en">6 complete tutorials</span></div><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar panel"><button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button><div class="top-title"><strong>Tutorials</strong><small><span class="locale-zh">完整教程索引</span><span class="locale-en">Complete tutorial index</span></small></div><label class="search-wrap"><span aria-hidden="true">⌕</span><input id="helpSearch" type="search" autocomplete="off" placeholder="搜索教程" aria-label="搜索教程"><small id="searchCount" class="search-count" aria-live="polite"></small></label><div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button" aria-label="Switch to English">EN</button></div></header>
+      <main id="mainContent">
+        <section id="start" class="help-section" data-searchable data-search="tutorial index getting started order Graphene">
+          <div class="section-heading"><div><p class="eyebrow">Tutorials</p><h2><span class="locale-zh">从完整例子学习</span><span class="locale-en">Learn from complete examples</span></h2></div><span class="section-index">T</span></div>
+          <article class="card panel"><ol class="step-list"><li><a href="GettingStarted.html"><strong>Getting Started</strong></a> — <span class="locale-zh">完成安装后的第一个 Graphene Hamiltonian。</span><span class="locale-en">Build the first Graphene Hamiltonian after installation.</span></li><li><a href="CrystalAndKPaths.html"><strong>Crystal and standard k paths</strong></a> — <span class="locale-zh">从 120° 磁序的 Kagome 模型理解晶体、倒空间和三带 Hamiltonian。</span><span class="locale-en">Explore crystals, reciprocal space, and a three-band Hamiltonian with a 120° magnetic Kagome model.</span></li><li><a href="GeneralExamples.html"><strong>General examples</strong></a> — <span class="locale-zh">查看 Graphene、MoS₂ 和其他完整模型。</span><span class="locale-en">Explore Graphene, MoS₂, and other complete models.</span></li><li><a href="ContinuousSymmetry.html"><strong>Continuous symmetry</strong></a> — <span class="locale-zh">进入连续自旋对称性。</span><span class="locale-en">Move on to continuous spin symmetry.</span></li><li><a href="BandFitting.html"><strong>Band fitting</strong></a> — <span class="locale-zh">使用数值能带与拟合工具。</span><span class="locale-en">Use numerical bands and fitting tools.</span></li></ol></article>
+        </section>
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">没有匹配的教程。</span><span class="locale-en">No tutorial matched.</span></div>
+
+        <section id="models" class="help-section" data-searchable data-search="models Graphene SimpleCubicS MoS2 crystal k path Hamiltonian output">
+          <div class="section-heading"><div><p class="eyebrow">Model tutorials</p><h2><span class="locale-zh">建模与完整输出</span><span class="locale-en">Modeling and complete outputs</span></h2></div><span class="section-index">01</span></div>
+          <div class="content-grid">
+            <article class="card panel"><h3><a href="GettingStarted.html">Getting Started</a></h3><p class="locale-zh">从导入、精确输入和 <code>init</code> 开始，得到第一个 <code>symham</code> 矩阵并计算能带。</p><p class="locale-en">Start from imports, exact input, and <code>init</code>, then obtain the first <code>symham</code> matrix and calculate bands.</p><div class="tag-list"><span class="tag">init</span><span class="tag">symham</span><span class="tag">Graphene</span></div></article>
+            <article class="card panel"><h3><a href="CrystalAndKPaths.html">Crystal and standard k paths</a></h3><p class="locale-zh">从同一个 Kagome 初始化生成磁结构、Brillouin 区、标准 k 路径、完整三带矩阵与能带。</p><p class="locale-en">Use one Kagome initialization to generate the magnetic structure, Brillouin zone, standard k path, full three-band matrix, and bands.</p><div class="tag-list"><span class="tag">Kagome · Induced</span><span class="tag">standardKPath</span><span class="tag">bandplot</span></div></article>
+            <article class="card panel wide"><h3><a href="HamiltonianOutputs.html"><span class="locale-zh">完整模型与程序输出</span><span class="locale-en">Complete models and program output</span></a></h3><p class="locale-zh">Graphene、SimpleCubicS、C4 与 MoS₂ 的完整输入、Hamiltonian 和程序输出。</p><p class="locale-en">Complete input, Hamiltonians, and program output for Graphene, SimpleCubicS, C4, and MoS₂.</p></article>
+            <article class="card panel wide"><h3><a href="GeneralExamples.html">General examples</a></h3><p class="locale-zh">材料与模型合集，包含 Graphene、三带 MoS₂、破缺对称和 Data 模型的程序输入与输出。</p><p class="locale-en">A collection of material and model workflows with program input and output for Graphene, three-band MoS₂, broken symmetry, and Data models.</p><div class="tag-list"><span class="tag">Graphene</span><span class="tag">MoS2</span><span class="tag">Data</span></div></article>
+          </div>
+        </section>
+
+        <section id="advanced" class="help-section" data-searchable data-search="advanced continuous symmetry fitting VASP bands">
+          <div class="section-heading"><div><p class="eyebrow">Advanced topics</p><h2><span class="locale-zh">连续对称性与拟合</span><span class="locale-en">Continuous symmetry and fitting</span></h2></div><span class="section-index">02</span></div>
+          <div class="content-grid">
+            <article class="card panel"><h3><a href="ContinuousSymmetry.html">Continuous symmetry</a></h3><p class="locale-zh">有限操作、连续参数、DirectProduct 与 Induced 表示的完整例子。</p><p class="locale-en">Complete examples of finite operations, continuous parameters, and DirectProduct and Induced representations.</p></article>
+            <article class="card panel"><h3><a href="BandFitting.html">Band fitting</a></h3><p class="locale-zh">数值能带、参数拟合和 VASP 数据对比。</p><p class="locale-en">Numerical bands, parameter fitting, and comparison with VASP data.</p></article>
+          </div>
+        </section>
+        <footer class="site-footer"><a href="../index.html"><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a> · <a href="../guide/MagneticTB.html">Guides</a> · <a href="../reference/index.html">Reference Pages</a></footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

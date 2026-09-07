@@ -1,0 +1,5 @@
+bandManipulateold
+draws the bands of a Hamiltonian obtained with the original version and provides sliders for its parameters.
+Examples
+Related Functions
+MagneticTB/ref/bandManipulateold

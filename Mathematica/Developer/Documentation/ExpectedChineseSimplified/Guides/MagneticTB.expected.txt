@@ -1,0 +1,9 @@
+
+MagneticTB/guide/MagneticTB
+教程：从这里开始
+模型输入与查看
+晶体、对称性与群论
+Hamiltonian 与能带计算
+能带拟合与 VASP 对比
+将 MagneticTB 能带拟合到 VASP
+绘图与倒空间路径

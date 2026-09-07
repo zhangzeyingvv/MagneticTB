@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="description" content="MagneticTB Python/Rust user documentation."><title>连续对称性 · MagneticTB Python 用户帮助</title><link rel="stylesheet" href="../help.css?v=a0a09c187d71"><script defer src="../help.js?v=6bee0b68d479"></script></head>
+<body data-locale="zh"><a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><button id="sidebarScrim" class="sidebar-scrim" type="button"></button><div class="help-shell">
+  <aside id="helpSidebar" class="sidebar panel"><a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a><nav class="nav"><a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a><p class="nav-group">Continuous symmetry</p><a class="active" href="#soc"><span>01</span><span>SOC model</span></a><a href="#structure"><span>02</span><span>Structure</span></a><a href="#continuous"><span>03</span><span>C∞ input</span></a><a href="#matrices"><span>04</span><span>Hamiltonians</span></a><a href="#bands"><span>05</span><span>Bands</span></a><p class="nav-group">Links</p><a href="../reference/initfromrep.html"><span>I</span><span>initfromrep</span></a><a href="../reference/bandplot.html"><span>B</span><span>bandplot</span></a></nav><div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">9 个示例</span><span class="locale-en">9 examples</span></div><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div></aside>
+  <div class="workspace"><header class="topbar panel"><button id="menuButton" class="icon-button" type="button">☰</button><div class="top-title"><strong><span class="locale-zh">连续对称性</span><span class="locale-en">Continuous symmetry</span></strong><small>Tutorial</small></div><label class="search-wrap"><span>⌕</span><input id="helpSearch" type="search" aria-label="搜索本页"><small id="searchCount" class="search-count"></small></label><div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button">EN</button></div></header><main id="mainContent">
+    <section id="soc" class="help-section" data-searchable data-search="inputs 1 2 SOC typeIV 124 360 twelve orbitals"><div class="section-heading"><div><p class="eyebrow">Tutorial · inputs 1–2</p><h2><span class="locale-zh">先建立含 SOC 的离散模型</span><span class="locale-en">First build the discrete model with SOC</span></h2><p class="locale-zh">模型含两个反平行磁矩位置，每个位置有 <code>px/py/pz × up/down</code> 六个局域态，总 Hamiltonian 为 12×12。</p><p class="locale-en">The model has two antiparallel magnetic sites, each with six local <code>px/py/pz × up/down</code> states, giving a 12-by-12 Hamiltonian.</p></div><span class="section-index">01</span></div><article class="card panel" data-example="1"><h3>Input 1 · import</h3><div class="code-block"><pre><span class="code-comment locale-zh"># 导入连续自旋对称、显式表示和能带计算入口</span><span class="code-comment locale-en"># Import continuous-spin-symmetry, explicit-representation, and band APIs</span>
+from fractions import Fraction
+from magnetictb import (
+    DirectProductRepresentation, SpinSpaceOperation,
+    bandplot, cos, current_model, exact_complex, exp,
+    hamiltonian_object, init, initfromrep, msgop,
+    root_of_unity, showCrystalStructure, sin,
+    symbol, symham, typeIV,
+)</pre></div><div class="code-block output"><pre>MagneticTB import: OK</pre></div></article><article class="card panel" data-example="2"><h3>Input 2 · SOC Hamiltonian</h3><div class="code-block"><pre><span class="code-comment locale-zh"># 建立含 SOC 的有限对称模型，并取得 Hamiltonian 与表示矩阵</span><span class="code-comment locale-en"># Build the finite-symmetry model with SOC and obtain its Hamiltonian and representations</span>
+a, c = symbol("a"), symbol("c")
+lattice = ((a, 0, 0), (0, a, 0), (0, 0, c))
+lattpar = (("a", 1), ("c", Fraction(3, 2)))
+wyckoff = (((0, 0, 0), (0, 0, 1)),)
+finite_operations = msgop(typeIV[(124, 360)])
+
+init(
+    lattice=lattice,
+    lattpar=lattpar,
+    wyckoffposition=wyckoff,
+    symminformation=finite_operations,
+    basisFunctions=((
+        "pxup", "pxdn", "pyup", "pydn", "pzup", "pzdn",
+    ),),
+    InitialBondShells=2,
+)
+soc_model = current_model()
+soc_hamiltonian = hamiltonian_object(1) + hamiltonian_object(2)
+soc_representation = soc_model.representation_matrices
+print(soc_hamiltonian.shape)
+print(soc_hamiltonian.parameter_names)
+print(len(soc_representation), soc_representation[0].shape)</pre></div><div class="code-block output"><pre>Magnetic space group (BNS): [124, 360]
+Lattice: TetragonalP
+Generators: [('"2x"','F'), ('"2y"','F'), ('"2-xy"','F'),
+             ('"-1"','F'), ('"1"','T')]
+(12, 12)
+('e1','e2','e3','e4','e5','e6','e7','e8',
+ 't1','t2','t3','t4','t5')
+32 (12, 12)</pre></div></article></section>
+    <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+    <section id="structure" class="help-section" data-searchable data-search="input 3 crystal structure antiferromagnetic moments"><div class="section-heading"><div><p class="eyebrow">Input 3</p><h2><span class="locale-zh">晶体与磁矩</span><span class="locale-en">Crystal and magnetic moments</span></h2></div><span class="section-index">02</span></div><article class="card panel" data-example="3"><div class="code-block"><pre><span class="code-comment locale-zh"># 绘制上面模型的晶胞、原子和磁矩箭头</span><span class="code-comment locale-en"># Draw the unit cell, atoms, and magnetic-moment arrows of the model above</span>
+structure = showCrystalStructure()
+<span class="figure-export"><span class="code-comment locale-zh"># 显示函数生成的晶体结构图</span><span class="code-comment locale-en"># Display the crystal structure generated by the function</span>
+structure.show()
+
+<span class="code-comment locale-zh"># 将同一张图保存为 SVG；下方展示的就是该导出结果</span><span class="code-comment locale-en"># Save the same view as SVG; the exported result is shown below</span>
+structure.savefig("continuous-crystal.svg")</span></pre></div>
+<figure class="result-figure function-figure" data-function="showCrystalStructure"><a href="../assets/function-plots/continuous-crystal.svg?v=8baa4e351319"><img src="../assets/function-plots/continuous-crystal.svg?v=8baa4e351319" alt="Crystal cell with two antiparallel magnetic moments, generated by showCrystalStructure" loading="lazy" style="max-width: 700px"></a><figcaption><span class="locale-zh"><code>showCrystalStructure()</code> 实际生成的晶体与磁矩图；两个红色箭头表示反平行磁矩。</span><span class="locale-en">Crystal and magnetic moments generated by <code>showCrystalStructure()</code>; the two red arrows indicate antiparallel moments.</span></figcaption></figure></article></section>
+    <section id="soc-onsite" class="help-section" data-searchable data-search="input 4 SOC onsite complete six by six matrix"><div class="section-heading"><div><p class="eyebrow">Input 4</p><h2><span class="locale-zh">含 SOC 的完整 onsite 6×6 子块</span><span class="locale-en">Complete onsite 6-by-6 block with SOC</span></h2></div><span class="section-index">03</span></div><article class="card panel" data-example="4"><div class="code-block output"><pre>[[e1, 0, -I*e5, 0, 0, e8],
+ [0, e2, 0, -I*e6, -e7, 0],
+ [I*e5, 0, e1, 0, 0, -I*e8],
+ [0, I*e6, 0, e2, -I*e7, 0],
+ [0, -e7, 0, I*e7, e3, 0],
+ [e8, 0, I*e8, 0, 0, e4]]</pre></div></article></section>
+    <section id="continuous" class="help-section" data-searchable data-search="input 5 C infinity exact continuous representation matrices"><div class="section-heading"><div><p class="eyebrow">Example 5</p><h2><span class="locale-zh">加入精确的连续自旋旋转</span><span class="locale-en">Add an exact continuous spin rotation</span></h2></div><span class="section-index">04</span></div><article class="card panel" data-example="5"><p class="locale-zh">先从含 SOC 模型取每个有限操作把参考位置传到目标位置的 6×6 局域块，再追加 <code>C_infty</code>。下面只使用公开不可变对象；<code>orbit → generated site → matrix</code> 的顺序由 <code>DirectProductRepresentation.continuous_site_matrices</code> 明确给出。</p><p class="locale-en">Extract the 6-by-6 local block that carries the reference site to its target under each finite operation, then append <code>C_infty</code>. Only public immutable objects are used; <code>DirectProductRepresentation.continuous_site_matrices</code> explicitly follows orbit → generated site → matrix order.</p><div class="code-block"><pre><span class="code-comment locale-zh"># 提取局域表示、加入连续自旋旋转并初始化新模型</span><span class="code-comment locale-en"># Extract local representations, add a continuous spin rotation, and initialize the new model</span>
+def determinant3(matrix):
+    return (
+        matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1])
+        - matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0])
+        + matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0])
+    )
+
+def cyclotomic_as_exact(value):
+    result = 0
+    for power, coefficient in enumerate(value.coefficients):
+        if coefficient:
+            result += coefficient if power == 0 else (
+                coefficient * root_of_unity(value.conductor, power)
+            )
+    return result
+
+local_blocks = []
+for operation_index, matrix in enumerate(soc_representation):
+    target_site = soc_model.site_actions[0][operation_index][0]
+    rows = matrix.rows[6 * target_site:6 * (target_site + 1)]
+    local_blocks.append(tuple(
+        tuple(cyclotomic_as_exact(value) for value in row[:6])
+        for row in rows
+    ))
+
+spin_space_operations = []
+for label, rotation, translation, parity in finite_operations:
+    determinant = determinant3(rotation)
+    spin_rotation = tuple(
+        tuple(determinant * value for value in row)
+        for row in rotation
+    )
+    spin_space_operations.append(SpinSpaceOperation(
+        label, rotation, translation, spin_rotation, parity == "T"
+    ))
+
+theta = symbol("theta")
+continuous_rotation = (
+    (cos(theta), -sin(theta), 0),
+    (sin(theta),  cos(theta), 0),
+    (0, 0, 1),
+)
+spin_space_operations.append(SpinSpaceOperation(
+    "C_infty", ((1,0,0),(0,1,0),(0,0,1)), (0,0,0),
+    continuous_rotation, continuous_parameter=theta,
+))
+
+imaginary = exact_complex(0, 1)
+spinor_diagonal = (
+    exp(-imaginary * theta / 2), exp(imaginary * theta / 2),
+) * 3
+continuous_matrix = tuple(
+    tuple(spinor_diagonal[i] if i == j else 0 for j in range(6))
+    for i in range(6)
+)
+representation = DirectProductRepresentation(
+    matrices_by_orbit=(tuple(local_blocks),),
+    continuous_site_matrices=((continuous_matrix, continuous_matrix),),
+)
+
+initfromrep(
+    lattice=lattice,
+    lattpar=lattpar,
+    wyckoffposition=wyckoff,
+    symminformation=tuple(spin_space_operations),
+    repinformation=representation,
+    orbitalLabels=((
+        "pxup", "pxdn", "pyup", "pydn", "pzup", "pzdn",
+    ),),
+    InitialBondShells=2,
+)
+no_soc_hamiltonian = hamiltonian_object(1) + hamiltonian_object(2)
+print(no_soc_hamiltonian.shape)
+print(no_soc_hamiltonian.parameter_names)</pre></div><div class="code-block output"><pre>Generators: [('"2x"','F'), ('"2y"','F'), ('"2-xy"','F'),
+             ('"-1"','F'), ('"1"','T')]
+(12, 12)
+('e1','e2','e3','e4','e5','e6','t1','t2','t3')</pre></div></article></section>
+    <section id="matrices" class="help-section" data-searchable data-search="inputs 4 6 7 onsite complete six by six matrices parameter count"><div class="section-heading"><div><p class="eyebrow">Inputs 4, 6, and 7</p><h2><span class="locale-zh">完整 onsite 6×6 子块</span><span class="locale-en">Complete onsite 6-by-6 blocks</span></h2></div><span class="section-index">04</span></div><div class="content-grid"><article class="card panel"><h3>Input 4 · <span class="locale-zh">含 SOC</span><span class="locale-en">with SOC</span></h3><div class="formula" data-tex>H^{\mathrm{SOC}}_{\mathrm{on},A}=\begin{pmatrix}e_1&amp;0&amp;-ie_5&amp;0&amp;0&amp;e_8\\0&amp;e_2&amp;0&amp;-ie_6&amp;-e_7&amp;0\\ie_5&amp;0&amp;e_1&amp;0&amp;0&amp;-ie_8\\0&amp;ie_6&amp;0&amp;e_2&amp;-ie_7&amp;0\\0&amp;-e_7&amp;0&amp;ie_7&amp;e_3&amp;0\\e_8&amp;0&amp;ie_8&amp;0&amp;0&amp;e_4\end{pmatrix}.</div><div class="code-block output"><pre>[[e1, 0, -I*e5, 0, 0, e8],
+ [0, e2, 0, -I*e6, -e7, 0],
+ [I*e5, 0, e1, 0, 0, -I*e8],
+ [0, I*e6, 0, e2, -I*e7, 0],
+ [0, -e7, 0, I*e7, e3, 0],
+ [e8, 0, I*e8, 0, 0, e4]]</pre></div></article><article class="card panel" data-example="6"><h3>Input 6 · <span class="locale-zh">连续对称约束后</span><span class="locale-en">after continuous constraint</span></h3><div class="formula" data-tex>H^{C_\infty}_{\mathrm{on},A}=\begin{pmatrix}e_1&amp;0&amp;-ie_5&amp;0&amp;0&amp;0\\0&amp;e_2&amp;0&amp;-ie_6&amp;0&amp;0\\ie_5&amp;0&amp;e_1&amp;0&amp;0&amp;0\\0&amp;ie_6&amp;0&amp;e_2&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;e_3&amp;0\\0&amp;0&amp;0&amp;0&amp;0&amp;e_4\end{pmatrix}.</div><div class="code-block output"><pre>[[e1, 0, -I*e5, 0, 0, 0],
+ [0, e2, 0, -I*e6, 0, 0],
+ [I*e5, 0, e1, 0, 0, 0],
+ [0, I*e6, 0, e2, 0, 0],
+ [0, 0, 0, 0, e3, 0],
+ [0, 0, 0, 0, 0, e4]]</pre></div></article></div><article class="card panel" data-example="7"><h3>Input 7 · <span class="locale-zh">参数数量</span><span class="locale-en">parameter counts</span></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 参数数量</span><span class="code-comment locale-en"># parameter counts</span>
+print(len(soc_hamiltonian.parameter_names),
+      len(no_soc_hamiltonian.parameter_names))</pre></div><div class="code-block output"><pre>13 9</pre></div><p class="locale-zh">连续轴向自旋对称把四个 SOC 允许参数排除，正是上面两个实际矩阵之间的差别。</p><p class="locale-en">Continuous axial spin symmetry removes four SOC-allowed parameters, exactly the difference visible between the two actual matrices above.</p></article></section>
+    <section id="bands" class="help-section" data-searchable data-search="inputs 8 9 G Z SOC no SOC bands"><div class="section-heading"><div><p class="eyebrow">Inputs 8–9</p><h2><span class="locale-zh">Γ–Z 能带</span><span class="locale-en">Γ–Z bands</span></h2></div><span class="section-index">05</span></div><article class="card panel" data-example="8"><div class="code-block"><pre><span class="code-comment locale-zh"># 设置 Γ–Z 路径和两组参数，计算有无 SOC 的能带</span><span class="code-comment locale-en"># Set the Gamma-Z path and both parameter sets, then compute bands with and without SOC</span>
+path = ((((0,0,0), (0,0,Fraction(1,2))), (r"\Gamma","Z")),)
+soc_rules = dict(zip(
+    soc_hamiltonian.parameter_names,
+    (0.25,0.25,0,0,-0.8,-0.4,-0.2,0.2,-0.18,0,0,0,0),
+))
+no_soc_rules = dict(zip(
+    no_soc_hamiltonian.parameter_names,
+    (-0.2,0.2,0.4,0.8,0,0,-0.18,0,0),
+))
+soc_bands = bandplot(path, 20, soc_hamiltonian, soc_rules,
+                     plotRange=(-1.3,1.3), FontSize=18, ImageSize=360)
+no_soc_bands = bandplot(path, 20, no_soc_hamiltonian, no_soc_rules,
+                        plotRange=(-1.3,1.3), FontSize=18, ImageSize=360)
+for result in (soc_bands, no_soc_bands):
+    print(len(result.eigenvalues), result.boundary_labels)
+    print(result.eigenvalues[0])
+    print(result.eigenvalues[10])
+    print(result.eigenvalues[-1])
+<span class="figure-export"><span class="code-comment locale-zh"># 保存本函数生成的图；交互显示可用 .show()</span><span class="code-comment locale-en"># Save the function-generated figure; use .show() for interactive display</span>
+soc_bands.savefig("continuous-soc-bands.svg")
+no_soc_bands.savefig("continuous-no-soc-bands.svg")</span></pre></div>
+<figure class="result-figure function-figure" data-function="bandplot"><a href="../assets/function-plots/continuous-soc-bands.svg"><img src="../assets/function-plots/continuous-soc-bands.svg" alt="With SOC" loading="lazy" style="max-width: 360px"></a><figcaption><span class="locale-zh">含 SOC</span><span class="locale-en">With SOC</span></figcaption></figure>
+<figure class="result-figure function-figure" data-function="bandplot"><a href="../assets/function-plots/continuous-no-soc-bands.svg"><img src="../assets/function-plots/continuous-no-soc-bands.svg" alt="Continuous spin symmetry · without SOC" loading="lazy" style="max-width: 360px"></a><figcaption><span class="locale-zh">连续自旋对称性 · 无 SOC</span><span class="locale-en">Continuous spin symmetry · without SOC</span></figcaption></figure><div class="code-block output"><pre><span class="code-comment locale-zh"># Input 8：包含 SOC</span><span class="code-comment locale-en"># Input 8: with SOC</span>
+21 ('Γ', 'Z')
+(-0.649714,-0.649714,-0.434032,-0.434032,-0.065815,-0.065815,
+  0.184318,0.184318,0.749714,0.749714,1.215529,1.215529)
+(-0.601767,-0.601767,-0.401179,-0.401179,-0.068368,-0.068368,
+  0.199412,0.199412,0.701767,0.701767,1.170135,1.170135)
+(-0.55,-0.55,-0.367617,-0.367617,-0.071343,-0.071343,
+  0.217617,0.217617,0.65,0.65,1.121343,1.121343)</pre></div>
+<div class="example-cell" data-example="9"><div class="code-block"><pre><span class="code-comment locale-zh"># 单独计算并检查连续自旋对称模型的能带</span><span class="code-comment locale-en"># Compute and inspect the continuous-spin-symmetry bands separately</span>
+no_soc_bands = bandplot(
+    path, 20, no_soc_hamiltonian, no_soc_rules,
+    plotRange=(-1.3,1.3), FontSize=18, ImageSize=360,
+)
+print(len(no_soc_bands.eigenvalues), no_soc_bands.boundary_labels)
+print(no_soc_bands.eigenvalues[0])
+print(no_soc_bands.eigenvalues[10])
+print(no_soc_bands.eigenvalues[-1])</pre></div><div class="code-block output"><pre><span class="code-comment locale-zh"># Input 9：包含 C∞，不含 SOC 混合</span><span class="code-comment locale-en"># Input 9: with C-infinity and no SOC mixing</span>
+21 ('Γ', 'Z')
+(-0.411825,-0.411825,-0.411825,-0.411825,0.4,0.4,
+  0.411825,0.411825,0.411825,0.411825,0.8,0.8)
+(-0.323728,-0.323728,-0.323728,-0.323728,0.323728,0.323728,
+  0.323728,0.323728,0.4,0.4,0.8,0.8)
+(-0.2,-0.2,-0.2,-0.2,0.2,0.2,0.2,0.2,0.4,0.4,0.8,0.8)</pre></div></div></article></section>
+    <footer class="site-footer"><a href="../index.html"><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a></footer>
+  </main></div>
+</div></body></html>

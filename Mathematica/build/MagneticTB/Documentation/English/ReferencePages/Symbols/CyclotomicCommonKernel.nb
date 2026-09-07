@@ -1,0 +1,873 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     34014,        864]
+NotebookOptionsPosition[     28857,        770]
+NotebookOutlinePosition[     30612,        811]
+CellTagsIndexPosition[     30569,        808]
+WindowTitle->CyclotomicCommonKernel
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["MAGNETIC T B SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "93dd954a-bc08-4978-91c5-44908843f906"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "cfb63efb-e022-49db-9439-30fa514939fe"],
+        Background->LightDarkSwitched[
+          RGBColor[0.490196, 0.576471, 0.690196]],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "8ef1b76f-d6d0-4c43-9bcd-f124b529e1a2"]
+         }],ExpressionUUID->"10ecad0b-5345-4e33-8afc-c63f35689dc6"],
+         StripOnInput->False],{
+        StyleBox[
+          "\"CompileCyclotomicMatrices\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/CompileCyclotomicMatrices"], 
+         StyleBox[
+          "\"CyclotomicNullSpace\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/CyclotomicNullSpace"], 
+         StyleBox[
+          "\"CyclotomicCommonNullSpace\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/CyclotomicCommonNullSpace"], 
+         StyleBox[
+          "\"RestoreCyclotomicExpression\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/RestoreCyclotomicExpression"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "0e889aa1-1762-4a3c-808f-449bb11fe060"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "9f5e4104-849b-4249-abb4-e278893b7d9d"]
+         }],ExpressionUUID->"05ee931a-8ce0-4ca2-80d7-ffe28bc147de"],
+         StripOnInput->False],{
+        "\"MagneticTB\"" :> 
+         Documentation`HelpLookup["paclet:MagneticTB/guide/MagneticTB"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "641f0271-a704-49ed-bf06-2d3097116412"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "15d18969-a6d4-4af3-955e-bb2ed3b4fff2"]
+         }],ExpressionUUID->"6b4cd958-e3f6-4909-adec-fc97ca4cb6d3"],
+         StripOnInput->False],{
+        "\"Getting Started with MagneticTB\"" :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/tutorial/GettingStarted"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "51349093-1e82-4691-9ee5-c569c3114a9b"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "67d21b83-510f-42b4-8628-f0357b9cc97b"]
+         }],ExpressionUUID->"2ad99636-df5e-4218-81b5-e41c012c88f3"],
+         StripOnInput->False],{
+        "\"MagneticTB/ref/CyclotomicCommonKernel\"" :> None, 
+         "\"Copy Wolfram Documentation Center URL\"" :> 
+         CopyToClipboard["MagneticTB/ref/CyclotomicCommonKernel"], Delimiter, 
+         "\"Copy web URL\"" :> 
+         Module[{DocumentationSearch`Private`nb$}, 
+           DocumentationSearch`Private`nb$ = 
+            NotebookPut[
+             Notebook[{
+               Cell[BoxData[
+                 MakeBoxes[
+                  Hyperlink[
+                   "http://reference.wolfram.com/language/MagneticTB/ref/\
+CyclotomicCommonKernel.html"], StandardForm]], "Input", TextClipboardType -> 
+                 "PlainText"]}, Visible -> False]]; 
+           SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+           FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+           NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+         "\"Go to web URL\"" :> 
+         FrontEndExecute[{
+           NotebookLocate[{
+             URL[If[TrueQ[False], 
+                 "http://reference.wolfram.com/system-modeler/", 
+                 "http://reference.wolfram.com/language/"] <> 
+               "MagneticTB/ref/CyclotomicCommonKernel" <> ".html"], None}]}]},
+        
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "f807a5c8-4e10-4c1a-9509-62d84beed49f"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "a176e7d1-d6d2-4582-93fb-d3c088016c87"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"d81957c8-932b-413e-ae6b-8910d4bc2276"],
+
+Cell["MagneticTB`", "ContextNameCell",ExpressionUUID->"4e3763db-5b98-4d69-93fb-39eeb8b18190"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "CyclotomicCommonKernel", "ObjectName",ExpressionUUID->
+      "93377856-1cb2-486e-9932-bcea1ab3729b"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"d3dd2736-25bd-4a14-ba44-03f9a6281dee"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "c3138c67-5399-43e0-bff5-294ef456d348"]
+    }],ExpressionUUID->"da81514b-fd5b-451b-b7ab-a75feae5d393"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"10412c73-0423-48a2-9fbe-\
+d4e06b690155"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"CyclotomicCommonKernel", "[", "compiled", "]"}]], 
+      "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "328448b4-c177-4181-82ae-d40536b059d2"],
+     " \[LineSeparator]",
+     "finds the vectors annihilated by every exact constraint block in a \
+compiled cyclotomic problem."
+    }],ExpressionUUID->"4b3133f9-3a8c-409a-a7af-72bd8c63fa7b"]}
+  }]], "Usage",ExpressionUUID->"bd45c8a1-fd1f-4208-9e1e-57fe1840a543"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[Cell[TextData[{
+  Cell[BoxData[
+   DynamicBox[ToBoxes[
+     If[CurrentValue[
+        EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], 
+      Rotate[
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+    ImageSizeCache->{
+     13.600000000000001`, {-0.1685058593749993, 13.768505859375}}]],
+   ExpressionUUID->"bd4b38b3-be75-4c76-9513-e76d80fbf1f5"],
+  Cell[BoxData[
+   TemplateBox[{1},
+    "Spacer1"]],ExpressionUUID->"467c34c1-6779-40eb-ac0a-1d424a4b5502"],
+  "Details and Options"
+ }], "NotesFrameText",ExpressionUUID->
+  "95524145-b360-4385-965f-297066870f42"]],ExpressionUUID->"e2b6aff9-e2d5-\
+45af-8552-87b21125000c"]], "NotesSection",
+ ShowGroupOpener->"Thumbnail",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->490089236,ExpressionUUID->"4d5dae78-f737-45b4-ae4f-5b355eb336dc"],
+
+Cell["\<\
+compiled must be the complete Association returned by \
+CompileCyclotomicMatrices. All blocks have the same coordinate dimension and \
+exact field context.\
+\>", "Notes",ExpressionUUID->"180136a6-15af-4401-b5a8-6f6a9435da65"],
+
+Cell["\<\
+The result stores the common basis by columns in \"basis_matrix\" and by rows \
+in \"nullspace_rows\". iteration_nullities begins with the coordinate \
+dimension and records the remaining nullity after each input block.\
+\>", "Notes",ExpressionUUID->"c30eaf2f-5a71-49be-95d8-e86d91c7bbbd"],
+
+Cell["\<\
+The method is the production iterative common-kernel algorithm. Every block \
+is checked against the final exact basis. If any step or residual check \
+fails, the function returns Failure; it never stacks all blocks as an \
+automatic fallback and never uses floating point or SVD.\
+\>", "Notes",ExpressionUUID->"b8b1f221-2fab-459b-836d-552d204676c8"]
+}, Closed]],
+
+Cell["", "PageDelimiter",ExpressionUUID->"5d287fb6-129c-49d6-b7b9-d61fdf94c188"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {4.251494140625001, 9.348505859375}}]],
+  ExpressionUUID->"ea513020-6a21-4e70-b880-5f4afc28806a"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"544115e8-e6ba-4f7e-a838-7172d8300aa4"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(3)", "ExampleCount",ExpressionUUID->
+  "ebceeb9d-186e-4edf-91c3-34e167ce7fe7"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->1330003207,ExpressionUUID->"1f5800a4-f381-4578-91f2-2f19fc72edde"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}]], "Input", "ExampleInitialization",
+ CellLabel->"In[1]:=",ExpressionUUID->"e926e9d2-535a-4375-981f-39b4efb9a10d"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "d1d09c33-f184-4c7e-a8fa-6cf26ea02fd1"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"8cc42dda-ea71-4ab3-80b3-0b33b16ce337"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "ed03bc66-a0e2-43fd-a07c-2dad6988c7d5"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->206618426,ExpressionUUID->"601fb7a8-31cb-48f2-b75f-cac974992975"],
+
+Cell["\<\
+The first constraint removes the first coordinate and the second removes the \
+second. Their common kernel is therefore spanned by {0,0,1}:\
+\>", "ExampleText",ExpressionUUID->"863b19d6-d6ca-4acd-a8db-1e75494053b2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"compiledCommon", " ", "=", " ", 
+   RowBox[{"CompileCyclotomicMatrices", "[", 
+    RowBox[{"<|", "\n", "  ", 
+     RowBox[{
+      RowBox[{"\"\<coordinate_dimension\>\"", " ", "->", " ", "3"}], ",", 
+      "\n", "  ", 
+      RowBox[{"\"\<constraints\>\"", " ", "->", " ", 
+       RowBox[{"{", "\n", "    ", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", " ", "0", ",", " ", "0"}], "}"}], "}"}], ",", 
+         "\n", "    ", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", " ", "1", ",", " ", "0"}], "}"}], "}"}]}], "\n", 
+        "  ", "}"}]}]}], "\n", "|>"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"commonResult", " ", "=", " ", 
+   RowBox[{"CyclotomicCommonKernel", "[", "compiledCommon", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"commonRows", " ", "=", " ", 
+   RowBox[{"RestoreCyclotomicExpression", "[", "\n", "  ", 
+    RowBox[{"commonResult", "[", "\"\<nullspace_rows\>\"", "]"}], "\n", 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"commonBasis", " ", "=", " ", 
+   RowBox[{"RestoreCyclotomicExpression", "[", "\n", "  ", 
+    RowBox[{"commonResult", "[", "\"\<basis_matrix\>\"", "]"}], "\n", "]"}]}],
+   ";"}], "\n", 
+ RowBox[{"{", "\n", "  ", 
+  RowBox[{
+   RowBox[{"MatrixForm", "@", 
+    RowBox[{"Partition", "[", "\n", "    ", 
+     RowBox[{
+      RowBox[{"commonRows", "[", "\"\<entries\>\"", "]"}], ",", " ", 
+      RowBox[{"commonRows", "[", "\"\<columns\>\"", "]"}]}], "\n", "  ", 
+     "]"}]}], ",", "\n", "  ", 
+   RowBox[{"MatrixForm", "@", 
+    RowBox[{"Partition", "[", "\n", "    ", 
+     RowBox[{
+      RowBox[{"commonBasis", "[", "\"\<entries\>\"", "]"}], ",", " ", 
+      RowBox[{"commonBasis", "[", "\"\<columns\>\"", "]"}]}], "\n", "  ", 
+     "]"}]}], ",", "\n", "  ", 
+   RowBox[{"KeyTake", "[", "\n", "    ", 
+    RowBox[{"commonResult", ",", "\n", "    ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<iteration_nullities\>\"", ",", " ", "\"\<rank\>\"", ",", 
+       " ", "\"\<nullity\>\"", ",", "\n", 
+       "      ", "\"\<exact_residual_verified\>\""}], "}"}]}], "\n", "  ", 
+    "]"}]}], "\n", "}"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"616c5352-e1a2-487b-a9bb-ffb1e85058b3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", "0", "1"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0"},
+       {"0"},
+       {"1"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"iteration_nullities\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "2", ",", "1"}], "}"}]}], ",", 
+     RowBox[{"\<\"rank\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"nullity\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"exact_residual_verified\"\>", "\[Rule]", "True"}]}], 
+    "\[RightAssociation]"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"9bec3d32-6ac6-41f2-8e45-ed8a101e00e4"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "ee69164a-831d-4a3c-b633-f74e761cf709"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"a98f2fcc-12db-4ad8-ae3b-a5db52421cc4"],
+ "Properties & Relations",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "25ed3a97-81b2-4935-ae09-355558d10658"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"26ce34c7-c4a2-4c9f-be05-c0df7d9c84e2"],
+
+Cell["\<\
+With no constraint blocks, every coordinate is free. The row basis is the \
+identity and iteration_nullities contains only the initial dimension:\
+\>", "ExampleText",ExpressionUUID->"4bb85e2a-2904-4337-b82d-e92c5cc530d1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"emptyCompiled", " ", "=", " ", 
+   RowBox[{"CompileCyclotomicMatrices", "[", 
+    RowBox[{"<|", "\n", "  ", 
+     RowBox[{
+      RowBox[{"\"\<coordinate_dimension\>\"", " ", "->", " ", "3"}], ",", 
+      "\n", "  ", 
+      RowBox[{"\"\<constraints\>\"", " ", "->", " ", 
+       RowBox[{"{", "}"}]}]}], "\n", "|>"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"emptyResult", " ", "=", " ", 
+   RowBox[{"CyclotomicCommonKernel", "[", "emptyCompiled", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"emptyRows", " ", "=", " ", 
+   RowBox[{"RestoreCyclotomicExpression", "[", "\n", "  ", 
+    RowBox[{"emptyResult", "[", "\"\<nullspace_rows\>\"", "]"}], "\n", 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"{", "\n", "  ", 
+  RowBox[{
+   RowBox[{"MatrixForm", "@", 
+    RowBox[{"Partition", "[", "\n", "    ", 
+     RowBox[{
+      RowBox[{"emptyRows", "[", "\"\<entries\>\"", "]"}], ",", " ", 
+      RowBox[{"emptyRows", "[", "\"\<columns\>\"", "]"}]}], "\n", "  ", 
+     "]"}]}], ",", "\n", "  ", 
+   RowBox[{"KeyTake", "[", 
+    RowBox[{"emptyResult", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<iteration_nullities\>\"", ",", " ", "\"\<rank\>\"", ",", 
+       " ", "\"\<nullity\>\""}], "}"}]}], "]"}]}], "\n", "}"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"9972f7f0-b3a2-4889-a4a5-58f4f0d76d39"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "0", "0"},
+       {"0", "1", "0"},
+       {"0", "0", "1"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"iteration_nullities\"\>", "\[Rule]", 
+      RowBox[{"{", "3", "}"}]}], ",", 
+     RowBox[{"\<\"rank\"\>", "\[Rule]", "0"}], ",", 
+     RowBox[{"\<\"nullity\"\>", "\[Rule]", "3"}]}], "\[RightAssociation]"}]}],
+   "}"}]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"b7536d72-3549-4f50-9235-d2c2fc0e99e6"]
+}, Open  ]],
+
+Cell["\<\
+A problem with coordinate dimension zero has rank and nullity zero and \
+retains a 0 by 0 basis matrix:\
+\>", "ExampleText",ExpressionUUID->"25864e69-4d86-4272-aca4-1b66c371785f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"zeroCompiled", " ", "=", " ", 
+   RowBox[{"CompileCyclotomicMatrices", "[", 
+    RowBox[{"<|", "\n", "  ", 
+     RowBox[{
+      RowBox[{"\"\<coordinate_dimension\>\"", " ", "->", " ", "0"}], ",", 
+      "\n", "  ", 
+      RowBox[{"\"\<constraints\>\"", " ", "->", " ", 
+       RowBox[{"{", "}"}]}]}], "\n", "|>"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"zeroResult", " ", "=", " ", 
+   RowBox[{"CyclotomicCommonKernel", "[", "zeroCompiled", "]"}]}], ";"}], "\n", 
+ RowBox[{"{", "\n", "  ", 
+  RowBox[{
+   RowBox[{"KeyTake", "[", 
+    RowBox[{"zeroResult", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<iteration_nullities\>\"", ",", " ", "\"\<rank\>\"", ",", 
+       " ", "\"\<nullity\>\""}], "}"}]}], "]"}], ",", "\n", "  ", 
+   RowBox[{"KeyTake", "[", "\n", "    ", 
+    RowBox[{
+     RowBox[{"RestoreCyclotomicExpression", "[", 
+      RowBox[{"zeroResult", "[", "\"\<basis_matrix\>\"", "]"}], "]"}], ",", 
+     "\n", "    ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<rows\>\"", ",", " ", "\"\<columns\>\"", ",", 
+       " ", "\"\<entries\>\""}], "}"}]}], "\n", "  ", "]"}]}], "\n", 
+  "}"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[3]:=",ExpressionUUID->"a1fbf511-6015-4f84-99b0-4d584da116e1"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"iteration_nullities\"\>", "\[Rule]", 
+      RowBox[{"{", "0", "}"}]}], ",", 
+     RowBox[{"\<\"rank\"\>", "\[Rule]", "0"}], ",", 
+     RowBox[{"\<\"nullity\"\>", "\[Rule]", "0"}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"rows\"\>", "\[Rule]", "0"}], ",", 
+     RowBox[{"\<\"columns\"\>", "\[Rule]", "0"}], ",", 
+     RowBox[{"\<\"entries\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}]}], "\[RightAssociation]"}]}], "}"}]], "Output",
+ CellLabel->"Out[4]=",ExpressionUUID->"492e2927-4682-4594-a63a-90fc10fa5d9f"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "1325e083-84d2-4301-9bf5-490b21c6369b"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"3a7fed3e-ae7d-4fa3-9d64-82591f34d58e"],
+ "Possible Issues",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "cb605a34-e221-4b66-8b20-d4cd9da4f786"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"cac72f07-b2eb-424d-8c1b-99830583e718"],
+
+Cell["\<\
+The function accepts only a complete compiled problem. It does not infer \
+missing context or dimensions from an arbitrary Association:\
+\>", "ExampleText",ExpressionUUID->"82280531-702c-4bb7-aca5-9b4c09498904"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"commonFailure", " ", "=", " ", 
+   RowBox[{"CyclotomicCommonKernel", "[", 
+    RowBox[{"<|", "|>"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"<|", 
+  RowBox[{"\"\<FailureTag\>\"", " ", "->", " ", 
+   RowBox[{"commonFailure", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], "|>"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"e89f4917-b78b-4f6f-8655-4ebbff94f834"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{"\<\"FailureTag\"\>", "\[Rule]", "\<\"MalformedSerialization\"\>"}],
+   "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"53d790e4-9633-470a-a3f0-ef36fb9e50da"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        ButtonBox["CompileCyclotomicMatrices",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/CompileCyclotomicMatrices"],
+        " \[FilledVerySmallSquare] ",
+        ButtonBox["CyclotomicNullSpace",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/CyclotomicNullSpace"],
+        " \[FilledVerySmallSquare] ",
+        ButtonBox["CyclotomicCommonNullSpace",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/CyclotomicCommonNullSpace"],
+        " \[FilledVerySmallSquare] ",
+        ButtonBox["RestoreCyclotomicExpression",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/RestoreCyclotomicExpression"]
+       }], "SeeAlso",ExpressionUUID->"a8f34f49-b08f-416e-a557-42464d9aa9c3"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"4d25da59-12f8-4c9d-af78-\
+72b414badc2b"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Tech", " ", "Notes"}], "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Getting Started with MagneticTB"]], 
+           "paclet:MagneticTB/tutorial/GettingStarted"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "99255a18-8e0f-461e-838c-8688fc581572"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"39f11708-d1c7-4137-9874-\
+1d6f339fa4ef"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["MagneticTB"]], "paclet:MagneticTB/guide/MagneticTB"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "e18345e9-31fe-4154-a888-ebc4c2131f7c"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"f90c496f-ff2c-482f-a9e8-\
+3a23fca0619e"],
+
+Cell["History", "HistorySection",ExpressionUUID->"ef608d78-2335-4c35-81b7-f6c964b8c2da"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"f5df478a-29a8-4027-b724-7d6c0b9657fb"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"CyclotomicCommonKernel",
+Visible->True,
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "AllOptsTable" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "HasOptions" -> 
+  True, "RootCaptions" -> "", "HeaderCoreAreaLink" -> {}, 
+  "Metadata" -> {
+   "built" -> "{2026, 9, 7, 23, 6, 17.479269}", 
+    "history" -> {"2.0.0", "", "", ""}, "context" -> "MagneticTB`", 
+    "keywords" -> {
+     "common kernel", "exact constraints", "iterative null space"}, 
+    "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> True,
+     "label" -> "Magnetic T B Symbol", "language" -> "en", "paclet" -> 
+    "MagneticTB", "status" -> "None", "summary" -> 
+    "CyclotomicCommonKernel[compiled] finds the vectors annihilated by every \
+exact constraint block in a compiled cyclotomic problem.", "synonyms" -> {}, 
+    "tabletags" -> {}, "title" -> "CyclotomicCommonKernel", "titlemodifier" -> 
+    "", "metadescription" -> "", "windowtitle" -> "CyclotomicCommonKernel", 
+    "type" -> "Symbol", "uri" -> "MagneticTB/ref/CyclotomicCommonKernel"}},
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (2026\:5e747\:67082\:65e5)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb"],
+ExpressionUUID->"f44bc20f-0c4e-4c86-a639-5373cce8ddf4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[590, 21, 6583, 164, 70, "AnchorBarGrid",ExpressionUUID->"d81957c8-932b-413e-ae6b-8910d4bc2276",
+ CellID->1],
+Cell[7176, 187, 93, 0, 70, "ContextNameCell",ExpressionUUID->"4e3763db-5b98-4d69-93fb-39eeb8b18190"],
+Cell[CellGroupData[{
+Cell[7294, 191, 565, 14, 70, "ObjectNameGrid",ExpressionUUID->"10412c73-0423-48a2-9fbe-d4e06b690155"],
+Cell[7862, 207, 520, 11, 70, "Usage",ExpressionUUID->"bd45c8a1-fd1f-4208-9e1e-57fe1840a543"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8419, 223, 1443, 34, 70, "NotesSection",ExpressionUUID->"4d5dae78-f737-45b4-ae4f-5b355eb336dc",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->490089236],
+Cell[9865, 259, 235, 4, 70, "Notes",ExpressionUUID->"180136a6-15af-4401-b5a8-6f6a9435da65"],
+Cell[10103, 265, 299, 4, 70, "Notes",ExpressionUUID->"c30eaf2f-5a71-49be-95d8-e86d91c7bbbd"],
+Cell[10405, 271, 360, 5, 70, "Notes",ExpressionUUID->"b8b1f221-2fab-459b-836d-552d204676c8"]
+}, Closed]],
+Cell[10780, 279, 80, 0, 70, "PageDelimiter",ExpressionUUID->"5d287fb6-129c-49d6-b7b9-d61fdf94c188"],
+Cell[CellGroupData[{
+Cell[10885, 283, 1401, 37, 70, "PrimaryExamplesSection",ExpressionUUID->"1f5800a4-f381-4578-91f2-2f19fc72edde",
+ CellID->1330003207],
+Cell[12289, 322, 179, 2, 70, "Input",ExpressionUUID->"e926e9d2-535a-4375-981f-39b4efb9a10d"],
+Cell[CellGroupData[{
+Cell[12493, 328, 1235, 31, 70, "ExampleSection",ExpressionUUID->"601fb7a8-31cb-48f2-b75f-cac974992975",
+ CellID->206618426],
+Cell[13731, 361, 225, 3, 70, "ExampleText",ExpressionUUID->"863b19d6-d6ca-4acd-a8db-1e75494053b2"],
+Cell[CellGroupData[{
+Cell[13981, 368, 2273, 54, 70, "Input",ExpressionUUID->"616c5352-e1a2-487b-a9bb-ffb1e85058b3"],
+Cell[16257, 424, 1505, 42, 70, "Output",ExpressionUUID->"9bec3d32-6ac6-41f2-8e45-ed8a101e00e4"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17811, 472, 1223, 30, 70, "ExampleSection",ExpressionUUID->"26ce34c7-c4a2-4c9f-be05-c0df7d9c84e2"],
+Cell[19037, 504, 231, 3, 70, "ExampleText",ExpressionUUID->"4bb85e2a-2904-4337-b82d-e92c5cc530d1"],
+Cell[CellGroupData[{
+Cell[19293, 511, 1367, 32, 70, "Input",ExpressionUUID->"9972f7f0-b3a2-4889-a4a5-58f4f0d76d39"],
+Cell[20663, 545, 940, 26, 70, "Output",ExpressionUUID->"b7536d72-3549-4f50-9235-d2c2fc0e99e6"]
+}, Open  ]],
+Cell[21618, 574, 189, 3, 70, "ExampleText",ExpressionUUID->"25864e69-4d86-4272-aca4-1b66c371785f"],
+Cell[CellGroupData[{
+Cell[21832, 581, 1259, 30, 70, "Input",ExpressionUUID->"a1fbf511-6015-4f84-99b0-4d584da116e1"],
+Cell[23094, 613, 670, 15, 70, "Output",ExpressionUUID->"492e2927-4682-4594-a63a-90fc10fa5d9f"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[23813, 634, 1216, 30, 70, "ExampleSection",ExpressionUUID->"cac72f07-b2eb-424d-8c1b-99830583e718"],
+Cell[25032, 666, 221, 3, 70, "ExampleText",ExpressionUUID->"82280531-702c-4bb7-aca5-9b4c09498904"],
+Cell[CellGroupData[{
+Cell[25278, 673, 428, 10, 70, "Input",ExpressionUUID->"e89f4917-b78b-4f6f-8655-4ebbff94f834"],
+Cell[25709, 685, 241, 4, 70, "Output",ExpressionUUID->"53d790e4-9633-470a-a3f0-ef36fb9e50da"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+Cell[25989, 694, 1195, 28, 70, "SeeAlsoSection",ExpressionUUID->"4d25da59-12f8-4c9d-af78-72b414badc2b"],
+Cell[27187, 724, 769, 20, 70, "TutorialsSection",ExpressionUUID->"39f11708-d1c7-4137-9874-1d6f339fa4ef"],
+Cell[27959, 746, 722, 18, 70, "MoreAboutSection",ExpressionUUID->"f90c496f-ff2c-482f-a9e8-3a23fca0619e"],
+Cell[28684, 766, 88, 0, 70, "HistorySection",ExpressionUUID->"ef608d78-2335-4c35-81b7-f6c964b8c2da"],
+Cell[28775, 768, 78, 0, 70, "FooterCell",ExpressionUUID->"f5df478a-29a8-4027-b724-7d6c0b9657fb"]
+}
+]
+*)
+
+(* End of internal cache information *)

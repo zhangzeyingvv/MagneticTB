@@ -1,0 +1,8 @@
+晶体结构、Brillouin 区与 k 路径
+初始化模型
+MagneticTB/tutorial/CrystalAndKPaths
+Kagome
+Hamiltonian 与能带
+typeIII[{191, 239}]
+bandplot[
+paclet:MagneticTB/guide/MagneticTB

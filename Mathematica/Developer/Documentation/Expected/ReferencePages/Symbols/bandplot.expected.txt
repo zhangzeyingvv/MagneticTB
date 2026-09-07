@@ -1,0 +1,11 @@
+bandplot
+draws numerical eigenvalues of H along an explicit reciprocal-fractional path.
+Examples
+Related Functions
+MagneticTB/ref/bandplot
+Options
+plotRange
+yTicks
+FontSize
+FontFamily
+ImageSize

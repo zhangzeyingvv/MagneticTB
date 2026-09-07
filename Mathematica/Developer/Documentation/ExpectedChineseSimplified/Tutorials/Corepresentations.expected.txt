@@ -1,0 +1,8 @@
+使用 MSGCorep 计算能带共表示
+使用同一份有序 MSGCorep 操作列表
+MagneticTB/tutorial/Corepresentations
+双值高对称点计算
+单值基
+getTBBandCorep[
+small corep
+paclet:MagneticTB/guide/MagneticTB

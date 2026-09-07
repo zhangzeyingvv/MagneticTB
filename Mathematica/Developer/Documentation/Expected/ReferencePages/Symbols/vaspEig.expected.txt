@@ -1,0 +1,6 @@
+vaspEig
+reads a selected spin channel and inclusive band interval from a complete numeric VASP EIGENVAL file.
+Examples
+Related Functions
+MagneticTB/ref/vaspEig
+Properties & Relations

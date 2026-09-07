@@ -1,0 +1,8 @@
+Band corepresentations with MSGCorep
+Use one ordered MSGCorep operation list
+Double-valued high-symmetry calculation
+Single-valued basis
+getTBBandCorep[
+small corep
+MagneticTB/tutorial/Corepresentations
+paclet:MagneticTB/guide/MagneticTB

@@ -1,0 +1,98 @@
+{
+  "schema": "MagneticTBHelpReturnCapture/v1",
+  "page": "tutorial/GettingStarted.html",
+  "example": 9,
+  "python": "3.12.14",
+  "setup_source": "# 导入精确有理数和建模函数\nfrom fractions import Fraction\nfrom magnetictb import gray, init, msgop, sqrt, symbol\n\n# 晶格参数保持为符号；q 用于书写精确分数坐标\na, c = symbol(\"a\"), symbol(\"c\")\nq = Fraction\n\n# 安装 Graphene 模型，并准备 onsite、最近邻和次近邻三层\ninit(\n    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),\n    lattpar=((\"a\", 1), (\"c\", 3)),\n    wyckoffposition=(((q(1, 3), q(2, 3), 0), (0, 0, 0)),),\n    symminformation=msgop(gray[191]),\n    basisFunctions=((\"pz\",),),\n    InitialBondShells=3,\n    GenerateSymmetryGroup=False,\n)",
+  "query_source": "from magnetictb import showbonds\n# shell=2 是第一个非零距离键层；只检查几何，不生成矩阵\nshowbonds(2)",
+  "display_method": "sys.displayhook(return_value), standard Python interactive display",
+  "display_text": "TableReport(schema='MagneticTBBondShellDisplayData', title='Bond shell 2 (1-th neighbour), bond length = 0.57735026919; 6 directed bonds', columns=('SiteIndex', 'OrbitIndex', 'EquivalentIndex', 'AtomPosition', 'BondCount', 'TargetPositions'), rows=(mappingproxy({'SiteIndex': 1, 'OrbitIndex': 1, 'EquivalentIndex': 1, 'AtomPosition': (CyclotomicElement(coefficients=(Fraction(1, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)), conductor=24), CyclotomicElement(coefficients=(Fraction(2, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)), conductor=24), CyclotomicElement(coefficients=(Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)), conductor=24)), 'BondCount': 3, 'TargetPositions': ((QuadraticNumber(coefficients=(Fraction(-1, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(1, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)))), (QuadraticNumber(coefficients=(Fraction(2, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(1, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)))), (QuadraticNumber(coefficients=(Fraction(2, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(4, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)))))}), mappingproxy({'SiteIndex': 2, 'OrbitIndex': 1, 'EquivalentIndex': 2, 'AtomPosition': (CyclotomicElement(coefficients=(Fraction(2, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)), conductor=24), CyclotomicElement(coefficients=(Fraction(1, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)), conductor=24), CyclotomicElement(coefficients=(Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)), conductor=24)), 'BondCount': 3, 'TargetPositions': ((QuadraticNumber(coefficients=(Fraction(1, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(-1, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)))), (QuadraticNumber(coefficients=(Fraction(1, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(2, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)))), (QuadraticNumber(coefficients=(Fraction(4, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(2, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), QuadraticNumber(coefficients=(Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)))))})), metadata=mappingproxy({'SchemaVersion': 1, 'Shell': 2, 'NeighbourOrder': 1, 'BondLength': 0.5773502691896257, 'SquaredDistance': QuadraticNumber(coefficients=(Fraction(1, 3), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))), 'SiteCount': 2, 'DirectedBondCount': 6, 'DirectedOrbitCount': 1}))\n",
+  "display_sha256": "f93b68ce125522bf6f0c1e96e96b567d61a2fcb64f1a2e5b8c295be60b5d8f59",
+  "return_type": "TableReport",
+  "return_data": {
+    "schema": "MagneticTBBondShellDisplayData",
+    "title": "Bond shell 2 (1-th neighbour), bond length = 0.57735026919; 6 directed bonds",
+    "columns": [
+      "SiteIndex",
+      "OrbitIndex",
+      "EquivalentIndex",
+      "AtomPosition",
+      "BondCount",
+      "TargetPositions"
+    ],
+    "rows": [
+      {
+        "SiteIndex": 1,
+        "OrbitIndex": 1,
+        "EquivalentIndex": 1,
+        "AtomPosition": [
+          "1/3",
+          "2/3",
+          "0"
+        ],
+        "BondCount": 3,
+        "TargetPositions": [
+          [
+            "-1/3",
+            "1/3",
+            "0"
+          ],
+          [
+            "2/3",
+            "1/3",
+            "0"
+          ],
+          [
+            "2/3",
+            "4/3",
+            "0"
+          ]
+        ]
+      },
+      {
+        "SiteIndex": 2,
+        "OrbitIndex": 1,
+        "EquivalentIndex": 2,
+        "AtomPosition": [
+          "2/3",
+          "1/3",
+          "0"
+        ],
+        "BondCount": 3,
+        "TargetPositions": [
+          [
+            "1/3",
+            "-1/3",
+            "0"
+          ],
+          [
+            "1/3",
+            "2/3",
+            "0"
+          ],
+          [
+            "4/3",
+            "2/3",
+            "0"
+          ]
+        ]
+      }
+    ],
+    "metadata": {
+      "SchemaVersion": 1,
+      "Shell": 2,
+      "NeighbourOrder": 1,
+      "BondLength": 0.5773502691896257,
+      "SquaredDistance": "1/3",
+      "SiteCount": 2,
+      "DirectedBondCount": 6,
+      "DirectedOrbitCount": 1
+    }
+  },
+  "runtime_sources_sha256": {
+    "reports.py": "35bbad7aa2e7a94d89212d4b8570f0c6506d658638cf67c633f8f9e11b9769b5",
+    "linear_algebra.py": "4df2fa7a752fad5d978d6f5fd61789724220c8be4633379c3f96bf7e9e2ea84f",
+    "_core.abi3.so": "3af1d8db02dec577277f95bbd52cd69994f5737c92509fcf1757ebe584332d2c"
+  },
+  "validation_scope": "Only this Graphene setup and showbonds(2) return were executed. Both sites and all six target endpoints match the previously recorded result. No full suite, fixture replay, or band plot regeneration."
+}

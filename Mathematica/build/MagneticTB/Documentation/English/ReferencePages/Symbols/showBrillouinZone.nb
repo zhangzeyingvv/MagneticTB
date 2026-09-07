@@ -1,0 +1,2990 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    131967,       2981]
+NotebookOptionsPosition[    123526,       2834]
+NotebookOutlinePosition[    125231,       2875]
+CellTagsIndexPosition[    125188,       2872]
+WindowTitle->showBrillouinZone
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["MAGNETIC T B SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "3aa835cb-66c6-49ff-b31b-7ad316325b4e"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "7391a321-97e0-471d-ad85-bf03c2c6cda7"],
+        Background->LightDarkSwitched[
+          RGBColor[0.490196, 0.576471, 0.690196]],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "da25b28f-030f-4830-9f82-a1b5d77a6b45"]
+         }],ExpressionUUID->"c8237198-e193-4d6b-80d9-568769c3bc5f"],
+         StripOnInput->False],{
+        StyleBox[
+          "\"standardKPath\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/standardKPath"], 
+         StyleBox[
+          "\"showCrystalStructure\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/showCrystalStructure"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "b4afd9ff-76c9-4daa-a0fc-d2b33f26a48e"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "2419fc34-e1c6-4dd5-9bfd-4fb07dc49521"]
+         }],ExpressionUUID->"696b5358-402b-4b6d-8b91-3863961363cf"],
+         StripOnInput->False],{
+        "\"MagneticTB\"" :> 
+         Documentation`HelpLookup["paclet:MagneticTB/guide/MagneticTB"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "e386f877-34b2-4186-80fa-20a8382040a8"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "a671ec2d-39e8-47ff-9f37-3657487c0759"]
+         }],ExpressionUUID->"02aed050-1b63-4e01-a9e3-89960ecadae4"],
+         StripOnInput->False],{
+        "\"Crystal structure, Brillouin zone, and k paths\"" :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/tutorial/CrystalAndKPaths"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "088c00ee-320e-426c-852d-8761cd2f07b0"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "0ad4ae5f-3fc6-48fd-a90e-40f41baa1bea"]
+         }],ExpressionUUID->"550020c8-2d1a-4b90-845e-45fde215642d"],
+         StripOnInput->False],{
+        "\"MagneticTB/ref/showBrillouinZone\"" :> None, 
+         "\"Copy Wolfram Documentation Center URL\"" :> 
+         CopyToClipboard["MagneticTB/ref/showBrillouinZone"], Delimiter, 
+         "\"Copy web URL\"" :> 
+         Module[{DocumentationSearch`Private`nb$}, 
+           DocumentationSearch`Private`nb$ = 
+            NotebookPut[
+             Notebook[{
+               Cell[BoxData[
+                 MakeBoxes[
+                  Hyperlink[
+                   "http://reference.wolfram.com/language/MagneticTB/ref/\
+showBrillouinZone.html"], StandardForm]], "Input", TextClipboardType -> 
+                 "PlainText"]}, Visible -> False]]; 
+           SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+           FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+           NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+         "\"Go to web URL\"" :> 
+         FrontEndExecute[{
+           NotebookLocate[{
+             URL[If[TrueQ[False], 
+                 "http://reference.wolfram.com/system-modeler/", 
+                 "http://reference.wolfram.com/language/"] <> 
+               "MagneticTB/ref/showBrillouinZone" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "6f839d50-e906-4dfa-a1b6-ea9493e32217"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "d08431a7-af63-42d9-bd48-e7df236f1465"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"3bd38943-9a74-47f5-956c-0d9b557817db"],
+
+Cell["MagneticTB`", "ContextNameCell",ExpressionUUID->"f1fcad75-e774-4130-b754-894f5f44a81c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "showBrillouinZone", "ObjectName",ExpressionUUID->
+      "baaef281-a79b-4dbd-921b-9ac6d3dff50f"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"3222a73a-75d9-4569-8c8e-e92defca8cdc"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "12d76731-657e-47a9-963c-f91bb669b35c"]
+    }],ExpressionUUID->"bb533db0-dd5c-4f85-941b-6b8427f0d84b"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"6c9bf641-fb06-4b26-9814-\
+b83377637ba0"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"showBrillouinZone", "[", "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "11b21991-dd2c-498c-8465-3be2869a671c"],
+     " \[LineSeparator]",
+     "draws the first Brillouin zone and the current conventional \
+high-symmetry path."
+    }],ExpressionUUID->"0a07b12c-daad-446f-bcf1-5a064208117b"]}
+  }]], "Usage",ExpressionUUID->"ce2d65fc-f765-43ea-b4bd-bc5264f9ec4f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[Cell[TextData[{
+  Cell[BoxData[
+   DynamicBox[ToBoxes[
+     If[CurrentValue[
+        EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], 
+      Rotate[
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+    ImageSizeCache->{
+     13.600000000000001`, {-0.1685058593749993, 13.768505859375}}]],
+   ExpressionUUID->"bfb4a109-3e6c-4a47-b18e-be639ada41be"],
+  Cell[BoxData[
+   TemplateBox[{1},
+    "Spacer1"]],ExpressionUUID->"c5d1511e-a66f-4a4f-9cba-f07a42157527"],
+  "Details and Options"
+ }], "NotesFrameText",ExpressionUUID->
+  "de8e81a4-ff42-4825-95f1-85ae6f65666e"]],ExpressionUUID->"a70c42a8-63f2-\
+4fbc-b76c-d6392cdac343"]], "NotesSection",
+ ShowGroupOpener->"Thumbnail",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->1891992627,ExpressionUUID->"333564f7-5dba-4ae7-aa54-dcfddd7fbc14"],
+
+Cell["\<\
+Run init with the desired lattice before plotting. The first Brillouin zone \
+depends on the lattice, so no Hamiltonian or hopping parameters are needed.\
+\>", "Notes",ExpressionUUID->"90344751-6259-44df-9428-6f672079bf25"],
+
+Cell["\<\
+The lattice vectors are the rows of lattice. The plot uses Cartesian \
+reciprocal-space coordinates, with reciprocal vectors including the factor 2 \
+Pi.\
+\>", "Notes",ExpressionUUID->"26301ac2-5ce9-4ba1-8b8a-c1f38b1e7772"],
+
+Cell["\<\
+\"KPath\" -> Automatic uses standardKPath[]. An explicit path is a list of \
+{{kStart,kEnd},{labelStart,labelEnd}} segments in reciprocal fractional \
+coordinates; equivalent points are folded into the first zone.\
+\>", "Notes",ExpressionUUID->"111b8e8d-d5ab-490a-8723-b480bdccea62"],
+
+Cell["\<\
+The result is Graphics3D with Axes -> False, Boxed -> False, and \
+ViewProjection -> \"Orthographic\". These are fixed current presentation \
+properties.\
+\>", "Notes",ExpressionUUID->"c9f193e2-3bef-42fa-9b23-5e95e08713c1"],
+
+Cell["\<\
+showBrillouinZone returns $Failed and issues a message when the reciprocal \
+lattice cannot define a bounded first zone, the supplied path is malformed, \
+or TranslationRange/Tolerance is invalid. It does not repair the input or \
+switch to an approximate fallback.\
+\>", "Notes",ExpressionUUID->"4d61f8f3-efa0-4365-9932-c74d496cf6f3"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "ad4d15fa-f721-44e4-9b27-bc90da1a66ac"], "\"\<KPath\>\"", "Automatic", 
+    Cell["\<\
+Automatic conventional path, None, or an explicit MagneticTB band path.\
+\>", "TableText",ExpressionUUID->"dccd5e1d-70f9-453d-b7d6-c6e24ad8b5e9"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "80d20ed2-9c40-4f8c-b22c-606a3a98ccb7"], "\"\<ShowKPath\>\"", "True", 
+    Cell["Whether the selected path and point labels are drawn.", "TableText",
+     ExpressionUUID->"73eb17f3-b6f7-460e-94c7-e6a369c35988"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "700e3acf-c0bc-471e-97df-bb3314247c26"], "\"\<TranslationRange\>\"", "2",
+     Cell["\<\
+Positive integer reciprocal-lattice search range used to construct and fold \
+the zone.\
+\>", "TableText",ExpressionUUID->"651fae4e-c2ec-4c19-bd20-b7e16c19487b"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "14d81016-4f21-4836-b665-bcc37170311e"], "\"\<Tolerance\>\"", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "8"}]}], Cell["\<\
+Positive geometric tolerance for zone vertices and path folding.\
+\>", "TableText",ExpressionUUID->"03544258-1a10-4f32-8da9-cc9e90522471"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "db50b6d6-dc86-440a-bdab-e71ed6d6c34b"], "FontSize", "14", Cell[
+    "Font size used for high-symmetry point labels.", "TableText",
+     ExpressionUUID->"8b4441a0-d7e8-4378-ae87-c257b3ae82d6"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "db65e95a-e055-4a97-b871-a37800beb145"], "ImageSize", "Large", Cell[
+    "Final Graphics3D image size.", "TableText",ExpressionUUID->
+     "e8d7b1ca-eba3-4c1f-94a7-9e04ad7a91c7"]}
+  },
+  GridBoxAlignment->{"Columns" -> {{Left}}},
+  GridBoxDividers->{"Rows" -> {{False}}},
+  GridBoxSpacings->{"Columns" -> {
+      Offset[0.27999999999999997`], {
+       Offset[0.7]}, 
+      Offset[0.27999999999999997`]}, "Rows" -> {
+      Offset[0.2], {
+       Offset[0.8]}, 
+      Offset[0.2]}}]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "Rows" -> {None, None, None, None, None, {None}}},
+ GridBoxDividers->{
+  "Rows" -> {{
+     True, True, True, True, True, True, 
+      True}}}},ExpressionUUID->"5c18a577-2637-45f9-b2ce-4da95a0dc4ab"]
+}, Closed]],
+
+Cell["", "PageDelimiter",ExpressionUUID->"df90cf12-04ce-46a9-93c0-6802aa229dd7"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {4.251494140625001, 9.348505859375}}]],
+  ExpressionUUID->"50b58245-4acc-4191-be06-6361b214385b"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"be2c0cea-6cbe-4f04-b7ff-a251a32e7ef2"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(8)", "ExampleCount",ExpressionUUID->
+  "f9b23654-0685-4a36-ac99-76ca1da51db2"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->929720860,ExpressionUUID->"63efcc0d-01fe-4fca-89f5-afbd56473fb9"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}]], "Input", "ExampleInitialization",
+ CellLabel->"In[1]:=",ExpressionUUID->"5a3bf0ba-ae6c-4c26-97ae-cbd6a0e4ef96"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "72b1ab12-1a68-4d84-8b25-481d615dad4d"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"8542204d-2043-40dc-b2d3-619d7e0a3434"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "204219fe-72e4-4795-a8b2-af09f55c2184"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->727478448,ExpressionUUID->"c45343f7-e4a0-4087-9ada-21c6b30e239f"],
+
+Cell["\<\
+Hexagonal lattice: initialize two symmetry-related pz sites using gray group \
+191. The in-plane primitive vectors enclose 120 degrees:\
+\>", "ExampleText",ExpressionUUID->"ebfbeee2-31bb-4ddc-9ab8-71549c5ee3b5"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"{", "\n", "    ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", " ", "0", ",", " ", "0"}], "}"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "a"}], "/", "2"}], ",", " ", 
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], " ", 
+          RowBox[{"a", "/", "2"}]}], ",", " ", "0"}], "}"}], ",", "\n", 
+       "    ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "0", ",", " ", "c"}], "}"}]}], "\n", "  ", 
+      "}"}]}], ",", "\n", "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", 
+        RowBox[{"3", "/", "2"}]}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "/", "3"}], ",", " ", 
+          RowBox[{"2", "/", "3"}], ",", " ", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}]}], "}"}], "}"}]}],
+     ",", "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", 
+     RowBox[{"msgop", "[", 
+      RowBox[{"gray", "[", "191", "]"}], "]"}]}], ",", "\n", "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", "\"\<pz\>\"", "}"}], "}"}]}]}], "\n", "]"}], 
+  ";"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"c16bcf07-ced2-46e6-ba6d-4831eca83ed5"],
+
+Cell["\<\
+The first Brillouin zone is a hexagonal prism. Red lines mark the \
+automatically selected high-symmetry path; Gamma is at the zone center:\
+\>", "ExampleText",ExpressionUUID->"0f2a5c75-aa31-4c43-9b4d-0ebcbee3fda3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showBrillouinZone", "[", "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[2]:=",ExpressionUUID->"b6780b41-18a0-4534-a8e5-44c8d021bb40"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  {RGBColor[0.87, 0.94, 1], Opacity[0.18], EdgeForm[
+   None], {Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     4.188790204786392, 0., -2.0943951023931953`}, {4.188790204786392, 0., 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+     4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+     0., -2.0943951023931953`}, {-4.188790204786392, 0., 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}}], 
+    Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {4.188790204786392, 
+     0., -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, \
+{-2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {4.188790204786392, 0., 2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}]}, 
+   {GrayLevel[0.25], Thickness[Large], Opacity[
+    1], {Line3DBox[{{-4.188790204786392, 
+      0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., 2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      2.094395102393196, 3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+      3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+      0., -2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}]}, 
+    {RGBColor[1, 0, 0], Thickness[
+     Large], {Line3DBox[{{0., 0., 
+       0.}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 0., 
+       0.}}], Line3DBox[{{0., 0., 0.}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{0., 
+       0., -2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}]}, 
+     {RGBColor[1, 0, 0], PointSize[0.018], 
+      Point3DBox[{{0., 0., 0.}, {-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 
+       0., -2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}], {Text3DBox[
+        FormBox[
+         StyleBox["\<\"\[CapitalGamma]\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 0., 0.}, {0, -1.2}], 
+       Text3DBox[
+        FormBox[
+         StyleBox["\<\"M\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"K\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"A\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 
+        0., -2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"L\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"H\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}, {0, -1.2}]}}}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->Large,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[3]=",ExpressionUUID->"5e08d29e-1a7d-4a75-b615-ad2a99a13501"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "badf3841-faa5-4327-8929-e91ba0cd0396"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"033e142b-1c32-401f-a2c9-5996e8cc911b"],
+ "Options",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(6)", "ExampleCount",ExpressionUUID->
+  "2a15385a-7fd4-4856-b05e-ddcee950a615"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"885cfdac-a68e-4534-a82f-575212eef6c5"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "41703364-56eb-4a17-aac1-90a2489f9aba"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"d4131186-0699-4ba3-81d7-a71da009a21b"],
+ "KPath",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "497a019e-3af0-4e1d-91e3-bac21cdb3fc6"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"a3f38a9b-88c9-447d-a2af-bd40798d7979"],
+
+Cell["\<\
+\"KPath\" - draw only the G-M-K-G path in the kz = 0 plane of the hexagonal \
+zone. Here G denotes Gamma, and coordinates are fractions of the reciprocal \
+vectors:\
+\>", "ExampleText",ExpressionUUID->"8ce3dfe5-660a-4e58-9e27-4d5bad3a096d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showBrillouinZone", "[", "\n", "  ", 
+  RowBox[{"\"\<KPath\>\"", " ", "->", " ", 
+   RowBox[{"{", "\n", "    ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "/", "2"}], ",", " ", "0", ",", " ", "0"}], "}"}]}], 
+        "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"\"\<G\>\"", ",", " ", "\"\<M\>\""}], "}"}]}], "}"}], ",", 
+     "\n", "    ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "/", "2"}], ",", " ", "0", ",", " ", "0"}], "}"}], ",",
+          " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "/", "3"}], ",", " ", 
+           RowBox[{"1", "/", "3"}], ",", " ", "0"}], "}"}]}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"\"\<M\>\"", ",", " ", "\"\<K\>\""}], "}"}]}], "}"}], ",", 
+     "\n", "    ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "/", "3"}], ",", " ", 
+           RowBox[{"1", "/", "3"}], ",", " ", "0"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}]}], "}"}], ",", 
+       " ", 
+       RowBox[{"{", 
+        RowBox[{"\"\<K\>\"", ",", " ", "\"\<G\>\""}], "}"}]}], "}"}]}], "\n", 
+    "  ", "}"}]}], "\n", "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"4365a406-934f-4f6e-9f4a-980e1d71160b"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  {RGBColor[0.87, 0.94, 1], Opacity[0.18], EdgeForm[
+   None], {Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     4.188790204786392, 0., -2.0943951023931953`}, {4.188790204786392, 0., 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+     4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+     0., -2.0943951023931953`}, {-4.188790204786392, 0., 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}}], 
+    Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {4.188790204786392, 
+     0., -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, \
+{-2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {4.188790204786392, 0., 2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}]}, 
+   {GrayLevel[0.25], Thickness[Large], Opacity[
+    1], {Line3DBox[{{-4.188790204786392, 
+      0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., 2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      2.094395102393196, 3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+      3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+      0., -2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}]}, 
+    {RGBColor[1, 0, 0], Thickness[
+     Large], {Line3DBox[{{0., 0., 
+       0.}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 0., 
+       0.}}]}, 
+     {RGBColor[1, 0, 0], PointSize[0.018], 
+      Point3DBox[{{0., 0., 0.}, {-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}}], {Text3DBox[
+        FormBox[
+         StyleBox["\<\"G\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 0., 0.}, {0, -1.2}], 
+       Text3DBox[
+        FormBox[
+         StyleBox["\<\"M\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"K\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, 0.}, {
+        0, -1.2}]}}}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->Large,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"8cdcaac8-5e55-40b4-b47a-49768a4260b9"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "5bc318e3-0d04-4504-af8b-450e0f779dc6"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"0f902cd2-4307-405d-99dd-64bb5ebf68f9"],
+ "ShowKPath",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "912873f8-5ddf-4a2b-8c9b-8b3f3bebdf2b"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"fca88465-962e-48cf-ba8b-a08b8c2a95d1"],
+
+Cell["\<\
+\"ShowKPath\" - hide the path and labels to see the hexagonal prism by itself:\
+\>", "ExampleText",ExpressionUUID->"05366c7d-dee2-4106-8d8e-35305d2060ef"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showBrillouinZone", "[", 
+  RowBox[{"\"\<ShowKPath\>\"", " ", "->", " ", "False"}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"8bcb49d0-68f6-4ac8-a1f1-dd6a81deff16"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  {RGBColor[0.87, 0.94, 1], Opacity[0.18], EdgeForm[
+   None], {Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     4.188790204786392, 0., -2.0943951023931953`}, {4.188790204786392, 0., 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+     4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+     0., -2.0943951023931953`}, {-4.188790204786392, 0., 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}}], 
+    Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {4.188790204786392, 
+     0., -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, \
+{-2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {4.188790204786392, 0., 2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}]}, 
+   {GrayLevel[0.25], Thickness[Large], Opacity[
+    1], {Line3DBox[{{-4.188790204786392, 
+      0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., 2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      2.094395102393196, 3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+      3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+      0., -2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->Large,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"115b358a-a7bf-4e97-bead-0a9a242a926d"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "42d420aa-a8b1-49db-aa7f-2056f3c829f9"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"0e1d3e4b-c312-4752-b337-164f1af0a17c"],
+ "TranslationRange",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "54fe0a7a-a967-45a3-a07d-04b40a03a064"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"098a3d25-ab76-4f6c-8757-3468d6c1e729"],
+
+Cell["\<\
+\"TranslationRange\" - include more reciprocal-lattice translations. This \
+hexagonal zone already has the same shape at the default value 2:\
+\>", "ExampleText",ExpressionUUID->"1c0bb062-ef10-490c-a2e6-88f513cee571"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showBrillouinZone", "[", 
+  RowBox[{"\"\<TranslationRange\>\"", " ", "->", " ", "3"}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"43d65ae0-5af9-4ee6-bbbc-9f9cc30c894b"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  {RGBColor[0.87, 0.94, 1], Opacity[0.18], EdgeForm[
+   None], {Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     4.188790204786392, 0., -2.0943951023931953`}, {4.188790204786392, 0., 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+     4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+     0., -2.0943951023931953`}, {-4.188790204786392, 0., 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}}], 
+    Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {4.188790204786392, 
+     0., -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, \
+{-2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {4.188790204786392, 0., 2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}]}, 
+   {GrayLevel[0.25], Thickness[Large], Opacity[
+    1], {Line3DBox[{{-4.188790204786392, 
+      0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., 2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      2.094395102393196, 3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+      3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+      0., -2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}]}, 
+    {RGBColor[1, 0, 0], Thickness[
+     Large], {Line3DBox[{{0., 0., 
+       0.}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 0., 
+       0.}}], Line3DBox[{{0., 0., 0.}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{0., 
+       0., -2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}]}, 
+     {RGBColor[1, 0, 0], PointSize[0.018], 
+      Point3DBox[{{0., 0., 0.}, {-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 
+       0., -2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}], {Text3DBox[
+        FormBox[
+         StyleBox["\<\"\[CapitalGamma]\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 0., 0.}, {0, -1.2}], 
+       Text3DBox[
+        FormBox[
+         StyleBox["\<\"M\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"K\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"A\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 
+        0., -2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"L\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"H\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}, {0, -1.2}]}}}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->Large,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"0c2b3d1c-8ac3-4f87-adaa-b8a50c2be541"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "12152aad-362c-4e05-a9ad-7155714a3db9"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"766c1e25-ade9-4a51-a748-05a99a5438a5"],
+ "Tolerance",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "c0a77d43-1eb3-400a-a0cd-8344b6f4e7c1"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"2babb6fa-f4f5-4095-a0d3-ef96c9d08f42"],
+
+Cell["\<\
+\"Tolerance\" - change the geometric comparison tolerance. This \
+well-conditioned hexagonal example keeps the same visible shape:\
+\>", "ExampleText",ExpressionUUID->"3bf34bfb-d975-43ab-a5a1-f4d387b1c675"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showBrillouinZone", "[", 
+  RowBox[{"\"\<Tolerance\>\"", " ", "->", " ", 
+   RowBox[{"10", "^", 
+    RowBox[{"-", "7"}]}]}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"e0e8a0eb-e13f-47ce-867c-67355aa3e186"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  {RGBColor[0.87, 0.94, 1], Opacity[0.18], EdgeForm[
+   None], {Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     4.188790204786392, 0., -2.0943951023931953`}, {4.188790204786392, 0., 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+     4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+     0., -2.0943951023931953`}, {-4.188790204786392, 0., 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}}], 
+    Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {4.188790204786392, 
+     0., -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, \
+{-2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {4.188790204786392, 0., 2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}]}, 
+   {GrayLevel[0.25], Thickness[Large], Opacity[
+    1], {Line3DBox[{{-4.188790204786392, 
+      0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., 2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      2.094395102393196, 3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+      3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+      0., -2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}]}, 
+    {RGBColor[1, 0, 0], Thickness[
+     Large], {Line3DBox[{{0., 0., 
+       0.}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 0., 
+       0.}}], Line3DBox[{{0., 0., 0.}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{0., 
+       0., -2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}]}, 
+     {RGBColor[1, 0, 0], PointSize[0.018], 
+      Point3DBox[{{0., 0., 0.}, {-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 
+       0., -2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}], {Text3DBox[
+        FormBox[
+         StyleBox["\<\"\[CapitalGamma]\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 0., 0.}, {0, -1.2}], 
+       Text3DBox[
+        FormBox[
+         StyleBox["\<\"M\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"K\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"A\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 
+        0., -2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"L\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"H\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}, {0, -1.2}]}}}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->Large,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"02f70050-45a2-441c-bd87-c4ba2be43dd7"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "ec4986ba-85dd-4470-9cca-365c110fee33"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"c4f7e079-451a-4338-8245-4b5c193d769e"],
+ "FontSize",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "05b928cd-faac-44dd-a351-b381b10f3f3f"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"315f8d0e-2237-44ca-bc5d-2a949c133d26"],
+
+Cell["\<\
+FontSize - enlarge the high-symmetry point labels on the hexagonal zone:\
+\>", "ExampleText",ExpressionUUID->"66706e2d-af6a-4a2f-9735-d82bcfdec831"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showBrillouinZone", "[", 
+  RowBox[{"FontSize", " ", "->", " ", "18"}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"3650114e-9f38-46b6-8b9d-2bf78d37a8de"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  {RGBColor[0.87, 0.94, 1], Opacity[0.18], EdgeForm[
+   None], {Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     4.188790204786392, 0., -2.0943951023931953`}, {4.188790204786392, 0., 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+     4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+     0., -2.0943951023931953`}, {-4.188790204786392, 0., 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}}], 
+    Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {4.188790204786392, 
+     0., -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, \
+{-2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {4.188790204786392, 0., 2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}]}, 
+   {GrayLevel[0.25], Thickness[Large], Opacity[
+    1], {Line3DBox[{{-4.188790204786392, 
+      0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., 2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      2.094395102393196, 3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+      3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+      0., -2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}]}, 
+    {RGBColor[1, 0, 0], Thickness[
+     Large], {Line3DBox[{{0., 0., 
+       0.}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 0., 
+       0.}}], Line3DBox[{{0., 0., 0.}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{0., 
+       0., -2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}]}, 
+     {RGBColor[1, 0, 0], PointSize[0.018], 
+      Point3DBox[{{0., 0., 0.}, {-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 
+       0., -2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}], {Text3DBox[
+        FormBox[
+         StyleBox["\<\"\[CapitalGamma]\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->18,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 0., 0.}, {0, -1.2}], 
+       Text3DBox[
+        FormBox[
+         StyleBox["\<\"M\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->18,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"K\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->18,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"A\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->18,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 
+        0., -2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"L\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->18,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"H\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->18,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}, {0, -1.2}]}}}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->Large,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"fb31ea2a-5653-4474-aa55-73821c374cc9"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "25a2c55f-0826-4b14-854d-33c122211ccc"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"1e191b4d-e429-46f9-8ba8-c2d699676df9"],
+ "ImageSize",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "61ce126f-efe4-42ce-88bd-6cc7fe6eb515"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"7ebb8199-4f4d-4e37-8cd7-ce00aa093887"],
+
+Cell["ImageSize - draw a smaller hexagonal-zone image:", "ExampleText",ExpressionUUID->"9d724d1e-f472-4687-871d-5b3a8da3ee70"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showBrillouinZone", "[", 
+  RowBox[{"ImageSize", " ", "->", " ", "360"}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"db27af1d-a196-427b-8e95-34ad9c824e42"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  {RGBColor[0.87, 0.94, 1], Opacity[0.18], EdgeForm[
+   None], {Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+     4.188790204786392, 0., -2.0943951023931953`}, {4.188790204786392, 0., 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, -2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+     4.188790204786392, 0., 2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+     0., -2.0943951023931953`}, {-4.188790204786392, 0., 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, 2.0943951023931953`}}], 
+    Polygon3DBox[{{-4.188790204786392, 
+     0., -2.0943951023931953`}, {-2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+     3.627598728468436, -2.0943951023931953`}, {4.188790204786392, 
+     0., -2.0943951023931953`}, {
+     2.094395102393196, -3.627598728468436, -2.0943951023931953`}, \
+{-2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+    Polygon3DBox[{{-2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {2.094395102393196, -3.627598728468436, 
+     2.0943951023931953`}, {4.188790204786392, 0., 2.0943951023931953`}, {
+     2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+     2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}]}, 
+   {GrayLevel[0.25], Thickness[Large], Opacity[
+    1], {Line3DBox[{{-4.188790204786392, 
+      0., -2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, -3.627598728468436, \
+-2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, -3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{
+      2.094395102393196, -3.627598728468436, -2.0943951023931953`}, {
+      4.188790204786392, 0., -2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., 2.0943951023931953`}, {
+      2.094395102393196, -3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{4.188790204786392, 0., -2.0943951023931953`}, {
+      2.094395102393196, 3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {2.094395102393196, 
+      3.627598728468436, 2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 3.627598728468436, 2.0943951023931953`}, {
+      4.188790204786392, 0., 2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-4.188790204786392, 
+      0., -2.0943951023931953`}}], 
+     Line3DBox[{{-4.188790204786392, 0., 
+      2.0943951023931953`}, {-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}, {-2.094395102393196, 
+      3.627598728468436, -2.0943951023931953`}}], 
+     Line3DBox[{{-2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}, {2.094395102393196, 3.627598728468436, 
+      2.0943951023931953`}}]}, 
+    {RGBColor[1, 0, 0], Thickness[
+     Large], {Line3DBox[{{0., 0., 
+       0.}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 0., 
+       0.}}], Line3DBox[{{0., 0., 0.}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{0., 
+       0., -2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, 0.}}], 
+      Line3DBox[{{-4.188790204786391, -5.783373309316159*^-16, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}]}, 
+     {RGBColor[1, 0, 0], PointSize[0.018], 
+      Point3DBox[{{0., 0., 0.}, {-3.141592653589793, -1.813799364234218, 
+       0.}, {-4.188790204786391, -5.783373309316159*^-16, 0.}, {0., 
+       0., -2.0943951023931953`}, {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}}], {Text3DBox[
+        FormBox[
+         StyleBox["\<\"\[CapitalGamma]\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 0., 0.}, {0, -1.2}], 
+       Text3DBox[
+        FormBox[
+         StyleBox["\<\"M\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"K\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"A\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 
+        0., -2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"L\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -1.813799364234218, \
+-2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"H\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-4.188790204786391, -5.783373309316159*^-16, \
+-2.0943951023931953`}, {0, -1.2}]}}}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->360,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"4858f43f-caa5-42a6-9e36-87400f28f061"]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "82429606-b692-4994-88cd-4ec7d41229ab"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"29594d21-b54d-4709-a5b4-9f89482a0a40"],
+ "Applications",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "45908f53-9298-4a1d-85a6-35d14ae6b724"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"4f81db77-1f0e-409a-b162-3600efbf4f16"],
+
+Cell["\<\
+Primitive tetragonal lattice (gray group 123): a = b and c = 3 a/2 give a \
+square prism. Its height in reciprocal space is 2 Pi/c:\
+\>", "ExampleText",ExpressionUUID->"285e3908-8148-4ad0-9a82-90673795a6ee"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "a", ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "0", ",", " ", "c"}], "}"}]}], "}"}]}], ",", 
+    "\n", "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", 
+        RowBox[{"3", "/", "2"}]}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}]}], "}"}], "}"}]}],
+     ",", "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", 
+     RowBox[{"msgop", "[", 
+      RowBox[{"gray", "[", "123", "]"}], "]"}]}], ",", "\n", "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", "\"\<s\>\"", "}"}], "}"}]}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{"showBrillouinZone", "[", 
+  RowBox[{"ImageSize", " ", "->", " ", "400"}], "]"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"f11ec1e9-a92e-4d79-8763-e9a6c1c44d11"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  {RGBColor[0.87, 0.94, 1], Opacity[0.18], EdgeForm[
+   None], {Polygon3DBox[{{-3.141592653589793, -3.141592653589793, \
+-2.0943951023931953`}, {-3.141592653589793, 
+     3.141592653589793, -2.0943951023931953`}, {3.141592653589793, 
+     3.141592653589793, -2.0943951023931953`}, {
+     3.141592653589793, -3.141592653589793, -2.0943951023931953`}}], 
+    Polygon3DBox[{{-3.141592653589793, -3.141592653589793, \
+-2.0943951023931953`}, {
+     3.141592653589793, -3.141592653589793, -2.0943951023931953`}, {
+     3.141592653589793, -3.141592653589793, 
+     2.0943951023931953`}, {-3.141592653589793, -3.141592653589793, 
+     2.0943951023931953`}}], 
+    Polygon3DBox[{{
+     3.141592653589793, -3.141592653589793, -2.0943951023931953`}, {
+     3.141592653589793, 3.141592653589793, -2.0943951023931953`}, {
+     3.141592653589793, 3.141592653589793, 2.0943951023931953`}, {
+     3.141592653589793, -3.141592653589793, 2.0943951023931953`}}], 
+    Polygon3DBox[{{-3.141592653589793, 
+     3.141592653589793, -2.0943951023931953`}, {-3.141592653589793, \
+-3.141592653589793, -2.0943951023931953`}, {-3.141592653589793, \
+-3.141592653589793, 2.0943951023931953`}, {-3.141592653589793, 
+     3.141592653589793, 2.0943951023931953`}}], 
+    Polygon3DBox[{{3.141592653589793, 
+     3.141592653589793, -2.0943951023931953`}, {-3.141592653589793, 
+     3.141592653589793, -2.0943951023931953`}, {-3.141592653589793, 
+     3.141592653589793, 2.0943951023931953`}, {3.141592653589793, 
+     3.141592653589793, 2.0943951023931953`}}], 
+    Polygon3DBox[{{-3.141592653589793, -3.141592653589793, 
+     2.0943951023931953`}, {3.141592653589793, -3.141592653589793, 
+     2.0943951023931953`}, {3.141592653589793, 3.141592653589793, 
+     2.0943951023931953`}, {-3.141592653589793, 3.141592653589793, 
+     2.0943951023931953`}}]}, 
+   {GrayLevel[0.25], Thickness[Large], Opacity[
+    1], {Line3DBox[{{-3.141592653589793, -3.141592653589793, \
+-2.0943951023931953`}, {-3.141592653589793, 
+      3.141592653589793, -2.0943951023931953`}}], 
+     Line3DBox[{{-3.141592653589793, 
+      3.141592653589793, -2.0943951023931953`}, {3.141592653589793, 
+      3.141592653589793, -2.0943951023931953`}}], 
+     Line3DBox[{{3.141592653589793, 
+      3.141592653589793, -2.0943951023931953`}, {
+      3.141592653589793, -3.141592653589793, -2.0943951023931953`}}], 
+     Line3DBox[{{
+      3.141592653589793, -3.141592653589793, -2.0943951023931953`}, \
+{-3.141592653589793, -3.141592653589793, -2.0943951023931953`}}], 
+     Line3DBox[{{
+      3.141592653589793, -3.141592653589793, -2.0943951023931953`}, {
+      3.141592653589793, -3.141592653589793, 2.0943951023931953`}}], 
+     Line3DBox[{{3.141592653589793, -3.141592653589793, 
+      2.0943951023931953`}, {-3.141592653589793, -3.141592653589793, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-3.141592653589793, -3.141592653589793, 
+      2.0943951023931953`}, {-3.141592653589793, -3.141592653589793, \
+-2.0943951023931953`}}], 
+     Line3DBox[{{3.141592653589793, 
+      3.141592653589793, -2.0943951023931953`}, {3.141592653589793, 
+      3.141592653589793, 2.0943951023931953`}}], 
+     Line3DBox[{{3.141592653589793, 3.141592653589793, 2.0943951023931953`}, {
+      3.141592653589793, -3.141592653589793, 2.0943951023931953`}}], 
+     Line3DBox[{{-3.141592653589793, -3.141592653589793, 
+      2.0943951023931953`}, {-3.141592653589793, 3.141592653589793, 
+      2.0943951023931953`}}], 
+     Line3DBox[{{-3.141592653589793, 3.141592653589793, 
+      2.0943951023931953`}, {-3.141592653589793, 
+      3.141592653589793, -2.0943951023931953`}}], 
+     Line3DBox[{{-3.141592653589793, 3.141592653589793, 
+      2.0943951023931953`}, {3.141592653589793, 3.141592653589793, 
+      2.0943951023931953`}}]}, 
+    {RGBColor[1, 0, 0], Thickness[
+     Large], {Line3DBox[{{0., 0., 0.}, {0., -3.141592653589793, 0.}}], 
+      Line3DBox[{{0., -3.141592653589793, 
+       0.}, {-3.141592653589793, -3.141592653589793, 0.}}], 
+      Line3DBox[{{-3.141592653589793, -3.141592653589793, 0.}, {0., 0., 0.}}],
+       Line3DBox[{{0., 0., 0.}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{0., 0., -2.0943951023931953`}, {
+       0., -3.141592653589793, -2.0943951023931953`}}], 
+      Line3DBox[{{
+       0., -3.141592653589793, -2.0943951023931953`}, {-3.141592653589793, \
+-3.141592653589793, -2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -3.141592653589793, \
+-2.0943951023931953`}, {0., 0., -2.0943951023931953`}}], 
+      Line3DBox[{{0., -3.141592653589793, 0.}, {
+       0., -3.141592653589793, -2.0943951023931953`}}], 
+      Line3DBox[{{-3.141592653589793, -3.141592653589793, 
+       0.}, {-3.141592653589793, -3.141592653589793, -2.0943951023931953`}}]}, 
+     {RGBColor[1, 0, 0], PointSize[0.018], 
+      Point3DBox[{{0., 0., 0.}, {0., -3.141592653589793, 
+       0.}, {-3.141592653589793, -3.141592653589793, 0.}, {0., 
+       0., -2.0943951023931953`}, {
+       0., -3.141592653589793, -2.0943951023931953`}, {-3.141592653589793, \
+-3.141592653589793, -2.0943951023931953`}}], {Text3DBox[
+        FormBox[
+         StyleBox["\<\"\[CapitalGamma]\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 0., 0.}, {0, -1.2}], 
+       Text3DBox[
+        FormBox[
+         StyleBox["\<\"X\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., -3.141592653589793, 
+        0.}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"M\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -3.141592653589793, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"Z\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 
+        0., -2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"R\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {
+        0., -3.141592653589793, -2.0943951023931953`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"A\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -3.141592653589793, \
+-2.0943951023931953`}, {0, -1.2}]}}}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"f363246f-0fd6-464f-a83d-406b48009574"]
+}, Open  ]],
+
+Cell["\<\
+Primitive orthorhombic lattice (gray group 47): three unequal lattice \
+constants give a rectangular box with edge lengths 2 Pi/a, 2 Pi/b, and 2 Pi/c:\
+\>", "ExampleText",ExpressionUUID->"6b8d1f43-1236-48cc-8d44-bbbcbc970f36"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "b", ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "0", ",", " ", "c"}], "}"}]}], "}"}]}], ",", 
+    "\n", "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"b", " ", "->", " ", 
+        RowBox[{"3", "/", "2"}]}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", "2"}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}]}], "}"}], "}"}]}],
+     ",", "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", 
+     RowBox[{"msgop", "[", 
+      RowBox[{"gray", "[", "47", "]"}], "]"}]}], ",", "\n", "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", "\"\<s\>\"", "}"}], "}"}]}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{"showBrillouinZone", "[", 
+  RowBox[{"ImageSize", " ", "->", " ", "400"}], "]"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[3]:=",ExpressionUUID->"37482914-5f33-4246-b287-a6cd42c34fef"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  {RGBColor[0.87, 0.94, 1], Opacity[0.18], EdgeForm[
+   None], {Polygon3DBox[{{-3.141592653589793, -2.0943951023931953`, \
+-1.5707963267948966`}, {-3.141592653589793, 
+     2.0943951023931953`, -1.5707963267948966`}, {3.141592653589793, 
+     2.0943951023931953`, -1.5707963267948966`}, {
+     3.141592653589793, -2.0943951023931953`, -1.5707963267948966`}}], 
+    Polygon3DBox[{{-3.141592653589793, -2.0943951023931953`, \
+-1.5707963267948966`}, {
+     3.141592653589793, -2.0943951023931953`, -1.5707963267948966`}, {
+     3.141592653589793, -2.0943951023931953`, 
+     1.5707963267948966`}, {-3.141592653589793, -2.0943951023931953`, 
+     1.5707963267948966`}}], 
+    Polygon3DBox[{{
+     3.141592653589793, -2.0943951023931953`, -1.5707963267948966`}, {
+     3.141592653589793, 2.0943951023931953`, -1.5707963267948966`}, {
+     3.141592653589793, 2.0943951023931953`, 1.5707963267948966`}, {
+     3.141592653589793, -2.0943951023931953`, 1.5707963267948966`}}], 
+    Polygon3DBox[{{-3.141592653589793, 
+     2.0943951023931953`, -1.5707963267948966`}, {-3.141592653589793, \
+-2.0943951023931953`, -1.5707963267948966`}, {-3.141592653589793, \
+-2.0943951023931953`, 1.5707963267948966`}, {-3.141592653589793, 
+     2.0943951023931953`, 1.5707963267948966`}}], 
+    Polygon3DBox[{{3.141592653589793, 
+     2.0943951023931953`, -1.5707963267948966`}, {-3.141592653589793, 
+     2.0943951023931953`, -1.5707963267948966`}, {-3.141592653589793, 
+     2.0943951023931953`, 1.5707963267948966`}, {3.141592653589793, 
+     2.0943951023931953`, 1.5707963267948966`}}], 
+    Polygon3DBox[{{-3.141592653589793, -2.0943951023931953`, 
+     1.5707963267948966`}, {3.141592653589793, -2.0943951023931953`, 
+     1.5707963267948966`}, {3.141592653589793, 2.0943951023931953`, 
+     1.5707963267948966`}, {-3.141592653589793, 2.0943951023931953`, 
+     1.5707963267948966`}}]}, 
+   {GrayLevel[0.25], Thickness[Large], Opacity[
+    1], {Line3DBox[{{-3.141592653589793, -2.0943951023931953`, \
+-1.5707963267948966`}, {-3.141592653589793, 
+      2.0943951023931953`, -1.5707963267948966`}}], 
+     Line3DBox[{{-3.141592653589793, 
+      2.0943951023931953`, -1.5707963267948966`}, {3.141592653589793, 
+      2.0943951023931953`, -1.5707963267948966`}}], 
+     Line3DBox[{{3.141592653589793, 
+      2.0943951023931953`, -1.5707963267948966`}, {
+      3.141592653589793, -2.0943951023931953`, -1.5707963267948966`}}], 
+     Line3DBox[{{
+      3.141592653589793, -2.0943951023931953`, -1.5707963267948966`}, \
+{-3.141592653589793, -2.0943951023931953`, -1.5707963267948966`}}], 
+     Line3DBox[{{
+      3.141592653589793, -2.0943951023931953`, -1.5707963267948966`}, {
+      3.141592653589793, -2.0943951023931953`, 1.5707963267948966`}}], 
+     Line3DBox[{{3.141592653589793, -2.0943951023931953`, 
+      1.5707963267948966`}, {-3.141592653589793, -2.0943951023931953`, 
+      1.5707963267948966`}}], 
+     Line3DBox[{{-3.141592653589793, -2.0943951023931953`, 
+      1.5707963267948966`}, {-3.141592653589793, -2.0943951023931953`, \
+-1.5707963267948966`}}], 
+     Line3DBox[{{3.141592653589793, 
+      2.0943951023931953`, -1.5707963267948966`}, {3.141592653589793, 
+      2.0943951023931953`, 1.5707963267948966`}}], 
+     Line3DBox[{{3.141592653589793, 2.0943951023931953`, 
+      1.5707963267948966`}, {3.141592653589793, -2.0943951023931953`, 
+      1.5707963267948966`}}], 
+     Line3DBox[{{-3.141592653589793, -2.0943951023931953`, 
+      1.5707963267948966`}, {-3.141592653589793, 2.0943951023931953`, 
+      1.5707963267948966`}}], 
+     Line3DBox[{{-3.141592653589793, 2.0943951023931953`, 
+      1.5707963267948966`}, {-3.141592653589793, 
+      2.0943951023931953`, -1.5707963267948966`}}], 
+     Line3DBox[{{-3.141592653589793, 2.0943951023931953`, 
+      1.5707963267948966`}, {3.141592653589793, 2.0943951023931953`, 
+      1.5707963267948966`}}]}, 
+    {RGBColor[1, 0, 0], Thickness[
+     Large], {Line3DBox[{{0., 0., 0.}, {-3.141592653589793, 0., 0.}}], 
+      Line3DBox[{{-3.141592653589793, 0., 
+       0.}, {-3.141592653589793, -2.0943951023931953`, 0.}}], 
+      Line3DBox[{{-3.141592653589793, -2.0943951023931953`, 0.}, {
+       0., -2.0943951023931953`, 0.}}], 
+      Line3DBox[{{0., -2.0943951023931953`, 0.}, {0., 0., 0.}}], 
+      Line3DBox[{{0., 0., 0.}, {0., 0., -1.5707963267948966`}}], 
+      Line3DBox[{{0., 0., -1.5707963267948966`}, {-3.141592653589793, 
+       0., -1.5707963267948966`}}], 
+      Line3DBox[{{-3.141592653589793, 
+       0., -1.5707963267948966`}, {-3.141592653589793, -2.0943951023931953`, \
+-1.5707963267948966`}}], 
+      Line3DBox[{{-3.141592653589793, -2.0943951023931953`, \
+-1.5707963267948966`}, {0., -2.0943951023931953`, -1.5707963267948966`}}], 
+      Line3DBox[{{0., -2.0943951023931953`, -1.5707963267948966`}, {0., 
+       0., -1.5707963267948966`}}], 
+      Line3DBox[{{0., -2.0943951023931953`, 0.}, {
+       0., -2.0943951023931953`, -1.5707963267948966`}}], 
+      Line3DBox[{{-3.141592653589793, 
+       0., -1.5707963267948966`}, {-3.141592653589793, 0., 0.}}], 
+      Line3DBox[{{-3.141592653589793, -2.0943951023931953`, 
+       0.}, {-3.141592653589793, -2.0943951023931953`, \
+-1.5707963267948966`}}]}, 
+     {RGBColor[1, 0, 0], PointSize[0.018], 
+      Point3DBox[{{0., 0., 0.}, {-3.141592653589793, 0., 
+       0.}, {-3.141592653589793, -2.0943951023931953`, 0.}, {
+       0., -2.0943951023931953`, 0.}, {0., 
+       0., -1.5707963267948966`}, {-3.141592653589793, 
+       0., -1.5707963267948966`}, {-3.141592653589793, -2.0943951023931953`, \
+-1.5707963267948966`}, {0., -2.0943951023931953`, -1.5707963267948966`}}], {
+       Text3DBox[
+        FormBox[
+         StyleBox["\<\"\[CapitalGamma]\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 0., 0.}, {0, -1.2}], 
+       Text3DBox[
+        FormBox[
+         StyleBox["\<\"Y\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {-3.141592653589793, 0., 
+        0.}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"S\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -2.0943951023931953`, 0.}, {
+        0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"X\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., -2.0943951023931953`, 
+        0.}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"Z\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {0., 
+        0., -1.5707963267948966`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"T\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {-3.141592653589793, 
+        0., -1.5707963267948966`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"R\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], 
+         StandardForm], {-3.141592653589793, -2.0943951023931953`, \
+-1.5707963267948966`}, {0, -1.2}], Text3DBox[
+        FormBox[
+         StyleBox["\<\"U\"\>",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontSize->14,
+          FontWeight->Bold,
+          FontColor->GrayLevel[0]], StandardForm], {
+        0., -2.0943951023931953`, -1.5707963267948966`}, {0, -1.2}]}}}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[4]=",ExpressionUUID->"c95fa4db-dbc0-4d1a-a6f7-66009efa4eb2"]
+}, Open  ]],
+
+Cell["\<\
+Monoclinic lattice (gray group 10): the first and third primitive vectors \
+enclose 70 degrees. Hide the path to inspect the zone faces; the Wigner-Seitz \
+zone is not simply the skew reciprocal primitive cell:\
+\>", "ExampleText",ExpressionUUID->"50cfeadb-cde4-4a61-9b5e-ad0085950d95"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"{", "\n", "    ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", " ", "0", ",", " ", "0"}], "}"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "b", ",", " ", "0"}], "}"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"c", " ", 
+          RowBox[{"Cos", "[", "beta", "]"}]}], ",", " ", "0", ",", " ", 
+         RowBox[{"c", " ", 
+          RowBox[{"Sin", "[", "beta", "]"}]}]}], "}"}]}], "\n", "  ", "}"}]}],
+     ",", "\n", "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"b", " ", "->", " ", 
+        RowBox[{"5", "/", "4"}]}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", 
+        RowBox[{"3", "/", "2"}]}], ",", " ", 
+       RowBox[{"beta", " ", "->", " ", 
+        RowBox[{"70", " ", "Degree"}]}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}]}], "}"}], "}"}]}],
+     ",", "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", 
+     RowBox[{"msgop", "[", 
+      RowBox[{"gray", "[", "10", "]"}], "]"}]}], ",", "\n", "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", "\"\<s\>\"", "}"}], "}"}]}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{"showBrillouinZone", "[", 
+  RowBox[{
+   RowBox[{"\"\<KPath\>\"", " ", "->", " ", "None"}], ",", " ", 
+   RowBox[{"ImageSize", " ", "->", " ", "400"}]}], "]"}]}], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[5]:=",ExpressionUUID->"310204e3-d989-4c7f-8449-293c540db56b"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  {RGBColor[0.87, 0.94, 1], Opacity[0.18], EdgeForm[
+   None], {Polygon3DBox[{{
+     2.7465530099632987`, -2.5132741228718345`, -2.2288087147492504`}, \
+{-2.746553009963299, -2.5132741228718345`, -2.2288087147492504`}, \
+{-2.746553009963299, 2.5132741228718345`, -2.2288087147492504`}, {
+     2.7465530099632987`, 2.5132741228718345`, -2.2288087147492504`}}], 
+    Polygon3DBox[{{-2.746553009963299, -2.5132741228718345`, \
+-2.2288087147492504`}, {-3.536632297216287, -2.5132741228718345`, 
+     0.05808371344286312}, {-3.536632297216287, 2.5132741228718345`, 
+     0.05808371344286312}, {-2.746553009963299, 
+     2.5132741228718345`, -2.2288087147492504`}}], 
+    Polygon3DBox[{{-2.7465530099632987`, 2.5132741228718345`, 
+     2.2288087147492504`}, {-3.536632297216287, 2.5132741228718345`, 
+     0.05808371344286312}, {-3.536632297216287, -2.5132741228718345`, 
+     0.05808371344286312}, {-2.7465530099632987`, -2.5132741228718345`, 
+     2.2288087147492504`}}], 
+    Polygon3DBox[{{2.746553009963299, 2.5132741228718345`, 
+     2.2288087147492504`}, {-2.7465530099632987`, 2.5132741228718345`, 
+     2.2288087147492504`}, {-2.7465530099632987`, -2.5132741228718345`, 
+     2.2288087147492504`}, {2.746553009963299, -2.5132741228718345`, 
+     2.2288087147492504`}}], 
+    Polygon3DBox[{{2.746553009963299, -2.5132741228718345`, 
+     2.2288087147492504`}, {
+     3.536632297216287, -2.5132741228718345`, -0.05808371344286312}, {
+     3.536632297216287, 2.5132741228718345`, -0.05808371344286312}, {
+     2.746553009963299, 2.5132741228718345`, 2.2288087147492504`}}], 
+    Polygon3DBox[{{
+     3.536632297216287, -2.5132741228718345`, -0.05808371344286312}, {
+     2.7465530099632987`, -2.5132741228718345`, -2.2288087147492504`}, {
+     2.7465530099632987`, 2.5132741228718345`, -2.2288087147492504`}, {
+     3.536632297216287, 2.5132741228718345`, -0.05808371344286312}}], 
+    Polygon3DBox[{{-3.536632297216287, -2.5132741228718345`, 
+     0.05808371344286312}, {-2.746553009963299, -2.5132741228718345`, \
+-2.2288087147492504`}, {
+     2.7465530099632987`, -2.5132741228718345`, -2.2288087147492504`}, {
+     3.536632297216287, -2.5132741228718345`, -0.05808371344286312}, {
+     2.746553009963299, -2.5132741228718345`, 
+     2.2288087147492504`}, {-2.7465530099632987`, -2.5132741228718345`, 
+     2.2288087147492504`}}], 
+    Polygon3DBox[{{-2.7465530099632987`, 2.5132741228718345`, 
+     2.2288087147492504`}, {2.746553009963299, 2.5132741228718345`, 
+     2.2288087147492504`}, {3.536632297216287, 
+     2.5132741228718345`, -0.05808371344286312}, {2.7465530099632987`, 
+     2.5132741228718345`, -2.2288087147492504`}, {-2.746553009963299, 
+     2.5132741228718345`, -2.2288087147492504`}, {-3.536632297216287, 
+     2.5132741228718345`, 0.05808371344286312}}]}, 
+   {GrayLevel[0.25], Thickness[Large], Opacity[
+    1], {Line3DBox[{{
+      2.7465530099632987`, -2.5132741228718345`, -2.2288087147492504`}, \
+{-2.746553009963299, -2.5132741228718345`, -2.2288087147492504`}}], 
+     Line3DBox[{{-2.746553009963299, -2.5132741228718345`, \
+-2.2288087147492504`}, {-2.746553009963299, 
+      2.5132741228718345`, -2.2288087147492504`}}], 
+     Line3DBox[{{-2.746553009963299, 
+      2.5132741228718345`, -2.2288087147492504`}, {2.7465530099632987`, 
+      2.5132741228718345`, -2.2288087147492504`}}], 
+     Line3DBox[{{2.7465530099632987`, 
+      2.5132741228718345`, -2.2288087147492504`}, {
+      2.7465530099632987`, -2.5132741228718345`, -2.2288087147492504`}}], 
+     Line3DBox[{{-2.746553009963299, -2.5132741228718345`, \
+-2.2288087147492504`}, {-3.536632297216287, -2.5132741228718345`, 
+      0.05808371344286312}}], 
+     Line3DBox[{{-3.536632297216287, -2.5132741228718345`, 
+      0.05808371344286312}, {-3.536632297216287, 2.5132741228718345`, 
+      0.05808371344286312}}], 
+     Line3DBox[{{-3.536632297216287, 2.5132741228718345`, 
+      0.05808371344286312}, {-2.746553009963299, 
+      2.5132741228718345`, -2.2288087147492504`}}], 
+     Line3DBox[{{-2.7465530099632987`, 2.5132741228718345`, 
+      2.2288087147492504`}, {-3.536632297216287, 2.5132741228718345`, 
+      0.05808371344286312}}], 
+     Line3DBox[{{-3.536632297216287, -2.5132741228718345`, 
+      0.05808371344286312}, {-2.7465530099632987`, -2.5132741228718345`, 
+      2.2288087147492504`}}], 
+     Line3DBox[{{-2.7465530099632987`, -2.5132741228718345`, 
+      2.2288087147492504`}, {-2.7465530099632987`, 2.5132741228718345`, 
+      2.2288087147492504`}}], 
+     Line3DBox[{{2.746553009963299, 2.5132741228718345`, 
+      2.2288087147492504`}, {-2.7465530099632987`, 2.5132741228718345`, 
+      2.2288087147492504`}}], 
+     Line3DBox[{{-2.7465530099632987`, -2.5132741228718345`, 
+      2.2288087147492504`}, {2.746553009963299, -2.5132741228718345`, 
+      2.2288087147492504`}}], 
+     Line3DBox[{{2.746553009963299, -2.5132741228718345`, 
+      2.2288087147492504`}, {2.746553009963299, 2.5132741228718345`, 
+      2.2288087147492504`}}], 
+     Line3DBox[{{2.746553009963299, -2.5132741228718345`, 
+      2.2288087147492504`}, {
+      3.536632297216287, -2.5132741228718345`, -0.05808371344286312}}], 
+     Line3DBox[{{
+      3.536632297216287, -2.5132741228718345`, -0.05808371344286312}, {
+      3.536632297216287, 2.5132741228718345`, -0.05808371344286312}}], 
+     Line3DBox[{{3.536632297216287, 
+      2.5132741228718345`, -0.05808371344286312}, {2.746553009963299, 
+      2.5132741228718345`, 2.2288087147492504`}}], 
+     Line3DBox[{{
+      3.536632297216287, -2.5132741228718345`, -0.05808371344286312}, {
+      2.7465530099632987`, -2.5132741228718345`, -2.2288087147492504`}}], 
+     Line3DBox[{{2.7465530099632987`, 
+      2.5132741228718345`, -2.2288087147492504`}, {3.536632297216287, 
+      2.5132741228718345`, -0.05808371344286312}}]}, {}}},
+  Axes->False,
+  Boxed->False,
+  ImageSize->400,
+  Lighting->"Neutral",
+  PlotRange->All,
+  ViewProjection->"Orthographic"]], "Output",
+ CellLabel->"Out[6]=",ExpressionUUID->"e2f22c62-3972-422c-a4f3-a4b9bf0911a8"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        ButtonBox["standardKPath",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/standardKPath"],
+        " \[FilledVerySmallSquare] ",
+        ButtonBox["showCrystalStructure",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/showCrystalStructure"]
+       }], "SeeAlso",ExpressionUUID->"4cfe3675-6c3a-4836-ae08-94ebe104d103"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"92e60369-c1fb-41d7-9424-\
+4316cc2b2955"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Tech", " ", "Notes"}], "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Crystal structure, Brillouin zone, and k paths"]], 
+           "paclet:MagneticTB/tutorial/CrystalAndKPaths"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "0014334b-24df-4486-bf23-4943985e5309"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"2c23736b-605e-46f2-9265-\
+f74a6205bdbb"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["MagneticTB"]], "paclet:MagneticTB/guide/MagneticTB"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "db04bb84-c1db-404d-8ea0-43bb6e92a783"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"97e36b27-ffb7-4265-9ca6-\
+2e4a04be5dc7"],
+
+Cell["History", "HistorySection",ExpressionUUID->"3ba0999b-70f5-4348-b935-8225dc53a002"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"011b42a2-37b9-474e-bc79-82043cffef04"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"showBrillouinZone",
+Visible->True,
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "AllOptsTable" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "HasOptions" -> 
+  True, "RootCaptions" -> "", "HeaderCoreAreaLink" -> {}, 
+  "Metadata" -> {
+   "built" -> "{2026, 9, 7, 23, 6, 31.434895}", 
+    "history" -> {"2.0.0", "", "", ""}, "context" -> "MagneticTB`", 
+    "keywords" -> {
+     "Brillouin zone", "high-symmetry path", "orthographic view"}, 
+    "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> True,
+     "label" -> "Magnetic T B Symbol", "language" -> "en", "paclet" -> 
+    "MagneticTB", "status" -> "None", "summary" -> 
+    "showBrillouinZone[] draws the first Brillouin zone and the current \
+conventional high-symmetry path.", "synonyms" -> {}, "tabletags" -> {}, 
+    "title" -> "showBrillouinZone", "titlemodifier" -> "", "metadescription" -> 
+    "", "windowtitle" -> "showBrillouinZone", "type" -> "Symbol", "uri" -> 
+    "MagneticTB/ref/showBrillouinZone"}},
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (2026\:5e747\:67082\:65e5)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb"],
+ExpressionUUID->"f44bc20f-0c4e-4c86-a639-5373cce8ddf4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[585, 21, 6120, 154, 70, "AnchorBarGrid",ExpressionUUID->"3bd38943-9a74-47f5-956c-0d9b557817db",
+ CellID->1],
+Cell[6708, 177, 93, 0, 70, "ContextNameCell",ExpressionUUID->"f1fcad75-e774-4130-b754-894f5f44a81c"],
+Cell[CellGroupData[{
+Cell[6826, 181, 560, 14, 70, "ObjectNameGrid",ExpressionUUID->"6c9bf641-fb06-4b26-9814-b83377637ba0"],
+Cell[7389, 197, 480, 10, 70, "Usage",ExpressionUUID->"ce2d65fc-f765-43ea-b4bd-bc5264f9ec4f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7906, 212, 1444, 34, 70, "NotesSection",ExpressionUUID->"333564f7-5dba-4ae7-aa54-dcfddd7fbc14",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1891992627],
+Cell[9353, 248, 233, 3, 70, "Notes",ExpressionUUID->"90344751-6259-44df-9428-6f672079bf25"],
+Cell[9589, 253, 233, 4, 70, "Notes",ExpressionUUID->"26301ac2-5ce9-4ba1-8b8a-c1f38b1e7772"],
+Cell[9825, 259, 293, 4, 70, "Notes",ExpressionUUID->"111b8e8d-d5ab-490a-8723-b480bdccea62"],
+Cell[10121, 265, 233, 4, 70, "Notes",ExpressionUUID->"c9f193e2-3bef-42fa-9b23-5e95e08713c1"],
+Cell[10357, 271, 345, 5, 70, "Notes",ExpressionUUID->"4d61f8f3-efa0-4365-9932-c74d496cf6f3"],
+Cell[10705, 278, 2284, 46, 70, "3ColumnTableMod",ExpressionUUID->"5c18a577-2637-45f9-b2ce-4da95a0dc4ab"]
+}, Closed]],
+Cell[13004, 327, 80, 0, 70, "PageDelimiter",ExpressionUUID->"df90cf12-04ce-46a9-93c0-6802aa229dd7"],
+Cell[CellGroupData[{
+Cell[13109, 331, 1400, 37, 70, "PrimaryExamplesSection",ExpressionUUID->"63efcc0d-01fe-4fca-89f5-afbd56473fb9",
+ CellID->929720860],
+Cell[14512, 370, 179, 2, 70, "Input",ExpressionUUID->"5a3bf0ba-ae6c-4c26-97ae-cbd6a0e4ef96"],
+Cell[CellGroupData[{
+Cell[14716, 376, 1235, 31, 70, "ExampleSection",ExpressionUUID->"c45343f7-e4a0-4087-9ada-21c6b30e239f",
+ CellID->727478448],
+Cell[15954, 409, 221, 3, 70, "ExampleText",ExpressionUUID->"ebfbeee2-31bb-4ddc-9ab8-71549c5ee3b5"],
+Cell[16178, 414, 1753, 47, 70, "Input",ExpressionUUID->"c16bcf07-ced2-46e6-ba6d-4831eca83ed5"],
+Cell[17934, 463, 225, 3, 70, "ExampleText",ExpressionUUID->"0f2a5c75-aa31-4c43-9b4d-0ebcbee3fda3"],
+Cell[CellGroupData[{
+Cell[18184, 470, 178, 3, 70, "Input",ExpressionUUID->"b6780b41-18a0-4534-a8e5-44c8d021bb40"],
+Cell[18365, 475, 9364, 196, 70, "Output",ExpressionUUID->"5e08d29e-1a7d-4a75-b615-ad2a99a13501"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27778, 677, 1208, 30, 70, "ExampleSection",ExpressionUUID->"885cfdac-a68e-4534-a82f-575212eef6c5"],
+Cell[CellGroupData[{
+Cell[29011, 711, 1212, 30, 70, "ExampleSubsection",ExpressionUUID->"a3f38a9b-88c9-447d-a2af-bd40798d7979"],
+Cell[30226, 743, 250, 4, 70, "ExampleText",ExpressionUUID->"8ce3dfe5-660a-4e58-9e27-4d5bad3a096d"],
+Cell[CellGroupData[{
+Cell[30501, 751, 1676, 48, 70, "Input",ExpressionUUID->"4365a406-934f-4f6e-9f4a-980e1d71160b"],
+Cell[32180, 801, 7154, 145, 70, "Output",ExpressionUUID->"8cdcaac8-5e55-40b4-b47a-49768a4260b9"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[39383, 952, 1216, 30, 70, "ExampleSubsection",ExpressionUUID->"fca88465-962e-48cf-ba8b-a08b8c2a95d1"],
+Cell[40602, 984, 164, 2, 70, "ExampleText",ExpressionUUID->"05366c7d-dee2-4106-8d8e-35305d2060ef"],
+Cell[CellGroupData[{
+Cell[40791, 990, 237, 4, 70, "Input",ExpressionUUID->"8bcb49d0-68f6-4ac8-a1f1-dd6a81deff16"],
+Cell[41031, 996, 5389, 100, 70, "Output",ExpressionUUID->"115b358a-a7bf-4e97-bead-0a9a242a926d"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[46469, 1102, 1223, 30, 70, "ExampleSubsection",ExpressionUUID->"098a3d25-ab76-4f6c-8757-3468d6c1e729"],
+Cell[47695, 1134, 227, 3, 70, "ExampleText",ExpressionUUID->"1c0bb062-ef10-490c-a2e6-88f513cee571"],
+Cell[CellGroupData[{
+Cell[47947, 1141, 240, 4, 70, "Input",ExpressionUUID->"43d65ae0-5af9-4ee6-bbbc-9f9cc30c894b"],
+Cell[48190, 1147, 9364, 196, 70, "Output",ExpressionUUID->"0c2b3d1c-8ac3-4f87-adaa-b8a50c2be541"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[57603, 1349, 1216, 30, 70, "ExampleSubsection",ExpressionUUID->"2babb6fa-f4f5-4095-a0d3-ef96c9d08f42"],
+Cell[58822, 1381, 216, 3, 70, "ExampleText",ExpressionUUID->"3bf34bfb-d975-43ab-a5a1-f4d387b1c675"],
+Cell[CellGroupData[{
+Cell[59063, 1388, 278, 6, 70, "Input",ExpressionUUID->"e0e8a0eb-e13f-47ce-867c-67355aa3e186"],
+Cell[59344, 1396, 9364, 196, 70, "Output",ExpressionUUID->"02f70050-45a2-441c-bd87-c4ba2be43dd7"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[68757, 1598, 1215, 30, 70, "ExampleSubsection",ExpressionUUID->"315f8d0e-2237-44ca-bc5d-2a949c133d26"],
+Cell[69975, 1630, 158, 2, 70, "ExampleText",ExpressionUUID->"66706e2d-af6a-4a2f-9735-d82bcfdec831"],
+Cell[CellGroupData[{
+Cell[70158, 1636, 225, 4, 70, "Input",ExpressionUUID->"3650114e-9f38-46b6-8b9d-2bf78d37a8de"],
+Cell[70386, 1642, 9364, 196, 70, "Output",ExpressionUUID->"fb31ea2a-5653-4474-aa55-73821c374cc9"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[79799, 1844, 1216, 30, 70, "ExampleSubsection",ExpressionUUID->"7ebb8199-4f4d-4e37-8cd7-ce00aa093887"],
+Cell[81018, 1876, 126, 0, 70, "ExampleText",ExpressionUUID->"9d724d1e-f472-4687-871d-5b3a8da3ee70"],
+Cell[CellGroupData[{
+Cell[81169, 1880, 227, 4, 70, "Input",ExpressionUUID->"db27af1d-a196-427b-8e95-34ad9c824e42"],
+Cell[81399, 1886, 9362, 196, 70, "Output",ExpressionUUID->"4858f43f-caa5-42a6-9e36-87400f28f061"]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[90822, 2089, 1213, 30, 70, "ExampleSection",ExpressionUUID->"4f81db77-1f0e-409a-b162-3600efbf4f16"],
+Cell[92038, 2121, 217, 3, 70, "ExampleText",ExpressionUUID->"285e3908-8148-4ad0-9a82-90673795a6ee"],
+Cell[CellGroupData[{
+Cell[92280, 2128, 1575, 40, 70, "Input",ExpressionUUID->"f11ec1e9-a92e-4d79-8763-e9a6c1c44d11"],
+Cell[93858, 2170, 7753, 167, 70, "Output",ExpressionUUID->"f363246f-0fd6-464f-a83d-406b48009574"]
+}, Open  ]],
+Cell[101626, 2340, 236, 3, 70, "ExampleText",ExpressionUUID->"6b8d1f43-1236-48cc-8d44-bbbcbc970f36"],
+Cell[CellGroupData[{
+Cell[101887, 2347, 1628, 41, 70, "Input",ExpressionUUID->"37482914-5f33-4246-b287-a6cd42c34fef"],
+Cell[103518, 2390, 9122, 199, 70, "Output",ExpressionUUID->"c95fa4db-dbc0-4d1a-a6f7-66009efa4eb2"]
+}, Open  ]],
+Cell[112655, 2592, 296, 4, 70, "ExampleText",ExpressionUUID->"50cfeadb-cde4-4a61-9b5e-ad0085950d95"],
+Cell[CellGroupData[{
+Cell[112976, 2600, 2014, 50, 70, "Input",ExpressionUUID->"310204e3-d989-4c7f-8449-293c540db56b"],
+Cell[114993, 2652, 6007, 109, 70, "Output",ExpressionUUID->"e2f22c62-3972-422c-a4f3-a4b9bf0911a8"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+Cell[121039, 2766, 797, 20, 70, "SeeAlsoSection",ExpressionUUID->"92e60369-c1fb-41d7-9424-4316cc2b2955"],
+Cell[121839, 2788, 786, 20, 70, "TutorialsSection",ExpressionUUID->"2c23736b-605e-46f2-9265-f74a6205bdbb"],
+Cell[122628, 2810, 722, 18, 70, "MoreAboutSection",ExpressionUUID->"97e36b27-ffb7-4265-9ca6-2e4a04be5dc7"],
+Cell[123353, 2830, 88, 0, 70, "HistorySection",ExpressionUUID->"3ba0999b-70f5-4348-b935-8225dc53a002"],
+Cell[123444, 2832, 78, 0, 70, "FooterCell",ExpressionUUID->"011b42a2-37b9-474e-bc79-82043cffef04"]
+}
+]
+*)
+
+(* End of internal cache information *)

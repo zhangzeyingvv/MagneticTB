@@ -1,0 +1,15 @@
+fittingTB
+fits every affine-linear symbolic parameter of H to selected numeric reference bands.
+Examples
+Related Functions
+MagneticTB/ref/fittingTB
+Options
+MaxIterations
+TimeConstraint
+EnergyWindow
+KPointNeighborhood
+BandSelection
+ResidualWeights
+FiniteDifferenceStep
+InitialDamping
+FitTolerance

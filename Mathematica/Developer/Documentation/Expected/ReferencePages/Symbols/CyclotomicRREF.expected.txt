@@ -1,0 +1,7 @@
+CyclotomicRREF
+computes a deterministic exact reduced row echelon form for one matrix returned by CompileCyclotomicMatrices.
+Examples
+Related Functions
+MagneticTB/ref/CyclotomicRREF
+Applications
+Possible Issues

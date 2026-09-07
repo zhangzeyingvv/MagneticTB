@@ -1,0 +1,25 @@
+[package]
+name = "magnetictb-tight-binding"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Exact rectangular hopping reconstruction and Bloch assembly for MagneticTB"
+license = "GPL-3.0-only"
+
+[dependencies]
+cyclotomic-nullspace = { path = "../cyclotomic-nullspace" }
+magnetictb-abstract-group = { path = "../magnetictb-abstract-group" }
+magnetictb-crystal-geometry = { path = "../magnetictb-crystal-geometry" }
+magnetictb-linear-algebra = { path = "../magnetictb-linear-algebra" }
+magnetictb-symmetry = { path = "../magnetictb-symmetry" }
+nalgebra = { version = "=0.33.2", default-features = false, features = ["std"] }
+
+[dev-dependencies]
+magnetictb-representation = { path = "../magnetictb-representation" }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"

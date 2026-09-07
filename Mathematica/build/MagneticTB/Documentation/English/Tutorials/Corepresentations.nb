@@ -1,0 +1,791 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     30131,        782]
+NotebookOptionsPosition[     23086,        651]
+NotebookOutlinePosition[     25845,        717]
+CellTagsIndexPosition[     25802,        714]
+WindowTitle->Band corepresentations with MSGCorep
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["MAGNETIC T B TECH NOTE", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "df39a5a3-2047-4500-9d65-ad006c339fb0"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "57309d69-98cd-4051-9390-a1a4b8f55dd4"],
+        Background->LightDarkSwitched[
+          RGBColor[
+          0.3843137254901961, 0.4627450980392157, 0.7019607843137254]],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[Cell[BoxData[
+     TagBox[
+      ActionMenuBox[
+       FrameBox[Cell[TextData[{
+         "URL",
+         " ",
+         Cell[BoxData[
+          GraphicsBox[
+           {GrayLevel[0.66667], Thickness[0.13], 
+            LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+           AspectRatio->1,
+           ImageSize->20,
+           PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+          "9c4eb0cc-a004-4f36-9602-e827e390e97e"]
+        }],ExpressionUUID->"faeb93dc-8b11-46c4-9245-0723bd380c8e"],
+        StripOnInput->False],{
+       "\"MagneticTB/tutorial/Corepresentations\"" :> None, 
+        "\"Copy Wolfram Documentation Center URL\"" :> 
+        CopyToClipboard["MagneticTB/tutorial/Corepresentations"], Delimiter, 
+        "\"Copy web URL\"" :> 
+        Module[{DocumentationSearch`Private`nb$}, 
+          DocumentationSearch`Private`nb$ = 
+           NotebookPut[
+            Notebook[{
+              Cell[BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                  "http://reference.wolfram.com/language/MagneticTB/tutorial/\
+Corepresentations.html"], StandardForm]], "Input", TextClipboardType -> 
+                "PlainText"]}, Visible -> False]]; 
+          SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+          FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+          NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        "\"Go to web URL\"" :> 
+        FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[TrueQ[False], 
+                "http://reference.wolfram.com/system-modeler/", 
+                "http://reference.wolfram.com/language/"] <> 
+              "MagneticTB/tutorial/Corepresentations" <> ".html"], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"],
+      MouseAppearanceTag["LinkHand"]]],
+     LineSpacing->{1.4, 0},ExpressionUUID->
+     "910a6fa2-6469-4d73-bd60-dd73b29a2b14"]], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "2b4c06b6-78f9-4a81-a256-e20b67802120"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1,ExpressionUUID->"1119761c-2550-4229-8379-97eccecf16a2"],
+
+Cell[CellGroupData[{
+
+Cell["Band corepresentations with MSGCorep", "TechNoteTitle",ExpressionUUID->"80565a3d-8c9a-40a7-b3c4-ae29dcaa736c"],
+
+Cell[TextData[ButtonBox["MagneticTB help home",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MagneticTB/guide/MagneticTB"]], "TechNoteText",Expression\
+UUID->"acd16cbf-6902-41b0-9349-5e27774bda37"],
+
+Cell["\<\
+To identify the symmetry of a band at a high-symmetry k point, use its small \
+corepresentation. For magnetic space group 164.87, the examples below compare \
+spinor and scalar s bases at Gamma, K, and A.\
+\>", "TechNoteText",ExpressionUUID->"141d6163-d517-461d-97bd-61e7991a9bfe"],
+
+Cell["\<\
+This calculation uses the external MSGCorep package and its SpaceGroupIrep \
+dependency. Install both first, then load MSGCorep and MagneticTB in a fresh \
+kernel as shown below. MSGCorep must be loaded by the user:\
+\>", "TechNoteText",ExpressionUUID->"72e3339a-e5fc-410a-ac17-fafc11a26fa2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MSGCorep`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}], ";"}]}], "Input",Express\
+ionUUID->"7857c6e7-23be-4804-a475-318aa45db757"],
+
+Cell[CellGroupData[{
+
+Cell["Use one ordered MSGCorep operation list", "TechNoteSection",ExpressionUUID->"859797ca-bdff-4eb4-b248-38c9b8b0d44b"],
+
+Cell["\<\
+Use getMSGElemFromMSGCorep to obtain the symmetry operations, and pass them \
+to init without changing their order. The printed primitive vectors give the \
+lattice for this example. The corepresentation calculation requires this \
+operation list; do not replace it with a list from msgop.\
+\>", "TechNoteText",ExpressionUUID->"61fb71cb-ceb6-4609-8983-6e548ae309a4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"corepOperations", " ", "=", " ", 
+   RowBox[{"getMSGElemFromMSGCorep", "[", 
+    RowBox[{"{", 
+     RowBox[{"164", ",", " ", "87"}], "}"}], "]"}]}], ";"}]], "Input",Expressi\
+onUUID->"45883633-3de0-4566-b750-436e5d9b59de"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primitive Lattice Vector: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"-", "a"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox[
+        RowBox[{
+         SqrtBox["3"], " ", "a"}], "2"], ",", 
+       FractionBox["a", "2"], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "c"}], "}"}]}], "}"}]}],
+  "Primitive Lattice Vector: " {{
+    0, -$CellContext`a, 0}, {(Sqrt[3] $CellContext`a)/2, $CellContext`a/2, 
+     0}, {0, 0, $CellContext`c}},
+  Editable->False]], "Print",ExpressionUUID->"bd4a6cd8-5354-46c4-ac3b-\
+ae661330d5d7"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Double-valued high-symmetry calculation", "TechNoteSection",ExpressionUUID->"5fd128e6-3e0b-4130-bff0-5a28a46c7f08"],
+
+Cell["\<\
+Place {sup,sdn} at the origin to calculate double-valued corepresentations. \
+Here we keep only the onsite term, with the same energy e1 for both states, \
+to show how the result depends on the chosen basis.\
+\>", "TechNoteText",ExpressionUUID->"e25cec6a-dd9d-4b7a-8b78-09830a6091f9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"{", "\n", "    ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", 
+         RowBox[{"-", "a"}], ",", " ", "0"}], "}"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], " ", 
+          RowBox[{"a", "/", "2"}]}], ",", " ", 
+         RowBox[{"a", "/", "2"}], ",", " ", "0"}], "}"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "0", ",", " ", "c"}], "}"}]}], "\n", "  ", 
+      "}"}]}], ",", "\n", "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", "2"}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}]}], "}"}], "}"}]}],
+     ",", "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", "corepOperations"}], ",", "\n",
+     "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"\"\<sup\>\"", ",", " ", "\"\<sdn\>\""}], "}"}], "}"}]}]}], 
+   "\n", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"corepHamiltonian", " ", "=", " ", 
+   RowBox[{"symham", "[", "1", "]"}]}], ";"}], "\n", 
+ RowBox[{"corepHamiltonian", " ", "//", " ", "MatrixForm"}]}], "Input",Express\
+ionUUID->"d3092064-9898-4d44-bad1-9881708afcd4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Generators:\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"I\"\>", ",", "\<\"T\"\>"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"C3+\"\>", ",", "\<\"F\"\>"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"C21pp\"\>", ",", "\<\"T\"\>"}], "}"}]}], "}"}]}],
+  "Generators:" {{"I", "T"}, {"C3+", "F"}, {"C21pp", "T"}},
+  Editable->False]], "Print",ExpressionUUID->"c9886022-415b-46da-a10e-\
+a4e5a0d8612a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"params:\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "e1", "}"}]}],
+  "params:" {$CellContext`e1},
+  Editable->False]], "Print",ExpressionUUID->"37d7bd5b-81b0-4139-a536-\
+7f80abed4cc9"]
+}, Open  ]],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"e1", "0"},
+     {"0", "e1"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",ExpressionUUID->"d160a397-466c-407c-\
+bb2a-5b22e85e76d6"]
+}, Open  ]],
+
+Cell["\<\
+Specify Gamma, K, and A in reciprocal fractional coordinates and call \
+getTBBandCorep. The function prints the k-point names and result tables. It \
+returns Null, so no additional Out cell is expected:\
+\>", "TechNoteText",ExpressionUUID->"858562ed-88be-425b-a6f8-65c0419be4ff"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getTBBandCorep", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"164", ",", " ", "87"}], "}"}], ",", " ", "corepHamiltonian", ",",
+    " ", 
+   RowBox[{"{", 
+    RowBox[{"e1", " ", "->", " ", "0"}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "/", "3"}], ",", " ", 
+       RowBox[{"1", "/", "3"}], ",", " ", "0"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", "0", ",", " ", 
+       RowBox[{"1", "/", "2"}]}], "}"}]}], "}"}]}], "\n", "]"}]], "Input",Expr\
+essionUUID->"120a16f7-639b-4218-b2a7-ad006254de70"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"k", "-", 
+   RowBox[{"name", ":", " ", "\[CapitalGamma]"}]}], ",", " ", 
+  RowBox[{"k", "-", 
+   RowBox[{"point", ":", " ", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}]}]}], ",", " ", 
+  RowBox[{
+   RowBox[{"little", " ", "co"}], "-", 
+   RowBox[{"group", ":", " ", "D3d"}]}]}]], "Print",ExpressionUUID->"08599671-\
+021a-4328-98a7-23a7e7bd2020"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"bands\"\>", "\<\"energy\"\>", "\<\"degeneracy\"\>", "\<\"small \
+corep\"\>"},
+    {
+     TemplateBox[{"-", "\"-\"", "1", "2"},
+      "RowWithSeparators"], "0", 
+     "2", "\<\"(\[CapitalGamma])\\!\\(\\*SubscriptBox[\\(\[CapitalGamma]\\), \
+\\(4\\)]\\)(2)\"\>"}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {Left, Left, Center, Left}},
+   GridBoxDividers->{"RowsIndexed" -> {2 -> Directive[
+         Thickness[0.4], 
+         GrayLevel[0.5]]}},
+   GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> Thickness[0.4]}},
+   
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {Default, 3, 1, 1}}],
+  "Grid"]], "Print",ExpressionUUID->"6f8288fb-862c-4d3f-867b-5c3d80467dc8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"k", "-", 
+   RowBox[{"name", ":", " ", "K"}]}], ",", " ", 
+  RowBox[{"k", "-", 
+   RowBox[{"point", ":", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "/", "3"}], ",", " ", 
+      RowBox[{"1", "/", "3"}], ",", " ", "0"}], "}"}]}]}], ",", " ", 
+  RowBox[{
+   RowBox[{"little", " ", "co"}], "-", 
+   RowBox[{"group", ":", " ", "D3"}]}]}]], "Print",ExpressionUUID->"5cba3065-\
+c5ec-46cc-9e94-b9865e98af98"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"bands\"\>", "\<\"energy\"\>", "\<\"degeneracy\"\>", "\<\"small \
+corep\"\>"},
+    {
+     TemplateBox[{"-", "\"-\"", "1", "2"},
+      "RowWithSeparators"], "0", 
+     "2", "\<\"(K)\\!\\(\\*SubscriptBox[\\(K\\), \
+\\(4\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(5\\)]\\)(2)\"\>"}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {Left, Left, Center, Left}},
+   GridBoxDividers->{"RowsIndexed" -> {2 -> Directive[
+         Thickness[0.4], 
+         GrayLevel[0.5]]}},
+   GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> Thickness[0.4]}},
+   
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {Default, 3, 1, 1}}],
+  "Grid"]], "Print",ExpressionUUID->"c5def44e-f242-470d-acd2-5f18745d067c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"k", "-", 
+   RowBox[{"name", ":", " ", "A"}]}], ",", " ", 
+  RowBox[{"k", "-", 
+   RowBox[{"point", ":", " ", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", " ", "0", ",", " ", 
+      RowBox[{"1", "/", "2"}]}], "}"}]}]}], ",", " ", 
+  RowBox[{
+   RowBox[{"little", " ", "co"}], "-", 
+   RowBox[{"group", ":", " ", "D3d"}]}]}]], "Print",ExpressionUUID->"ba4178ff-\
+b987-4dd9-b44c-dca6a81d7d10"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"bands\"\>", "\<\"energy\"\>", "\<\"degeneracy\"\>", "\<\"small \
+corep\"\>"},
+    {
+     TemplateBox[{"-", "\"-\"", "1", "2"},
+      "RowWithSeparators"], "0", 
+     "2", "\<\"(A)\\!\\(\\*SubscriptBox[\\(A\\), \\(4\\)]\\)(2)\"\>"}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {Left, Left, Center, Left}},
+   GridBoxDividers->{"RowsIndexed" -> {2 -> Directive[
+         Thickness[0.4], 
+         GrayLevel[0.5]]}},
+   GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> Thickness[0.4]}},
+   
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {Default, 3, 1, 1}}],
+  "Grid"]], "Print",ExpressionUUID->"96804f02-451f-4404-85e7-7f9db0b59372"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+The columns list band indices, energy, degeneracy, and the small \
+corepresentation. With e1 = 0, the two bands have zero energy and are doubly \
+degenerate at all three points. Their labels are Gamma_4(2), K_4 K_5(2), and \
+A_4(2), respectively; each label belongs to its own k point.\
+\>", "TechNoteText",ExpressionUUID->"592236a1-ce51-4b58-bc9d-c1755f25082d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Single-valued basis", "TechNoteSection",ExpressionUUID->"2226ce62-ca48-474c-aee4-53aa9301ba28"],
+
+Cell["\<\
+Now replace {sup,sdn} by a scalar s orbital. Use the same ordered symmetry \
+operations, run init again, and recalculate the Hamiltonian before finding \
+its corepresentations:\
+\>", "TechNoteText",ExpressionUUID->"6b1a05a4-af91-4678-bc5e-bd304d03a8af"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"init", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"lattice", " ", "->", " ", 
+     RowBox[{"{", "\n", "    ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", 
+         RowBox[{"-", "a"}], ",", " ", "0"}], "}"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], " ", 
+          RowBox[{"a", "/", "2"}]}], ",", " ", 
+         RowBox[{"a", "/", "2"}], ",", " ", "0"}], "}"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "0", ",", " ", "c"}], "}"}]}], "\n", "  ", 
+      "}"}]}], ",", "\n", "  ", 
+    RowBox[{"lattpar", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{"c", " ", "->", " ", "2"}]}], "}"}]}], ",", "\n", "  ", 
+    RowBox[{"wyckoffposition", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}]}], "}"}], "}"}]}],
+     ",", "\n", "  ", 
+    RowBox[{"symminformation", " ", "->", " ", "corepOperations"}], ",", "\n",
+     "  ", 
+    RowBox[{"basisFunctions", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", "\"\<s\>\"", "}"}], "}"}]}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"corepHamiltonian", " ", "=", " ", 
+   RowBox[{"symham", "[", "1", "]"}]}], ";"}], "\n", 
+ RowBox[{"corepHamiltonian", " ", "//", " ", "MatrixForm"}]}], "Input",Express\
+ionUUID->"d23626b0-d4a0-4d16-a28b-55023a597150"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Generators:\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"I\"\>", ",", "\<\"T\"\>"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"C3+\"\>", ",", "\<\"F\"\>"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"C21pp\"\>", ",", "\<\"T\"\>"}], "}"}]}], "}"}]}],
+  "Generators:" {{"I", "T"}, {"C3+", "F"}, {"C21pp", "T"}},
+  Editable->False]], "Print",ExpressionUUID->"2d22ac84-233f-44c4-8d99-\
+4d5d25b007e8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"params:\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "e1", "}"}]}],
+  "params:" {$CellContext`e1},
+  Editable->False]], "Print",ExpressionUUID->"aa56d2af-42b8-4604-90f0-\
+138db1e1cbca"]
+}, Open  ]],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"e1"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",ExpressionUUID->"6ae52259-934d-4305-\
+a708-54f620ae134f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getTBBandCorep", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"164", ",", " ", "87"}], "}"}], ",", " ", "corepHamiltonian", ",",
+    " ", 
+   RowBox[{"{", 
+    RowBox[{"e1", " ", "->", " ", "0"}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "/", "3"}], ",", " ", 
+       RowBox[{"1", "/", "3"}], ",", " ", "0"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", "0", ",", " ", 
+       RowBox[{"1", "/", "2"}]}], "}"}]}], "}"}]}], "\n", "]"}]], "Input",Expr\
+essionUUID->"a621a84f-b010-45e7-a2f3-aab154ce0b71"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"k", "-", 
+   RowBox[{"name", ":", " ", "\[CapitalGamma]"}]}], ",", " ", 
+  RowBox[{"k", "-", 
+   RowBox[{"point", ":", " ", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "}"}]}]}], ",", " ", 
+  RowBox[{
+   RowBox[{"little", " ", "co"}], "-", 
+   RowBox[{"group", ":", " ", "D3d"}]}]}]], "Print",ExpressionUUID->"583e25ca-\
+968d-4181-8208-c2fa6daaaf2e"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"bands\"\>", "\<\"energy\"\>", "\<\"degeneracy\"\>", "\<\"small \
+corep\"\>"},
+    {"1", "0", 
+     "1", "\<\"(\[CapitalGamma])\\!\\(\\*SubscriptBox[\\(\[CapitalGamma]\\), \
+\\(1\\)]\\)(1)\"\>"}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {Left, Left, Center, Left}},
+   GridBoxDividers->{"RowsIndexed" -> {2 -> Directive[
+         Thickness[0.4], 
+         GrayLevel[0.5]]}},
+   GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> Thickness[0.4]}},
+   
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {Default, 3, 1, 1}}],
+  "Grid"]], "Print",ExpressionUUID->"7d2c0ee8-91e2-4437-a7f1-3e2680636cd3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"k", "-", 
+   RowBox[{"name", ":", " ", "K"}]}], ",", " ", 
+  RowBox[{"k", "-", 
+   RowBox[{"point", ":", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "/", "3"}], ",", " ", 
+      RowBox[{"1", "/", "3"}], ",", " ", "0"}], "}"}]}]}], ",", " ", 
+  RowBox[{
+   RowBox[{"little", " ", "co"}], "-", 
+   RowBox[{"group", ":", " ", "D3"}]}]}]], "Print",ExpressionUUID->"6889493f-\
+e2c2-4ee3-90a2-cb23e0b3ac50"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"bands\"\>", "\<\"energy\"\>", "\<\"degeneracy\"\>", "\<\"small \
+corep\"\>"},
+    {"1", "0", "1", "\<\"(K)\\!\\(\\*SubscriptBox[\\(K\\), \\(1\\)]\\)(1)\"\>"}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {Left, Left, Center, Left}},
+   GridBoxDividers->{"RowsIndexed" -> {2 -> Directive[
+         Thickness[0.4], 
+         GrayLevel[0.5]]}},
+   GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> Thickness[0.4]}},
+   
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {Default, 3, 1, 1}}],
+  "Grid"]], "Print",ExpressionUUID->"21ef8fc3-a253-4dd0-a6bc-2479eba2319f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"k", "-", 
+   RowBox[{"name", ":", " ", "A"}]}], ",", " ", 
+  RowBox[{"k", "-", 
+   RowBox[{"point", ":", " ", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", " ", "0", ",", " ", 
+      RowBox[{"1", "/", "2"}]}], "}"}]}]}], ",", " ", 
+  RowBox[{
+   RowBox[{"little", " ", "co"}], "-", 
+   RowBox[{"group", ":", " ", "D3d"}]}]}]], "Print",ExpressionUUID->"a894d353-\
+87a9-4667-98c6-9e41269de136"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"bands\"\>", "\<\"energy\"\>", "\<\"degeneracy\"\>", "\<\"small \
+corep\"\>"},
+    {"1", "0", "1", "\<\"(A)\\!\\(\\*SubscriptBox[\\(A\\), \\(1\\)]\\)(1)\"\>"}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {Left, Left, Center, Left}},
+   GridBoxDividers->{"RowsIndexed" -> {2 -> Directive[
+         Thickness[0.4], 
+         GrayLevel[0.5]]}},
+   GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> Thickness[0.4]}},
+   
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {Default, 3, 1, 1}}],
+  "Grid"]], "Print",ExpressionUUID->"7b14d2b9-b6d8-4e34-bbd0-abd2119997d6"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+There is now one nondegenerate band, with labels Gamma_1(1), K_1(1), and \
+A_1(1). Both examples use zero onsite energy, but the spinor and scalar bases \
+give double-valued and single-valued corepresentations, respectively.\
+\>", "TechNoteText",ExpressionUUID->"0010c80f-4afa-4448-9933-cade139ae701"]
+}, Open  ]],
+
+Cell["History", "HistorySection",ExpressionUUID->"8cb44b4c-3f55-43fc-b508-4e585e90c18c"]
+}, Open  ]],
+
+Cell[" ", "FooterCell",ExpressionUUID->"f01d9536-04ed-404f-a787-317ad93e8be2"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Band corepresentations with MSGCorep",
+Visible->True,
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {$Failed, ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", "HeaderCoreAreaLink" -> {}, 
+  "Metadata" -> {
+   "built" -> "{2026, 9, 7, 23, 6, 43.004415}", 
+    "history" -> {"2.0.0", "", "", ""}, "context" -> "MagneticTB`", 
+    "keywords" -> {
+     "MSGCorep", "band corepresentation", "double group", 
+      "high-symmetry point"}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Magnetic T B Tech Note", "language" -> "en", "paclet" -> "MagneticTB", 
+    "status" -> "None", "summary" -> 
+    "MagneticTB help home To identify the symmetry of a band at a \
+high-symmetry k point, use its small corepresentation. For magnetic space \
+group 164.87, the examples below compare spinor and scalar s bases at Gamma, \
+K, and A. This calculation uses the external MSGCorep package and its \
+SpaceGroupIrep dependency. Install both first, then load MSGCorep and \
+MagneticTB in a fresh kernel as shown below. MSGCorep must be loaded by the \
+user:", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "Band corepresentations with MSGCorep", "titlemodifier" -> "", 
+    "metadescription" -> "", "windowtitle" -> 
+    "Band corepresentations with MSGCorep", "type" -> "Tech Note", "uri" -> 
+    "MagneticTB/tutorial/Corepresentations"}},
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (2026\:5e747\:67082\:65e5)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> 
+  "15.0 for Mac OS X ARM (64-bit) (2026\:5e747\:67082\:65e5)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+ExpressionUUID->"f44bc20f-0c4e-4c86-a639-5373cce8ddf4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[604, 21, 3058, 73, 70, "AnchorBarGrid",ExpressionUUID->"1119761c-2550-4229-8379-97eccecf16a2",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[3687, 98, 116, 0, 70, "TechNoteTitle",ExpressionUUID->"80565a3d-8c9a-40a7-b3c4-ae29dcaa736c"],
+Cell[3806, 100, 193, 3, 70, "TechNoteText",ExpressionUUID->"acd16cbf-6902-41b0-9349-5e27774bda37"],
+Cell[4002, 105, 291, 4, 70, "TechNoteText",ExpressionUUID->"141d6163-d517-461d-97bd-61e7991a9bfe"],
+Cell[4296, 111, 302, 4, 70, "TechNoteText",ExpressionUUID->"72e3339a-e5fc-410a-ac17-fafc11a26fa2"],
+Cell[4601, 117, 229, 5, 70, "Input",ExpressionUUID->"7857c6e7-23be-4804-a475-318aa45db757"],
+Cell[CellGroupData[{
+Cell[4855, 126, 121, 0, 70, "TechNoteSection",ExpressionUUID->"859797ca-bdff-4eb4-b248-38c9b8b0d44b"],
+Cell[4979, 128, 376, 5, 70, "TechNoteText",ExpressionUUID->"61fb71cb-ceb6-4609-8983-6e548ae309a4"],
+Cell[CellGroupData[{
+Cell[5380, 137, 257, 6, 70, "Input",ExpressionUUID->"45883633-3de0-4566-b750-436e5d9b59de"],
+Cell[5640, 145, 711, 20, 70, "Print",ExpressionUUID->"bd4a6cd8-5354-46c4-ac3b-ae661330d5d7"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6400, 171, 121, 0, 70, "TechNoteSection",ExpressionUUID->"5fd128e6-3e0b-4130-bff0-5a28a46c7f08"],
+Cell[6524, 173, 294, 4, 70, "TechNoteText",ExpressionUUID->"e25cec6a-dd9d-4b7a-8b78-09830a6091f9"],
+Cell[CellGroupData[{
+Cell[6843, 181, 1689, 44, 70, "Input",ExpressionUUID->"d3092064-9898-4d44-bad1-9881708afcd4"],
+Cell[CellGroupData[{
+Cell[8557, 229, 513, 13, 70, "Print",ExpressionUUID->"c9886022-415b-46da-a10e-a4e5a0d8612a"],
+Cell[9073, 244, 233, 6, 70, "Print",ExpressionUUID->"37d7bd5b-81b0-4139-a536-7f80abed4cc9"]
+}, Open  ]],
+Cell[9321, 253, 541, 16, 70, "Output",ExpressionUUID->"d160a397-466c-407c-bb2a-5b22e85e76d6"]
+}, Open  ]],
+Cell[9877, 272, 289, 4, 70, "TechNoteText",ExpressionUUID->"858562ed-88be-425b-a6f8-65c0419be4ff"],
+Cell[CellGroupData[{
+Cell[10191, 280, 716, 19, 70, "Input",ExpressionUUID->"120a16f7-639b-4218-b2a7-ad006254de70"],
+Cell[CellGroupData[{
+Cell[10932, 303, 410, 11, 70, "Print",ExpressionUUID->"08599671-021a-4328-98a7-23a7e7bd2020"],
+Cell[11345, 316, 793, 19, 70, "Print",ExpressionUUID->"6f8288fb-862c-4d3f-867b-5c3d80467dc8"],
+Cell[12141, 337, 449, 13, 70, "Print",ExpressionUUID->"5cba3065-c5ec-46cc-9e94-b9865e98af98"],
+Cell[12593, 352, 807, 19, 70, "Print",ExpressionUUID->"c5def44e-f242-470d-acd2-5f18745d067c"],
+Cell[13403, 373, 423, 12, 70, "Print",ExpressionUUID->"ba4178ff-b987-4dd9-b44c-dca6a81d7d10"],
+Cell[13829, 387, 763, 18, 70, "Print",ExpressionUUID->"96804f02-451f-4404-85e7-7f9db0b59372"]
+}, Open  ]]
+}, Open  ]],
+Cell[14619, 409, 372, 5, 70, "TechNoteText",ExpressionUUID->"592236a1-ce51-4b58-bc9d-c1755f25082d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15028, 419, 101, 0, 70, "TechNoteSection",ExpressionUUID->"2226ce62-ca48-474c-aee4-53aa9301ba28"],
+Cell[15132, 421, 263, 4, 70, "TechNoteText",ExpressionUUID->"6b1a05a4-af91-4678-bc5e-bd304d03a8af"],
+Cell[CellGroupData[{
+Cell[15420, 429, 1640, 42, 70, "Input",ExpressionUUID->"d23626b0-d4a0-4d16-a28b-55023a597150"],
+Cell[CellGroupData[{
+Cell[17085, 475, 513, 13, 70, "Print",ExpressionUUID->"2d22ac84-233f-44c4-8d99-4d5d25b007e8"],
+Cell[17601, 490, 233, 6, 70, "Print",ExpressionUUID->"aa56d2af-42b8-4604-90f0-138db1e1cbca"]
+}, Open  ]],
+Cell[17849, 499, 518, 15, 70, "Output",ExpressionUUID->"6ae52259-934d-4305-a708-54f620ae134f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18404, 519, 716, 19, 70, "Input",ExpressionUUID->"a621a84f-b010-45e7-a2f3-aab154ce0b71"],
+Cell[CellGroupData[{
+Cell[19145, 542, 410, 11, 70, "Print",ExpressionUUID->"583e25ca-968d-4181-8208-c2fa6daaaf2e"],
+Cell[19558, 555, 726, 17, 70, "Print",ExpressionUUID->"7d2c0ee8-91e2-4437-a7f1-3e2680636cd3"],
+Cell[20287, 574, 449, 13, 70, "Print",ExpressionUUID->"6889493f-e2c2-4ee3-90a2-cb23e0b3ac50"],
+Cell[20739, 589, 690, 15, 70, "Print",ExpressionUUID->"21ef8fc3-a253-4dd0-a6bc-2479eba2319f"],
+Cell[21432, 606, 423, 12, 70, "Print",ExpressionUUID->"a894d353-87a9-4667-98c6-9e41269de136"],
+Cell[21858, 620, 690, 15, 70, "Print",ExpressionUUID->"7b14d2b9-b6d8-4e34-bbd0-abd2119997d6"]
+}, Open  ]]
+}, Open  ]],
+Cell[22575, 639, 311, 4, 70, "TechNoteText",ExpressionUUID->"0010c80f-4afa-4448-9933-cade139ae701"]
+}, Open  ]],
+Cell[22901, 646, 88, 0, 70, "HistorySection",ExpressionUUID->"8cb44b4c-3f55-43fc-b508-4e585e90c18c"]
+}, Open  ]],
+Cell[23004, 649, 78, 0, 70, "FooterCell",ExpressionUUID->"f01d9536-04ed-404f-a787-317ad93e8be2"]
+}
+]
+*)
+
+(* End of internal cache information *)

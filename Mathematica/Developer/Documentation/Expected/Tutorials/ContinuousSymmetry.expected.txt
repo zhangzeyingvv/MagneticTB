@@ -1,0 +1,9 @@
+High-symmetry tetragonal antiferromagnet: spin symmetry and SOC
+High-symmetry MSG 124.360 with SOC
+Without SOC: add continuous C-infinity spin symmetry
+Band splitting along G-Z
+bandplot[
+Scope of the continuous interface
+typeIV[{124, 360}]
+showCrystalStructure[]
+MagneticTB/tutorial/ContinuousSymmetry

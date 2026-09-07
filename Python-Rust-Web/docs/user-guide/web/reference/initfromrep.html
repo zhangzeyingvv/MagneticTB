@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="MagneticTB Python/Rust user documentation.">
+  <title>initfromrep · MagneticTB Python 用户帮助</title>
+  <link rel="stylesheet" href="../help.css?v=a0a09c187d71">
+  <script defer src="../help.js?v=6bee0b68d479"></script>
+</head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+
+  <div class="help-shell">
+    <aside id="helpSidebar" class="sidebar panel">
+      <a class="brand" href="../index.html" aria-label="MagneticTB 帮助主页">
+        <span class="brand-mark">M</span>
+        <span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span>
+      </a>
+      <nav class="nav" aria-label="initfromrep 页面导航">
+        <a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a>
+        <p class="nav-group">initfromrep</p>
+        <a class="active" href="#usage"><span>01</span><span>Usage</span></a>
+        <a href="#basic"><span>02</span><span>Basic Examples</span></a>
+        <a href="#options"><span>03</span><span>Options</span></a>
+        <a href="#modes"><span>04</span><span>Applications</span></a>
+        <a href="#issues"><span>05</span><span>Troubleshooting</span></a>
+        <p class="nav-group">Links</p>
+        <a href="../guide/FirstModel.html#guide"><span>G</span><span>Guide</span></a>
+        <a href="../tutorial/HamiltonianOutputs.html#tutorials"><span>T</span><span>Tutorials</span></a>
+        <a href="../guide/FirstModel.html#reference"><span>R</span><span>Reference Pages</span></a>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="local-pill"><i></i><span class="locale-zh">12 个示例</span><span class="locale-en">12 examples</span></div>
+        <a class="workbench-link" href="../index.html"><span class="locale-zh">← 返回帮助主页</span><span class="locale-en">← Back to help home</span></a>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar panel">
+        <button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
+        <div class="top-title"><strong><code>initfromrep</code></strong><small>Reference Page</small></div>
+        <label class="search-wrap">
+          <span aria-hidden="true">⌕</span>
+          <input id="helpSearch" type="search" autocomplete="off" placeholder="搜索本页" aria-label="搜索本页">
+          <small id="searchCount" class="search-count" aria-live="polite"></small>
+        </label>
+        <div class="top-actions">
+          <button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button>
+          <button id="languageButton" class="text-button" type="button" aria-label="Switch to English">EN</button>
+        </div>
+      </header>
+
+      <main id="mainContent">
+        <section id="usage" class="help-section" data-searchable data-search="initfromrep explicit representation matrix lattice lattpar wyckoff symmetry repinformation orbital labels debug bond shells representation mode exact field options">
+          <div class="section-heading"><div><p class="eyebrow">Reference Page</p><h2><code>initfromrep</code></h2><p class="locale-zh">用已经知道的精确轨道表示矩阵安装当前紧束缚模型。</p><p class="locale-en">Install the current model from explicitly supplied exact orbital-representation matrices.</p></div><span class="section-index">01</span></div>
+          <article class="card panel">
+            <p class="signature">initfromrep(*, lattice=None, lattpar=None, wyckoffposition=None, symminformation=None, repinformation=None, orbital_labels=None, debug_q=False, initial_bond_shells=10, representation_mode="DirectProduct", exact_field=None, **stable_options) → None</p><div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">参数</span><span class="locale-en">Parameter</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">作用</span><span class="locale-en">Purpose</span></th></tr></thead><tbody>
+              <tr><td><code>lattice</code></td><td><code>None</code></td><td><span class="locale-zh">三条正格矢按行存储，可以包含精确符号表达式。省略时使用内置的六方符号晶格。</span><span class="locale-en">Three row lattice vectors, optionally containing exact symbolic expressions. Omitting it selects the built-in symbolic hexagonal lattice.</span></td></tr>
+              <tr><td><code>lattpar</code></td><td><code>None</code></td><td><span class="locale-zh">为晶格符号提供实数值，用于数值键搜索；省略时使用 <code>a=1, c=3</code>。</span><span class="locale-en">Real values for lattice symbols used by the numerical bond search; omission uses <code>a=1, c=3</code>.</span></td></tr>
+              <tr><td><code>wyckoffposition</code></td><td><code>None</code></td><td><span class="locale-zh">保持顺序的 <code>(分数坐标种子, 磁矩)</code> 序列，也可使用 <code>Wyckoff</code>。外层顺序决定 <code>repinformation</code> 的轨道顺序；省略时使用内置种子。</span><span class="locale-en">An ordered sequence of <code>(fractional seed, moment)</code> pairs, or <code>Wyckoff</code> data. Its outer order determines the orbit order in <code>repinformation</code>; omission uses the built-in seed.</span></td></tr>
+              <tr><td><code>symminformation</code></td><td><code>None</code></td><td><span class="locale-zh"><code>msgop(...)</code> 返回的完整有序操作表、<code>MSG</code>，或有序自旋空间群操作。显式操作必须已经构成完整有限群；省略时只有恒等操作。</span><span class="locale-en">A complete ordered operation table from <code>msgop(...)</code>, an <code>MSG</code>, or ordered spin-space operations. Explicit operations must already form the complete finite group; omission uses only the identity.</span></td></tr>
+              <tr><td><code>repinformation</code></td><td><code>None</code></td><td><span class="locale-zh"><code>DirectProduct</code> 下为每个 Wyckoff 轨道一组、并与群操作同序的精确矩阵，也可用 <code>DirectProductRepresentation</code>；<code>Induced</code> 下为 <code>InducedOrbit</code> 序列或 <code>InducedRepresentation</code>。省略时使用默认单轨道恒等表示。</span><span class="locale-en">For <code>DirectProduct</code>, provide one exact matrix list per Wyckoff orbit in group-operation order, optionally wrapped in <code>DirectProductRepresentation</code>. For <code>Induced</code>, provide an <code>InducedOrbit</code> sequence or <code>InducedRepresentation</code>. Omission uses the default one-orbit identity representation.</span></td></tr>
+              <tr><td><code>orbital_labels</code><br><code>orbitalLabels</code></td><td><code>None</code></td><td><span class="locale-zh">每个 Wyckoff 轨道一组非空显示标签，数量必须等于相应表示维数；它只命名基坐标，不改变表示矩阵。省略时使用 <code>orb1</code>、<code>orb2</code>……。</span><span class="locale-en">One nonempty display-label sequence per Wyckoff orbit, with length equal to the corresponding representation dimension. Labels name basis coordinates but do not change the matrices. Omission uses <code>orb1</code>, <code>orb2</code>, and so on.</span></td></tr>
+              <tr><td><code>debug_q</code><br><code>debugQ</code></td><td><code>False</code></td><td><span class="locale-zh">布尔诊断标志；普通建模保持 <code>False</code>。</span><span class="locale-en">Boolean diagnostic flag; keep it <code>False</code> for ordinary modeling.</span></td></tr>
+              <tr><td><code>initial_bond_shells</code><br><code>InitialBondShells</code></td><td><code>10</code></td><td><span class="locale-zh">初始化时准备的完整键层数，必须是正整数；第 1 层为 onsite，第 2 层为第一个非零距离层。</span><span class="locale-en">Number of complete bond shells prepared during initialization; it must be a positive integer. Shell 1 is onsite and shell 2 is the first nonzero-distance shell.</span></td></tr>
+              <tr><td><code>representation_mode</code><br><code>RepresentationMode</code></td><td><code>"DirectProduct"</code></td><td><span class="locale-zh"><code>"DirectProduct"</code> 使用每个轨道的完整群表示矩阵；<code>"Induced"</code> 从参考点稳定子群表示及陪集搬运构造完整轨道表示。</span><span class="locale-en"><code>"DirectProduct"</code> consumes full-group matrices for each orbit; <code>"Induced"</code> constructs the complete orbit representation from reference-site stabilizer matrices and coset transport.</span></td></tr>
+              <tr><td><code>exact_field</code></td><td><code>None</code></td><td><span class="locale-zh">高级选项：指定 <code>ExactField</code>。省略时使用 <code>ExactField.crystallographic()</code>。</span><span class="locale-en">Advanced option selecting an <code>ExactField</code>. Omission uses <code>ExactField.crystallographic()</code>.</span></td></tr>
+            </tbody></table></div>
+            <p class="locale-zh"><code>symminformation</code> 与 <code>repinformation</code> 必须采用相同的有序操作约定。成功后会话行为与 <code>init</code> 相同；对象式入口是 <code>prepare_model_from_rep(...)</code>。</p><p class="locale-en"><code>symminformation</code> and <code>repinformation</code> must use the same operation order. Session behaviour matches <code>init</code>; use <code>prepare_model_from_rep(...)</code> for a detached object.</p>
+
+            <div class="callout"><span class="locale-zh">表中并列的 snake_case 与稳定风格名称是同一选项的两种拼写；一次调用请选择其中一种。其余参数只有表中显示的拼写。</span><span class="locale-en">Paired snake-case and stable-style names are two spellings of the same option; use one spelling per call. All other parameters use the single spelling shown in the table.</span></div>
+            <div class="callout warning"><span class="locale-zh"><code>initfromrep</code> 不接受 <code>basisFunctions</code>、<code>SiteLocalData</code> 或 <code>GenerateSymmetryGroup</code>。这里的群操作必须已经是完整、有序的有限群；表示矩阵是唯一的轨道表示来源。</span><span class="locale-en"><code>initfromrep</code> accepts neither <code>basisFunctions</code>, <code>SiteLocalData</code>, nor <code>GenerateSymmetryGroup</code>. The operation list must already be a complete ordered finite group, and the matrices are the sole representation source.</span></div>
+          </article>
+        </section>
+
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+
+        <section id="basic" class="help-section" data-searchable data-search="C4 px py direct product orbital table inputs 1 2">
+          <div class="section-heading"><div><p class="eyebrow">Basic Examples · inputs 1–2</p><h2><span class="locale-zh">C4 对称的 px/py 显式表示</span><span class="locale-en">An explicit C4 representation on px/py</span></h2></div><span class="section-index">02</span></div>
+          <article class="card panel" data-example="1">
+            <h3><span class="locale-zh">输入 1 · 完整显式表示初始化</span><span class="locale-en">Input 1 · complete explicit-representation initialization</span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 显式表示入口需要有序的操作表和同序表示矩阵</span><span class="code-comment locale-en"># The explicit-representation entry requires ordered operations and matrices in the same order</span>
+from fractions import Fraction
+
+from magnetictb import InducedOrbit, initfromrep, orbitalTable
+from magnetictb import bondTable, showSymmetryRepresentations, symbol
+
+a = symbol("a")
+c = symbol("c")
+identity3 = ((1, 0, 0), (0, 1, 0), (0, 0, 1))
+c4z = ((0, -1, 0), (1, 0, 0), (0, 0, 1))
+c2z = ((-1, 0, 0), (0, -1, 0), (0, 0, 1))
+c4z_inverse = ((0, 1, 0), (-1, 0, 0), (0, 0, 1))
+
+<span class="code-comment locale-zh"># 定义 E、C4z、C2z、C4z⁻¹ 四个空间操作</span><span class="code-comment locale-en"># Define the four spatial operations E, C4z, C2z, and C4z^-1</span>
+c4_operations = (
+    ("E", identity3, (0, 0, 0), "F"),
+    ("C4z", c4z, (0, 0, 0), "F"),
+    ("C2z", c2z, (0, 0, 0), "F"),
+    ("C4z^-1", c4z_inverse, (0, 0, 0), "F"),
+)
+<span class="code-comment locale-zh"># 为同四个操作逐项给出 px/py 表示矩阵</span><span class="code-comment locale-en"># Supply the px/py representation matrix for each operation</span>
+c4_px_py = ((
+    ((1, 0), (0, 1)),
+    ((0, -1), (1, 0)),
+    ((-1, 0), (0, -1)),
+    ((0, 1), (-1, 0)),
+),)
+
+<span class="code-comment locale-zh"># 安装当前会话；orbitalLabels 只负责可读标签</span><span class="code-comment locale-en"># Install the current session; orbitalLabels supplies readable names only</span>
+result = initfromrep(
+    lattice=((a, 0, 0), (0, a, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 2)),
+    wyckoffposition=(((0, 0, 0), (0, 0, 0)),),
+    symminformation=c4_operations,
+    repinformation=c4_px_py,
+    orbitalLabels=(("px", "py"),),
+)
+print(result)</pre></div>
+            <div class="code-block output"><pre>Generators: [('C4z', 'F')]
+None</pre></div>
+            <p class="locale-zh">输入矩阵依次对应 E、C4z、C2z、C4z⁻¹；<code>initfromrep</code> 安装会话而不返回模型。</p><p class="locale-en">The matrices correspond to E, C4z, C2z, and C4z⁻¹ in order; <code>initfromrep</code> installs the session and returns no model.</p>
+          </article>
+
+          <article class="card panel" data-example="2">
+            <h3><span class="locale-zh">输入 2 · 实际 Hamiltonian 基</span><span class="locale-en">Input 2 · actual Hamiltonian basis</span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 实际 Hamiltonian 基</span><span class="code-comment locale-en"># actual Hamiltonian basis</span>
+basis = orbitalTable()
+rows = basis.to_dict()["rows"]
+print(basis.title)
+for row in rows:
+    print(row["HamiltonianIndex"], row["SiteIndex"],
+          row["FractionalPosition"], row["BasisFunctionInput"])</pre></div>
+            <div class="code-block output"><pre>Hamiltonian dimension = 2; representation mode = DirectProduct
+1 1 ['0', '0', '0'] px
+2 1 ['0', '0', '0'] py</pre></div>
+            <p class="locale-zh">两个表示坐标都位于原点；这个顺序就是后续 2×2 Hamiltonian 的行列顺序。</p><p class="locale-en">Both representation coordinates live at the origin; this order is the row and column order of the later 2-by-2 Hamiltonian.</p>
+          </article>
+        </section>
+
+        <section id="options" class="help-section" data-searchable data-search="lattice lattpar wyckoffposition symminformation repinformation orbitalLabels InitialBondShells inputs 3 4 5 6 7 8 9">
+          <div class="section-heading"><div><p class="eyebrow">Options · inputs 3–9</p><h2><span class="locale-zh">输入与表示矩阵的可检查结果</span><span class="locale-en">Inspectable results of each input</span></h2></div><span class="section-index">03</span></div>
+
+          <div class="content-grid">
+            <article class="card panel" data-example="3">
+              <h3><span class="locale-zh">输入 3 · <code>lattice</code></span><span class="locale-en">Input 3 · <code>lattice</code></span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 用显式表示初始化模型并检查公开结果</span><span class="code-comment locale-en"># Initialize the model from explicit representations and inspect public results</span>
+report = bondTable(2)
+row = report.to_dict()["rows"][0]
+print(report.title)
+print(row["TargetPositions"])</pre></div>
+              <div class="code-block output"><pre>Bond shell 2 (1-th neighbour), bond length = 1; 4 directed bonds
+[['-1','0','0'], ['0','-1','0'], ['0','1','0'], ['1','0','0']]</pre></div>
+            </article>
+            <article class="card panel" data-example="4">
+              <h3><span class="locale-zh">输入 4 · <code>lattpar</code></span><span class="locale-en">Input 4 · <code>lattpar</code></span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 用显式表示初始化模型并检查公开结果</span><span class="code-comment locale-en"># Initialize the model from explicit representations and inspect public results</span>
+print(bondTable(2).metadata["BondLength"])
+print(bondTable(2).metadata["DirectedOrbitCount"])</pre></div>
+              <div class="code-block output"><pre>1.0
+1</pre></div>
+              <p class="locale-zh">a=1、c=2 使第一非零距离层成为四条面内单位键。</p><p class="locale-en">With a=1 and c=2, the first nonzero shell is the four in-plane unit bonds.</p>
+            </article>
+          </div>
+
+          <div class="content-grid">
+            <article class="card panel" data-example="5">
+              <h3><span class="locale-zh">输入 5 · <code>wyckoffposition</code></span><span class="locale-en">Input 5 · <code>wyckoffposition</code></span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 用显式表示初始化模型并检查公开结果</span><span class="code-comment locale-en"># Initialize the model from explicit representations and inspect public results</span>
+rows = orbitalTable().to_dict()["rows"]
+print([(row["SiteIndex"], row["FractionalPosition"])
+       for row in rows])</pre></div>
+              <div class="code-block output"><pre>[(1, ['0','0','0']), (1, ['0','0','0'])]</pre></div>
+              <p class="locale-zh">两行是同一格点上的两个表示坐标，不是两个原子。</p><p class="locale-en">The two rows are representation coordinates on one site, not two atoms.</p>
+            </article>
+          </div>
+
+          <article class="card panel" data-example="6">
+            <h3><span class="locale-zh">输入 6 · <code>symminformation</code></span><span class="locale-en">Input 6 · <code>symminformation</code></span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 用显式表示初始化模型并检查公开结果</span><span class="code-comment locale-en"># Initialize the model from explicit representations and inspect public results</span>
+for row in showSymmetryRepresentations("All").to_dict()["rows"]:
+    print(row["OperationIndex"], row["Label"], row["Matrix"])</pre></div>
+            <div class="code-block output"><pre>1 E       [['1','0'], ['0','1']]
+2 C4z     [['0','-1'], ['1','0']]
+3 C2z     [['-1','0'], ['0','-1']]
+4 C4z^-1  [['0','1'], ['-1','0']]</pre></div>
+            <p class="locale-zh">四行严格保持 <code>symminformation</code> 中 E、C4z、C2z、C4z⁻¹ 的顺序。</p><p class="locale-en">The four rows preserve the E, C4z, C2z, and C4z⁻¹ order supplied by <code>symminformation</code>.</p>
+          </article>
+
+          <article class="card panel" data-example="7">
+            <h3><span class="locale-zh">输入 7 · <code>repinformation</code></span><span class="locale-en">Input 7 · <code>repinformation</code></span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 先重新运行 Input 1 的完整 initfromrep 调用</span><span class="code-comment locale-en"># First rerun the complete initfromrep call from Input 1</span>
+matrices = showSymmetryRepresentations("All").to_dict()["rows"]
+print([(row["Label"], row["Matrix"]) for row in matrices])</pre></div>
+            <div class="code-block output"><pre>[('E', [['1','0'], ['0','1']]),
+ ('C4z', [['0','-1'], ['1','0']]),
+ ('C2z', [['-1','0'], ['0','-1']]),
+ ('C4z^-1', [['0','1'], ['-1','0']])]</pre></div>
+            <p class="locale-zh">操作表和矩阵表严格逐项对齐；顺序错位会改变表示含义并被闭环检查拒绝。</p><p class="locale-en">Operation and matrix tables align item-for-item; a mismatched order changes the representation and is rejected by closure checks.</p>
+          </article>
+
+          <article class="card panel" data-example="8">
+            <h3><span class="locale-zh">输入 8 · <code>orbitalLabels</code></span><span class="locale-en">Input 8 · <code>orbitalLabels</code></span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 用显式表示初始化模型并检查公开结果</span><span class="code-comment locale-en"># Initialize the model from explicit representations and inspect public results</span>
+rows = orbitalTable().to_dict()["rows"]
+print([row["BasisFunctionInput"] for row in rows])</pre></div>
+            <div class="code-block output"><pre>['px', 'py']</pre></div>
+            <p class="locale-zh">标签只负责显示和基索引命名；表示数学由 <code>repinformation</code> 中的矩阵决定。</p><p class="locale-en">Labels name display coordinates only; representation mathematics comes from <code>repinformation</code>.</p>
+          </article>
+
+          <article class="card panel" data-example="9">
+            <h3><span class="locale-zh">输入 9 · <code>InitialBondShells=2</code></span><span class="locale-en">Input 9 · <code>InitialBondShells=2</code></span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 用显式表示初始化模型并检查公开结果</span><span class="code-comment locale-en"># Initialize the model from explicit representations and inspect public results</span>
+initfromrep(
+    lattice=((a, 0, 0), (0, a, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 2)),
+    wyckoffposition=(((0, 0, 0), (0, 0, 0)),),
+    symminformation=c4_operations,
+    repinformation=c4_px_py,
+    orbitalLabels=(("px", "py"),),
+    InitialBondShells=2,
+)
+report = bondTable(2)
+row = report.to_dict()["rows"][0]
+print(report.title)
+print(row["TargetPositions"])</pre></div>
+            <div class="code-block output"><pre>Bond shell 2 (1-th neighbour), bond length = 1; 4 directed bonds
+[['-1','0','0'], ['0','-1','0'], ['0','1','0'], ['1','0','0']]</pre></div>
+          </article>
+        </section>
+
+        <section id="modes" class="help-section" data-searchable data-search="RepresentationMode DirectProduct Induced InducedOrbit inputs 10 11">
+          <div class="section-heading"><div><p class="eyebrow">Applications · inputs 10–11</p><h2><span class="locale-zh">两个 C4 相关格点上的两种表示模式</span><span class="locale-en">Two representation modes on C4-related sites</span></h2></div><span class="section-index">04</span></div>
+
+          <article class="card panel" data-example="10">
+            <h3><span class="locale-zh">输入 10 · <code>DirectProduct</code> 得到四个基态</span><span class="locale-en">Input 10 · <code>DirectProduct</code> gives four basis states</span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># DirectProduct 得到四个基态</span><span class="code-comment locale-en"># DirectProduct gives four basis states</span>
+initfromrep(
+    lattice=((a, 0, 0), (0, a, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 2)),
+    wyckoffposition=(((Fraction(1, 2), 0, 0), (0, 0, 0)),),
+    symminformation=c4_operations,
+    repinformation=c4_px_py,
+    orbitalLabels=(("px", "py"),),
+    RepresentationMode="DirectProduct",
+)
+for row in orbitalTable().to_dict()["rows"]:
+    print(row["HamiltonianIndex"], row["SiteIndex"],
+          row["FractionalPosition"], row["BasisFunctionInput"])</pre></div>
+            <div class="code-block output"><pre>1 1 ['1/2','0','0'] px
+2 1 ['1/2','0','0'] py
+3 2 ['0','1/2','0'] px
+4 2 ['0','1/2','0'] py</pre></div>
+            <p class="locale-zh">两个等价格点都保留完整的两个表示坐标，因此维数为 4。</p><p class="locale-en">Both equivalent sites keep both representation coordinates, giving dimension four.</p>
+          </article>
+
+          <article class="card panel" data-example="11">
+            <h3><span class="locale-zh">输入 11 · <code>Induced</code> 得到两个基态</span><span class="locale-en">Input 11 · <code>Induced</code> gives two basis states</span></h3>
+            <div class="code-block"><pre>induced_px = (
+    InducedOrbit(
+        reference_site_index=0,
+        <span class="code-comment locale-zh"># E、C2z 的 Rust 核心索引</span><span class="code-comment locale-en"># Rust core indices for E and C2z</span>
+        site_symmetry_operation_indices=(0, 2),
+        site_symmetry_matrices=(((1,),), ((-1,),)),
+    ),
+)
+initfromrep(
+    lattice=((a, 0, 0), (0, a, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 2)),
+    wyckoffposition=(((Fraction(1, 2), 0, 0), (0, 0, 0)),),
+    symminformation=c4_operations,
+    repinformation=induced_px,
+    orbitalLabels=(("px",),),
+    RepresentationMode="Induced",
+)
+for row in orbitalTable().to_dict()["rows"]:
+    print(row["HamiltonianIndex"], row["SiteIndex"],
+          row["FractionalPosition"], row["BasisFunctionInput"],
+          row["BasisState"], row["ReferenceEquivalentAtomIndex"],
+          row["TransportOperationIndex"], row["TransportOperationLabel"])</pre></div>
+            <div class="code-block output"><pre>1 1 ['1/2','0','0'] px {'AbstractOrbitalLabel': 'px', 'TransportOperationIndex': 1} 1 1 E
+2 2 ['0','1/2','0'] px {'AbstractOrbitalLabel': 'px', 'TransportOperationIndex': 2} 1 2 C4z</pre></div>
+            <p class="locale-zh">只输入参考点稳定子 {E,C2z} 上的一维 <code>px</code> 表示；E 保留第一个状态，C4z 把同一抽象表示坐标搬运到第二个格点。因此两个状态的 <code>BasisFunctionInput</code> 都是 <code>px</code>，而 <code>BasisState</code> 中的 <code>TransportOperationIndex</code> 区分其实际来源。显示字段采用 1-based 序号；<code>InducedOrbit</code> 构造参数中带 <code>_index/_indices</code> 的字段仍采用 0-based Rust 索引。若还包含连续对称，可用 <code>InducedRepresentation</code> 包装离散轨道和连续 site matrices。</p><p class="locale-en">Only the one-dimensional <code>px</code> representation of the reference-site stabilizer {E,C2z} is supplied. E keeps the first state, while C4z transports the same abstract representation coordinate to the second site. Both states therefore retain <code>px</code> as <code>BasisFunctionInput</code>, while <code>TransportOperationIndex</code> inside <code>BasisState</code> distinguishes their actual origins. Display fields use 1-based numbers; constructor fields ending in <code>_index/_indices</code> in <code>InducedOrbit</code> remain 0-based Rust indices. Use <code>InducedRepresentation</code> to add continuous site matrices.</p>
+          </article>
+        </section>
+
+        <section id="issues" class="help-section" data-searchable data-search="basisFunctions unsupported failure input 12">
+          <div class="section-heading"><div><p class="eyebrow">Troubleshooting · input 12</p><h2><span class="locale-zh"><code>basisFunctions</code> 不是显式矩阵入口</span><span class="locale-en"><code>basisFunctions</code> is not part of the matrix entry point</span></h2></div><span class="section-index">05</span></div>
+          <article class="card panel" data-example="12">
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 运行无效输入示例，并检查返回的稳定错误</span><span class="code-comment locale-en"># Run the invalid-input example and inspect the stable error</span>
+initfromrep(basisFunctions=(("s",),))</pre></div>
+            <div class="code-block output"><pre>ModelError: UnknownInitFromRepOption
+unknown initfromrep option(s): basisFunctions; basisFunctions,
+SiteLocalData, and GenerateSymmetryGroup are intentionally unsupported</pre></div>
+            <p class="locale-zh">要从轨道名称或精确多项式自动推导表示，请改用 <code>init</code>；要使用显式表示矩阵，则必须通过 <code>repinformation</code>。</p><p class="locale-en">Use <code>init</code> to derive a representation from catalogue names or exact polynomials. Explicit matrices must be supplied through <code>repinformation</code>.</p>
+          </article>
+        </section>
+
+        <footer class="site-footer">
+          <span><code>initfromrep</code> · 12 examples</span>
+          <a href="../index.html"><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a>
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

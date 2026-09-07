@@ -1,0 +1,186 @@
+\documentclass[UTF8,fontset=mac,11pt]{ctexart}
+
+\usepackage[a4paper,margin=2.15cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{MagneticTBBlue}{HTML}{1455A0}
+\definecolor{CodeBackground}{HTML}{F5F7FA}
+\definecolor{CodeFrame}{HTML}{D8DEE9}
+
+\hypersetup{
+  pdftitle={MagneticTB 安装与快速入门},
+  pdfauthor={MagneticTB}
+}
+
+\lstdefinelanguage{Wolfram}{
+  morekeywords={Needs,PacletInstall,PacletUninstall,PacletFind,Quit,
+    FileExistsQ,If,Abort,Total,Dimensions,MatrixForm,Chop,Eigenvalues,
+    Thread,Sort,Differences,N,Sqrt,Pi,False},
+  sensitive=true,
+  morecomment=[s]{(*}{*)},
+  morestring=[b]"
+}
+
+\lstset{
+  language=Wolfram,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{MagneticTBBlue},
+  commentstyle=\color{gray},
+  stringstyle=\color{teal!70!black},
+  backgroundcolor=\color{CodeBackground},
+  frame=single,
+  rulecolor=\color{CodeFrame},
+  framerule=0.4pt,
+  framesep=6pt,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  aboveskip=0.65em,
+  belowskip=0.8em
+}
+
+\newcommand{\result}[1]{%
+  \par\smallskip
+  {\color{gray}\textbf{结果：}}\texttt{#1}
+  \par\smallskip
+}
+
+\begin{document}
+
+\begin{center}
+  {\Huge\bfseries\color{MagneticTBBlue} MagneticTB}\par
+  \vspace{0.35em}
+  {\LARGE 安装与快速入门}\par
+  \vspace{0.7em}
+  {\large 从安装到 Hamiltonian、能带和一个简单物性量}
+\end{center}
+
+\vspace{0.8em}
+
+这份短指南只保留最常用的主流程，不展示完整 hopping、Wyckoff
+或内部数据表。当前安装方式是使用本地 \texttt{.paclet} 文件；安装、更新或卸载后都应重启内核。
+
+\section{安装}
+
+把路径换成实际的 paclet 文件：
+
+\begin{lstlisting}
+archive = "/absolute/path/MagneticTB-2.x.y.paclet";
+FileExistsQ[archive]
+PacletInstall[archive]
+Quit[]
+\end{lstlisting}
+
+在新内核中确认可以加载：
+
+\begin{lstlisting}
+Needs["MagneticTB`"];
+PacletFind["MagneticTB"]
+\end{lstlisting}
+
+\section{更新}
+
+先确认新 paclet 路径有效，再卸载旧版本并安装新文件：
+
+\begin{lstlisting}
+newArchive = "/absolute/path/MagneticTB-2.x.y.paclet";
+FileExistsQ[newArchive]
+
+PacletUninstall["MagneticTB"];
+PacletInstall[newArchive];
+Quit[]
+\end{lstlisting}
+
+\section{卸载}
+
+\begin{lstlisting}
+PacletUninstall["MagneticTB"]
+Quit[]
+\end{lstlisting}
+
+\newpage
+
+\section{最小模型：石墨烯}
+
+下面一次完成初始化、构造两带 Hamiltonian，并指定一组数值参数。
+
+\begin{lstlisting}
+Needs["MagneticTB`"];
+
+grapheneOperations = msgop[gray[191]];
+init[
+  lattice -> {{a, 0, 0}, {-a/2, Sqrt[3] a/2, 0}, {0, 0, c}},
+  lattpar -> {a -> 1, c -> 3},
+  wyckoffposition -> {{{1/3, 2/3, 0}, {0, 0, 0}}},
+  symminformation -> grapheneOperations,
+  basisFunctions -> {{"pz"}},
+  InitialBondShells -> 3,
+  GenerateSymmetryGroup -> False
+];
+
+h = Total[symham /@ {1, 2, 3}];
+parameters = {e1 -> 0.05, r1 -> 0.02, t1 -> 0.5};
+\end{lstlisting}
+
+\subsection{查看 Hamiltonian}
+
+不展开冗长的符号表达式，只看维数和 $\Gamma$ 点的数值矩阵：
+
+\begin{lstlisting}
+Dimensions[h]
+Chop[N[h /. parameters /. {kx -> 0, ky -> 0, kz -> 0}]] // MatrixForm
+\end{lstlisting}
+
+\result{\{2, 2\}}
+
+\[
+H(\Gamma)=
+\begin{pmatrix}
+0.17 & 1.50\\
+1.50 & 0.17
+\end{pmatrix}.
+\]
+
+\newpage
+
+\section{画能带}
+
+路径坐标使用倒易点阵的分数坐标。\texttt{bandplot} 在内部把它们转换成
+$2\pi\mathbf{k}$ 后计算本征值。
+
+\begin{lstlisting}
+path = {
+  {{{0, 0, 0}, {0, 1/2, 0}}, {"G", "M"}},
+  {{{0, 1/2, 0}, {1/3, 1/3, 0}}, {"M", "K"}},
+  {{{1/3, 1/3, 0}, {0, 0, 0}}, {"K", "G"}}
+};
+
+bandplot[path, 80, h, parameters, ImageSize -> Large]
+\end{lstlisting}
+
+\begin{center}
+  \includegraphics[width=0.76\textwidth]{Documentation/figures/quickstart-graphene-band.pdf}
+\end{center}
+
+\section{一个简单物性量：K 点直接带隙}
+
+\begin{lstlisting}
+kK = 2 Pi {1/3, 1/3, 0};
+energiesK = Sort@Eigenvalues@N[
+  h /. parameters /. Thread[{kx, ky, kz} -> kK]
+];
+
+{energiesK, Chop[Differences[energiesK][[1]]]}
+\end{lstlisting}
+
+\result{\{\{-0.01, -0.01\}, 0\}}
+
+因此这组参数下 K 点的两条能带简并，直接带隙为 0。更复杂的 Berry 曲率、
+Wilson loop、表面谱等内容留在相应 Mathematica 帮助页中，不塞进这份入门指南。
+
+\end{document}

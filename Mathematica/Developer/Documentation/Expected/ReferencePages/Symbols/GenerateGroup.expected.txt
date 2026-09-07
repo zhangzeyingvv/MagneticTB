@@ -1,0 +1,7 @@
+GenerateGroup
+generates a complete finite group from its generators and an explicitly supplied multiplication law.
+Examples
+Related Functions
+MagneticTB/ref/GenerateGroup
+Options
+SameTest

@@ -1,0 +1,14 @@
+init
+sets up a tight-binding model from its lattice, Wyckoff positions, symmetry, and local orbitals.
+Examples
+Related Functions
+MagneticTB/ref/init
+Options
+lattice
+lattpar
+wyckoffposition
+symminformation
+basisFunctions
+InitialBondShells
+GenerateSymmetryGroup
+RepresentationMode

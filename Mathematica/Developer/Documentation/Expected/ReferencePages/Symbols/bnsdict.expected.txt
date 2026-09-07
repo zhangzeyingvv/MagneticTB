@@ -1,0 +1,6 @@
+bnsdict
+returns the bundled database identifier of the magnetic space group with BNS number n.m.
+Examples
+Related Functions
+MagneticTB/ref/bnsdict
+Possible Issues

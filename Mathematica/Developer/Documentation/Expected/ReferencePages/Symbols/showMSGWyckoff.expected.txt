@@ -1,0 +1,5 @@
+showMSGWyckoff
+shows the Wyckoff positions and symmetry-allowed magnetic moments of a magnetic space group.
+Examples
+Related Functions
+MagneticTB/ref/showMSGWyckoff

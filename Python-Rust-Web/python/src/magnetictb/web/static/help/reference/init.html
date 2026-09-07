@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="MagneticTB Python/Rust user documentation.">
+  <title>init · MagneticTB Python 用户帮助</title>
+  <link rel="stylesheet" href="../help.css?v=a0a09c187d71">
+  <script defer src="../help.js?v=6bee0b68d479"></script>
+</head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+
+  <div class="help-shell">
+    <aside id="helpSidebar" class="sidebar panel">
+      <a class="brand" href="../index.html" aria-label="MagneticTB 帮助主页">
+        <span class="brand-mark">M</span>
+        <span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span>
+      </a>
+      <nav class="nav" aria-label="init 页面导航">
+        <a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a>
+        <p class="nav-group">init</p>
+        <a class="active" href="#usage"><span>01</span><span>Usage</span></a>
+        <a href="#basic"><span>02</span><span>Basic Examples</span></a>
+        <a href="#options"><span>03</span><span>Options</span></a>
+        <a href="#representation"><span>04</span><span>Applications</span></a>
+        <a href="#issues"><span>05</span><span>Troubleshooting</span></a>
+        <p class="nav-group">Links</p>
+        <a href="../guide/FirstModel.html#guide"><span>G</span><span>Guide</span></a>
+        <a href="../tutorial/HamiltonianOutputs.html#tutorials"><span>T</span><span>Tutorials</span></a>
+        <a href="../guide/FirstModel.html#reference"><span>R</span><span>Reference Pages</span></a>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="local-pill"><i></i><span class="locale-zh">13 个示例</span><span class="locale-en">13 examples</span></div>
+        <a class="workbench-link" href="../index.html"><span class="locale-zh">← 返回帮助主页</span><span class="locale-en">← Back to help home</span></a>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar panel">
+        <button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
+        <div class="top-title"><strong><code>init</code></strong><small>Reference Page</small></div>
+        <label class="search-wrap">
+          <span aria-hidden="true">⌕</span>
+          <input id="helpSearch" type="search" autocomplete="off" placeholder="搜索本页" aria-label="搜索本页">
+          <small id="searchCount" class="search-count" aria-live="polite"></small>
+        </label>
+        <div class="top-actions">
+          <button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button>
+          <button id="languageButton" class="text-button" type="button" aria-label="Switch to English">EN</button>
+        </div>
+      </header>
+
+      <main id="mainContent">
+        <section id="usage" class="help-section" data-searchable data-search="init lattice lattpar wyckoff symmetry basis model session debug initial bond shells generate group representation mode exact field options">
+          <div class="section-heading">
+            <div><p class="eyebrow">Reference Page</p><h2><code>init</code></h2><p class="locale-zh">根据晶格、Wyckoff 位置、对称性和局域轨道建立当前紧束缚模型。</p><p class="locale-en">Install the current tight-binding model from a lattice, Wyckoff seeds, symmetry operations, and local orbitals.</p></div>
+            <span class="section-index">01</span>
+          </div>
+          <article class="card panel">
+            <p class="signature">init(*, lattice=None, lattpar=None, wyckoffposition=None, symminformation=None, basis_functions=("s",), debug_q=False, initial_bond_shells=10, generate_symmetry_group=False, representation_mode="DirectProduct", exact_field=None, **stable_options) → None</p><div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">参数</span><span class="locale-en">Parameter</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">作用</span><span class="locale-en">Purpose</span></th></tr></thead><tbody>
+              <tr><td><code>lattice</code></td><td><code>None</code></td><td><span class="locale-zh">三条正格矢按行存储，可以包含精确符号表达式。省略时使用内置的六方符号晶格。</span><span class="locale-en">Three row lattice vectors, optionally containing exact symbolic expressions. Omitting it selects the built-in symbolic hexagonal lattice.</span></td></tr>
+              <tr><td><code>lattpar</code></td><td><code>None</code></td><td><span class="locale-zh">为晶格符号提供实数值，用于数值键搜索；省略时使用 <code>a=1, c=3</code>。</span><span class="locale-en">Real values for lattice symbols used by the numerical bond search; omission uses <code>a=1, c=3</code>.</span></td></tr>
+              <tr><td><code>wyckoffposition</code></td><td><code>None</code></td><td><span class="locale-zh">保持顺序的 <code>(分数坐标种子, 磁矩)</code> 序列，也可使用 <code>Wyckoff</code>。省略时使用内置种子。</span><span class="locale-en">An ordered sequence of <code>(fractional seed, moment)</code> pairs, or <code>Wyckoff</code> data. Omission uses the built-in seed.</span></td></tr>
+              <tr><td><code>symminformation</code></td><td><code>None</code></td><td><span class="locale-zh"><code>msgop(...)</code> 返回的完整有序操作表、<code>MSG</code>，或有序自旋空间群操作；省略时只有恒等操作。</span><span class="locale-en">A complete ordered table from <code>msgop(...)</code>, an <code>MSG</code>, or ordered spin-space operations; omission uses only the identity operation.</span></td></tr>
+              <tr><td><code>basis_functions</code><br><code>basisFunctions</code></td><td><code>("s",)</code></td><td><span class="locale-zh">每个 Wyckoff 轨道一组内置 catalog 标签或一个 <code>ExplicitPolynomialBasis</code>；外层顺序必须与 Wyckoff 轨道一致。</span><span class="locale-en">One built-in catalogue sequence or one <code>ExplicitPolynomialBasis</code> per Wyckoff orbit; the outer order must match the Wyckoff orbits.</span></td></tr>
+              <tr><td><code>debug_q</code><br><code>debugQ</code></td><td><code>False</code></td><td><span class="locale-zh">布尔诊断标志；普通建模保持 <code>False</code>。</span><span class="locale-en">Boolean diagnostic flag; keep it <code>False</code> for ordinary modeling.</span></td></tr>
+              <tr><td><code>initial_bond_shells</code><br><code>InitialBondShells</code></td><td><code>10</code></td><td><span class="locale-zh">初始化时准备的完整键层数，必须是正整数；第 1 层为 onsite，第 2 层为第一个非零距离层。</span><span class="locale-en">Number of complete bond shells prepared during initialization; it must be a positive integer. Shell 1 is onsite and shell 2 is the first nonzero-distance shell.</span></td></tr>
+              <tr><td><code>generate_symmetry_group</code><br><code>GenerateSymmetryGroup</code></td><td><code>False</code></td><td><span class="locale-zh"><code>False</code> 把显式操作序列视为完整群；<code>True</code> 把它视为生成元并在 Rust 中闭合有限群。</span><span class="locale-en"><code>False</code> treats an explicit operation sequence as the complete group; <code>True</code> treats it as generators and closes the finite group in Rust.</span></td></tr>
+              <tr><td><code>representation_mode</code><br><code>RepresentationMode</code></td><td><code>"DirectProduct"</code></td><td><span class="locale-zh"><code>"DirectProduct"</code> 在每个等价点保留完整输入局域基；<code>"Induced"</code> 从参考点稳定子群表示搬运到其他等价点。</span><span class="locale-en"><code>"DirectProduct"</code> keeps the complete input local basis at every equivalent site; <code>"Induced"</code> transports a reference-site stabilizer representation to the other sites.</span></td></tr>
+              <tr><td><code>exact_field</code></td><td><code>None</code></td><td><span class="locale-zh">高级选项：指定 <code>ExactField</code>。省略时使用 <code>ExactField.crystallographic()</code>。</span><span class="locale-en">Advanced option selecting an <code>ExactField</code>. Omission uses <code>ExactField.crystallographic()</code>.</span></td></tr>
+            </tbody></table></div>
+            <p class="locale-zh"><code>init</code> 成功后把模型安装到当前 context-local 会话；随后调用 <code>orbitalTable()</code>、<code>showbonds(shell)</code> 和 <code>symham(shell)</code>。每次调用先清空旧会话，失败时不会沿用上一个模型。</p>
+            <p class="locale-en">After success, <code>init</code> installs a context-local model used by <code>orbitalTable()</code>, <code>showbonds(shell)</code>, and <code>symham(shell)</code>. Every call clears the old session first, so a failed initialization never reuses it.</p>
+
+            <div class="callout"><span class="locale-zh">表中并列的 snake_case 与稳定风格名称是同一选项的两种拼写；一次调用请选择其中一种。<code>lattice</code>、<code>lattpar</code>、<code>wyckoffposition</code> 和 <code>symminformation</code> 两种风格名称相同。</span><span class="locale-en">Paired snake-case and stable-style names are two spellings of the same option; use one spelling per call. <code>lattice</code>, <code>lattpar</code>, <code>wyckoffposition</code>, and <code>symminformation</code> already have the same spelling in both styles.</span></div>
+          </article>
+        </section>
+
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+
+        <section id="basic" class="help-section" data-searchable data-search="basic Graphene orbital table output input 1 2">
+          <div class="section-heading"><div><p class="eyebrow">Basic Examples · inputs 1–2</p><h2><span class="locale-zh">石墨烯：初始化并核对轨道顺序</span><span class="locale-en">Graphene: initialize and inspect the basis order</span></h2></div><span class="section-index">02</span></div>
+          <article class="card panel" data-example="1">
+            <h3><span class="locale-zh">输入 1 · 完整初始化</span><span class="locale-en">Input 1 · complete initialization</span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 导入精确数、群数据和模型检查函数</span><span class="code-comment locale-en"># Import exact numbers, group data, and model-inspection functions</span>
+from fractions import Fraction
+
+from magnetictb import gray, init, msgop, orbitalTable, bondTable
+from magnetictb import showSymmetryRepresentations, sqrt, symbol
+
+a = symbol("a")
+c = symbol("c")
+one_third = Fraction(1, 3)
+
+<span class="code-comment locale-zh"># 操作顺序决定后续表示矩阵的顺序</span><span class="code-comment locale-en"># Operation order determines the order of later representation matrices</span>
+graphene_operations = msgop(gray[191])
+<span class="code-comment locale-zh"># init 安装当前会话；返回值本身是 None</span><span class="code-comment locale-en"># init installs the current session; its return value is None</span>
+result = init(
+    lattice=(
+        (a, 0, 0),
+        (-a / 2, sqrt(3) * a / 2, 0),
+        (0, 0, c),
+    ),
+    lattpar=(("a", 1), ("c", 3)),
+    wyckoffposition=(((one_third, 2 * one_third, 0), (0, 0, 0)),),
+    symminformation=graphene_operations,
+    basisFunctions=(("pz",),),
+)
+print(result)</pre></div>
+            <div class="code-block output"><pre>Magnetic space group (BNS): [191, 234]
+Lattice: HexagonalP
+Primitive Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Conventional Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Generators: [('"6z"', 'F'), ('"2x"', 'F'), ('"-1"', 'F'), ('"1"', 'T')]
+None</pre></div>
+            <p class="locale-zh"><code>init</code> 的职责是安装会话而不是返回模型，并打印所选生成元摘要。对象式、不污染会话的入口是 <code>prepare_model(...)</code>。</p>
+            <p class="locale-en"><code>init</code> installs a session rather than returning a model and prints a generator summary. Use <code>prepare_model(...)</code> for a detached object-oriented workflow.</p>
+          </article>
+
+          <article class="card panel" data-example="2">
+            <h3><span class="locale-zh">输入 2 · 实际轨道表</span><span class="locale-en">Input 2 · actual orbital table</span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 实际轨道表</span><span class="code-comment locale-en"># actual orbital table</span>
+basis = orbitalTable()
+rows = basis.to_dict()["rows"]
+print(basis.title)
+for row in rows:
+    print(row["HamiltonianIndex"], row["SiteIndex"],
+          row["FractionalPosition"], row["BasisFunctionInput"],
+          row["BasisState"])</pre></div>
+            <div class="code-block output"><pre>Hamiltonian dimension = 2; representation mode = DirectProduct
+1 1 ['1/3', '2/3', '0'] pz pz
+2 2 ['2/3', '1/3', '0'] pz pz</pre></div>
+            <div class="api-table-wrap"><table class="api-table"><thead><tr><th>H index</th><th>Site</th><th><span class="locale-zh">分数坐标</span><span class="locale-en">Fractional position</span></th><th><span class="locale-zh">Cartesian 坐标</span><span class="locale-en">Cartesian position</span></th><th>Input basis</th><th>Actual state</th></tr></thead><tbody>
+              <tr><td>1</td><td>1</td><td>(1/3, 2/3, 0)</td><td>(0, 1/√3, 0)</td><td><code>pz</code></td><td><code>pz</code></td></tr>
+              <tr><td>2</td><td>2</td><td>(2/3, 1/3, 0)</td><td>(1/2, 1/(2√3), 0)</td><td><code>pz</code></td><td><code>pz</code></td></tr>
+            </tbody></table></div>
+            <p class="locale-zh">这个顺序就是后续 <code>symham</code> 矩阵的行列顺序。普通 <code>TableReport</code> 返回 catalog 标签 <code>pz</code>。</p><p class="locale-en">This is the row and column order of every later <code>symham</code> matrix. The ordinary <code>TableReport</code> returns the catalogue label <code>pz</code>.</p>
+          </article>
+        </section>
+
+        <section id="options" class="help-section" data-searchable data-search="lattice lattpar wyckoffposition symminformation basisFunctions InitialBondShells inputs 3 4 5 6 7 8">
+          <div class="section-heading"><div><p class="eyebrow">Options · inputs 3–8</p><h2><span class="locale-zh">每项输入产生的实际模型结果</span><span class="locale-en">Actual model results for each physical input</span></h2></div><span class="section-index">03</span></div>
+
+          <div class="content-grid">
+            <article class="card panel" data-example="3">
+              <h3><span class="locale-zh">输入 3 · <code>lattice</code></span><span class="locale-en">Input 3 · <code>lattice</code></span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 先运行 Input 1 的完整 Graphene 初始化</span><span class="code-comment locale-en"># First run the complete Graphene initialization from Input 1</span>
+bonds = bondTable(2)
+print(bonds.title)
+print(bonds.metadata["DirectedBondCount"])</pre></div>
+              <div class="code-block output"><pre>Bond shell 2 (1-th neighbour), bond length = 0.57735026919; 6 directed bonds
+6</pre></div>
+              <p class="locale-zh">行晶格与 Wyckoff 种子共同给出三条无向最近邻碳键；报告按两个方向列出 6 条 directed bonds。</p><p class="locale-en">The row lattice and Wyckoff seed give three undirected carbon bonds, listed as six directed bonds.</p>
+            </article>
+            <article class="card panel" data-example="4">
+              <h3><span class="locale-zh">输入 4 · <code>lattpar</code></span><span class="locale-en">Input 4 · <code>lattpar</code></span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 先以 a=1、c=3 重新初始化，再检查数值键长</span><span class="code-comment locale-en"># First reinitialize with a=1 and c=3, then inspect the numerical bond length</span>
+report = bondTable(2)
+print(report.metadata["BondLength"])
+print([row["BondCount"] for row in report])</pre></div>
+              <div class="code-block output"><pre>0.5773502691896257
+[3, 3]</pre></div>
+              <p class="locale-zh">距离只用于决定键拓扑和键层；选中键的分数端点、整数平移和下游 Hamiltonian 仍保持精确。</p><p class="locale-en">Distances determine topology and shell membership only; selected fractional endpoints, integer translations, and the downstream Hamiltonian remain exact.</p>
+            </article>
+          </div>
+
+          <article class="card panel">
+            <h3><span class="locale-zh">输入 3–4 的完整最近邻端点输出</span><span class="locale-en">Complete neighbour endpoints for inputs 3–4</span></h3>
+            <div class="api-table-wrap"><table class="api-table"><thead><tr><th>Site</th><th><span class="locale-zh">原子位置</span><span class="locale-en">Atom position</span></th><th><span class="locale-zh">条数</span><span class="locale-en">Count</span></th><th><span class="locale-zh">平移后的目标位置</span><span class="locale-en">Translated target positions</span></th></tr></thead><tbody>
+              <tr><td>1</td><td>(1/3, 2/3, 0)</td><td>3</td><td>(−1/3, 1/3, 0); (2/3, 1/3, 0); (2/3, 4/3, 0)</td></tr>
+              <tr><td>2</td><td>(2/3, 1/3, 0)</td><td>3</td><td>(1/3, −1/3, 0); (1/3, 2/3, 0); (4/3, 2/3, 0)</td></tr>
+            </tbody></table></div>
+          </article>
+
+          <div class="content-grid">
+            <article class="card panel" data-example="5">
+              <h3><span class="locale-zh">输入 5 · <code>wyckoffposition</code></span><span class="locale-en">Input 5 · <code>wyckoffposition</code></span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 初始化模型并检查公开结果</span><span class="code-comment locale-en"># Initialize the model and inspect public results</span>
+rows = orbitalTable().to_dict()["rows"]
+print([(row["SiteIndex"], row["FractionalPosition"])
+       for row in rows])</pre></div>
+              <div class="code-block output"><pre>[(1, ['1/3', '2/3', '0']),
+ (2, ['2/3', '1/3', '0'])]</pre></div>
+              <p class="locale-zh">一个 Wyckoff 种子经灰群生成两个等价碳格点。</p><p class="locale-en">One Wyckoff seed generates two symmetry-equivalent carbon sites.</p>
+            </article>
+          </div>
+
+          <article class="card panel" data-example="6">
+            <h3><span class="locale-zh">输入 6 · <code>symminformation</code></span><span class="locale-en">Input 6 · <code>symminformation</code></span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 初始化模型并检查公开结果</span><span class="code-comment locale-en"># Initialize the model and inspect public results</span>
+representations = showSymmetryRepresentations().to_dict()["rows"]
+for row in representations:
+    print(row["OperationIndex"], row["Label"],
+          "Antiunitary" if row["Antiunitary"] else "Unitary",
+          row["Matrix"])</pre></div>
+            <div class="code-block output"><pre>2 6z  Unitary     [['0', '1'], ['1', '0']]
+7 2x  Unitary     [['0', '-1'], ['-1', '0']]
+13 -1 Unitary     [['0', '-1'], ['-1', '0']]
+25 1  Antiunitary [['1', '0'], ['0', '1']]</pre></div>
+            <p class="locale-zh">报告保留 <code>msgop(gray[191])</code> 的操作序号；最后一行是时间反演伴随的反幺正操作。</p><p class="locale-en">The report keeps the operation order from <code>msgop(gray[191])</code>; the last row is antiunitary because it includes time reversal.</p>
+          </article>
+
+          <article class="card panel" data-example="7">
+            <h3><span class="locale-zh">输入 7 · <code>basisFunctions</code></span><span class="locale-en">Input 7 · <code>basisFunctions</code></span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 初始化模型并检查公开结果</span><span class="code-comment locale-en"># Initialize the model and inspect public results</span>
+rows = orbitalTable().to_dict()["rows"]
+print([(row["HamiltonianIndex"], row["BasisState"])
+       for row in rows])</pre></div>
+            <div class="code-block output"><pre>[(1, 'pz'), (2, 'pz')]</pre></div>
+            <p class="locale-zh">参考点上的一个 <code>pz</code> 轨道被搬运到第二个等价点；这两个轨道按此顺序成为后续 Hamiltonian 的行列基。</p><p class="locale-en">One reference-site <code>pz</code> orbital is transported to the second site; the two orbitals become the ordered row and column basis of every later Hamiltonian.</p>
+          </article>
+
+          <article class="card panel" data-example="8">
+            <h3><span class="locale-zh">输入 8 · <code>InitialBondShells=3</code></span><span class="locale-en">Input 8 · <code>InitialBondShells=3</code></span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 初始化模型并检查公开结果</span><span class="code-comment locale-en"># Initialize the model and inspect public results</span>
+init(
+    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 3)),
+    wyckoffposition=(((one_third, 2 * one_third, 0), (0, 0, 0)),),
+    symminformation=graphene_operations,
+    basisFunctions=(("pz",),),
+    InitialBondShells=3,
+)
+third_shell = bondTable(3)
+print(third_shell.title)
+for row in third_shell:
+    print(row["SiteIndex"], row["TargetPositions"])</pre></div>
+            <div class="code-block output"><pre>Bond shell 3 (2-th neighbour), bond length = 1; 12 directed bonds
+1 ((-2/3,-1/3,0), (-2/3,2/3,0), (1/3,-1/3,0),
+   (1/3,5/3,0), (4/3,2/3,0), (4/3,5/3,0))
+2 ((-1/3,-2/3,0), (-1/3,1/3,0), (2/3,-2/3,0),
+   (2/3,4/3,0), (5/3,1/3,0), (5/3,4/3,0))</pre></div>
+            <p class="locale-zh"><code>symham(3)</code> 只在这一层已由 <code>init</code> 准备后才可调用。</p><p class="locale-en"><code>symham(3)</code> is available only after this shell has been prepared by <code>init</code>.</p>
+          </article>
+        </section>
+
+        <section id="representation" class="help-section" data-searchable data-search="GenerateSymmetryGroup DirectProduct Induced C4 cubic inputs 9 10 11 12 Kagome spinor">
+          <div class="section-heading"><div><p class="eyebrow">Applications · inputs 9–12</p><h2><span class="locale-zh">生成群与两种表示模式</span><span class="locale-en">Generated groups and representation modes</span></h2></div><span class="section-index">04</span></div>
+
+          <article class="card panel" data-example="9">
+            <h3><span class="locale-zh">输入 9 · 从 C4z 生成有限群</span><span class="locale-en">Input 9 · generate the finite group from C4z</span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 从 C4z 生成有限群</span><span class="code-comment locale-en"># generate the finite group from C4z</span>
+c4z = ((0, -1, 0), (1, 0, 0), (0, 0, 1))
+init(
+    lattice=((a, 0, 0), (0, a, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 2)),
+    wyckoffposition=(((0, 0, 0), (0, 0, 0)),),
+    symminformation=(("C4z", c4z, (0, 0, 0), "F"),),
+    basisFunctions=(("px", "py"),),
+    GenerateSymmetryGroup=True,
+)
+for row in showSymmetryRepresentations("All").to_dict()["rows"]:
+    print(row["Label"], row["Matrix"])</pre></div>
+            <div class="code-block output"><pre>Generated1 [['1', '0'], ['0', '1']]
+Generated2 [['-1', '0'], ['0', '-1']]
+C4z       [['0', '-1'], ['1', '0']]
+Generated4 [['0', '1'], ['-1', '0']]</pre></div>
+            <p class="locale-zh">四个矩阵分别表示 E、C2z、C4z 和 C4z⁻¹ 在有序基 <code>(px,py)</code> 上的作用。</p><p class="locale-en">The four matrices are E, C2z, C4z, and C4z⁻¹ acting on the ordered <code>(px,py)</code> basis.</p>
+          </article>
+
+          <article class="card panel" data-example="10">
+            <h3><span class="locale-zh">输入 10 · 立方轨道的 <code>DirectProduct</code></span><span class="locale-en">Input 10 · cubic <code>DirectProduct</code></span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 立方轨道的 DirectProduct</span><span class="code-comment locale-en"># cubic DirectProduct</span>
+cubic_operations = msgop(gray[221])
+init(
+    lattice=((a, 0, 0), (0, a, 0), (0, 0, a)),
+    lattpar=(("a", 1),),
+    wyckoffposition=(((Fraction(1, 2), 0, 0), (0, 0, 0)),),
+    symminformation=cubic_operations,
+    basisFunctions=(("px", "py", "pz"),),
+    RepresentationMode="DirectProduct",
+)
+rows = orbitalTable().to_dict()["rows"]
+print([(row["HamiltonianIndex"], row["SiteIndex"],
+        row["FractionalPosition"], row["BasisFunctionInput"],
+        row["BasisState"])
+       for row in rows])</pre></div>
+            <div class="code-block output"><pre>[(1,1,['1/2','0','0'],'px','x'), (2,1,['1/2','0','0'],'py','y'), (3,1,['1/2','0','0'],'pz','z'),
+ (4,2,['0','1/2','0'],'px','x'), (5,2,['0','1/2','0'],'py','y'), (6,2,['0','1/2','0'],'pz','z'),
+ (7,3,['0','0','1/2'],'px','x'), (8,3,['0','0','1/2'],'py','y'), (9,3,['0','0','1/2'],'pz','z')]</pre></div>
+            <p class="locale-zh">三个等价格点都保留完整 <code>px,py,pz</code> 局域空间，因此 Hamiltonian 维数为 9。<code>BasisFunctionInput</code> 保留 catalog 输入名，<code>BasisState</code> 给出 Rust 解析后的实际多项式状态 <code>x,y,z</code>。DirectProduct 不使用陪集搬运，因此 reference/transport 字段为 <code>None</code>。</p><p class="locale-en">Each of the three equivalent sites keeps the full <code>px,py,pz</code> local space, so the Hamiltonian dimension is nine. <code>BasisFunctionInput</code> preserves the catalogue input name, while <code>BasisState</code> contains the actual polynomial state <code>x,y,z</code> resolved by Rust. DirectProduct uses no coset transport, so its reference/transport fields are <code>None</code>.</p>
+          </article>
+
+          <article class="card panel" data-example="11">
+            <h3><span class="locale-zh">输入 11 · 立方轨道的 <code>Induced</code></span><span class="locale-en">Input 11 · cubic <code>Induced</code></span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 立方轨道的 Induced</span><span class="code-comment locale-en"># cubic Induced</span>
+init(
+    lattice=((a, 0, 0), (0, a, 0), (0, 0, a)),
+    lattpar=(("a", 1),),
+    wyckoffposition=(((Fraction(1, 2), 0, 0), (0, 0, 0)),),
+    symminformation=cubic_operations,
+    basisFunctions=(("px",),),
+    RepresentationMode="Induced",
+)
+for row in orbitalTable().to_dict()["rows"]:
+    print(row["HamiltonianIndex"], row["FractionalPosition"],
+          row["BasisFunctionInput"], row["BasisState"],
+          row["ReferenceEquivalentAtomIndex"],
+          row["TransportOperationIndex"],
+          row["TransportOperationLabel"])</pre></div>
+            <div class="code-block output"><pre>1 ['1/2','0','0'] px x 1 1 "1"
+2 ['0','0','1/2'] px z 1 5 "3xyz-1"
+3 ['0','1/2','0'] px y 1 9 "3xyz"</pre></div>
+            <p class="locale-zh">只输入参考点的 <code>px</code>；Rust 按稳定陪集顺序用操作 1、5、9 将它搬运为三个实际状态 <code>x,z,y</code>，所以维数为 3。<code>BasisFunctionInput</code> 始终保留输入标签 <code>px</code>；<code>BasisState</code>、参考等价原子和搬运操作字段给出实际 Hamiltonian 基的来源。操作标签中的双引号是 Data 标签本身的一部分。</p><p class="locale-en">Only reference-site <code>px</code> is supplied. In stable coset order, Rust transports it with operations 1, 5, and 9 to the actual states <code>x,z,y</code>, giving dimension three. <code>BasisFunctionInput</code> keeps the input label <code>px</code>, while <code>BasisState</code>, the reference equivalent atom, and the transport-operation fields identify the origin of each actual Hamiltonian basis state. The double quotes are part of these Data labels.</p>
+          </article>
+        <article class="card panel" data-example="12" id="kagome-induced"><h3><span class="locale-zh">Kagome：含自旋的双群诱导表示</span><span class="locale-en">Kagome: a spinful double-valued induced representation</span></h3>
+<p class="locale-zh">磁空间群 BNS 191.239（P6′/m′mm′）把参考点上的旋量 (1, −1)/√2 搬运到三个格点。每个格点保留一个选定的局域态，所得 Hamiltonian 有三条能带。</p><p class="locale-en">Magnetic space group BNS 191.239 (P6′/m′mm′) transports the reference spinor (1, −1)/√2 to three sites. One selected local state per site gives three bands.</p><div class="code-block"><pre><span class="code-comment locale-zh"># 只在参考格点输入一个二分量旋量</span><span class="code-comment locale-en"># Supply one two-component spinor at the reference site</span>
+from fractions import Fraction
+from magnetictb import ExplicitPolynomialBasis, init, msgop
+from magnetictb import orbitalTable, root_of_unity, sqrt, symbol, typeIII
+
+a, c = symbol(&quot;a&quot;), symbol(&quot;c&quot;)
+<span class="code-comment locale-zh"># q = 1/sqrt(2)，用精确单位根表示常数系数</span><span class="code-comment locale-en"># q = 1/sqrt(2), encoded as an exact root-of-unity coefficient</span>
+q = (root_of_unity(8, 1) + root_of_unity(8, -1)) / 2
+local_spinor = ExplicitPolynomialBasis(((q, -q),))
+
+init(
+    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),
+    lattpar=((&quot;a&quot;, 1), (&quot;c&quot;, 8)),
+    wyckoffposition=(((Fraction(1, 2), 0, 0), (1, 0, 0)),),
+    symminformation=msgop(typeIII[(191, 239)]),
+    basisFunctions=local_spinor,
+    RepresentationMode=&quot;Induced&quot;,
+    InitialBondShells=3,
+)
+<span class="code-comment locale-zh"># 按 Hamiltonian 的行列顺序查看生成的三个格点</span><span class="code-comment locale-en"># Inspect the three generated sites in Hamiltonian row/column order</span>
+for row in orbitalTable().to_dict()[&quot;rows&quot;]:
+    print(row[&quot;HamiltonianIndex&quot;], row[&quot;FractionalPosition&quot;])</pre></div><div class="code-block output"><pre>Magnetic space group (BNS): [191, 239]
+Lattice: HexagonalP
+Primitive Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Conventional Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Generators: [('&quot;3z&quot;', 'F'), ('&quot;2x&quot;', 'F'), ('&quot;-1&quot;', 'F'), ('&quot;6z&quot;', 'T')]
+1 ['1/2', '0', '0']
+2 ['0', '1/2', '0']
+3 ['1/2', '1/2', '0']</pre></div><div class="code-block"><pre><span class="code-comment locale-zh"># symham 返回单个键层的普通矩阵；对象入口用于相加</span><span class="code-comment locale-en"># symham returns a single-shell matrix; use the object entry to add shells</span>
+from magnetictb import hamiltonian_object, symham
+
+onsite = symham(1)
+for row in onsite:
+    print(row)
+<span class="code-comment locale-zh"># 合并 onsite 与所需的非零距离键层，再取普通矩阵</span><span class="code-comment locale-en"># Combine onsite and the required hopping shells, then obtain an ordinary matrix</span>
+hamiltonian = hamiltonian_object(1) + hamiltonian_object(2) + hamiltonian_object(3)
+H = hamiltonian.to_list()
+for row in H:
+    print(row)</pre></div><div class="code-block output"><pre>params: ['e1']
+[e1, 0, 0]
+[0, e1, 0]
+[0, 0, e1]
+[e1, t1*exp(I*((-1/2)*kx + (-1/2)*ky)) + t1*exp(I*((1/2)*kx + (1/2)*ky)) + r1*exp(I*((-1/2)*kx + (1/2)*ky)) + r1*exp(I*((1/2)*kx + (-1/2)*ky)), t1*exp(I*((-1/2)*ky)) + t1*exp(I*((1/2)*ky)) + r1*exp(I*(-kx + (-1/2)*ky)) + r1*exp(I*(kx + (1/2)*ky))]
+[t1*exp(I*((-1/2)*kx + (-1/2)*ky)) + t1*exp(I*((1/2)*kx + (1/2)*ky)) + r1*exp(I*((-1/2)*kx + (1/2)*ky)) + r1*exp(I*((1/2)*kx + (-1/2)*ky)), e1, -1*t1*exp(I*((-1/2)*kx)) - 1*t1*exp(I*((1/2)*kx)) - 1*r1*exp(I*((-1/2)*kx - ky)) - 1*r1*exp(I*((1/2)*kx + ky))]
+[t1*exp(I*((-1/2)*ky)) + t1*exp(I*((1/2)*ky)) + r1*exp(I*(-kx + (-1/2)*ky)) + r1*exp(I*(kx + (1/2)*ky)), -1*t1*exp(I*((-1/2)*kx)) - 1*t1*exp(I*((1/2)*kx)) - 1*r1*exp(I*((-1/2)*kx - ky)) - 1*r1*exp(I*((1/2)*kx + ky)), e1]</pre></div><p class="locale-zh">对实数 kx、ky，合并程序输出中的正反向指数项，得到完整矩阵：</p><p class="locale-en">For real kx and ky, combining the exponential pairs in the program output gives the full matrix:</p><div class="formula formula-wide" data-tex>H(\mathbf k)=\begin{pmatrix}
+e_1 &amp; 2t_1\cos\frac{k_x+k_y}{2}+2r_1\cos\frac{k_x-k_y}{2} &amp; 2t_1\cos\frac{k_y}{2}+2r_1\cos\left(k_x+\frac{k_y}{2}\right)\\
+2t_1\cos\frac{k_x+k_y}{2}+2r_1\cos\frac{k_x-k_y}{2} &amp; e_1 &amp; -2t_1\cos\frac{k_x}{2}-2r_1\cos\left(\frac{k_x}{2}+k_y\right)\\
+2t_1\cos\frac{k_y}{2}+2r_1\cos\left(k_x+\frac{k_y}{2}\right) &amp; -2t_1\cos\frac{k_x}{2}-2r_1\cos\left(\frac{k_x}{2}+k_y\right) &amp; e_1
+\end{pmatrix}</div><p class="locale-zh">第 1 层是 onsite，第 2、3 层分别为最近邻与次近邻。下面沿 M–Γ–K–M 取每段 80 个细分；e1、t1、r1 使用相同的能量单位。</p><p class="locale-en">Shell 1 is onsite; shells 2 and 3 are nearest and next-nearest neighbours. Sample M–Γ–K–M with 80 subdivisions per segment below. e1, t1, and r1 use the same energy unit.</p><div class="code-block"><pre><span class="code-comment locale-zh"># 路径端点使用倒空间分数坐标</span><span class="code-comment locale-en"># Path endpoints use fractional reciprocal coordinates</span>
+from magnetictb import bandplot
+
+kagome_path = (
+    (((0, Fraction(1, 2), 0), (0, 0, 0)), (&quot;M&quot;, r&quot;\Gamma&quot;)),
+    (((0, 0, 0), (Fraction(1, 3), Fraction(1, 3), 0)), (r&quot;\Gamma&quot;, &quot;K&quot;)),
+    (((Fraction(1, 3), Fraction(1, 3), 0), (0, Fraction(1, 2), 0)), (&quot;K&quot;, &quot;M&quot;)),
+)
+bands = bandplot(kagome_path, 80, H, {&quot;e1&quot;: -0.15, &quot;t1&quot;: -0.155 / 2, &quot;r1&quot;: 0.23 / 2})
+print(bands.boundary_labels, bands.boundary_positions)
+<span class="code-comment locale-zh"># 每段含 81 个点，边界在相邻段各保留一次</span><span class="code-comment locale-en"># Each segment contains 81 points; shared boundaries occur in both segments</span>
+for label, index in zip(bands.boundary_labels, (0, 80, 161, 242)):
+    print(label, [round(value, 6) for value in bands.eigenvalues[index]])
+<span class="figure-export"><span class="code-comment locale-zh"># 保存本函数生成的图；交互显示可用 .show()</span><span class="code-comment locale-en"># Save the function-generated figure; use .show() for interactive display</span>
+bands.savefig("kagome-induced-bands.svg")</span></pre></div>
+<figure class="result-figure function-figure" data-function="bandplot"><a href="../assets/function-plots/kagome-induced-bands.svg"><img src="../assets/function-plots/kagome-induced-bands.svg" alt="bandplot" loading="lazy" style="max-width: 640px"></a><figcaption><span class="locale-zh">bandplot</span><span class="locale-en">bandplot</span></figcaption></figure><div class="code-block output"><pre>('M', 'Γ', 'K', 'M') (0, 80, 160, 240)
+M [-0.535, -0.15, 0.235]
+G [-0.3, -0.075, -0.075]
+K [-0.765, 0.1575, 0.1575]
+M [-0.535, -0.15, 0.235]</pre></div><p class="locale-zh">继续查看 <a href="../tutorial/CrystalAndKPaths.html">Kagome 晶体结构与 k 路径教程</a>。</p><p class="locale-en">Continue with the <a href="../tutorial/CrystalAndKPaths.html">Kagome crystal and k-path tutorial</a>.</p>
+</article>
+</section>
+
+        <section id="issues" class="help-section" data-searchable data-search="unknown option failure session input 13">
+          <div class="section-heading"><div><p class="eyebrow">Troubleshooting · input 13</p><h2><span class="locale-zh">未知选项会终止初始化</span><span class="locale-en">Unknown options stop initialization</span></h2></div><span class="section-index">05</span></div>
+          <article class="card panel" data-example="13">
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 运行无效输入示例，并检查返回的稳定错误</span><span class="code-comment locale-en"># Run the invalid-input example and inspect the stable error</span>
+init(notAnInitOption=True)</pre></div>
+            <div class="code-block output"><pre>ModelError: UnknownInitOption
+unknown init option(s): notAnInitOption</pre></div>
+            <p class="locale-zh">异常发生前旧会话已经清空；后续 <code>current_model()</code> 会给出 <code>ModelNotInitialized</code>，不会返回旧模型。</p><p class="locale-en">The old session is cleared before the exception; a later <code>current_model()</code> raises <code>ModelNotInitialized</code> rather than returning the old model.</p>
+          </article>
+        </section>
+
+        <footer class="site-footer">
+          <span><code>init</code> · 13 examples</span>
+          <a href="../index.html"><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a>
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

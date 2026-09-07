@@ -1,0 +1,683 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     25546,        674]
+NotebookOptionsPosition[     21335,        593]
+NotebookOutlinePosition[     23030,        635]
+CellTagsIndexPosition[     22987,        632]
+WindowTitle->grayrod
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["MAGNETIC T B SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "dd159855-eab8-443a-9aba-7cb3ddb13b64"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "b5ec9c8d-8594-4da6-98d8-1b287d8703d0"],
+        Background->LightDarkSwitched[
+          RGBColor[0.490196, 0.576471, 0.690196]],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "bfcab8b8-c5cb-4d55-b594-d3c06eb6cc51"]
+         }],ExpressionUUID->"eb874631-4881-4ddf-983d-37c7b08d5c72"],
+         StripOnInput->False],{
+        StyleBox["\"mrgop\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/mrgop"], 
+         StyleBox["\"gray\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/gray"], 
+         StyleBox["\"graylayer\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/graylayer"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "1a69468b-10f1-437e-aa0c-959dc1abfb80"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "3a37467a-a5b8-468e-a327-154762e9f9d7"]
+         }],ExpressionUUID->"0fef5676-6069-40b3-a575-6ba18db09ec8"],
+         StripOnInput->False],{
+        "\"MagneticTB\"" :> 
+         Documentation`HelpLookup["paclet:MagneticTB/guide/MagneticTB"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "32a5a6e8-9fc8-42a2-8698-bccb34f43d64"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "a739c943-aec6-437d-80ea-252d9d42183d"]
+         }],ExpressionUUID->"7909aafa-9339-4c1c-ba27-1c77af7591df"],
+         StripOnInput->False],{
+        "\"Getting Started with MagneticTB\"" :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/tutorial/GettingStarted"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "acbe23ac-2c33-4766-a586-7414fd78901a"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "152b0566-9149-4e53-8c93-017205edda8d"]
+         }],ExpressionUUID->"80e69d25-9e90-4f9c-b63d-e4df613a4aec"],
+         StripOnInput->False],{
+        "\"MagneticTB/ref/grayrod\"" :> None, 
+         "\"Copy Wolfram Documentation Center URL\"" :> 
+         CopyToClipboard["MagneticTB/ref/grayrod"], Delimiter, 
+         "\"Copy web URL\"" :> 
+         Module[{DocumentationSearch`Private`nb$}, 
+           DocumentationSearch`Private`nb$ = 
+            NotebookPut[
+             Notebook[{
+               Cell[BoxData[
+                 MakeBoxes[
+                  Hyperlink[
+                   "http://reference.wolfram.com/language/MagneticTB/ref/\
+grayrod.html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, 
+               Visible -> False]]; 
+           SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+           FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+           NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+         "\"Go to web URL\"" :> 
+         FrontEndExecute[{
+           NotebookLocate[{
+             URL[If[TrueQ[False], 
+                 "http://reference.wolfram.com/system-modeler/", 
+                 "http://reference.wolfram.com/language/"] <> 
+               "MagneticTB/ref/grayrod" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "a0441207-59f5-47cd-a4dd-95de253332ed"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "c047f3e9-a08c-4386-970b-41af9dfcbfff"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"94b5f579-33cd-4325-b6c0-e7d9c3b6c79a"],
+
+Cell["MagneticTB`", "ContextNameCell",ExpressionUUID->"399b5f08-a5b8-429e-9b6d-2132961532ea"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "grayrod", "ObjectName",ExpressionUUID->
+      "46ef7b16-999d-4ac2-919a-dc17a827763d"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"c008fa92-030d-4e8c-897d-7d0bb6d2a244"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "821387a0-c4d7-4002-a788-849aad37dc78"]
+    }],ExpressionUUID->"22df7a38-d7cf-4666-9358-a6f1f4137f43"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"3c894953-2223-422e-949a-\
+a29b0a969c64"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"grayrod", "[", "n", "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "5149dd4d-2e45-4f8e-a5e2-24f851d8a624"],
+     " \[LineSeparator]",
+     "returns the database identifier of the gray magnetic rod group \
+associated with rod-group number n."
+    }],ExpressionUUID->"cbb573e0-9c83-483e-9c0f-1b4a73fb457c"]}
+  }]], "Usage",ExpressionUUID->"c2e4a71a-ec38-41ae-8d23-5f5ecfb7f890"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[Cell[TextData[{
+  Cell[BoxData[
+   DynamicBox[ToBoxes[
+     If[CurrentValue[
+        EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], 
+      Rotate[
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+    ImageSizeCache->{
+     13.600000000000001`, {-0.1685058593749993, 13.768505859375}}]],
+   ExpressionUUID->"37825fdb-6698-4fe0-a7b1-2cf5242b076e"],
+  Cell[BoxData[
+   TemplateBox[{1},
+    "Spacer1"]],ExpressionUUID->"47cdd39c-d44f-4608-9fbe-ce90e37abfda"],
+  "Details and Options"
+ }], "NotesFrameText",ExpressionUUID->
+  "0e0d5837-92ab-44ee-bf29-88ddd4e4ec68"]],ExpressionUUID->"28d8555c-5830-\
+4137-802c-f24d08325435"]], "NotesSection",
+ ShowGroupOpener->"Thumbnail",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->1802472159,ExpressionUUID->"8f38f6f2-bff4-4da4-a737-37b4cd5d679c"],
+
+Cell["\<\
+grayrod is an Association whose integer keys run from 1 through 75.\
+\>", "Notes",ExpressionUUID->"277a3a7c-da4b-4757-98b9-d2c43686e94e"],
+
+Cell["\<\
+Use mrgop[grayrod[n]] to read the complete ordered operation list; grayrod[n] \
+alone returns only the three-integer database identifier.\
+\>", "Notes",ExpressionUUID->"88617af7-6d88-4f1e-876e-4b35e10e4ecb"]
+}, Closed]],
+
+Cell["", "PageDelimiter",ExpressionUUID->"f6acbce3-3cee-48fd-8456-c66bdfc0c971"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {4.251494140625001, 9.348505859375}}]],
+  ExpressionUUID->"949d20c5-fdfe-4511-a2eb-8c10c1b7556c"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"7f019ccd-690d-4456-a18b-78e13abfe687"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount",ExpressionUUID->
+  "01cd2895-34d3-4e6d-8705-6517ec5d2f0c"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->1745251731,ExpressionUUID->"6ec4fdac-d2e6-4751-ba90-833dd74bfe70"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<MagneticTB`\>\"", "]"}]], "Input", "ExampleInitialization",
+ CellLabel->"In[1]:=",ExpressionUUID->"243ffd1f-0d83-483f-a077-d19b9d5da27a"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "510843ed-9d26-4bbe-bceb-1cb28da85136"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"41dab644-b585-4831-9fc3-153651f498f5"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "db09fc73-bb41-4cf9-ab64-ee3939bdc5c2"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->2114192191,ExpressionUUID->"1db60b73-81b3-477f-a4a8-d5abe813a18f"],
+
+Cell["\<\
+Look up gray rod group 25 and immediately read its complete eight-operation \
+list:\
+\>", "ExampleText",ExpressionUUID->"e941753f-514f-4bdb-8cb6-ed8c3bfe0b23"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mrgop", "[", 
+  RowBox[{"grayrod", "[", "25", "]"}], "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"93e8ebbb-bb15-4fbb-85b2-66b8aa9ed81e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"E\"\>", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "\<\"F\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"C2z\"\>", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "\<\"F\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"C4z+\"\>", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       FractionBox["1", "2"]}], "}"}], ",", "\<\"F\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"C4z-\"\>", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       FractionBox["1", "2"]}], "}"}], ",", "\<\"F\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"E\"\>", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "\<\"T\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"C2z\"\>", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "\<\"T\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"C4z+\"\>", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       FractionBox["1", "2"]}], "}"}], ",", "\<\"T\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"C4z-\"\>", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       FractionBox["1", "2"]}], "}"}], ",", "\<\"T\"\>"}], "}"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"1dfbbb2d-8de9-4b07-aee2-e06fc1926cf5"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[CurrentValue[
+       EvaluationCell[], "CellGroupOpen"] =!= Closed, 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]]]],ExpressionUUID->
+  "f4d16392-74cc-4410-9dea-780a22f01966"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"43f01843-0bed-4b08-aaca-72bfacd7e853"],
+ "Possible Issues",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "d75cf5cd-2e07-4376-8107-07fcb1a61936"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,ExpressionUUID->"e2aa1b37-6cc0-4432-97f4-22263b8cabc3"],
+
+Cell["\<\
+A number outside 1 through 75 is not a key of the association:\
+\>", "ExampleText",ExpressionUUID->"302e694d-abbb-4678-bd53-10c430d5d086"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"grayrod", "[", "76", "]"}]], "Input",
+ CellProlog:>Needs["MagneticTB`"],
+ CellLabel->"In[1]:=",ExpressionUUID->"1a1a7a7f-b1c0-4efb-a7c3-88982787c3fb"],
+
+Cell[BoxData[
+ RowBox[{"Missing", "[", 
+  RowBox[{"\<\"KeyAbsent\"\>", ",", "76"}], "]"}]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"737fa236-6127-4886-a585-bab00731529b"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        ButtonBox["mrgop",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/mrgop"],
+        " \[FilledVerySmallSquare] ",
+        ButtonBox["gray",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/gray"],
+        " \[FilledVerySmallSquare] ",
+        ButtonBox["graylayer",
+         BaseStyle->"Link",
+         ButtonData->"paclet:MagneticTB/ref/graylayer"]
+       }], "SeeAlso",ExpressionUUID->"b2bc49c9-458b-4183-a7c1-09e68302b75c"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"2c88192b-2231-4bd3-b4ef-\
+0595009812e4"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Tech", " ", "Notes"}], "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Getting Started with MagneticTB"]], 
+           "paclet:MagneticTB/tutorial/GettingStarted"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "e9cf8c09-6a55-4650-a939-8d90f757bf04"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"b7a938ed-c112-4304-8381-\
+402d1834fa62"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["MagneticTB"]], "paclet:MagneticTB/guide/MagneticTB"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "c979fdbf-c132-4655-ac33-4c3f55e4d74e"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"ea147d27-56bf-4376-a8ac-\
+9ecd4e7d784e"],
+
+Cell["History", "HistorySection",ExpressionUUID->"0cdb7063-8926-4ba3-9087-b36b0b1206c5"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"1f0416b8-44ca-4868-bc5b-7ee209f6219c"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"grayrod",
+Visible->True,
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "AllOptsTable" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "HasOptions" -> 
+  True, "RootCaptions" -> "", "HeaderCoreAreaLink" -> {}, 
+  "Metadata" -> {
+   "built" -> "{2026, 9, 7, 23, 6, 23.380765}", 
+    "history" -> {"2.0.0", "", "", ""}, "context" -> "MagneticTB`", 
+    "keywords" -> {
+     "gray magnetic rod group", "database identifier", 
+      "rod-group operations"}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Magnetic T B Symbol", "language" -> "en", "paclet" -> "MagneticTB", 
+    "status" -> "None", "summary" -> 
+    "grayrod[n] returns the database identifier of the gray magnetic rod \
+group associated with rod-group number n.", "synonyms" -> {}, 
+    "tabletags" -> {}, "title" -> "grayrod", "titlemodifier" -> "", 
+    "metadescription" -> "", "windowtitle" -> "grayrod", "type" -> "Symbol", 
+    "uri" -> "MagneticTB/ref/grayrod"}},
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (2026\:5e747\:67082\:65e5)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb"],
+ExpressionUUID->"f44bc20f-0c4e-4c86-a639-5373cce8ddf4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[575, 21, 6129, 153, 70, "AnchorBarGrid",ExpressionUUID->"94b5f579-33cd-4325-b6c0-e7d9c3b6c79a",
+ CellID->1],
+Cell[6707, 176, 93, 0, 70, "ContextNameCell",ExpressionUUID->"399b5f08-a5b8-429e-9b6d-2132961532ea"],
+Cell[CellGroupData[{
+Cell[6825, 180, 550, 14, 70, "ObjectNameGrid",ExpressionUUID->"3c894953-2223-422e-949a-a29b0a969c64"],
+Cell[7378, 196, 494, 10, 70, "Usage",ExpressionUUID->"c2e4a71a-ec38-41ae-8d23-5f5ecfb7f890"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7909, 211, 1444, 34, 70, "NotesSection",ExpressionUUID->"8f38f6f2-bff4-4da4-a737-37b4cd5d679c",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1802472159],
+Cell[9356, 247, 147, 2, 70, "Notes",ExpressionUUID->"277a3a7c-da4b-4757-98b9-d2c43686e94e"],
+Cell[9506, 251, 217, 3, 70, "Notes",ExpressionUUID->"88617af7-6d88-4f1e-876e-4b35e10e4ecb"]
+}, Closed]],
+Cell[9738, 257, 80, 0, 70, "PageDelimiter",ExpressionUUID->"f6acbce3-3cee-48fd-8456-c66bdfc0c971"],
+Cell[CellGroupData[{
+Cell[9843, 261, 1401, 37, 70, "PrimaryExamplesSection",ExpressionUUID->"6ec4fdac-d2e6-4751-ba90-833dd74bfe70",
+ CellID->1745251731],
+Cell[11247, 300, 179, 2, 70, "Input",ExpressionUUID->"243ffd1f-0d83-483f-a077-d19b9d5da27a"],
+Cell[CellGroupData[{
+Cell[11451, 306, 1236, 31, 70, "ExampleSection",ExpressionUUID->"1db60b73-81b3-477f-a4a8-d5abe813a18f",
+ CellID->2114192191],
+Cell[12690, 339, 169, 3, 70, "ExampleText",ExpressionUUID->"e941753f-514f-4bdb-8cb6-ed8c3bfe0b23"],
+Cell[CellGroupData[{
+Cell[12884, 346, 206, 4, 70, "Input",ExpressionUUID->"93e8ebbb-bb15-4fbb-85b2-66b8aa9ed81e"],
+Cell[13093, 352, 3830, 112, 70, "Output",ExpressionUUID->"1dfbbb2d-8de9-4b07-aee2-e06fc1926cf5"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16972, 470, 1216, 30, 70, "ExampleSection",ExpressionUUID->"e2aa1b37-6cc0-4432-97f4-22263b8cabc3"],
+Cell[18191, 502, 148, 2, 70, "ExampleText",ExpressionUUID->"302e694d-abbb-4678-bd53-10c430d5d086"],
+Cell[CellGroupData[{
+Cell[18364, 508, 174, 3, 70, "Input",ExpressionUUID->"1a1a7a7f-b1c0-4efb-a7c3-88982787c3fb"],
+Cell[18541, 513, 179, 3, 70, "Output",ExpressionUUID->"737fa236-6127-4886-a585-bab00731529b"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+Cell[18759, 521, 903, 24, 70, "SeeAlsoSection",ExpressionUUID->"2c88192b-2231-4bd3-b4ef-0595009812e4"],
+Cell[19665, 547, 769, 20, 70, "TutorialsSection",ExpressionUUID->"b7a938ed-c112-4304-8381-402d1834fa62"],
+Cell[20437, 569, 722, 18, 70, "MoreAboutSection",ExpressionUUID->"ea147d27-56bf-4376-a8ac-9ecd4e7d784e"],
+Cell[21162, 589, 88, 0, 70, "HistorySection",ExpressionUUID->"0cdb7063-8926-4ba3-9087-b36b0b1206c5"],
+Cell[21253, 591, 78, 0, 70, "FooterCell",ExpressionUUID->"1f0416b8-44ca-4868-bc5b-7ee209f6219c"]
+}
+]
+*)
+
+(* End of internal cache information *)

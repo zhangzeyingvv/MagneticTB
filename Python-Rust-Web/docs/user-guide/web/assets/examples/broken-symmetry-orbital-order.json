@@ -1,0 +1,316 @@
+{
+  "format": "MagneticTB user-guide targeted example capture v1",
+  "page": "tutorial/GeneralExamples.html#broken",
+  "scope": "Only the two six-orbital onsite examples A and B were executed. Their displayed entries were checked against the existing page matrices; no unrelated model, fixture, full regression, or large bundle was replayed.",
+  "source_baseline": {
+    "tag": "mathematica-stable-2.0.10",
+    "commit": "4661f13f1dd0335dbe5f54c420fc4e1b6e1c7c70",
+    "path": "Developer/Documentation/Sources/Tutorials/GeneralExamples.source.wl",
+    "sha256": "b7d3bdece699b0a07e6dd1348f0df81054f190ea21701f4526b3835ed191f711",
+    "inputs": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "comparison_scope": "Inputs were read from this immutable source; this capture is a current Python execution, not a new Mathematica replay."
+  },
+  "display_notes": "Page output retains the symham parameter message and the complete matrix, with line breaks between rows. init diagnostic stdout is captured here but not displayed on the page.",
+  "orders": {
+    "a": {
+      "setup_source": "from magnetictb import (\n    brokenSymmetryInitRules, gray, init, msgop, sqrt, symbol, symham,\n)\n\na, c = symbol(\"a\"), symbol(\"c\")\nbasis_a = ('dz2up', 'dxyup', 'dx2-y2up', 'dz2dn', 'dxydn', 'dx2-y2dn')\noperations_a = msgop(gray[187])\ninit(\n    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),\n    lattpar=((\"a\", 1), (\"c\", 4)),\n    wyckoffposition=(((0, 0, 0), (0, 0, 0)),),\n    symminformation=operations_a,\n    basisFunctions=(basis_a,),\n    InitialBondShells=1,\n    GenerateSymmetryGroup=False,\n)\n",
+      "subgroup_source": "rules_a = brokenSymmetryInitRules((9, 11, 13))\ninit(**rules_a)\nh_a = symham(1)",
+      "setup_output": "Magnetic space group (BNS): [187, 210]\nLattice: HexagonalP\nPrimitive Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]\nConventional Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]\nGenerators: [('\"3z\"', 'F'), ('\"21\"', 'F'), ('\"-6z\"', 'F'), ('\"1\"', 'T')]\n",
+      "subgroup_output": "Generators: [('\"3z\"', 'F'), ('\"21\"', 'F'), ('\"-6z\"', 'F'), ('\"1\"', 'T')]\nparams: ['e1', 'e2', 'e3']\n",
+      "selected_parent_operations": [
+        {
+          "number": 9,
+          "label": "\"-6z-1\"",
+          "antiunitary": false
+        },
+        {
+          "number": 11,
+          "label": "\"mxy\"",
+          "antiunitary": false
+        },
+        {
+          "number": 13,
+          "label": "\"1\"",
+          "antiunitary": true
+        }
+      ],
+      "parent_operation_count": 24,
+      "retained_operation_count": 24,
+      "orbital_labels": [
+        "dz2up",
+        "dxyup",
+        "dx2-y2up",
+        "dz2dn",
+        "dxydn",
+        "dx2-y2dn"
+      ],
+      "positions": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "matrix": [
+        [
+          "e1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "e2",
+          "I*e3",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-I*e3",
+          "e2",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "e1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "e2",
+          "-I*e3"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "I*e3",
+          "e2"
+        ]
+      ],
+      "matrix_repr": "[[e1, 0, 0, 0, 0, 0], [0, e2, I*e3, 0, 0, 0], [0, -I*e3, e2, 0, 0, 0], [0, 0, 0, e1, 0, 0], [0, 0, 0, 0, e2, -I*e3], [0, 0, 0, 0, I*e3, e2]]",
+      "retained_operation_labels": [
+        "\"1\"",
+        "\"3z\"",
+        "\"3z-1\"",
+        "\"21\"",
+        "\"22\"",
+        "\"23\"",
+        "\"-6z\"",
+        "\"mz\"",
+        "\"-6z-1\"",
+        "\"mx\"",
+        "\"mxy\"",
+        "\"my\"",
+        "\"1\"",
+        "\"3z\"",
+        "\"3z-1\"",
+        "\"21\"",
+        "\"22\"",
+        "\"23\"",
+        "\"-6z\"",
+        "\"mz\"",
+        "\"-6z-1\"",
+        "\"mx\"",
+        "\"mxy\"",
+        "\"my\""
+      ]
+    },
+    "b": {
+      "setup_source": "from magnetictb import (\n    brokenSymmetryInitRules, gray, init, msgop, sqrt, symbol, symham,\n)\n\na, c = symbol(\"a\"), symbol(\"c\")\nbasis_b = ('dz2up', 'dz2dn', 'dxyup', 'dxydn', 'dx2-y2up', 'dx2-y2dn')\noperations_b = msgop(gray[187])\ninit(\n    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),\n    lattpar=((\"a\", 1), (\"c\", 4)),\n    wyckoffposition=(((0, 0, 0), (0, 0, 0)),),\n    symminformation=operations_b,\n    basisFunctions=(basis_b,),\n    InitialBondShells=1,\n    GenerateSymmetryGroup=False,\n)\n",
+      "subgroup_source": "rules_b = brokenSymmetryInitRules((9, 11, 13))\ninit(**rules_b)\nh_b = symham(1)",
+      "setup_output": "Magnetic space group (BNS): [187, 210]\nLattice: HexagonalP\nPrimitive Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]\nConventional Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]\nGenerators: [('\"3z\"', 'F'), ('\"21\"', 'F'), ('\"-6z\"', 'F'), ('\"1\"', 'T')]\n",
+      "subgroup_output": "Generators: [('\"3z\"', 'F'), ('\"21\"', 'F'), ('\"-6z\"', 'F'), ('\"1\"', 'T')]\nparams: ['e1', 'e2', 'e3']\n",
+      "selected_parent_operations": [
+        {
+          "number": 9,
+          "label": "\"-6z-1\"",
+          "antiunitary": false
+        },
+        {
+          "number": 11,
+          "label": "\"mxy\"",
+          "antiunitary": false
+        },
+        {
+          "number": 13,
+          "label": "\"1\"",
+          "antiunitary": true
+        }
+      ],
+      "parent_operation_count": 24,
+      "retained_operation_count": 24,
+      "orbital_labels": [
+        "dz2up",
+        "dz2dn",
+        "dxyup",
+        "dxydn",
+        "dx2-y2up",
+        "dx2-y2dn"
+      ],
+      "positions": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "matrix": [
+        [
+          "e1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "e1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "e2",
+          "0",
+          "I*e3",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "e2",
+          "0",
+          "-I*e3"
+        ],
+        [
+          "0",
+          "0",
+          "-I*e3",
+          "0",
+          "e2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "I*e3",
+          "0",
+          "e2"
+        ]
+      ],
+      "matrix_repr": "[[e1, 0, 0, 0, 0, 0], [0, e1, 0, 0, 0, 0], [0, 0, e2, 0, I*e3, 0], [0, 0, 0, e2, 0, -I*e3], [0, 0, -I*e3, 0, e2, 0], [0, 0, 0, I*e3, 0, e2]]",
+      "retained_operation_labels": [
+        "\"1\"",
+        "\"3z\"",
+        "\"3z-1\"",
+        "\"21\"",
+        "\"22\"",
+        "\"23\"",
+        "\"-6z\"",
+        "\"mz\"",
+        "\"-6z-1\"",
+        "\"mx\"",
+        "\"mxy\"",
+        "\"my\"",
+        "\"1\"",
+        "\"3z\"",
+        "\"3z-1\"",
+        "\"21\"",
+        "\"22\"",
+        "\"23\"",
+        "\"-6z\"",
+        "\"mz\"",
+        "\"-6z-1\"",
+        "\"mx\"",
+        "\"mxy\"",
+        "\"my\""
+      ]
+    }
+  },
+  "permutation_a_to_b_zero_based": [
+    0,
+    3,
+    1,
+    4,
+    2,
+    5
+  ],
+  "verification": "Both 6x6 matrices exactly match existing documented entries; A-to-B row/column permutation matches all 36 entries."
+}

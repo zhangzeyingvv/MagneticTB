@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>首个模型与结果检查 · MagneticTB</title>
+  <link rel="stylesheet" href="../help.css?v=a0a09c187d71">
+  <script defer src="../help.js?v=6bee0b68d479"></script>
+</head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+  <div class="help-shell">
+    <aside id="helpSidebar" class="sidebar panel">
+      <a class="brand" href="../index.html" aria-label="MagneticTB 帮助主页"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a>
+      <nav class="nav" aria-label="帮助导航"><a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a><a href="#guide"><span>01</span><span class="locale-zh">模型输入</span><span class="locale-en">Model input</span></a><a href="#symham"><span>02</span><span class="locale-zh">Hamiltonian 输出</span><span class="locale-en">Hamiltonian output</span></a><a href="#reference"><span>03</span><span class="locale-zh">函数与结果检查</span><span class="locale-en">Functions and result inspection</span></a></nav>
+      <div class="sidebar-foot"><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar panel">
+        <button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
+        <div class="top-title"><strong><span class="locale-zh">首个模型与结果检查</span><span class="locale-en">First model and results</span></strong><small>MagneticTB</small></div>
+        <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="helpSearch" type="search" autocomplete="off" placeholder="搜索本页" aria-label="搜索帮助"><small id="searchCount" class="search-count" aria-live="polite"></small></label>
+        <div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button" aria-label="Switch to English">EN</button></div>
+      </header>
+      <main id="mainContent">
+        <section id="guide" class="help-section" data-searchable data-search="Guide Getting Started msgop gray init current_model Wyckoff Graphene exact Fraction symbol sqrt workflow">
+          <div class="section-heading">
+            <div><p class="eyebrow">Guide · msgop → init → symham</p><h2><span class="locale-zh">MagneticTB 建模指南</span><span class="locale-en">MagneticTB modeling guide</span></h2><p class="locale-zh">本节从一个完整且不平凡的 Graphene 模型开始，逐项说明用户输入、物理意义和实际输出。模型数据保持精确；不要把 <code>Fraction(1, 2)</code> 换成 <code>0.5</code>。</p><p class="locale-en">This section begins with a complete nontrivial Graphene model and explains the input, physical meaning, and actual output. Model data remain exact; do not replace <code>Fraction(1, 2)</code> with <code>0.5</code>.</p></div>
+            <span class="section-index">G2</span>
+          </div>
+          <div class="content-grid">
+            <article class="card panel wide">
+              <h3><span class="locale-zh">完整输入</span><span class="locale-en">Complete input</span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 1. 导入精确数与建模入口</span><span class="code-comment locale-en"># 1. Import exact-number and modeling entry points</span>
+from fractions import Fraction
+
+from magnetictb import current_model, gray, init, msgop, sqrt, symbol
+
+<span class="code-comment locale-zh"># 2. 晶格参数和分数坐标必须保持精确</span><span class="code-comment locale-en"># 2. Keep lattice parameters and fractional coordinates exact</span>
+a = symbol("a")
+c = symbol("c")
+half = Fraction(1, 2)
+third = Fraction(1, 3)
+
+<span class="code-comment locale-zh"># 3. 读取完整且有序的磁空间群操作</span><span class="code-comment locale-en"># 3. Read the complete ordered magnetic-space-group operations</span>
+operations = msgop(gray[191])
+
+<span class="code-comment locale-zh"># 4. 安装当前模型并预先准备前三个键层</span><span class="code-comment locale-en"># 4. Install the current model and prepare its first three shells</span>
+init(
+    lattice=(
+        (a, 0, 0),
+        (-a * half, sqrt(3) * a * half, 0),
+        (0, 0, c),
+    ),
+    lattpar=(("a", 1), ("c", 3)),
+    wyckoffposition=(((third, 2 * third, 0), (0, 0, 0)),),
+    symminformation=operations,
+    basis_functions=(("pz",),),
+    initial_bond_shells=3,
+    generate_symmetry_group=False,
+)
+
+<span class="code-comment locale-zh"># 5. 核对 Hamiltonian 的轨道行列顺序</span><span class="code-comment locale-en"># 5. Inspect the Hamiltonian row and column basis order</span>
+model = current_model()
+print([(o.orbital_id, o.site_id, o.basis_function) for o in model.orbital_table])</pre></div>
+              <div class="content-grid">
+                <div><h4><code>msgop(gray[191])</code></h4><p class="locale-zh">返回完整、有序的磁空间群操作列表。每项严格为 <code>[label, rotation, translation, "F"/"T"]</code>；顺序同时固定显式表示矩阵顺序。</p><p class="locale-en">Returns the complete ordered magnetic-space-group operations. Each entry is <code>[label, rotation, translation, "F"/"T"]</code>; the order also fixes explicit representation matrices.</p></div>
+                <div><h4><code>init(...)</code></h4><p class="locale-zh">成功时返回 <code>None</code> 并安装 context-local 当前模型。失败前清空旧会话，不会继续使用上一个模型。</p><p class="locale-en">Returns <code>None</code> and installs a context-local current model. A failed initialization clears the old session first.</p></div>
+              </div>
+              <div class="code-block output"><pre>Magnetic space group (BNS): [191, 234]
+Lattice: HexagonalP
+Primitive Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Conventional Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Generators: [('"6z"', 'F'), ('"2x"', 'F'), ('"-1"', 'F'), ('"1"', 'T')]
+[(1, 1, 'pz'), (2, 2, 'pz')]</pre></div>
+              <div class="callout"><span class="locale-zh">轨道表固定 Hamiltonian 行列顺序：第一、二行分别是两个等价碳原子上的 <code>pz</code> 轨道。</span><span class="locale-en">The orbital table fixes Hamiltonian row and column order: the two rows are the <code>pz</code> orbitals on the two equivalent carbon sites.</span></div>
+            </article>
+          </div>
+        </section>
+        <section id="symham" class="help-section" data-searchable data-search="symham HamiltonianExpression matrix shell onsite nearest neighbor Hermitian CartesianCoordinates cartesian fractional row lattice reciprocal ValidationLevel KernelMethod">
+          <div class="section-heading">
+            <div><p class="eyebrow">Reference Page · Usage / Basic Examples / Options</p><h2><code>symham(shell)</code></h2><p class="locale-zh"><code>symham</code> 返回指定单一键层的完整 N×N 符号 Hamiltonian，不是参数列表、维数摘要或只在 Γ 点成立的矩阵。本节给出用法、基本范例、选项和失败边界。</p><p class="locale-en"><code>symham</code> returns the complete N-by-N symbolic Hamiltonian for one shell, not a parameter list, a shape summary, or a Γ-only matrix. This section covers usage, basic examples, options, and failure boundaries.</p></div>
+            <span class="section-index">R2</span>
+          </div>
+          <div class="content-grid">
+            <article class="card panel">
+              <h3><span class="locale-zh">调用与返回类型</span><span class="locale-en">Call and return type</span></h3>
+              <p class="signature">symham(shell, *, hermitian=True, cartesian_coordinates=False, validation_level="Basic", kernel_method="Iterative")</p>
+              <p><code>list[list[HamiltonianExpression]]</code></p>
+            </article>
+            <article class="card panel">
+              <h3><span class="locale-zh">第一键层的真实输出</span><span class="locale-en">Actual first-shell output</span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># shell=1 只返回 onsite 层的完整二维矩阵</span><span class="code-comment locale-en"># shell=1 returns only the complete onsite matrix</span>
+onsite = symham(1)
+print(onsite)</pre></div>
+              <div class="code-block output"><pre>params: ['e1']
+[[e1, 0], [0, e1]]</pre></div>
+            </article>
+            <article class="card panel wide">
+              <h3><span class="locale-zh">键层与选项</span><span class="locale-en">Shells and options</span></h3>
+              <div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">项目</span><span class="locale-en">Item</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">说明</span><span class="locale-en">Meaning</span></th></tr></thead><tbody>
+                <tr><td><code>shell</code></td><td>—</td><td><span class="locale-zh">物理键层从 1 开始；1=onsite，2=第一非零距离近邻。每次只返回一个 shell。</span><span class="locale-en">Physical shells are 1-based; 1=onsite and 2=first nonzero-distance neighbors. One shell is returned per call.</span></td></tr>
+                <tr><td><code>Hermitian</code></td><td><code>True</code></td><td><code>True / False</code></td></tr>
+                <tr><td><code>CartesianCoordinates</code></td><td><code>False</code></td><td><span class="locale-zh"><code>False</code> 保持 stable 的分数倒空间动量语义；<code>True</code> 将相位精确改写为 Cartesian <code>kx</code>、<code>ky</code>、<code>kz</code>。</span><span class="locale-en"><code>False</code> keeps the stable fractional-reciprocal momentum convention; <code>True</code> exactly rewrites phases in Cartesian <code>kx</code>, <code>ky</code>, and <code>kz</code>.</span></td></tr>
+                <tr><td><code>ValidationLevel</code></td><td><code>"Basic"</code></td><td><code>"None" / "Basic" / "Full"</code></td></tr>
+                <tr><td><code>KernelMethod</code></td><td><code>"Iterative"</code></td><td><span class="locale-zh"><code>"Iterative" / "Stacked" / "Cyclotomic"</code>；三者都是 Rust 分圆域精确内核中的约束求解路径，不是不同数域，也没有浮点后端。</span><span class="locale-en"><code>"Iterative" / "Stacked" / "Cyclotomic"</code>; all three are constraint-solving routes within the Rust exact cyclotomic core, not different coefficient fields, and none is a floating-point backend.</span></td></tr>
+              </tbody></table></div>
+              <div class="callout warning"><span class="locale-zh">普通 Python <code>list</code> 的 <code>+</code> 是行拼接。组合多个 shell 时使用 <code>hamiltonian_object(1) + hamiltonian_object(2)</code>，再调用 <code>to_list()</code>。</span><span class="locale-en">Python list <code>+</code> concatenates rows. Combine shells with <code>hamiltonian_object(1) + hamiltonian_object(2)</code>, then call <code>to_list()</code>.</span></div>
+            </article>
+            <article class="card panel wide" data-search="CartesianCoordinates row-lattice reciprocalLattice d_cart d_frac shear nonorthogonal">
+              <h3><code>CartesianCoordinates</code> · <span class="locale-zh">坐标变换</span><span class="locale-en">coordinate transform</span></h3>
+              <p class="locale-zh">设正格矢按行组成矩阵 <code>A</code>，所选键的分数位移为行向量 <code>d_frac</code>。默认 <code>False</code> 使用 stable 原有的分数倒空间变量；设为 <code>True</code> 后，Cartesian 位移和 Bloch 相位为</p>
+              <p class="locale-en">Let the direct-lattice vectors be the rows of <code>A</code>, and let <code>d_frac</code> be a selected bond displacement written as a row vector. The default <code>False</code> uses the stable fractional-reciprocal variables. With <code>True</code>, the Cartesian displacement and Bloch phase are</p>
+              <div class="formula" data-tex>
+\mathbf d_{\mathrm{cart}}=\mathbf d_{\mathrm{frac}}A,
+\qquad
+\exp\!\left(i\,\mathbf k_{\mathrm{cart}}\!\cdot\!\mathbf d_{\mathrm{cart}}\right).
+              </div>
+              <p class="locale-zh">这里采用 row-lattice 约定，其中 <code>B = reciprocalLattice</code>：</p>
+              <p class="locale-en">This uses the row-lattice convention, with <code>B = reciprocalLattice</code>:</p>
+              <div class="formula" data-tex>
+\{k_x,k_y,k_z\}
+\longmapsto
+\bigl(2\pi\{k_x,k_y,k_z\}\bigr)B^{-1}.
+              </div>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 默认使用分数倒空间变量</span><span class="code-comment locale-en"># Default: fractional-reciprocal variables</span>
+fractional = symham(2)
+<span class="code-comment locale-zh"># 只改写相位坐标，不改变键层和参数</span><span class="code-comment locale-en"># Rewrite phase coordinates without changing the shell or parameters</span>
+cartesian = symham(2, CartesianCoordinates=True)</pre></div>
+              <div class="callout"><span class="locale-zh">两次调用返回相同键层、参数和矩阵维数；第二次只把每一项的相位精确改写到 Cartesian 动量。该规则已经过 Graphene 帮助例以及非正交、剪切晶格验证，并非只适用于对角晶格。</span><span class="locale-en">Both calls return the same shell, parameters, and matrix shape; the second exactly rewrites every phase in Cartesian momentum. The rule is verified against the Graphene help example and non-orthogonal sheared lattices, not only diagonal lattices.</span></div>
+            </article>
+          </div>
+        </section>
+        <section id="reference" class="help-section" data-searchable data-search="reference msgop init initfromrep symham current_model hamiltonian_object hamiltonian_space prepare_model Induced">
+          <div class="section-heading">
+            <div><p class="eyebrow">Reference Pages</p><h2><span class="locale-zh">核心函数参考</span><span class="locale-en">Core function reference</span></h2><p class="locale-zh">普通主线采用 <code>msgop/init/initfromrep/symham</code> 生命周期。每个入口先说明解决的物理问题，再说明输入与返回；基本范例、选项和应用链接到本页对应章节。</p><p class="locale-en">The ordinary workflow uses the <code>msgop/init/initfromrep/symham</code> lifecycle. Each entry starts from the physical task, then explains input and return values; basic examples, options, and applications link to the corresponding sections on this page.</p></div>
+            <span class="section-index">R1</span>
+          </div>
+          <div class="content-grid">
+            <article class="card panel wide">
+              <h3><span class="locale-zh">函数页阅读顺序</span><span class="locale-en">Function-page structure</span></h3>
+              <div class="reference-outline">
+                <a href="#reference"><small>Usage</small><strong class="locale-zh">用法与返回值</strong><strong class="locale-en">Usage and return values</strong></a>
+                <a href="#guide"><small>Basic Examples</small><strong class="locale-zh">完整基本范例</strong><strong class="locale-en">Complete basic example</strong></a>
+                <a href="#symham"><small>Options</small><strong class="locale-zh">公开选项</strong><strong class="locale-en">Public options</strong></a>
+                <a href="../tutorial/HamiltonianOutputs.html#tutorials"><small>Applications</small><strong class="locale-zh">材料与模型应用</strong><strong class="locale-en">Material and model applications</strong></a>
+                <a href="#relations"><small>Properties &amp; Relations</small><strong class="locale-zh">入口之间的关系</strong><strong class="locale-en">Relations between entry points</strong></a>
+              </div>
+            </article>
+            <article class="card panel">
+              <h3><code>msgop(group)</code></h3>
+              <p><strong>→ <code>list[list]</code></strong></p>
+              <p class="locale-zh">支持 <code>gray</code>、<code>typeI</code>、<code>typeIII</code>、<code>typeIV</code>、<code>bnsdict</code>、<code>ogdict</code>、<code>ognumdict</code> 及 <code>MSG(...)</code>。</p>
+              <p class="locale-en">Accepts <code>gray</code>, <code>typeI</code>, <code>typeIII</code>, <code>typeIV</code>, <code>bnsdict</code>, <code>ogdict</code>, <code>ognumdict</code>, and <code>MSG(...)</code>.</p>
+              <p><a href="../reference/msgop.html"><span class="locale-zh">打开完整 <code>msgop</code> 函数页 →</span><span class="locale-en">Open the complete <code>msgop</code> reference page →</span></a></p>
+            </article>
+            <article class="card panel">
+              <h3><code>init(...)</code></h3>
+              <p><strong>→ <code>None</code></strong></p>
+              <p class="locale-zh">根据局域轨道 catalog 或 <code>ExplicitPolynomialBasis</code> 建模，并安装当前会话。默认准备 10 个键层。</p>
+              <p class="locale-en">Builds from catalog orbitals or <code>ExplicitPolynomialBasis</code> and installs the current session. Ten shells are prepared by default.</p>
+              <p class="locale-zh"><code>representation_mode="Induced"</code> 会在内部自动生成所需的 site-local data；它不是用户选项。</p>
+              <p class="locale-en"><code>representation_mode="Induced"</code> automatically creates the required site-local data internally; it is not a user option.</p>
+              <div class="tag-list"><span class="tag">DirectProduct</span><span class="tag">Induced</span><span class="tag">initial_bond_shells=10</span></div>
+              <p><a href="../reference/init.html"><span class="locale-zh">打开完整 <code>init</code> 函数页 →</span><span class="locale-en">Open the complete <code>init</code> reference page →</span></a></p>
+            </article>
+            <article class="card panel">
+              <h3><code>initfromrep(...)</code></h3>
+              <p><strong>→ <code>None</code></strong></p>
+              <p class="locale-zh">使用与有序群操作一一对应的显式精确表示矩阵。程序不会猜测、补齐或重新排列矩阵。</p>
+              <p class="locale-en">Uses exact representation matrices in one-to-one correspondence with ordered group operations. Matrices are never guessed, completed, or reordered.</p>
+              <p><a href="../reference/initfromrep.html"><span class="locale-zh">打开完整 <code>initfromrep</code> 函数页 →</span><span class="locale-en">Open the complete <code>initfromrep</code> reference page →</span></a></p>
+            </article>
+            <article class="card panel">
+              <h3><code>symham(shell, ...)</code></h3>
+              <p><strong>→ <code>list[list[HamiltonianExpression]]</code></strong></p>
+              <p class="locale-zh">返回单一 1-based 物理键层的完整符号矩阵，并显示该层参数名。</p>
+              <p class="locale-en">Returns the complete symbolic matrix for one 1-based physical shell and prints its parameter names.</p>
+              <p><a href="../reference/symham.html"><span class="locale-zh">打开完整 <code>symham</code> 函数页 →</span><span class="locale-en">Open the complete <code>symham</code> reference page →</span></a></p>
+            </article>
+            <article class="card panel wide">
+              <h3><span class="locale-zh">模型检查与结果解释</span><span class="locale-en">Model inspection and result interpretation</span></h3>
+              <p class="locale-zh">这些函数页显示实际表格，分别回答 Hamiltonian 的基顺序、键端点、矩阵元方向和对称表示。</p>
+              <p class="locale-en">These pages show actual tables for Hamiltonian basis order, bond endpoints, matrix-element orientation, and symmetry representations.</p>
+              <div class="reference-outline">
+                <a href="../reference/orbitalTable.html"><small>Reference</small><strong><code>orbitalTable</code></strong></a>
+                <a href="../reference/showbonds.html"><small>Reference</small><strong><code>showbonds</code></strong></a>
+                <a href="../reference/showHamiltonianBasis.html"><small>Reference</small><strong><code>showHamiltonianBasis</code></strong></a>
+                <a href="../reference/showSymmetryRepresentations.html"><small>Reference</small><strong><code>showSymmetryRepresentations</code></strong></a>
+                <a href="../reference/CurrentModelSession.html"><small>Reference</small><strong><code>CurrentModelSession</code></strong></a>
+                <a href="../reference/showHoppingParameters.html"><small>Reference</small><strong><code>showHoppingParameters</code></strong></a>
+                <a href="../reference/showMSGWyckoff.html"><small>Reference</small><strong><code>showMSGWyckoff</code></strong></a>
+                <a href="../reference/gray.html"><small>Reference</small><strong><code>gray</code></strong></a>
+                <a href="../reference/bnsdict.html"><small>Reference</small><strong><code>bnsdict</code></strong></a>
+                <a href="../reference/typeI.html"><small>Reference</small><strong><code>typeI</code></strong></a>
+                <a href="../reference/typeIII.html"><small>Reference</small><strong><code>typeIII</code></strong></a>
+                <a href="../reference/typeIV.html"><small>Reference</small><strong><code>typeIV</code></strong></a>
+                <a href="../reference/graylayer.html"><small>Reference</small><strong><code>graylayer</code></strong></a>
+                <a href="../reference/mlgop.html"><small>Reference</small><strong><code>mlgop</code></strong></a>
+                <a href="../reference/grayrod.html"><small>Reference</small><strong><code>grayrod</code></strong></a>
+                <a href="../reference/mrgop.html"><small>Reference</small><strong><code>mrgop</code></strong></a>
+                <a href="../reference/pointMatrix.html"><small>Reference</small><strong><code>pointMatrix</code></strong></a>
+                <a href="../reference/getGenerator.html"><small>Reference</small><strong><code>getGenerator</code></strong></a>
+                <a href="../reference/CompileMagneticTBInput.html"><small>Reference</small><strong><code>CompileMagneticTBInput</code></strong></a>
+                <a href="../reference/unsymham.html"><small>Reference</small><strong><code>unsymham</code></strong></a>
+                <a href="../reference/hoppingData.html"><small>Reference</small><strong><code>hoppingData</code></strong></a>
+                <a href="../reference/hop.html"><small>Reference</small><strong><code>hop</code></strong></a>
+                <a href="../reference/readHR.html"><small>Reference</small><strong><code>readHR</code></strong></a>
+                <a href="../reference/symhamII.html"><small>Reference</small><strong><code>symhamII</code></strong></a>
+                <a href="../reference/transformHoppings.html"><small>Reference</small><strong><code>transformHoppings</code></strong></a>
+                <a href="../reference/standardKPath.html"><small>Reference</small><strong><code>standardKPath</code></strong></a>
+                <a href="../reference/brokenSymmetryInitRules.html"><small>Reference</small><strong><code>brokenSymmetryInitRules</code></strong></a>
+                <a href="../reference/vaspEig.html"><small>Reference</small><strong><code>vaspEig</code></strong></a>
+              </div>
+            </article>
+            <article id="relations" class="card panel wide">
+              <h3><span class="locale-zh">高级无会话与诊断对象</span><span class="locale-en">Advanced detached and diagnostic objects</span></h3>
+              <div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">入口</span><span class="locale-en">Entry point</span></th><th><span class="locale-zh">用途</span><span class="locale-en">Purpose</span></th></tr></thead><tbody>
+                <tr><td><code>prepare_model(...)</code></td><td><span class="locale-zh">返回无会话 <code>PreparedModel</code>，不改变 <code>current_model()</code>。</span><span class="locale-en">Returns a detached <code>PreparedModel</code> without changing <code>current_model()</code>.</span></td></tr>
+                <tr><td><code>prepare_model_from_rep(...)</code></td><td><span class="locale-zh">显式表示的无会话版本。</span><span class="locale-en">Detached explicit-representation version.</span></td></tr>
+                <tr><td><code>hamiltonian_object(shell)</code></td><td><span class="locale-zh">高级不可变 Hamiltonian；支持属性、求值和跨 shell 加法。</span><span class="locale-en">Advanced immutable Hamiltonian supporting properties, evaluation, and shell addition.</span></td></tr>
+                <tr><td><code>hamiltonian_space(shell)</code></td><td><span class="locale-zh">完整键、约束、参数和基的诊断对象；不是 <code>symham</code> 的返回类型。</span><span class="locale-en">Diagnostic object for bonds, constraints, parameters, and basis; not the return type of <code>symham</code>.</span></td></tr>
+              </tbody></table></div>
+            </article>
+          </div>
+        </section>
+
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No matching section on this page.</span></div>
+      </main>
+      <footer><a href="../index.html"><span class="locale-zh">MagneticTB帮助主页</span><span class="locale-en">MagneticTB Help Home</span></a></footer>
+    </div>
+  </div>
+</body>
+</html>

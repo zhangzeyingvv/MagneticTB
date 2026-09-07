@@ -1,0 +1,3 @@
+showHamiltonianBasis
+范例
+MagneticTB/ref/showHamiltonianBasis

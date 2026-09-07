@@ -1,0 +1,5 @@
+bandManipulateEig
+opens a Manipulate panel for tuning the symbolic parameters of H against numeric reference bands.
+Examples
+Related Functions
+MagneticTB/ref/bandManipulateEig

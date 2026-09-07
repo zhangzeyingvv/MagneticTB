@@ -1,0 +1,7 @@
+symhamII
+changes the Bloch basis convention of H by including the orbital-center phases.
+Examples
+Related Functions
+MagneticTB/ref/symhamII
+Options
+wcc

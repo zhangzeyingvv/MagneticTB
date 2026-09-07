@@ -1,0 +1,5 @@
+showHamiltonianBasis
+shows the basis states in the exact row and column order of the Hamiltonian.
+Examples
+Related Functions
+MagneticTB/ref/showHamiltonianBasis

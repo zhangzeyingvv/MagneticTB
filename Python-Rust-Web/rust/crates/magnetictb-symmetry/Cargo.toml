@@ -1,0 +1,21 @@
+[package]
+name = "magnetictb-symmetry"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Exact affine and Seitz symmetry algebra for MagneticTB"
+license = "GPL-3.0-only"
+
+[dependencies]
+cyclotomic-nullspace = { path = "../cyclotomic-nullspace" }
+magnetictb-abstract-group = { path = "../magnetictb-abstract-group" }
+magnetictb-data = { path = "../magnetictb-data" }
+magnetictb-linear-algebra = { path = "../magnetictb-linear-algebra" }
+num-bigint = "0.4"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"

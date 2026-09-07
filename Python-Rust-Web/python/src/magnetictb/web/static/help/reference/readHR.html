@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="description" content="MagneticTB Python readHR reference with actual parsed output."><title>readHR · MagneticTB Python 用户帮助</title><link rel="stylesheet" href="../help.css?v=a0a09c187d71"><script defer src="../help.js?v=6bee0b68d479"></script></head>
+<body data-locale="zh"><a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><button id="sidebarScrim" class="sidebar-scrim" type="button"></button><div class="help-shell">
+  <aside id="helpSidebar" class="sidebar panel"><a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a><nav class="nav"><a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a><p class="nav-group">readHR</p><a class="active" href="#usage"><span>01</span><span>Usage</span></a><a href="#basic"><span>02</span><span>Basic Examples</span></a><a href="#options"><span>03</span><span>Options</span></a><p class="nav-group">Links</p><a href="hop.html"><span>H</span><span>hop</span></a><a href="symham.html"><span>S</span><span>symham</span></a></nav><div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">3 个示例</span><span class="locale-en">3 examples</span></div><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div></aside>
+  <div class="workspace"><header class="topbar panel"><button id="menuButton" class="icon-button" type="button">☰</button><div class="top-title"><strong><code>readHR</code></strong><small>Reference Page</small></div><label class="search-wrap"><span>⌕</span><input id="helpSearch" type="search" aria-label="搜索本页"><small id="searchCount" class="search-count"></small></label><div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button">EN</button></div></header><main id="mainContent">
+    <section id="usage" class="help-section" data-searchable data-search="readHR Wannier90 parse translations hopping matrices prec ncell"><div class="section-heading"><div><p class="eyebrow">Reference Page</p><h2><code>readHR</code></h2><p class="locale-zh">严格读取完整的 Wannier90 <code>hr.dat</code>，验证文件头、简并度、平移、轨道编号和复矩阵元。</p><p class="locale-en">Strictly parse a complete Wannier90 <code>hr.dat</code>, validating its header, degeneracies, translations, orbital indices, and complex matrix elements.</p></div><span class="section-index">01</span></div><article class="card panel"><p class="signature">readHR(file, *, prec=1e-10, ncell="All") → dict</p><div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">参数</span><span class="locale-en">Parameter</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">作用</span><span class="locale-en">Purpose</span></th></tr></thead><tbody><tr><td><code>file</code></td><td>—</td><td><span class="locale-zh">Wannier90 <code>hr.dat</code> 文件路径。</span><span class="locale-en">Path to a Wannier90 <code>hr.dat</code> file.</span></td></tr><tr><td><code>prec</code></td><td><code>1e-10</code></td><td><span class="locale-zh">把绝对值小于该非负有限数的矩阵元实部或虚部截为 0。</span><span class="locale-en">Finite nonnegative cutoff that sets a matrix element’s real or imaginary part to zero when its absolute value is smaller.</span></td></tr><tr><td><code>ncell</code></td><td><code>"All"</code></td><td><span class="locale-zh"><code>"All"</code> 保留全部平移；非负整数 n 只保留三个分量都满足 |Rᵢ|≤n 的平移块。</span><span class="locale-en"><code>"All"</code> keeps every translation; a nonnegative integer n keeps blocks whose three translation components all satisfy |Rᵢ|≤n.</span></td></tr></tbody></table></div><p class="locale-zh">返回值包括 <code>Translations</code>、<code>HoppingMatrices</code>、<code>NumWannier</code>、<code>NumTranslations</code>、<code>Degeneracies</code>、<code>HermitianResidual</code> 等字段。把该字典交给 <code>buildBlochHamiltonian</code> 可恢复数值 Bloch 矩阵。</p><p class="locale-en">The result contains <code>Translations</code>, <code>HoppingMatrices</code>, <code>NumWannier</code>, <code>NumTranslations</code>, <code>Degeneracies</code>, <code>HermitianResidual</code>, and related fields. Pass it to <code>buildBlochHamiltonian</code> to reconstruct a numerical Bloch matrix.</p><div class="formula" data-tex>H(\mathbf k)=\sum_{\mathbf R}H(\mathbf R)e^{i\mathbf k\cdot\mathbf R}.</div></article></section>
+    <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+    <section id="basic" class="help-section" data-searchable data-search="Graphene gamma 0.17 1.5"><div class="section-heading"><div><p class="eyebrow">Basic Examples</p><h2><span class="locale-zh">写出、读回并恢复 H(k)</span><span class="locale-en">Write, read, and rebuild H(k)</span></h2></div><span class="section-index">02</span></div><article class="card panel" data-example="1"><h3>Input 1</h3><p class="locale-zh">沿用 <a href="hop.html">hop 页</a>的石墨烯初始化：</p><p class="locale-en">Continue from the Graphene initialization on the <a href="hop.html">hop page</a>:</p><div class="code-block"><pre><span class="code-comment locale-zh"># 读取 hopping 文件并检查重建结果</span><span class="code-comment locale-en"># Read a hopping file and inspect the reconstructed result</span>
+from magnetictb import buildBlochHamiltonian, hop, readHR
+
+with TemporaryDirectory() as directory:
+    hr_file = Path(directory) / "graphene_hr.dat"
+    hop(
+        (1, 2, 3),
+        {"e1": 0.05, "r1": 0.02, "t1": 0.5},
+        hrExport=hr_file,
+        wcc="Automatic",
+    )
+    hr_data = readHR(hr_file)
+    gamma = buildBlochHamiltonian(hr_data, (0, 0, 0))
+    print(gamma)</pre></div><div class="code-block output"><pre>[[(0.16999999999999998+0j), (1.5+0j)],
+ [(1.5+0j), (0.16999999999999998+0j)]]</pre></div><p class="locale-zh">HR 是有限小数文本，因此读回值是普通浮点复数；<code>0.16999999999999998</code> 就是二进制浮点表示的 0.17。</p><p class="locale-en">HR is decimal text, so parsed values are ordinary floating complex numbers; <code>0.16999999999999998</code> is the binary floating representation of 0.17.</p></article></section>
+    <section id="options" class="help-section" data-searchable data-search="prec ncell cutoff"><div class="section-heading"><div><p class="eyebrow">Options</p><h2><code>prec</code> / <code>ncell</code></h2></div><span class="section-index">03</span></div><div class="content-grid"><article class="card panel" data-example="2"><h3>Input 2 · <code>prec=1e-12</code></h3><p class="locale-zh">先写出 <code>e1=1.0</code>、<code>r1=t1=1e-13</code>，再把小量截为零：</p><p class="locale-en">Write <code>e1=1.0</code> and <code>r1=t1=1e-13</code>, then chop tiny entries:</p><div class="code-block"><pre><span class="code-comment locale-zh"># 读取 hopping 文件并检查重建结果</span><span class="code-comment locale-en"># Read a hopping file and inspect the reconstructed result</span>
+hop(
+    (1, 2, 3),
+    {"e1": 1.0, "r1": 1e-13, "t1": 1e-13},
+    hrExport=tiny_hr_file,
+    wcc="Automatic",
+)
+tiny = readHR(tiny_hr_file, prec=1e-12)
+first_nonzero_translation_matrix = next(
+    matrix
+    for translation, matrix in zip(
+        tiny["Translations"], tiny["HoppingMatrices"]
+    )
+    if translation != [0, 0, 0]
+)
+print(first_nonzero_translation_matrix)</pre></div><div class="code-block output"><pre>[[0j, 0j],
+ [0j, 0j]]</pre></div></article><article class="card panel" data-example="3"><h3>Input 3 · <code>ncell=0</code></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 读取 hopping 文件并检查重建结果</span><span class="code-comment locale-en"># Read a hopping file and inspect the reconstructed result</span>
+print(readHR(hr_file, ncell=0)["Translations"])</pre></div><div class="code-block output"><pre>[[0, 0, 0]]</pre></div><p class="locale-zh">完整文件先经过解析和验证，然后才按 <code>max(abs(Ri)) ≤ ncell</code> 截取。</p><p class="locale-en">The complete file is parsed and validated before translations are truncated by <code>max(abs(Ri)) ≤ ncell</code>.</p></article></div></section>
+  </main></div>
+</div></body></html>

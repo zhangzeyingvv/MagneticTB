@@ -1,0 +1,22 @@
+plotRealSpaceWavefunction
+maps a finite-system state onto the matrix-aligned BasisRecords returned by buildRealSpaceHamiltonian.
+Examples
+Options
+Related Functions
+MagneticTB/ref/plotRealSpaceWavefunction
+Aggregation
+Normalize
+WeightThreshold
+PositionTolerance
+PhaseColoring
+ShowAllSites
+ShowSiteLabels
+AtomRadius
+WavefunctionScale
+Output
+ColorFunction
+FontSize
+ViewPoint
+ImageSize
+C4 breathing-square higher-order topological insulator
+representative corner-localized state

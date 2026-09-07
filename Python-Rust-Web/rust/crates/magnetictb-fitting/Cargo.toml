@@ -1,0 +1,18 @@
+[package]
+name = "magnetictb-fitting"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Stable-aligned numerical band fitting for MagneticTB"
+license = "GPL-3.0-only"
+
+[dependencies]
+magnetictb-properties = { path = "../magnetictb-properties" }
+nalgebra = { version = "=0.33.2", default-features = false, features = ["std"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"

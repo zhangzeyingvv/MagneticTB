@@ -1,0 +1,6 @@
+grayrod
+returns the database identifier of the gray magnetic rod group associated with rod-group number n.
+Examples
+Related Functions
+MagneticTB/ref/grayrod
+Possible Issues

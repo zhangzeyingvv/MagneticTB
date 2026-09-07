@@ -1,0 +1,17 @@
+[package]
+name = "magnetictb-linear-algebra"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Exact cyclotomic linear algebra for the MagneticTB Rust core"
+license = "GPL-3.0-only"
+
+[dependencies]
+cyclotomic-nullspace = { path = "../cyclotomic-nullspace" }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"

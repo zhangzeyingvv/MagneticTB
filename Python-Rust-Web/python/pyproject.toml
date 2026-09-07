@@ -1,0 +1,36 @@
+[build-system]
+requires = ["maturin==1.14.1"]
+build-backend = "maturin"
+
+[project]
+name = "magnetictb"
+version = "0.1.0"
+description = "Python interface to the MagneticTB Rust core"
+requires-python = ">=3.9"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+]
+
+dependencies = [
+    "fastapi>=0.100,<1",
+    "matplotlib>=3.6,<4",
+    "uvicorn[standard]>=0.23,<1",
+]
+
+[project.scripts]
+magnetictb-web = "magnetictb.web:main"
+
+[tool.maturin]
+manifest-path = "../rust/crates/magnetictb-python/Cargo.toml"
+python-source = "src"
+module-name = "magnetictb._core"
+bindings = "pyo3"
+include = [
+    { path = "src/magnetictb/web/static/**/*", format = "wheel" },
+]

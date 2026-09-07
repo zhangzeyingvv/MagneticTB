@@ -1,0 +1,3 @@
+init
+范例
+MagneticTB/ref/init

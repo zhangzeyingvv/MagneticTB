@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="MagneticTB Python symham reference: complete symbolic Hamiltonian matrices, options, Cartesian coordinates, and failures.">
+  <title>symham · MagneticTB Python 用户帮助</title>
+  <link rel="stylesheet" href="../help.css?v=a0a09c187d71">
+  <script defer src="../help.js?v=6bee0b68d479"></script>
+</head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+
+  <div class="help-shell">
+    <aside id="helpSidebar" class="sidebar panel">
+      <a class="brand" href="../index.html" aria-label="MagneticTB 帮助主页">
+        <span class="brand-mark">M</span>
+        <span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span>
+      </a>
+      <nav class="nav" aria-label="symham 页面导航">
+        <a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a>
+        <p class="nav-group">symham</p>
+        <a href="#usage" class="active"><span>01</span><span>Usage</span></a>
+        <a href="#basic-examples"><span>02</span><span>Basic Examples</span></a>
+        <a href="#options"><span>03</span><span>Options</span></a>
+        <a href="#issues"><span>04</span><span>Troubleshooting</span></a>
+        <p class="nav-group">Links</p>
+        <a href="../guide/FirstModel.html#guide"><span>G</span><span>Guide</span></a>
+        <a href="../tutorial/HamiltonianOutputs.html#tutorials"><span>T</span><span>Tutorials</span></a>
+        <a href="../guide/FirstModel.html#reference"><span>R</span><span>Reference Pages</span></a>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="local-pill"><i></i><span class="locale-zh">9 已验证 · 1 参数顺序待对齐</span><span class="locale-en">9 verified · 1 parameter-order gap</span></div>
+        <a class="workbench-link" href="../index.html"><span class="locale-zh">← 返回帮助主页</span><span class="locale-en">← Back to help home</span></a>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar panel">
+        <button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
+        <div class="top-title"><strong><code>symham</code></strong><small>Reference Page</small></div>
+        <label class="search-wrap">
+          <span aria-hidden="true">⌕</span>
+          <input id="helpSearch" type="search" autocomplete="off" placeholder="搜索本页" aria-label="搜索本页">
+          <small id="searchCount" class="search-count" aria-live="polite"></small>
+        </label>
+        <div class="top-actions">
+          <button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button>
+          <button id="languageButton" class="text-button" type="button" aria-label="Switch to English">EN</button>
+        </div>
+      </header>
+
+      <main id="mainContent">
+        <section id="usage" class="help-section" data-searchable data-search="symham usage Hamiltonian shell Hermitian CartesianCoordinates ValidationLevel KernelMethod Bloch matrix options">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Reference Page</p>
+              <h2><code>symham</code></h2>
+              <p class="locale-zh">求指定键层对 Bloch Hamiltonian 的完整对称性允许贡献。</p>
+              <p class="locale-en">Construct the complete symmetry-allowed contribution of one bond shell to the Bloch Hamiltonian.</p>
+            </div>
+            <span class="section-index">01</span>
+          </div>
+          <div class="content-grid">
+            <article class="card panel wide">
+              <p class="signature">symham(shell, *, hermitian=True, cartesian_coordinates=False, validation_level="Basic", kernel_method="Iterative", **stable_options) → list[list[HamiltonianExpression]]</p><div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">参数</span><span class="locale-en">Parameter</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">作用</span><span class="locale-en">Purpose</span></th></tr></thead><tbody>
+                <tr><td><code>shell</code></td><td><span class="locale-zh">必填</span><span class="locale-en">required</span></td><td><span class="locale-zh">1-based 正整数，指定一个已经由 <code>init</code> 或 <code>initfromrep</code> 准备的物理键层。一次调用只返回这一层。</span><span class="locale-en">A 1-based positive integer selecting one physical shell already prepared by <code>init</code> or <code>initfromrep</code>. One call returns that shell only.</span></td></tr>
+                <tr><td><code>hermitian</code><br><code>Hermitian</code></td><td><code>True</code></td><td><span class="locale-zh">真正的布尔值。<code>True</code> 对正反向 hopping 施加厄米关系；<code>False</code> 允许两个方向拥有独立参数。</span><span class="locale-en">A genuine Boolean. <code>True</code> imposes the Hermitian relation between forward and reverse hoppings; <code>False</code> allows independent directional parameters.</span></td></tr>
+                <tr><td><code>cartesian_coordinates</code><br><code>CartesianCoordinates</code></td><td><code>False</code></td><td><span class="locale-zh">真正的布尔值。<code>False</code> 保留分数倒空间变量；<code>True</code> 用原始符号晶格精确改写为 Cartesian 动量变量。</span><span class="locale-en">A genuine Boolean. <code>False</code> keeps fractional-reciprocal variables; <code>True</code> uses the original symbolic lattice to rewrite the result exactly in Cartesian momentum.</span></td></tr>
+                <tr><td><code>validation_level</code><br><code>ValidationLevel</code></td><td><code>"Basic"</code></td><td><span class="locale-zh"><code>"None"</code> 不执行求解后的残差认证；<code>"Basic"</code> 精确检查约束残差；<code>"Full"</code> 还检查基底独立性与秩—零度关系。</span><span class="locale-en"><code>"None"</code> skips post-solve residual certification; <code>"Basic"</code> checks the exact constraint residual; <code>"Full"</code> also checks basis independence and the rank-nullity relation.</span></td></tr>
+                <tr><td><code>kernel_method</code><br><code>KernelMethod</code></td><td><code>"Iterative"</code></td><td><span class="locale-zh"><code>"Iterative" / "Stacked" / "Cyclotomic"</code>。三者都使用 Rust 分圆域精确算术且没有数值回退；<code>Iterative</code> 逐块求公共核，<code>Stacked</code> 先堆叠全部约束再求精确零空间，<code>Cyclotomic</code> 使用稳定命名的分圆域精确路径。</span><span class="locale-en"><code>"Iterative" / "Stacked" / "Cyclotomic"</code>. All three use Rust exact cyclotomic arithmetic with no numerical fallback. <code>Iterative</code> intersects constraint blocks successively, <code>Stacked</code> stacks all constraints before the exact null-space solve, and <code>Cyclotomic</code> selects the stable-named exact cyclotomic path.</span></td></tr>
+              </tbody></table></div>
+              <p class="locale-zh">第 1 层是 onsite，第 2 层是第一个非零距离近邻层，第 3 层是下一距离层。每次只返回一个键层，不累计此前各层，也不会重新运行 <code>init</code> 或扩展键搜索。</p>
+              <p class="locale-en">Shell 1 is onsite, shell 2 is the first nonzero-distance neighbour shell, and shell 3 is the next distance. Each call returns one shell only; it neither accumulates earlier shells nor reruns <code>init</code> or extends the bond search.</p>
+
+              <div class="callout"><span class="locale-zh">顶层 <code>symham(...)</code> 同时接受表中并列的 snake_case 与稳定风格名称，一次调用请选择其中一种。对象式 <code>PreparedModel.symham(...)</code> 只接受 snake_case。未知关键字抛出 <code>ModelError[UnknownSymhamOption]</code>。</span><span class="locale-en">Top-level <code>symham(...)</code> accepts either the paired snake-case or stable-style names; use one spelling per call. Object-style <code>PreparedModel.symham(...)</code> accepts snake-case only. Unknown keywords raise <code>ModelError[UnknownSymhamOption]</code>.</span></div>
+            </article>
+          </div>
+        </section>
+
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+
+        <section id="basic-examples" class="help-section" data-searchable data-search="Graphene onsite nearest next-nearest total Hamiltonian output">
+          <div class="section-heading">
+            <div><p class="eyebrow">Basic Examples</p><h2><span class="locale-zh">Graphene 的完整三个键层</span><span class="locale-en">All three Graphene shells</span></h2></div>
+            <span class="section-index">02</span>
+          </div>
+          <article class="card panel" data-example="1">
+            <h3>Input 1 · <span class="locale-zh">完整初始化</span><span class="locale-en">Complete initialization</span></h3>
+            <p class="locale-zh"><code>symham</code> 不会隐式建立模型。下面先用晶格、Wyckoff 位置、磁空间群和两个 <code>pz</code> 轨道初始化 Graphene 模型。</p>
+            <p class="locale-en"><code>symham</code> never creates a model implicitly. The following example first initializes a Graphene model from its lattice, Wyckoff position, magnetic space group, and two <code>pz</code> orbitals.</p>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 定义精确晶格、分数坐标和磁空间群</span><span class="code-comment locale-en"># Define the exact lattice, fractional coordinates, and magnetic space group</span>
+from fractions import Fraction
+
+from magnetictb import gray, init, msgop, sqrt, symbol, symham
+
+a = symbol("a")
+c = symbol("c")
+half = Fraction(1, 2)
+third = Fraction(1, 3)
+
+<span class="code-comment locale-zh"># 安装 Graphene 模型并准备三个键层</span><span class="code-comment locale-en"># Install the Graphene model and prepare three bond shells</span>
+init(
+    lattice=(
+        (a, 0, 0),
+        (-a * half, sqrt(3) * a * half, 0),
+        (0, 0, c),
+    ),
+    lattpar=(("a", 1), ("c", 3)),
+    wyckoffposition=(((third, 2 * third, 0), (0, 0, 0)),),
+    symminformation=msgop(gray[191]),
+    basisFunctions=(("pz",),),
+    InitialBondShells=3,
+    GenerateSymmetryGroup=False,
+)</pre></div>
+            <div class="code-block output"><pre>Magnetic space group (BNS): [191, 234]
+Lattice: HexagonalP
+Primitive Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Conventional Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Generators: [('"6z"', 'F'), ('"2x"', 'F'), ('"-1"', 'F'), ('"1"', 'T')]</pre></div>
+          </article>
+
+          <div class="content-grid">
+            <article class="card panel" data-example="2">
+              <h3>Input 2 · <code>symham(1)</code> · onsite</h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># shell=1：只生成 onsite 层</span><span class="code-comment locale-en"># shell=1: generate only the onsite shell</span>
+graphene_onsite = symham(1)
+print(graphene_onsite)</pre></div>
+              <div class="code-block output"><pre>params: ['e1']
+[[e1, 0],
+ [0, e1]]</pre></div>
+              <p class="locale-zh">第一、二行分别对应两个等价碳原子上的 <code>pz</code> 轨道。对称性使两个 onsite 元素使用同一个参数 <code>e1</code>。</p>
+              <p class="locale-en">Rows one and two are the <code>pz</code> orbitals on the two equivalent carbon atoms. Symmetry gives both onsite entries the same parameter <code>e1</code>.</p>
+            </article>
+
+            <article class="card panel" data-example="3">
+              <h3>Input 3 · <code>symham(2)</code> · <span class="locale-zh">最近邻</span><span class="locale-en">nearest neighbours</span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># shell=2：生成第一非零距离近邻层</span><span class="code-comment locale-en"># shell=2: generate the first nonzero-distance neighbour shell</span>
+graphene_nearest = symham(2)
+print(graphene_nearest)</pre></div>
+              <div class="code-block output"><pre>params: ['t1']
+[[0,
+  t1*exp(I*((-2/3)*kx + (-1/3)*ky))
+  + t1*exp(I*((1/3)*kx + (-1/3)*ky))
+  + t1*exp(I*((1/3)*kx + (2/3)*ky))],
+ [t1*exp(I*((-1/3)*kx + (-2/3)*ky))
+  + t1*exp(I*((-1/3)*kx + (1/3)*ky))
+  + t1*exp(I*((2/3)*kx + (1/3)*ky)),
+  0]]</pre></div>
+              <p class="locale-zh">三个指数项来自三条对称相关最近邻键；下三角元是上三角元的厄米共轭。</p>
+              <p class="locale-en">The three exponentials come from the three symmetry-related nearest-neighbour bonds; the lower entry is the Hermitian conjugate of the upper entry.</p>
+            </article>
+          </div>
+
+          <article class="card panel">
+            <h3>Supplement · <code>symham(3)</code> · <span class="locale-zh">次近邻</span><span class="locale-en">next-nearest neighbours</span></h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># shell=3：生成下一距离层，不自动包含 shell 1 和 2</span><span class="code-comment locale-en"># shell=3: generate the next distance shell without including shells 1 and 2</span>
+graphene_next_nearest = symham(3)
+print(graphene_next_nearest)</pre></div>
+            <div class="code-block output"><pre>params: ['r1']
+[[r1*exp(I*(-kx - ky)) + r1*exp(I*(-kx))
+  + r1*exp(I*(-ky)) + r1*exp(I*(ky))
+  + r1*exp(I*(kx)) + r1*exp(I*(kx + ky)),
+  0],
+ [0,
+  r1*exp(I*(-kx - ky)) + r1*exp(I*(-kx))
+  + r1*exp(I*(-ky)) + r1*exp(I*(ky))
+  + r1*exp(I*(kx)) + r1*exp(I*(kx + ky))]]</pre></div>
+            <p class="locale-zh">六条次近邻键连接同一子晶格，所以只出现在两个相同的对角元中。</p>
+            <p class="locale-en">The six next-nearest-neighbour bonds connect sites in the same sublattice, so they occur only in the two equal diagonal entries.</p>
+          </article>
+
+          <article class="card panel" data-example="4">
+            <h3>Input 4 · <span class="locale-zh">三个键层组成总 Hamiltonian</span><span class="locale-en">Combine the three shells</span></h3>
+            <div class="code-block"><pre>from magnetictb import hamiltonian_object
+
+<span class="code-comment locale-zh"># 多键层相加必须使用 Hamiltonian 对象</span><span class="code-comment locale-en"># Add multiple shells through Hamiltonian objects</span>
+graphene_total = (
+    hamiltonian_object(1)
+    + hamiltonian_object(2)
+    + hamiltonian_object(3)
+)
+<span class="code-comment locale-zh"># 转为普通二维矩阵后再打印</span><span class="code-comment locale-en"># Convert to an ordinary two-dimensional matrix before printing</span>
+print(graphene_total.to_list())</pre></div>
+            <div class="code-block output"><pre>[[e1 + r1*exp(I*(-kx - ky)) + r1*exp(I*(-kx))
+     + r1*exp(I*(-ky)) + r1*exp(I*(ky))
+     + r1*exp(I*(kx)) + r1*exp(I*(kx + ky)),
+  t1*exp(I*((-2/3)*kx + (-1/3)*ky))
+     + t1*exp(I*((1/3)*kx + (-1/3)*ky))
+     + t1*exp(I*((1/3)*kx + (2/3)*ky))],
+ [t1*exp(I*((-1/3)*kx + (-2/3)*ky))
+     + t1*exp(I*((-1/3)*kx + (1/3)*ky))
+     + t1*exp(I*((2/3)*kx + (1/3)*ky)),
+  e1 + r1*exp(I*(-kx - ky)) + r1*exp(I*(-kx))
+     + r1*exp(I*(-ky)) + r1*exp(I*(ky))
+     + r1*exp(I*(kx)) + r1*exp(I*(kx + ky))]]</pre></div>
+            <div class="formula" data-tex>
+H(\mathbf k)=
+\begin{pmatrix}
+e_1+2r_1\!\left(\cos k_x+\cos k_y+\cos(k_x+k_y)\right)
+&amp;t_1f(\mathbf k)\\
+t_1f(\mathbf k)^*&amp;
+e_1+2r_1\!\left(\cos k_x+\cos k_y+\cos(k_x+k_y)\right)
+\end{pmatrix},
+            </div>
+            <div class="formula" data-tex>
+f(\mathbf k)=
+e^{-\frac{i}{3}(2k_x+k_y)}+
+e^{\frac{i}{3}(k_x-k_y)}+
+e^{\frac{i}{3}(k_x+2k_y)}.
+            </div>
+            <div class="callout warning"><span class="locale-zh">普通二维 <code>list</code> 的 <code>+</code> 会拼接行，不是矩阵相加。总 Hamiltonian 必须用高级 <code>Hamiltonian</code> 对象合并，再调用 <code>to_list()</code>。</span><span class="locale-en">The <code>+</code> operator on ordinary two-dimensional lists concatenates rows; it is not matrix addition. Combine advanced <code>Hamiltonian</code> objects first, then call <code>to_list()</code>.</span></div>
+          </article>
+        </section>
+
+        <section id="options" class="help-section" data-searchable data-search="shell hermitian Hermitian cartesian_coordinates CartesianCoordinates validation_level ValidationLevel kernel_method KernelMethod Iterative Stacked Cyclotomic P3">
+          <div class="section-heading">
+            <div><p class="eyebrow">Options</p><h2><span class="locale-zh">公开选项及其实际结果</span><span class="locale-en">Public options and their actual effects</span></h2></div>
+            <span class="section-index">03</span>
+          </div>
+          <article class="card panel" data-search="P3 Hermitian False" data-example="5">
+            <h3>Input 5 · <code>Hermitian=False</code> · <span class="locale-zh">手性 P3 模型</span><span class="locale-en">chiral P3 model</span></h3>
+            <div class="code-block"><pre>from magnetictb import bnsdict, init, msgop, sqrt, symbol, symham
+
+<span class="code-comment locale-zh"># 使用只有一个 s 轨道的手性 P3 模型比较厄米选项</span><span class="code-comment locale-en"># Use a chiral P3 model with one s orbital to compare Hermitian options</span>
+a = symbol("a")
+c = symbol("c")
+init(
+    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 2)),
+    wyckoffposition=(((0, 0, 0), (0, 0, 0)),),
+    symminformation=msgop(bnsdict[(143, 1)]),
+    basisFunctions=(("s",),),
+    InitialBondShells=2,
+)
+
+<span class="code-comment locale-zh"># 默认约束反向 hopping；False 使两个方向拥有独立参数</span><span class="code-comment locale-en"># The default constrains reverse hopping; False gives both directions independent parameters</span>
+p3_hermitian = symham(2)
+p3_nonhermitian = symham(2, Hermitian=False)
+print([[str(entry) for entry in row] for row in p3_hermitian])
+print([[str(entry) for entry in row] for row in p3_nonhermitian])</pre></div>
+            <div class="code-block output"><pre>Magnetic space group (BNS): [143, 1]
+Lattice: HexagonalP
+Primitive Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Conventional Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Generators: [('"3z"', 'F')]
+params: ['t1', 't2']
+params: ['t1', 't2', 't3', 't4']
+[['t1*exp(I*(-kx - ky)) + t1*exp(I*(-kx)) + t1*exp(I*(-ky)) + '
+  't1*exp(I*(ky)) + t1*exp(I*(kx)) + t1*exp(I*(kx + ky)) + '
+  'I*t2*exp(I*(-kx - ky)) - I*t2*exp(I*(-kx)) - I*t2*exp(I*(-ky)) + '
+  'I*t2*exp(I*(ky)) + I*t2*exp(I*(kx)) - I*t2*exp(I*(kx + ky))']]
+[['t1*exp(I*(-kx - ky)) + t1*exp(I*(ky)) + t1*exp(I*(kx)) + '
+  'I*t2*exp(I*(-kx - ky)) + I*t2*exp(I*(ky)) + I*t2*exp(I*(kx)) + '
+  't3*exp(I*(-kx)) + t3*exp(I*(-ky)) + t3*exp(I*(kx + ky)) + '
+  'I*t4*exp(I*(-kx)) + I*t4*exp(I*(-ky)) + I*t4*exp(I*(kx + ky))']]</pre></div>
+            <p class="locale-zh">这是两个完整的 1×1 Hamiltonian。默认矩阵使用 <code>t1,t2</code>；关闭厄米约束后，另一方向的 hopping 得到独立参数 <code>t3,t4</code>。</p>
+            <p class="locale-en">These are the two complete one-by-one Hamiltonians. The default matrix uses <code>t1,t2</code>; disabling Hermiticity gives the reverse hoppings independent parameters <code>t3,t4</code>.</p>
+          </article>
+
+          <div class="callout"><span class="locale-zh">下面的选项示例使用 Graphene 会话。若此前运行了 P3 示例，请先重新运行本页第一个 Graphene 初始化单元。</span><span class="locale-en">The following option examples use the Graphene session. If you previously ran the P3 example, rerun the first Graphene initialization cell on this page.</span></div>
+
+          <div class="content-grid">
+            <article class="card panel" data-search="KernelMethod Stacked" data-example="6">
+              <h3>Input 6 · <code>KernelMethod="Stacked"</code></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 先重新运行 Input 1 的完整 Graphene 初始化</span><span class="code-comment locale-en"># First rerun the complete Graphene initialization from Input 1</span>
+stacked = symham(2, KernelMethod="Stacked")
+print(stacked)</pre></div>
+              <div class="code-block output"><pre>params: ['t1']
+[[0,
+  t1*exp(I*((-2/3)*kx + (-1/3)*ky))
+  + t1*exp(I*((1/3)*kx + (-1/3)*ky))
+  + t1*exp(I*((1/3)*kx + (2/3)*ky))],
+ [t1*exp(I*((-1/3)*kx + (-2/3)*ky))
+  + t1*exp(I*((-1/3)*kx + (1/3)*ky))
+  + t1*exp(I*((2/3)*kx + (1/3)*ky)),
+  0]]</pre></div>
+              <p class="locale-zh"><code>Stacked</code> 只改变分圆域精确共同零空间的约束组织方式，不改变 Graphene 的允许 Hamiltonian，因此完整返回值与 Input 3 相同；这里不存在浮点零空间回退。</p>
+              <p class="locale-en"><code>Stacked</code> changes only how constraints are organized for the exact cyclotomic common null space, not the allowed Graphene Hamiltonian, so the complete return is identical to input 3. No floating-point null-space fallback is involved.</p>
+            </article>
+            <article class="card panel" data-search="ValidationLevel Full" data-example="7">
+              <h3>Input 7 · <code>ValidationLevel="Full"</code></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 先重新运行 Input 1 的完整 Graphene 初始化</span><span class="code-comment locale-en"># First rerun the complete Graphene initialization from Input 1</span>
+fully_checked = symham(2, ValidationLevel="Full")
+print(fully_checked)</pre></div>
+              <div class="code-block output"><pre>params: ['t1']
+[[0,
+  t1*exp(I*((-2/3)*kx + (-1/3)*ky))
+  + t1*exp(I*((1/3)*kx + (-1/3)*ky))
+  + t1*exp(I*((1/3)*kx + (2/3)*ky))],
+ [t1*exp(I*((-1/3)*kx + (-2/3)*ky))
+  + t1*exp(I*((-1/3)*kx + (1/3)*ky))
+  + t1*exp(I*((2/3)*kx + (1/3)*ky)),
+  0]]</pre></div>
+              <p class="locale-zh"><code>Full</code> 在基本约束检查之外继续检查基底独立性和秩—零度关系；验证级别不改变 Graphene 矩阵，所以完整返回值仍与 Input 3 相同。</p>
+              <p class="locale-en"><code>Full</code> additionally checks basis independence and the rank-nullity relation. Validation level does not change the Graphene matrix, so the complete return remains identical to input 3.</p>
+            </article>
+          </div>
+
+          <article class="card panel" data-search="CartesianCoordinates Graphene row lattice reciprocal sheared" data-example="8">
+            <h3>Input 8 · <code>CartesianCoordinates=True</code> · Graphene</h3>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 先运行 Basic Examples 中的完整 Graphene 初始化</span><span class="code-comment locale-en"># First run the complete Graphene initialization in Basic Examples</span>
+graphene_cartesian = symham(2, CartesianCoordinates=True)
+print(graphene_cartesian)</pre></div>
+            <div class="code-block output"><pre>params: ['t1']
+[[0,
+  t1*exp(I*((((-2/3*a) + (-1/6*(-1*a))))*kx
+             + ((-1/6*((3)^(1/2)*a)))*ky))
+  + t1*exp(I*((((1/3*a) + (-1/6*(-1*a))))*kx
+               + ((-1/6*((3)^(1/2)*a)))*ky))
+  + t1*exp(I*((((1/3*a) + (1/3*(-1*a))))*kx
+               + ((1/3*((3)^(1/2)*a)))*ky))],
+ [t1*exp(I*((((-1/3*a) + (-1/3*(-1*a))))*kx
+             + ((-1/3*((3)^(1/2)*a)))*ky))
+  + t1*exp(I*((((-1/3*a) + (1/6*(-1*a))))*kx
+               + ((1/6*((3)^(1/2)*a)))*ky))
+  + t1*exp(I*((((2/3*a) + (1/6*(-1*a))))*kx
+               + ((1/6*((3)^(1/2)*a)))*ky)),
+  0]]</pre></div>
+            <p class="locale-zh">设正格矢按行组成矩阵 A，键的分数位移为行向量 d<sub>frac</sub>。程序先精确计算 d<sub>cart</sub>=d<sub>frac</sub>A，再生成 Cartesian Bloch 相位：</p>
+            <p class="locale-en">Let the direct-lattice vectors be the rows of A and let d<sub>frac</sub> be the fractional bond displacement as a row vector. The program first computes d<sub>cart</sub>=d<sub>frac</sub>A exactly and then forms the Cartesian Bloch phase:</p>
+            <div class="formula" data-tex>
+\mathbf d_{\rm cart}=\mathbf d_{\rm frac}A,
+\qquad e^{i\mathbf k_{\rm cart}\cdot\mathbf d_{\rm cart}}.
+            </div>
+            <p class="locale-zh">Graphene 最近邻矩阵仍是完整的 2 行 2 列矩阵：</p>
+            <p class="locale-en">The Graphene nearest-neighbour result remains a complete two-by-two matrix:</p>
+            <div class="formula" data-tex>
+H^{(2)}_{\rm cart}(\mathbf k)=
+\begin{pmatrix}0&amp;t_1\phi(\mathbf k)\\t_1\phi(\mathbf k)^*&amp;0\end{pmatrix},
+            </div>
+            <div class="formula" data-tex>
+\phi(\mathbf k)=
+e^{ia(-k_x/2-\sqrt3k_y/6)}+
+e^{ia(k_x/2-\sqrt3k_y/6)}+
+e^{ia\sqrt3k_y/3}.
+            </div>
+            <div class="callout"><span class="locale-zh">这里采用 row-lattice 约定，已覆盖非正交和剪切晶格；不是只对角晶格才成立的简化式。</span><span class="locale-en">This uses the row-lattice convention and covers non-orthogonal and sheared lattices; it is not a diagonal-lattice shortcut.</span></div>
+          </article>
+        </section>
+
+        <section id="issues" class="help-section" data-searchable data-search="Troubleshooting ShellNotPrepared InvalidHermitianOption error failure">
+          <div class="section-heading">
+            <div><p class="eyebrow">Troubleshooting</p><h2><span class="locale-zh">键层越界与非法选项</span><span class="locale-en">Unprepared shells and invalid options</span></h2></div>
+            <span class="section-index">04</span>
+          </div>
+          <div class="content-grid">
+            <article class="card panel" data-example="9">
+              <h3>Input 9 · <span class="locale-zh">未准备的键层</span><span class="locale-en">Unprepared shell</span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 未准备的键层</span><span class="code-comment locale-en"># Unprepared shell</span>
+from magnetictb import ModelError
+
+try:
+    symham(4)
+except ModelError as error:
+    print(error.tag)
+    print(error.detail)</pre></div>
+              <div class="code-block output"><pre>ShellNotPrepared
+shell 4 was not prepared; available shells are 1..3</pre></div>
+              <p class="locale-zh"><code>symham</code> 不会自动寻找新键。需要第 4 层时，必须用 <code>InitialBondShells=4</code> 重新运行完整 <code>init</code>。</p>
+              <p class="locale-en"><code>symham</code> never searches for new bonds automatically. To use shell 4, rerun the complete <code>init</code> call with <code>InitialBondShells=4</code>.</p>
+              <p class="locale-zh">未准备的键层会抛出 <code>ModelError[ShellNotPrepared]</code>。</p>
+              <p class="locale-en">An unprepared shell raises <code>ModelError[ShellNotPrepared]</code>.</p>
+            </article>
+            <article class="card panel" data-example="10">
+              <h3>Input 10 · <span class="locale-zh">非法 Hermitian 值</span><span class="locale-en">Invalid Hermitian value</span></h3>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 运行无效输入示例，并检查返回的稳定错误</span><span class="code-comment locale-en"># Run the invalid-input example and inspect the stable error</span>
+try:
+    symham(2, Hermitian="Automatic")
+except ModelError as error:
+    print(error.tag)
+    print(error.detail)</pre></div>
+              <div class="code-block output"><pre>InvalidHermitianOption
+hermitian must be bool</pre></div>
+              <p class="locale-zh"><code>Hermitian</code> 只接受真正的 <code>True</code> 或 <code>False</code>；其他值会抛出 <code>ModelError[InvalidHermitianOption]</code>。</p>
+              <p class="locale-en"><code>Hermitian</code> accepts only the Boolean values <code>True</code> and <code>False</code>; any other value raises <code>ModelError[InvalidHermitianOption]</code>.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer><a href="../index.html"><span class="locale-zh">MagneticTB Python 帮助主页</span><span class="locale-en">MagneticTB Python help home</span></a></footer>
+    </div>
+  </div>
+</body>
+</html>

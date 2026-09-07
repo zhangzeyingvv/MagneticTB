@@ -1,0 +1,7 @@
+CyclotomicCommonKernel
+finds the vectors annihilated by every exact constraint block in a compiled cyclotomic problem.
+Examples
+Related Functions
+MagneticTB/ref/CyclotomicCommonKernel
+Properties & Relations
+Possible Issues

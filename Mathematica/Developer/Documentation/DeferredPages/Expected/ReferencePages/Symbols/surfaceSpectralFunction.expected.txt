@@ -1,0 +1,12 @@
+surfaceSpectralFunction
+returns -Im Tr[Gsurface]/Pi for the semi-infinite surface.
+Examples
+Related Functions
+MagneticTB/ref/surfaceSpectralFunction
+Options
+CellMatrix
+Broadening
+Tolerance
+MaxIterations
+Surface
+HermiticityTolerance

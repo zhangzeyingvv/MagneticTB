@@ -1,0 +1,26 @@
+plotWilsonLoop
+plots Wilson-loop branches while translating one reciprocal-lattice-closed loop along a parameter path.
+Examples
+Options
+Related Functions
+MagneticTB/ref/plotWilsonLoop
+ParameterSubdivisions
+LoopSubdivisions
+HermitianTolerance
+GapTolerance
+CovarianceTolerance
+OverlapTolerance
+PhaseConvention
+Output
+yTicks
+Joined
+PlotMarkers
+PlotStyle
+PlotRange
+GridLines
+FrameLabel
+FontSize
+FontFamily
+ImageSize
+symmetry-generated P4 Chern insulator
+symmetry-generated gray-P4 Z2 insulator

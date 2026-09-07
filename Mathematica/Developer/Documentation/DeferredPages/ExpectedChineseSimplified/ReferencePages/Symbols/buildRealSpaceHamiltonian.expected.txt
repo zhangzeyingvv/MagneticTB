@@ -1,0 +1,3 @@
+buildRealSpaceHamiltonian
+范例
+MagneticTB/ref/buildRealSpaceHamiltonian

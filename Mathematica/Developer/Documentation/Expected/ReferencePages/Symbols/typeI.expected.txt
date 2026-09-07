@@ -1,0 +1,6 @@
+typeI
+returns the database identifier of the type-I magnetic space group with BNS number n.m.
+Examples
+Related Functions
+MagneticTB/ref/typeI
+Possible Issues

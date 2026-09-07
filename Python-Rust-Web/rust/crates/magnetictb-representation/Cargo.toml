@@ -1,0 +1,19 @@
+[package]
+name = "magnetictb-representation"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Exact ordered-group, induced, and physical site representations for MagneticTB"
+license = "GPL-3.0-only"
+
+[dependencies]
+cyclotomic-nullspace = { path = "../cyclotomic-nullspace" }
+magnetictb-abstract-group = { path = "../magnetictb-abstract-group" }
+magnetictb-linear-algebra = { path = "../magnetictb-linear-algebra" }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"

@@ -1,0 +1,24 @@
+plotBerryCurvature3D
+plots the occupied-subspace Berry-curvature vector field {F23,F31,F12}.
+Examples
+Related Functions
+MagneticTB/ref/plotBerryCurvature3D
+Options
+GridSize
+StepSize
+HermitianTolerance
+GapTolerance
+CovarianceTolerance
+OverlapTolerance
+VectorScale
+MagnitudeThreshold
+ArrowheadSize
+ArrowThickness
+Output
+ColorFunction
+Axes
+AxesLabel
+FontSize
+ViewPoint
+PlotRange
+ImageSize

@@ -1,0 +1,10 @@
+readHR
+reads a Wannier90 HR file and returns its lattice translations and real-space hopping matrices.
+Examples
+Related Functions
+MagneticTB/ref/readHR
+Options
+prec
+ncell
+buildBlochHamiltonian
+symmetry-generated hopping entries

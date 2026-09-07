@@ -1,84 +1,184 @@
 # MagneticTB
 
-A Mathematica program package MagneticTB, which can generate
-the tight-binding model for arbitrary magnetic space group. The only
-input parameters in MagneticTB are the (magnetic) space group number
-and the orbital information in each Wyckoff positions. Some useful
-functions including getting the matrix expression for symmetry operators,
-manipulating the energy band structure by parameters and interfacing
-with other software are also developed.
+English | [简体中文](README.zh-CN.md)
+
+MagneticTB constructs symmetry-constrained tight-binding Hamiltonians for
+magnetic space groups, nonmagnetic space groups, and spin-space groups. Given
+the symmetry and orbital information at the selected Wyckoff positions, it
+generates the symmetry-allowed Hamiltonian and provides tools for symmetry
+operations, band structures, and related tight-binding calculations.
+
+This repository contains two independently usable implementations:
+
+- [`Mathematica/`](Mathematica/): the Wolfram Language package, magnetic
+  symmetry data, English and Simplified Chinese documentation, and example
+  notebooks.
+- [`Python-Rust-Web/`](Python-Rust-Web/): the Rust computational core, Python
+  API, Web interface, runtime data, and user documentation.
+
+The two implementations do not require one another at runtime.
 
 ## Installation
 
- Unzip the "MagneticTB-main.zip" file and copy the MagneticTB directory to any of the following four paths:
+### Mathematica
 
-* ```FileNameJoin[{$UserBaseDirectory, "Applications"}]```
-* ```FileNameJoin[{$BaseDirectory, "Applications"}]```
-* ```FileNameJoin[{$InstallationDirectory, "AddOns", "Packages"}]```
-* ```FileNameJoin[{$InstallationDirectory, "AddOns", "Applications"}]```
+The current Mathematica paclet version is `2.0.10` and requires Wolfram
+Language 12.1 or later.
 
+Download `MagneticTB-2.0.10.paclet` from the release assets, then install it in
+a Mathematica kernel using its absolute path:
 
-Then one can use the package after running ```Needs["MagneticTB`"]```.
-The version of Mathematica should higher or equal to 11.0.
+```wl
+PacletInstall["/absolute/path/to/MagneticTB-2.0.10.paclet"]
+```
 
-## Capabilities of MagneticTB
+After installation, quit and restart Mathematica. Then verify and load the
+package in a new kernel:
 
-* Construct the tight-binding model for arbitrary magnetic space group
-* Get the matrix expression for symmetry operators
-* Interface with other software
-* Manipulate the energy band structure by parameters
-* Calculate the band co-representations of tight-binding model
+```wl
+PacletFind["MagneticTB"]
+Needs["MagneticTB`"]
+```
 
-See [Comput. Phys. Commun. **270**, 108153 (2022)](https://www.sciencedirect.com/science/article/abs/pii/S0010465521002654) [(arXiv:2012.08871)](https://arxiv.org/abs/2105.09504) for detail (please cite this paper if you use our code for your research).
+To open the installed documentation, choose **Help > Wolfram Documentation**
+in Mathematica and search for `MagneticTB`. Open the **MagneticTB** guide from
+the search results to browse the function pages, tutorials, and examples. You
+can also search for a function name such as `init`, `initfromrep`, or `symham`
+to open its reference page directly.
 
-## Examples
+See the [Mathematica README](Mathematica/README.md) for updating, uninstalling,
+documentation, and examples.
 
-See Examples.
+### Python + Rust
+
+The Python interface requires CPython 3.9 or later. Download the `.whl` file
+matching your Python version, operating system, and CPU architecture from the
+release assets, then install it with `pip`:
+
+```sh
+python3 -m pip install /absolute/path/to/downloaded-wheel.whl
+```
+
+The wheel includes the compiled Rust core; users do not need to install Rust
+or Cargo separately.
+
+Check the installed package:
+
+```sh
+python3 -c "import magnetictb; print(magnetictb.__version__)"
+```
+
+The current package version prints `0.1.0`. Installing into a Python virtual
+environment is recommended.
+
+See the [Python/Rust/Web README](Python-Rust-Web/README.md) and the
+[Web help center](Python-Rust-Web/docs/user-guide/web/index.html) for the
+modeling workflow, API, exact inputs, and examples.
+
+## Capabilities
+
+- Construct symmetry-constrained tight-binding Hamiltonians.
+- Work with magnetic, nonmagnetic, and spin-space-group symmetry data.
+- Obtain matrix representations of symmetry operations.
+- Generate real-space and momentum-space Hamiltonians by bond shell.
+- Manipulate and analyze band structures and related model properties.
+- Use either the Mathematica interface or the Python API backed by the Rust
+  computational core.
+
+## Examples and documentation
+
+- Mathematica examples: [`Mathematica/Examples/`](Mathematica/Examples/)
+- Mathematica bilingual help: [`Mathematica/Documentation/`](Mathematica/Documentation/)
+- Python/Rust Web help: [`Python-Rust-Web/docs/user-guide/web/`](Python-Rust-Web/docs/user-guide/web/index.html)
 
 ## Release Notes
 
-v1.00b
+Releases are listed from newest to oldest.
 
-* Add a new example for Charge-4 Weyl point in double magnetic space group [PRB **105**, 104426 (2022)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.105.104426)[(arXiv:2112.10479)](https://arxiv.org/abs/2112.10479).
+### Python/Rust 0.1.0 (2026-08-18)
 
-v1.00c
-* Add Chinese manual.
-* Fix a bug for displaying the lattice vector of monoclinic lattice.
+- Added the Rust computational core, Python API, and local Web interface.
 
-v1.01 2022/07/22
-* Fixed an issue where in very rare cases the order of basis functions would change due to the automatic unitarization.
+### Mathematica 2.0.10 (2026-08-17)
 
-v1.02 2022/12/1
-* MagneticTB now has the capability to calculate the band co-representations of a tight-binding model!
+- Expanded the English and Simplified Chinese documentation, tutorials, and
+  quick-start material.
+- Added real-space Hamiltonian, slab, surface Green-function, Berry geometry,
+  Wilson-loop, crystal, Brillouin-zone, and k-path tools, Improved band visualization.
 
-   * Before using this capability, [```SpaceGroupIrep```](https://github.com/goodluck1982/SpaceGroupIrep) and [```MSGCorep```](https://github.com/goodluck1982/MSGCorep)  package needed to be installed.
-   * Add two functions ```getMSGElemFromMSGCorep``` and ```getTBBandCorep```, both two funcitons are depending on the ```MSGCorep``` package.
-   * ```getMSGElemFromMSGCorep[{N1, N2}]``` gives the magnetic space group element from ```MSGCorep``` package, where N1.N2 is the BNS magnetic space group number.
-   * ```getTBBandCorep[BNSNo, Hamiltonian, paramaters, kset]```, give the co-representations of tight-binding model, where ```BNSNo``` is the BNS magnetic space group number,  ```Hamiltonian``` is the Hamiltonian generated by MagneticTB, ```parameters``` is the parameter in the tight-binding model, ``kset`` is the list contains several k points.
-   * For Orthorhombic and Monoclinic lattices, if you want to calculate the co-representations of tight-binding model please use ```getMSGElemFromMSGCorep```  to get the magnetic space group elements rather than ```msgop```. For other lattices both ```msgop``` and ```getMSGElemFromMSGCorep``` should OK.
-   * See  Examples/Co-representationOfTBModel.nb for concrete example.
-   * Please also consider to cite ```MSGCorep``` package \([Comput.  Phys. Commun.**288**, 108722 (2023)](https://linkinghub.elsevier.com/retrieve/pii/S001046552300067X) [arXiv:2211.10740](https://arxiv.org/abs/2211.10740)\) if you are using this capability.
+### Mathematica 2.0.0  (2026-03-15)
 
-v1.02b 2023/2/14
-  * Add an example for getting  the TB parameters by hand, see Examples/ObtainTheTBParametersByHand.nb.
-  * Add English manual.
+- Rewrote the core algorithms using linear algebra and group
+  representation theory.
+- Added the induced-representation mode, enabling construction of minimal
+  tight-binding models.
+- Added `initfromrep`, enabling construction of a tight-binding model from
+  site symmetry group representation input without basis-functions.
+- Added full support for spin-space groups (SSGs), including collinear,
+  coplanar, and non-coplanar cases.
+- Added the cyclotomic exact null-space kernel as a `KernelMethod` available to
+  `symham`.
 
-v.1.03 2023/2/17
-  * Using a greedy algorithm to automatically find the generators of a space group, significantly improves computational efficiency.
+### Mathematica 1.06 (2025-12-11)
 
-v.1.04 2024/6/21
+- Added beta support for spin-space groups.
+- Added magnetic-space-group Wyckoff-position display and symmetry-operation
+  data for magnetic layer and rod groups.
 
-  * Add "CartesianCoordinates" option to generate the TB model in Cartesian coordinates for symham function . See MoS2 for example.
-  * Add banddata to generate band.dat file. See MoS2 for example.
+### Mathematica 1.05 (2024-12-04)
 
-v.1.05 2024/12/4
+- Fixed a bug in `hop`.
+- Added `readHR` for importing `wannier90_hr.dat` files.
 
-  * Fix a bug for hop function (thanks Chaoxi Cui). 
+### Mathematica 1.04 (2024-06-21)
 
-  * Add readHR function to import wannier90_hr.dat file
+- Added the `CartesianCoordinates` option to `symham`.
+- Added `banddata` for generating `band.dat` files.
 
-    
+### Mathematica 1.03 (2023-02-17)
 
-v.1.06 2025/12/11
-  * Support Spin sapce groups (beta verson, see Examples/SSG-Example.nb)
-  * Support show Wyckoff positions of magnetic space groups; show symmetry operations of Magnetic Layer Groups and Magnetic Rod Groups(see Examples/GeneralExamples.nb)
+- Added a greedy algorithm for automatically finding space-group generators,
+  significantly improving computational efficiency.
+
+### Mathematica 1.02b (2023-02-14)
+
+- Added an example showing how to obtain tight-binding parameters by hand.
+- Added the English manual.
+
+### Mathematica 1.02 (2022-12-01)
+
+- Added tight-binding band co-representation calculations using the optional
+  `SpaceGroupIrep` and `MSGCorep` packages.
+- Added `getMSGElemFromMSGCorep` and `getTBBandCorep`.
+
+### Mathematica 1.01 (2022-07-22)
+
+- Fixed a rare basis-function ordering change caused by automatic
+  unitarization.
+
+### Mathematica 1.00c
+
+- Added the Chinese manual.
+- Fixed monoclinic lattice-vector display.
+
+### Mathematica 1.00b
+
+- Added the charge-4 Weyl-point example for double magnetic space groups.
+
+## Citation
+
+If MagneticTB is useful in your research, please cite:
+
+Z. Zhang, Z.-M. Yu, G.-B. Liu, and Y. Yao, “MagneticTB: A package for
+tight-binding model of magnetic and nonmagnetic materials,” *Computer Physics
+Communications* **270**, 108153 (2022).
+
+- [Journal article](https://www.sciencedirect.com/science/article/abs/pii/S0010465521002654)
+- [arXiv:2105.09504](https://arxiv.org/abs/2105.09504)
+
+## License
+
+MagneticTB is licensed under the GNU General Public License version 3 only
+(`GPL-3.0-only`). See [LICENSE](LICENSE).
+
+Copyright (C) 2021-2026 Zhang Zeying.

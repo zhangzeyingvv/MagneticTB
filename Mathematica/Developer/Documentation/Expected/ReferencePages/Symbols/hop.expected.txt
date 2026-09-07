@@ -1,0 +1,13 @@
+hop
+writes the real-space hoppings obtained from solved shells 1 through n in Wannier90 HR format.
+Examples
+Related Functions
+MagneticTB/ref/hop
+Options
+Hermitian
+KernelMethod
+ValidationLevel
+hrExport
+RealDigits
+wcc
+TranslationTolerance

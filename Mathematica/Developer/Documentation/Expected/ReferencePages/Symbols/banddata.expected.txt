@@ -1,0 +1,5 @@
+banddata
+writes the numerical band energies of H along path to a data file.
+Examples
+Related Functions
+MagneticTB/ref/banddata

@@ -1,0 +1,1010 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     43048,       1001]
+NotebookOptionsPosition[     34685,        880]
+NotebookOutlinePosition[     36463,        923]
+CellTagsIndexPosition[     36420,        920]
+WindowTitle->MagneticTB
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["MAGNETIC T B GUIDE", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "c05442bc-7f80-4b92-a34c-b00b99328a85"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "2da0341f-a7e2-4f52-a365-7a919bc856b0"],
+        Background->LightDarkSwitched[
+          RGBColor[0.85098, 0.396078, 0]],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Functions",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "8ff2db4b-ce0d-4473-b422-cf16ca2b1309"]
+         }],ExpressionUUID->"44695aaf-5904-4280-89d3-49cd40adc022"],
+         StripOnInput->False],{
+        StyleBox["\"banddata\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/banddata"], 
+         StyleBox[
+          "\"bandManipulate\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/bandManipulate"], 
+         StyleBox[
+          "\"bandManipulateEig\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/bandManipulateEig"], 
+         StyleBox[
+          "\"bandManipulateold\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/bandManipulateold"], 
+         StyleBox["\"bandplot\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/bandplot"], 
+         StyleBox["\"bnsdict\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/bnsdict"], 
+         StyleBox[
+          "\"brokenSymmetryInitRules\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/brokenSymmetryInitRules"], 
+         StyleBox["\"compareBand\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/compareBand"], 
+         StyleBox[
+          "\"CompileMagneticTBInput\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/CompileMagneticTBInput"], 
+         StyleBox[
+          "\"CurrentModelSession\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/CurrentModelSession"], 
+         StyleBox["\"fittingTB\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/fittingTB"], 
+         StyleBox[
+          "\"GenerateGroup\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/GenerateGroup"], 
+         StyleBox[
+          "\"getGenerator\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/getGenerator"], 
+         StyleBox[
+          "\"getMSGElemFromMSGCorep\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/getMSGElemFromMSGCorep"], 
+         StyleBox[
+          "\"getTBBandCorep\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/getTBBandCorep"], 
+         StyleBox["\"gray\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/gray"], 
+         StyleBox["\"graylayer\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/graylayer"], 
+         StyleBox["\"grayrod\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/grayrod"], 
+         StyleBox["\"hop\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/hop"], 
+         StyleBox["\"hoppingData\"", "SeeAlsoRelated", StripOnInput -> False]
+           :> Documentation`HelpLookup["paclet:MagneticTB/ref/hoppingData"], 
+         StyleBox["\"init\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/init"], 
+         StyleBox["\"initfromrep\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/initfromrep"], 
+         StyleBox["\"initold\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/initold"], 
+         StyleBox["\"mlgop\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/mlgop"], 
+         StyleBox["\"mrgop\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/mrgop"], 
+         StyleBox["\"msgop\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/msgop"], 
+         StyleBox[
+          "\"orbitalTable\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/orbitalTable"], 
+         StyleBox["\"pointMatrix\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/pointMatrix"], 
+         StyleBox["\"readHR\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/readHR"], 
+         StyleBox["\"showband\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/showband"], 
+         StyleBox["\"showbonds\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/showbonds"], 
+         StyleBox[
+          "\"showBrillouinZone\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/showBrillouinZone"], 
+         StyleBox[
+          "\"showCrystalStructure\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/showCrystalStructure"], 
+         StyleBox[
+          "\"showHamiltonianBasis\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/showHamiltonianBasis"], 
+         StyleBox[
+          "\"showHoppingParameters\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/showHoppingParameters"], 
+         StyleBox[
+          "\"showMSGWyckoff\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/showMSGWyckoff"], 
+         StyleBox[
+          "\"showSymmetryRepresentations\"", "SeeAlsoRelated", StripOnInput -> 
+           False] :> Documentation`HelpLookup[
+          "paclet:MagneticTB/ref/showSymmetryRepresentations"], 
+         StyleBox[
+          "\"standardKPath\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/standardKPath"], 
+         StyleBox["\"symham\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/symham"], 
+         StyleBox["\"symhamII\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/symhamII"], 
+         StyleBox["\"symhamold\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/symhamold"], 
+         StyleBox[
+          "\"transformHoppings\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/transformHoppings"], 
+         StyleBox["\"typeI\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/typeI"], 
+         StyleBox["\"typeIII\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/typeIII"], 
+         StyleBox["\"typeIV\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/typeIV"], 
+         StyleBox["\"unsymham\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/unsymham"], 
+         StyleBox["\"vaspEig\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:MagneticTB/ref/vaspEig"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"GuideFunction"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "838215a1-8035-47bf-b984-6f4150673a73"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "dfdc2593-faab-442a-9d4a-599a38228bc4"]
+         }],ExpressionUUID->"e73b9e51-216b-4300-8d7e-d75c77510509"],
+         StripOnInput->False],{
+        "\"Getting Started with MagneticTB\"" :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/tutorial/GettingStarted"], 
+         "\"General MagneticTB Examples\"" :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/tutorial/GeneralExamples"], 
+         "\"Crystal structure, Brillouin zone, and k paths\"" :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/tutorial/CrystalAndKPaths"], 
+         "\"Fitting MagneticTB bands to VASP\"" :> 
+         Documentation`HelpLookup["paclet:MagneticTB/tutorial/BandFitting"], 
+         "\"High-symmetry tetragonal antiferromagnet: spin symmetry and \
+SOC\"" :> Documentation`HelpLookup[
+          "paclet:MagneticTB/tutorial/ContinuousSymmetry"], 
+         "\"Band corepresentations with MSGCorep\"" :> 
+         Documentation`HelpLookup[
+          "paclet:MagneticTB/tutorial/Corepresentations"], 
+         "\"Using MagneticTB 1.0\"" :> 
+         Documentation`HelpLookup["paclet:MagneticTB/tutorial/LegacyBackend"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"GuideTutorial"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "b273a60a-2e27-441c-bb03-1c123b7518eb"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "47205dee-a435-42ea-bce4-fefc9f86f9c9"]
+         }],ExpressionUUID->"9f94a3f2-869e-4bfb-b599-e87f505c9d0c"],
+         StripOnInput->False],{
+        "\"MagneticTB/guide/MagneticTB\"" :> None, 
+         "\"Copy Wolfram Documentation Center URL\"" :> 
+         CopyToClipboard["MagneticTB/guide/MagneticTB"], Delimiter, 
+         "\"Copy web URL\"" :> 
+         Module[{DocumentationSearch`Private`nb$}, 
+           DocumentationSearch`Private`nb$ = 
+            NotebookPut[
+             Notebook[{
+               Cell[BoxData[
+                 MakeBoxes[
+                  Hyperlink[
+                   "http://reference.wolfram.com/language/MagneticTB/guide/\
+MagneticTB.html"], StandardForm]], "Input", TextClipboardType -> 
+                 "PlainText"]}, Visible -> False]]; 
+           SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+           FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+           NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+         "\"Go to web URL\"" :> 
+         FrontEndExecute[{
+           NotebookLocate[{
+             URL[If[TrueQ[False], 
+                 "http://reference.wolfram.com/system-modeler/", 
+                 "http://reference.wolfram.com/language/"] <> 
+               "MagneticTB/guide/MagneticTB" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "64ae2c6a-8a6f-4fd6-8ab3-5ffa2a2d5975"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "ba564fd5-4b6d-4286-b49d-8010883392d6"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"17d9c394-0601-49e4-a6e1-305ef70c4015"],
+
+Cell[CellGroupData[{
+
+Cell["MagneticTB", "GuideTitle",ExpressionUUID->"20c959e4-49ce-4428-856b-1606d029b342"],
+
+Cell["\<\
+MagneticTB constructs analytical tight-binding Hamiltonians from crystal \
+symmetry and local orbital information. It supports ordinary space groups, \
+magnetic space groups, and finite discrete spin-space groups.\
+\>", "GuideAbstract",ExpressionUUID->"e3ce36f5-a603-4c3b-9a2f-f9d55a5bb725"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Tech", " ", "Notes"}], "GuideTutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Getting Started with MagneticTB"]], 
+           "paclet:MagneticTB/tutorial/GettingStarted"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "e42c159e-a4ca-40b3-83c1-9fb657b891f3"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell["\<\
+Install, update, and load the package, then build a graphene Hamiltonian and \
+plot its bands.\
+\>", "GuideText",ExpressionUUID->"4ce230b7-35ef-4d81-b2d2-6aa25d7dfae7"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["General MagneticTB Examples"]], 
+           "paclet:MagneticTB/tutorial/GeneralExamples"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "c6a060e8-ec48-4e1b-8c40-d29586414abf"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell["\<\
+Follow complete model examples from symmetry operations to Hamiltonians and \
+band structures.\
+\>", "GuideText",ExpressionUUID->"4957bccc-62ae-4706-9265-08c4209f9835"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Crystal structure, Brillouin zone, and k paths"]], 
+           "paclet:MagneticTB/tutorial/CrystalAndKPaths"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "25e8a0ea-e382-4d3d-aba5-748a6ea69216"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell["\<\
+Draw a noncollinear magnetic Kagome structure, its Brillouin zone, and its \
+bands.\
+\>", "GuideText",ExpressionUUID->"8031b442-82fe-43b3-936f-5cabd8eba1ed"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Fitting MagneticTB bands to VASP"]], 
+           "paclet:MagneticTB/tutorial/BandFitting"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "966f30f1-020c-4fe3-adfb-6c8ca89aa225"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell["\<\
+Fit VASP bands with nearest- and second-neighbor hopping, or select an energy \
+window or k-point region.\
+\>", "GuideText",ExpressionUUID->"f4e84e49-2dec-4559-8a34-913b2de528f9"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData[
+            "High-symmetry tetragonal antiferromagnet: spin symmetry and \
+SOC"]], "paclet:MagneticTB/tutorial/ContinuousSymmetry"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "8306c3fd-181e-41e6-ab58-1d695adba1cd"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell["\<\
+Compare an antiferromagnet with SOC against the continuous spin symmetry \
+required without SOC.\
+\>", "GuideText",ExpressionUUID->"80e4f766-cf8f-47e8-9ced-4e8ecd273108"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Band corepresentations with MSGCorep"]], 
+           "paclet:MagneticTB/tutorial/Corepresentations"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "9fab3ffe-ab0c-4707-bbce-f3b91a13ad0e"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell["\<\
+Load MSGCorep explicitly and calculate single- and double-valued band \
+corepresentations.\
+\>", "GuideText",ExpressionUUID->"70d1d83b-68e0-4651-a71b-9cd85ca39858"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Using MagneticTB 1.0"]], 
+           "paclet:MagneticTB/tutorial/LegacyBackend"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "08effee1-ef59-4370-88b0-685c9ea3d6b1"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell["\<\
+Load version 1.0 in a separate kernel to run existing models.\
+\>", "GuideText",ExpressionUUID->"7161bd21-b0b3-44ab-995b-7f3e0fb15e5e"]}]}
+     }]}
+  }]], "GuideTutorialsSection",ExpressionUUID->"fb117dc7-781b-49fd-8327-\
+290672ec39cc"],
+
+Cell[CellGroupData[{
+
+Cell["Model setup and inspection", "GuideFunctionsSubsection",ExpressionUUID->"bf01d87f-1326-40e7-aeab-78839fc78132"],
+
+Cell[TextData[{
+ ButtonBox["CurrentModelSession",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/CurrentModelSession"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " read all information already available for the current model."
+}], "GuideText",ExpressionUUID->"ef977fc3-ae0e-47e4-9c39-bd103e4a590a"],
+
+Cell[TextData[{
+ ButtonBox["orbitalTable",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/orbitalTable"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " inspect the fixed Hamiltonian orbital order."
+}], "GuideText",ExpressionUUID->"75cd9189-85ae-4689-a6a8-4799dfeb1ffe"],
+
+Cell[TextData[{
+ ButtonBox["CompileMagneticTBInput",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/CompileMagneticTBInput"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " check program-generated model input without making it the current model."
+}], "GuideText",ExpressionUUID->"34e00594-0fab-4390-b133-4a9485c9beac"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"5c1da3fe-faec-4412-b7d8-b37f6f50d925"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Crystal, symmetry, and group theory", "GuideFunctionsSubsection",ExpressionUUID->"685e8769-009a-436d-9a35-7fe59f2aca4e"],
+
+Cell[TextData[{
+ ButtonBox["msgop",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/msgop"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " obtain magnetic-space-group operations from the bundled database."
+}], "GuideText",ExpressionUUID->"81aec9e3-82a3-4802-8650-52f14c9a5889"],
+
+Cell[TextData[{
+ ButtonBox["gray",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/gray"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " look up gray magnetic-space-group database identifiers."
+}], "GuideText",ExpressionUUID->"ccac9be7-71f5-4d88-b538-6d3f6656a66a"],
+
+Cell[TextData[{
+ ButtonBox["bnsdict",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/bnsdict"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " look up magnetic-space-group database identifiers by complete BNS pair."
+}], "GuideText",ExpressionUUID->"e3095470-75bf-4b1e-8acd-0a6121a7667f"],
+
+Cell[TextData[{
+ ButtonBox["typeI",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/typeI"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " look up type-I magnetic-space-group identifiers by BNS pair."
+}], "GuideText",ExpressionUUID->"e8380bf7-4015-4260-b652-8944f3abde20"],
+
+Cell[TextData[{
+ ButtonBox["typeIII",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/typeIII"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " look up type-III magnetic-space-group identifiers by BNS pair."
+}], "GuideText",ExpressionUUID->"e8809085-b6fe-4745-8879-d503c6793f2c"],
+
+Cell[TextData[{
+ ButtonBox["typeIV",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/typeIV"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " look up type-IV magnetic-space-group identifiers by BNS pair."
+}], "GuideText",ExpressionUUID->"8c1761eb-adc4-414f-8837-eafd328391d9"],
+
+Cell[TextData[{
+ ButtonBox["graylayer",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/graylayer"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " look up gray magnetic-layer-group database identifiers."
+}], "GuideText",ExpressionUUID->"cf861229-6202-49b7-8768-eb8808d6318d"],
+
+Cell[TextData[{
+ ButtonBox["grayrod",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/grayrod"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " look up gray magnetic-rod-group database identifiers."
+}], "GuideText",ExpressionUUID->"a6f44be7-4191-4315-8da5-cd817048f55b"],
+
+Cell[TextData[{
+ ButtonBox["init",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/init"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " initialize a model from basis functions."
+}], "GuideText",ExpressionUUID->"279add73-10fc-44b4-a2a0-c0123c6e90b2"],
+
+Cell[TextData[{
+ ButtonBox["initfromrep",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/initfromrep"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " initialize a model from exact representation matrices."
+}], "GuideText",ExpressionUUID->"57f9d5b3-d75e-4e6e-99a6-aecf51c71c3e"],
+
+Cell[TextData[{
+ ButtonBox["showSymmetryRepresentations",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/showSymmetryRepresentations"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " display full matrices for selected symmetry operations."
+}], "GuideText",ExpressionUUID->"dd96ce46-db66-4c72-94f4-6d8fc8b04c0c"],
+
+Cell[TextData[{
+ ButtonBox["showHamiltonianBasis",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/showHamiltonianBasis"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " display the Hamiltonian bra-ket order."
+}], "GuideText",ExpressionUUID->"6fdf40fa-0fdd-4930-97f7-715b08c0d444"],
+
+Cell[TextData[{
+ ButtonBox["brokenSymmetryInitRules",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/brokenSymmetryInitRules"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " prepare explicit subgroup initialization rules."
+}], "GuideText",ExpressionUUID->"83f42ebd-ae07-4073-b997-e48af85f694a"],
+
+Cell[TextData[{
+ ButtonBox["pointMatrix",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/pointMatrix"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " construct exact local point-operation matrices."
+}], "GuideText",ExpressionUUID->"40804b1d-a618-4d6c-a685-b40a15f366c9"],
+
+Cell[TextData[{
+ ButtonBox["GenerateGroup",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/GenerateGroup"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " generate a finite group from an explicit product."
+}], "GuideText",ExpressionUUID->"275f9ba3-bf5a-4669-ad48-e4251af940cc"],
+
+Cell[TextData[{
+ ButtonBox["getGenerator",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/getGenerator"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " find a generating subset of a complete finite group (2.x compatibility \
+function)."
+}], "GuideText",ExpressionUUID->"4fc554d4-c8f7-46c6-aea0-924d723aa5b0"],
+
+Cell[TextData[{
+ ButtonBox["showMSGWyckoff",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/showMSGWyckoff"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " display magnetic Wyckoff data."
+}], "GuideText",ExpressionUUID->"f6fa9eaa-3e72-4abe-ad8a-14b34951e1e1"],
+
+Cell[TextData[{
+ ButtonBox["mlgop",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/mlgop"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " read magnetic layer-group operations."
+}], "GuideText",ExpressionUUID->"eaa7952e-6c3f-4142-9d73-244acf991337"],
+
+Cell[TextData[{
+ ButtonBox["mrgop",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/mrgop"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " read magnetic rod-group operations."
+}], "GuideText",ExpressionUUID->"2b4b5ed8-cc49-4896-9e9b-c5e42740b8bc"],
+
+Cell[TextData[{
+ ButtonBox["getMSGElemFromMSGCorep",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/getMSGElemFromMSGCorep"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " convert the ordered operations of an installed MSGCorep package."
+}], "GuideText",ExpressionUUID->"3a0a778f-d4b9-4ed2-ab47-1cb8617659af"],
+
+Cell[TextData[{
+ ButtonBox["getTBBandCorep",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/getTBBandCorep"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " print single- or double-valued band corepresentations at supplied k points."
+}], "GuideText",ExpressionUUID->"ae8d5256-ee92-4466-b836-21ce3aa492ac"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"4579dcec-09a6-415a-912c-c4d3f6bd5814"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Hamiltonians and band calculations", "GuideFunctionsSubsection",ExpressionUUID->"8242303c-a9e2-4b20-b08c-43282e61d103"],
+
+Cell[TextData[{
+ ButtonBox["symham",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/symham"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " obtain the symmetry-allowed Hamiltonian of one bond shell."
+}], "GuideText",ExpressionUUID->"bd0f0480-d43b-4daa-905c-33c8a7924b6f"],
+
+Cell[TextData[{
+ ButtonBox["unsymham",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/unsymham"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " inspect an unconstrained directed-bond Hamiltonian."
+}], "GuideText",ExpressionUUID->"ade348be-2c95-4289-aa84-f7a1ce910b12"],
+
+Cell[TextData[{
+ ButtonBox["symhamII",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/symhamII"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " change the Bloch phase convention."
+}], "GuideText",ExpressionUUID->"8810b45d-ccf4-4f89-9da9-f067b3e8d413"],
+
+Cell[TextData[{
+ ButtonBox["hoppingData",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/hoppingData"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " read numerical real-space hopping blocks from solved shells."
+}], "GuideText",ExpressionUUID->"286f6864-e887-4bb2-86da-03bd59ede6fd"],
+
+Cell[TextData[{
+ ButtonBox["transformHoppings",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/transformHoppings"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " transform hopping blocks to an exact integer cell."
+}], "GuideText",ExpressionUUID->"8db5bb5a-3819-4ebd-89fa-d1ceb6e4301b"],
+
+Cell[TextData[{
+ ButtonBox["banddata",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/banddata"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " export numerical band eigenvalues."
+}], "GuideText",ExpressionUUID->"a4606f19-4932-449d-881f-a7e4ab6dfd96"],
+
+Cell[TextData[{
+ ButtonBox["hop",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/hop"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " export solved shells or an exponential H(k) to wannier90_hr.dat."
+}], "GuideText",ExpressionUUID->"a2fcd918-542e-420d-a24c-74fc90814dfc"],
+
+Cell[TextData[{
+ ButtonBox["readHR",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/readHR"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " read and validate a Wannier90 HR file."
+}], "GuideText",ExpressionUUID->"e195a685-243e-4080-a629-b9fff22fdbd2"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"1c8fa385-4ec6-4714-bfed-8408dda10369"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Band fitting and VASP comparison", "GuideFunctionsSubsection",ExpressionUUID->"ca2796e2-363e-4541-9513-e47db8fb3d7e"],
+
+Cell[TextData[{
+ ButtonBox["vaspEig",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/vaspEig"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " read selected bands from a complete numeric VASP EIGENVAL file."
+}], "GuideText",ExpressionUUID->"b39caba3-52b1-42b4-838f-bf8f6586a382"],
+
+Cell[TextData[{
+ ButtonBox["bandManipulateEig",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/bandManipulateEig"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " tune a symbolic tight-binding Hamiltonian interactively against reference \
+bands."
+}], "GuideText",ExpressionUUID->"b3459bbd-fb7a-4170-832f-ccec8b941c8f"],
+
+Cell[TextData[{
+ ButtonBox["fittingTB",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/fittingTB"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " fit an affine-linear tight-binding Hamiltonian to reference bands."
+}], "GuideText",ExpressionUUID->"10031889-3906-47e7-9743-455a436b4c66"],
+
+Cell[TextData[{
+ ButtonBox["compareBand",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/compareBand"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " overlay fitted tight-binding bands with supplied reference bands."
+}], "GuideText",ExpressionUUID->"9fad6b73-c59a-4ca6-874c-9af7095cc196"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"bb3b456b-4298-48f7-91aa-b23fc638d1b6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Plotting and reciprocal-space paths", "GuideFunctionsSubsection",ExpressionUUID->"c630622c-07e3-423d-af68-e7d95c055f04"],
+
+Cell[TextData[{
+ ButtonBox["showbonds",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/showbonds"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " display the length and geometry of a bond shell."
+}], "GuideText",ExpressionUUID->"f67e84c9-47fc-4830-9898-2a3270ceeb51"],
+
+Cell[TextData[{
+ ButtonBox["showHoppingParameters",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/showHoppingParameters"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " trace each parameter to real-space hoppings."
+}], "GuideText",ExpressionUUID->"46db2032-596c-4046-b3e1-d994361fb25f"],
+
+Cell[TextData[{
+ ButtonBox["bandManipulate",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/bandManipulate"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " explore the band structure interactively."
+}], "GuideText",ExpressionUUID->"b82b60be-25e5-4026-b55d-30094c0f0db4"],
+
+Cell[TextData[{
+ ButtonBox["bandplot",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/bandplot"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " make a static numerical band plot."
+}], "GuideText",ExpressionUUID->"204e25e8-cada-4221-8173-31c83c461667"],
+
+Cell[TextData[{
+ ButtonBox["showband",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/showband"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " draw a static band plot with an automatic conventional path."
+}], "GuideText",ExpressionUUID->"6fcb25b5-f6d3-4e08-8af8-2ec6006a2866"],
+
+Cell[TextData[{
+ ButtonBox["standardKPath",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/standardKPath"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " select a built-in conventional path from the current lattice metric."
+}], "GuideText",ExpressionUUID->"a7cc8494-0058-4f58-8f8c-82bfa886524f"],
+
+Cell[TextData[{
+ ButtonBox["showCrystalStructure",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/showCrystalStructure"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " draw atoms, primitive cells, and magnetic-moment arrows."
+}], "GuideText",ExpressionUUID->"f146c2aa-7106-43b9-bf3e-5bc16ba9f09c"],
+
+Cell[TextData[{
+ ButtonBox["showBrillouinZone",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/showBrillouinZone"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " draw the first Brillouin zone and selected k path."
+}], "GuideText",ExpressionUUID->"9e14aef2-24a9-4047-9d03-4523d6f1d9ed"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["MagneticTB 1.0 functions", "GuideFunctionsSubsection",ExpressionUUID->"cd0df2b5-1d26-4e45-9c65-e079e20502f4"],
+
+Cell["\<\
+The MagneticTB 1.0 functions are included under MagneticTBOld`, with old \
+appended to their names. They can run earlier notebooks and provide a direct \
+comparison with version 2.0. Load the 1.0 and 2.0 versions in separate \
+kernels.\
+\>", "GuideText",ExpressionUUID->"971b6ecd-985a-4c8c-9b63-30fd2ce9f394"],
+
+Cell[TextData[{
+ ButtonBox["initold",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/initold"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " initialize a model with version 1.0."
+}], "GuideText",ExpressionUUID->"a861da24-0c56-4674-8880-40417de56120"],
+
+Cell[TextData[{
+ ButtonBox["symhamold",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/symhamold"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " construct a Hamiltonian with version 1.0."
+}], "GuideText",ExpressionUUID->"48dc28a8-08f8-4c0e-b63d-ac6a3ac8ee2e"],
+
+Cell[TextData[{
+ ButtonBox["bandManipulateold",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MagneticTB/ref/bandManipulateold"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " explore bands obtained from version 1.0."
+}], "GuideText",ExpressionUUID->"0075350a-8a0e-4697-9dad-974f3173c377"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["History", "HistorySection",ExpressionUUID->"37c4f9a9-ca66-4a54-b0a8-97acf76b62b3"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"d8d77f53-76be-4350-99c1-e7b27f555d96"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"MagneticTB",
+Visible->True,
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {$Failed, ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", "HeaderCoreAreaLink" -> {}, 
+  "Metadata" -> {
+   "built" -> "{2026, 9, 7, 23, 6, 2.771376}", 
+    "history" -> {"2.0.0", "", "", ""}, "context" -> "MagneticTB`", 
+    "keywords" -> {
+     "tight binding", "magnetic symmetry", "Hamiltonian", "band structure"}, 
+    "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> True,
+     "label" -> "Magnetic T B Guide", "language" -> "en", "paclet" -> 
+    "MagneticTB", "status" -> "None", "summary" -> 
+    "MagneticTB constructs analytical tight-binding Hamiltonians from crystal \
+symmetry and local orbital information. It supports ordinary space groups, \
+magnetic space groups, and finite discrete spin-space groups.", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "MagneticTB", 
+    "titlemodifier" -> "", "metadescription" -> "", "windowtitle" -> 
+    "MagneticTB", "type" -> "Guide", "uri" -> 
+    "MagneticTB/guide/MagneticTB"}},
+CacheGraphics->False,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (2026\:5e747\:67082\:65e5)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb"],
+ExpressionUUID->"f44bc20f-0c4e-4c86-a639-5373cce8ddf4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[578, 21, 13254, 258, 70, "AnchorBarGrid",ExpressionUUID->"17d9c394-0601-49e4-a6e1-305ef70c4015",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[13857, 283, 87, 0, 70, "GuideTitle",ExpressionUUID->"20c959e4-49ce-4428-856b-1606d029b342"],
+Cell[13947, 285, 301, 4, 70, "GuideAbstract",ExpressionUUID->"e3ce36f5-a603-4c3b-9a2f-f9d55a5bb725"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14285, 294, 4687, 109, 70, "GuideTutorialsSection",ExpressionUUID->"fb117dc7-781b-49fd-8327-290672ec39cc"],
+Cell[CellGroupData[{
+Cell[18997, 407, 117, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"bf01d87f-1326-40e7-aeab-78839fc78132"],
+Cell[19117, 409, 315, 7, 70, "GuideText",ExpressionUUID->"ef977fc3-ae0e-47e4-9c39-bd103e4a590a"],
+Cell[19435, 418, 284, 7, 70, "GuideText",ExpressionUUID->"75cd9189-85ae-4689-a6a8-4799dfeb1ffe"],
+Cell[19722, 427, 332, 7, 70, "GuideText",ExpressionUUID->"34e00594-0fab-4390-b133-4a9485c9beac"],
+Cell[20057, 436, 93, 0, 70, "GuideDelimiterSubsection",ExpressionUUID->"5c1da3fe-faec-4412-b7d8-b37f6f50d925"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20187, 441, 126, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"685e8769-009a-436d-9a35-7fe59f2aca4e"],
+Cell[20316, 443, 291, 7, 70, "GuideText",ExpressionUUID->"81aec9e3-82a3-4802-8650-52f14c9a5889"],
+Cell[20610, 452, 279, 7, 70, "GuideText",ExpressionUUID->"ccac9be7-71f5-4d88-b538-6d3f6656a66a"],
+Cell[20892, 461, 301, 7, 70, "GuideText",ExpressionUUID->"e3095470-75bf-4b1e-8acd-0a6121a7667f"],
+Cell[21196, 470, 286, 7, 70, "GuideText",ExpressionUUID->"e8380bf7-4015-4260-b652-8944f3abde20"],
+Cell[21485, 479, 292, 7, 70, "GuideText",ExpressionUUID->"e8809085-b6fe-4745-8879-d503c6793f2c"],
+Cell[21780, 488, 289, 7, 70, "GuideText",ExpressionUUID->"8c1761eb-adc4-414f-8837-eafd328391d9"],
+Cell[22072, 497, 289, 7, 70, "GuideText",ExpressionUUID->"cf861229-6202-49b7-8768-eb8808d6318d"],
+Cell[22364, 506, 283, 7, 70, "GuideText",ExpressionUUID->"a6f44be7-4191-4315-8da5-cd817048f55b"],
+Cell[22650, 515, 264, 7, 70, "GuideText",ExpressionUUID->"279add73-10fc-44b4-a2a0-c0123c6e90b2"],
+Cell[22917, 524, 292, 7, 70, "GuideText",ExpressionUUID->"57f9d5b3-d75e-4e6e-99a6-aecf51c71c3e"],
+Cell[23212, 533, 325, 7, 70, "GuideText",ExpressionUUID->"dd96ce46-db66-4c72-94f4-6d8fc8b04c0c"],
+Cell[23540, 542, 294, 7, 70, "GuideText",ExpressionUUID->"6fdf40fa-0fdd-4930-97f7-715b08c0d444"],
+Cell[23837, 551, 309, 7, 70, "GuideText",ExpressionUUID->"83f42ebd-ae07-4073-b997-e48af85f694a"],
+Cell[24149, 560, 285, 7, 70, "GuideText",ExpressionUUID->"40804b1d-a618-4d6c-a685-b40a15f366c9"],
+Cell[24437, 569, 291, 7, 70, "GuideText",ExpressionUUID->"275f9ba3-bf5a-4669-ad48-e4251af940cc"],
+Cell[24731, 578, 323, 8, 70, "GuideText",ExpressionUUID->"4fc554d4-c8f7-46c6-aea0-924d723aa5b0"],
+Cell[25057, 588, 274, 7, 70, "GuideText",ExpressionUUID->"f6fa9eaa-3e72-4abe-ad8a-14b34951e1e1"],
+Cell[25334, 597, 263, 7, 70, "GuideText",ExpressionUUID->"eaa7952e-6c3f-4142-9d73-244acf991337"],
+Cell[25600, 606, 261, 7, 70, "GuideText",ExpressionUUID->"2b4b5ed8-cc49-4896-9e9b-c5e42740b8bc"],
+Cell[25864, 615, 324, 7, 70, "GuideText",ExpressionUUID->"3a0a778f-d4b9-4ed2-ab47-1cb8617659af"],
+Cell[26191, 624, 319, 7, 70, "GuideText",ExpressionUUID->"ae8d5256-ee92-4466-b836-21ce3aa492ac"],
+Cell[26513, 633, 93, 0, 70, "GuideDelimiterSubsection",ExpressionUUID->"4579dcec-09a6-415a-912c-c4d3f6bd5814"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26643, 638, 125, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"8242303c-a9e2-4b20-b08c-43282e61d103"],
+Cell[26771, 640, 286, 7, 70, "GuideText",ExpressionUUID->"bd0f0480-d43b-4daa-905c-33c8a7924b6f"],
+Cell[27060, 649, 283, 7, 70, "GuideText",ExpressionUUID->"ade348be-2c95-4289-aa84-f7a1ce910b12"],
+Cell[27346, 658, 266, 7, 70, "GuideText",ExpressionUUID->"8810b45d-ccf4-4f89-9da9-f067b3e8d413"],
+Cell[27615, 667, 298, 7, 70, "GuideText",ExpressionUUID->"286f6864-e887-4bb2-86da-03bd59ede6fd"],
+Cell[27916, 676, 300, 7, 70, "GuideText",ExpressionUUID->"8db5bb5a-3819-4ebd-89fa-d1ceb6e4301b"],
+Cell[28219, 685, 266, 7, 70, "GuideText",ExpressionUUID->"a4606f19-4932-449d-881f-a7e4ab6dfd96"],
+Cell[28488, 694, 286, 7, 70, "GuideText",ExpressionUUID->"a2fcd918-542e-420d-a24c-74fc90814dfc"],
+Cell[28777, 703, 266, 7, 70, "GuideText",ExpressionUUID->"e195a685-243e-4080-a629-b9fff22fdbd2"],
+Cell[29046, 712, 93, 0, 70, "GuideDelimiterSubsection",ExpressionUUID->"1c8fa385-4ec6-4714-bfed-8408dda10369"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29176, 717, 123, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"ca2796e2-363e-4541-9513-e47db8fb3d7e"],
+Cell[29302, 719, 293, 7, 70, "GuideText",ExpressionUUID->"b39caba3-52b1-42b4-838f-bf8f6586a382"],
+Cell[29598, 728, 332, 8, 70, "GuideText",ExpressionUUID->"b3459bbd-fb7a-4170-832f-ccec8b941c8f"],
+Cell[29933, 738, 300, 7, 70, "GuideText",ExpressionUUID->"10031889-3906-47e7-9743-455a436b4c66"],
+Cell[30236, 747, 303, 7, 70, "GuideText",ExpressionUUID->"9fad6b73-c59a-4ca6-874c-9af7095cc196"],
+Cell[30542, 756, 93, 0, 70, "GuideDelimiterSubsection",ExpressionUUID->"bb3b456b-4298-48f7-91aa-b23fc638d1b6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30672, 761, 126, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"c630622c-07e3-423d-af68-e7d95c055f04"],
+Cell[30801, 763, 282, 7, 70, "GuideText",ExpressionUUID->"f67e84c9-47fc-4830-9898-2a3270ceeb51"],
+Cell[31086, 772, 302, 7, 70, "GuideText",ExpressionUUID->"46db2032-596c-4046-b3e1-d994361fb25f"],
+Cell[31391, 781, 285, 7, 70, "GuideText",ExpressionUUID->"b82b60be-25e5-4026-b55d-30094c0f0db4"],
+Cell[31679, 790, 266, 7, 70, "GuideText",ExpressionUUID->"204e25e8-cada-4221-8173-31c83c461667"],
+Cell[31948, 799, 292, 7, 70, "GuideText",ExpressionUUID->"6fcb25b5-f6d3-4e08-8af8-2ec6006a2866"],
+Cell[32243, 808, 310, 7, 70, "GuideText",ExpressionUUID->"a7cc8494-0058-4f58-8f8c-82bfa886524f"],
+Cell[32556, 817, 312, 7, 70, "GuideText",ExpressionUUID->"f146c2aa-7106-43b9-bf3e-5bc16ba9f09c"],
+Cell[32871, 826, 300, 7, 70, "GuideText",ExpressionUUID->"9e14aef2-24a9-4047-9d03-4523d6f1d9ed"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33208, 838, 115, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"cd0df2b5-1d26-4e45-9c65-e079e20502f4"],
+Cell[33326, 840, 319, 5, 70, "GuideText",ExpressionUUID->"971b6ecd-985a-4c8c-9b63-30fd2ce9f394"],
+Cell[33648, 847, 266, 7, 70, "GuideText",ExpressionUUID->"a861da24-0c56-4674-8880-40417de56120"],
+Cell[33917, 856, 275, 7, 70, "GuideText",ExpressionUUID->"48dc28a8-08f8-4c0e-b63d-ac6a3ac8ee2e"],
+Cell[34195, 865, 290, 7, 70, "GuideText",ExpressionUUID->"0075350a-8a0e-4697-9dad-974f3173c377"]
+}, Open  ]]
+}, Open  ]],
+Cell[34512, 876, 88, 0, 70, "HistorySection",ExpressionUUID->"37c4f9a9-ca66-4a54-b0a8-97acf76b62b3"],
+Cell[34603, 878, 78, 0, 70, "FooterCell",ExpressionUUID->"d8d77f53-76be-4350-99c1-e7b27f555d96"]
+}
+]
+*)
+
+(* End of internal cache information *)

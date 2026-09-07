@@ -1,0 +1,13 @@
+surfaceGreenFunction
+computes the retarded Green function of a semi-infinite surface by principal-layer decimation.
+Examples
+Related Functions
+MagneticTB/ref/surfaceGreenFunction
+Options
+CellMatrix
+Broadening
+Tolerance
+MaxIterations
+Surface
+HermiticityTolerance
+Output

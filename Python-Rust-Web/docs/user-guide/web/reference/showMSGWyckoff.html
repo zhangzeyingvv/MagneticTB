@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="description" content="MagneticTB Python showMSGWyckoff reference with all 12 Wyckoff entries of gray[193]."><title>showMSGWyckoff · MagneticTB Python 用户帮助</title><link rel="stylesheet" href="../help.css?v=a0a09c187d71"><script defer src="../help.js?v=6bee0b68d479"></script></head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+  <div class="help-shell"><aside id="helpSidebar" class="sidebar panel"><a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a><nav class="nav" aria-label="showMSGWyckoff 页面导航"><a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a><p class="nav-group">showMSGWyckoff</p><a class="active" href="#usage"><span>01</span><span>Usage</span></a><a href="#example"><span>02</span><span>Basic Example</span></a><a href="#output"><span>03</span><span>Complete output</span></a><p class="nav-group">Links</p><a href="msgop.html"><span>M</span><span>msgop</span></a><a href="init.html"><span>I</span><span>init</span></a></nav><div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">1 个示例</span><span class="locale-en">1 example</span></div><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div></aside>
+    <div class="workspace"><header class="topbar panel"><button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button><div class="top-title"><strong><code>showMSGWyckoff</code></strong><small>Reference Page</small></div><label class="search-wrap"><span aria-hidden="true">⌕</span><input id="helpSearch" type="search" autocomplete="off" placeholder="搜索本页" aria-label="搜索本页"><small id="searchCount" class="search-count" aria-live="polite"></small></label><div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button" aria-label="Switch to English">EN</button></div></header>
+      <main id="mainContent">
+        <section id="usage" class="help-section" data-searchable data-search="showMSGWyckoff gray BNS magnetic Wyckoff position moment"><div class="section-heading"><div><p class="eyebrow">Reference Page</p><h2><code>showMSGWyckoff</code></h2><p class="locale-zh">返回一个磁空间群的完整稳定 Wyckoff 表，包括 multiplicity、字母、source ordinal、全部位置与磁矩方向。</p><p class="locale-en">Return the complete stable Wyckoff table of one magnetic space group: multiplicity, letter, source ordinal, positions, and moment directions.</p></div><span class="section-index">01</span></div><article class="card panel"><p class="signature">showMSGWyckoff(group) → TableReport</p><div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">参数</span><span class="locale-en">Parameter</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">作用</span><span class="locale-en">Purpose</span></th></tr></thead><tbody><tr><td><code>group</code></td><td><span class="locale-zh">必填</span><span class="locale-en">required</span></td><td><span class="locale-zh">stable MSG 序号、<code>MSG(...)</code> 或公开磁空间群 selector。</span><span class="locale-en">A stable MSG index, <code>MSG(...)</code>, or a public magnetic-space-group selector.</span></td></tr></tbody></table></div><p class="locale-zh"><code>group</code> 可为 stable MSG 序号、<code>MSG(...)</code> 或 <code>gray/typeI/typeIII/typeIV</code> 等 selector。结果顺序与 stable Data 一致，不按字母重新排序。</p><p class="locale-en"><code>group</code> may be a stable MSG index, <code>MSG(...)</code>, or a <code>gray/typeI/typeIII/typeIV</code> selector. Result order follows stable Data and is not alphabetically reconstructed.</p></article></section>
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+        <section id="example" class="help-section" data-searchable data-search="input 1 gray 193 P63 mcm"><div class="section-heading"><div><p class="eyebrow">Basic Example · input 1</p><h2><code>gray[193]</code> · P6₃/mcm1′</h2></div><span class="section-index">02</span></div><article class="card panel" data-example="1"><div class="code-block"><pre><span class="code-comment locale-zh"># 读取并检查磁空间群的 Wyckoff 数据</span><span class="code-comment locale-en"># Read and inspect Wyckoff data for a magnetic space group</span>
+from magnetictb import gray, showMSGWyckoff
+
+report = showMSGWyckoff(gray[193])
+data = report.to_dict()
+print(data["title"])
+print(data["metadata"])
+for row in data["rows"]:
+    positions = [item["Position"]
+                 for item in row["AtomicPositionsAndMagnetizationDirections"]]
+    print(row["Multiplicity"], row["WyckoffLetter"],
+          row["SourceOrdinal"], positions)</pre></div><div class="code-block output"><pre>MSG: (193, 254) P6_3/mcm1'
+{'SchemaVersion': 1, 'StableId': 'msg-1484', 'BNS': [193, 254],
+ 'Symbol': "P6_3/mcm1'", 'EntryCount': 12}</pre></div><p class="locale-zh">共有 12 个 Wyckoff 条目 a–l。这个灰群中返回的每一个磁矩都是 <code>[0,0,0]</code>；下面完整列出所有坐标。</p><p class="locale-en">There are 12 Wyckoff entries, a–l. Every returned moment in this gray group is <code>[0,0,0]</code>; all positions are listed below.</p></article></section>
+        <section id="output" class="help-section" data-searchable data-search="complete all positions a b c d e f g h i j k l"><div class="section-heading"><div><p class="eyebrow">Complete output</p><h2><span class="locale-zh">12 个条目的全部位置</span><span class="locale-en">All positions in the 12 entries</span></h2></div><span class="section-index">03</span></div><article class="card panel"><div class="code-block output"><pre>2 a 2 [[0,0,'1/4'], [0,0,'3/4']]
+2 b 2 [[0,0,0], [0,0,'1/2']]
+4 c 4 [['1/3','2/3','1/4'], ['2/3','1/3','3/4'],
+       ['2/3','1/3','1/4'], ['1/3','2/3','3/4']]
+4 d 4 [['1/3','2/3',0], ['2/3','1/3','1/2'],
+       ['2/3','1/3',0], ['1/3','2/3','1/2']]
+4 e 4 [[0,0,'z'], [0,0,'(1/2 + z)'],
+       [0,0,'(1/2 + (-1*z))'], [0,0,'(-1*z)']]
+6 f 6 [['1/2',0,0], ['1/2','1/2','1/2'], [0,'1/2',0],
+       ['1/2',0,'1/2'], ['1/2','1/2',0], [0,'1/2','1/2']]
+6 g 6 [['x',0,'1/4'], ['x','x','3/4'], [0,'x','1/4'],
+       ['(-1*x)',0,'3/4'], ['(-1*x)','(-1*x)','1/4'], [0,'(-1*x)','3/4']]
+8 h 8 [['1/3','2/3','z'], ['2/3','1/3','(1/2 + z)'],
+       ['2/3','1/3','(1/2 + (-1*z))'], ['1/3','2/3','(-1*z)'],
+       ['2/3','1/3','(-1*z)'], ['1/3','2/3','(1/2 + (-1*z))'],
+       ['1/3','2/3','(1/2 + z)'], ['2/3','1/3','z']]
+12 i 12 [['x','(2*x)',0], ['(-1*x)','x','1/2'], ['(-2*x)','(-1*x)',0],
+         ['(-1*x)','(-2*x)','1/2'], ['x','(-1*x)',0], ['(2*x)','x','1/2'],
+         ['(-1*x)','(-2*x)',0], ['x','(-1*x)','1/2'], ['(2*x)','x',0],
+         ['x','(2*x)','1/2'], ['(-1*x)','x',0], ['(-2*x)','(-1*x)','1/2']]
+12 j 12 [['x','y','1/4'], ['(x + (-1*y))','x','3/4'],
+         ['(-1*y)','(x + (-1*y))','1/4'], ['(-1*x)','(-1*y)','3/4'],
+         ['((-1*x) + y)','(-1*x)','1/4'], ['y','((-1*x) + y)','3/4'],
+         ['(x + (-1*y))','(-1*y)','1/4'], ['y','x','1/4'],
+         ['(-1*x)','((-1*x) + y)','1/4'], ['x','(x + (-1*y))','3/4'],
+         ['((-1*x) + y)','y','3/4'], ['(-1*y)','(-1*x)','3/4']]
+12 k 12 [['x',0,'z'], ['x','x','(1/2 + z)'], [0,'x','z'],
+         ['(-1*x)',0,'(1/2 + z)'], ['(-1*x)','(-1*x)','z'],
+         [0,'(-1*x)','(1/2 + z)'], ['x',0,'(1/2 + (-1*z))'],
+         [0,'x','(1/2 + (-1*z))'], ['(-1*x)','(-1*x)','(1/2 + (-1*z))'],
+         ['x','x','(-1*z)'], ['(-1*x)',0,'(-1*z)'], [0,'(-1*x)','(-1*z)']]
+24 l 24 [['x','y','z'], ['(x + (-1*y))','x','(1/2 + z)'],
+         ['(-1*y)','(x + (-1*y))','z'], ['(-1*x)','(-1*y)','(1/2 + z)'],
+         ['((-1*x) + y)','(-1*x)','z'], ['y','((-1*x) + y)','(1/2 + z)'],
+         ['(x + (-1*y))','(-1*y)','(1/2 + (-1*z))'],
+         ['y','x','(1/2 + (-1*z))'],
+         ['(-1*x)','((-1*x) + y)','(1/2 + (-1*z))'],
+         ['x','(x + (-1*y))','(-1*z)'], ['((-1*x) + y)','y','(-1*z)'],
+         ['(-1*y)','(-1*x)','(-1*z)'], ['(-1*x)','(-1*y)','(-1*z)'],
+         ['((-1*x) + y)','(-1*x)','(1/2 + (-1*z))'],
+         ['y','((-1*x) + y)','(-1*z)'], ['x','y','(1/2 + (-1*z))'],
+         ['(x + (-1*y))','x','(-1*z)'],
+         ['(-1*y)','(x + (-1*y))','(1/2 + (-1*z))'],
+         ['((-1*x) + y)','y','(1/2 + z)'],
+         ['(-1*y)','(-1*x)','(1/2 + z)'],
+         ['x','(x + (-1*y))','(1/2 + z)'],
+         ['(-1*x)','((-1*x) + y)','z'],
+         ['(x + (-1*y))','(-1*y)','z'], ['y','x','z']]</pre></div><p class="locale-zh">字符串形式如 <code>(1/2 + (-1*z))</code> 是 Python 普通 <code>to_dict()</code> 的实际稳定表达式，网页没有自行改写。</p><p class="locale-en">Strings such as <code>(1/2 + (-1*z))</code> are the actual stable Python <code>to_dict()</code> representation and are not rewritten by the page.</p></article></section>
+        <footer class="site-footer"><a href="../index.html"><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a></footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

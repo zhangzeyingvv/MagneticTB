@@ -1,0 +1,7 @@
+CompileCyclotomicMatrices
+puts a collection of exact constraint matrices into one common cyclotomic field for exact row reduction and null-space calculations.
+Examples
+Related Functions
+MagneticTB/ref/CompileCyclotomicMatrices
+Applications
+Possible Issues

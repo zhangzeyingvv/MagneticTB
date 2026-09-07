@@ -1,0 +1,8 @@
+General MagneticTB Examples
+Three-band MoS2 model
+Magnetic C3 Weyl point and Chern diagnostic
+pointChernNumber
+Magnetic cubic nodal line
+C4 topological-insulator model
+Wyckoff, layer-group, and rod-group databases
+MagneticTB/tutorial/GeneralExamples

@@ -1,0 +1,7 @@
+pointMatrix
+gives the exact matrix of each point operation on a chosen local orbital or spinor basis.
+Examples
+Related Functions
+MagneticTB/ref/pointMatrix
+full unitary tetragonal C4 point group
+Possible Issues

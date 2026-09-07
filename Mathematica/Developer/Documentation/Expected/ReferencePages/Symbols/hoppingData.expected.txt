@@ -1,0 +1,8 @@
+hoppingData
+returns numerical real-space hopping blocks for cached shells 1 through n.
+Examples
+Related Functions
+MagneticTB/ref/hoppingData
+Hermitian
+KernelMethod
+ValidationLevel

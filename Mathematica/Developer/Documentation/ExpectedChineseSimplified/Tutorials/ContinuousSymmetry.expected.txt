@@ -1,0 +1,9 @@
+高对称四方反铁磁体：自旋对称性与 SOC
+含 SOC 的高对称 MSG 124.360
+MagneticTB/tutorial/ContinuousSymmetry
+无 SOC：加入连续 C-infinity 自旋对称性
+沿 G-Z 的能带劈裂
+bandplot[
+连续接口的适用范围
+typeIV[{124, 360}]
+showCrystalStructure[]

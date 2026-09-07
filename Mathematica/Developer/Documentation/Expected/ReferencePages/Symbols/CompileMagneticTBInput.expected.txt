@@ -1,0 +1,7 @@
+CompileMagneticTBInput
+checks and prepares program-generated MagneticTB input without making it the current model.
+Examples
+Related Functions
+MagneticTB/ref/CompileMagneticTBInput
+Applications
+Possible Issues

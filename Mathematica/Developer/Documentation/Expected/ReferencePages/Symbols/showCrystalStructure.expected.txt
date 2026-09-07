@@ -1,0 +1,18 @@
+showCrystalStructure
+draws the current primitive cell, atoms, and nonzero magnetic moments.
+Examples
+Related Functions
+MagneticTB/ref/showCrystalStructure
+Options
+CellRange
+MomentRules
+MomentScale
+AtomRadius
+ShowAtomLabels
+FontSize
+ImageSize
+msgop[bnsdict[{75, 1}]]
+Ferromagnetic order
+Antiferromagnetic order
+Ferrimagnetic order
+Noncollinear order

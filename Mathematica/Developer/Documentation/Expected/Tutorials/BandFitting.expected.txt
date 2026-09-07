@@ -1,0 +1,9 @@
+Fitting MagneticTB bands to VASP
+Read and inspect the three VASP bands
+Build the symmetry-generated model
+Fit the onsite and nearest-neighbor model
+Add second-neighbor hopping
+Fit the energy range of interest
+Fit near the K point
+Judge the plotted bands, not only the loss
+MagneticTB/tutorial/BandFitting

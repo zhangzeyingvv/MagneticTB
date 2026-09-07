@@ -1,0 +1,17 @@
+showBrillouinZone
+draws the first Brillouin zone and the current conventional high-symmetry path.
+Examples
+Related Functions
+MagneticTB/ref/showBrillouinZone
+Options
+KPath
+ShowKPath
+TranslationRange
+Tolerance
+FontSize
+ImageSize
+msgop[gray[191]]
+msgop[gray[123]]
+msgop[gray[47]]
+msgop[gray[10]]
+Applications

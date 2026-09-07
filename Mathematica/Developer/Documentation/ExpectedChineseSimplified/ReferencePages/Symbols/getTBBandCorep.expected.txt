@@ -1,0 +1,3 @@
+getTBBandCorep
+范例
+MagneticTB/ref/getTBBandCorep

@@ -1,0 +1,10 @@
+transformHoppings
+rewrites complete numerical hopping blocks in the exact integer cell whose direct-lattice rows are T times the old rows.
+Examples
+Related Functions
+MagneticTB/ref/transformHoppings
+Options
+WannierCenters
+Lattice
+HermiticityTolerance
+msgop[gray[75]]

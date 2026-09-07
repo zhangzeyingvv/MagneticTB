@@ -1,0 +1,5 @@
+plotSurfaceSpectrum
+范例
+MagneticTB/ref/plotSurfaceSpectrum
+由对称性生成的 P4 Chern 绝缘体
+由对称性生成的灰群 P4 Z2 模型

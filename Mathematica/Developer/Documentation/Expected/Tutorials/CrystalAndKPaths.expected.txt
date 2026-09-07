@@ -1,0 +1,8 @@
+Crystal structure, Brillouin zone, and k paths
+Initialize the model
+Crystal structure
+Hamiltonian and bands
+kagome
+typeIII[{191, 239}]
+MagneticTB/tutorial/CrystalAndKPaths
+paclet:MagneticTB/guide/MagneticTB

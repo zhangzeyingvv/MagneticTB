@@ -1,0 +1,5 @@
+CurrentModelSession
+returns the read-only data of the model most recently prepared by init or initfromrep.
+Examples
+Related Functions
+MagneticTB/ref/CurrentModelSession

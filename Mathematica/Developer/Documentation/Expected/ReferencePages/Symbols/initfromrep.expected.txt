@@ -1,0 +1,17 @@
+initfromrep
+sets up a tight-binding model when the exact symmetry matrices are supplied directly instead of being derived from basis functions.
+Examples
+Related Functions
+MagneticTB/ref/initfromrep
+Options
+lattice
+lattpar
+wyckoffposition
+symminformation
+repinformation
+orbitalLabels
+InitialBondShells
+RepresentationMode
+InitialBondShells -> 2
+RepresentationMode -> \"Induced\"
+Possible Issues

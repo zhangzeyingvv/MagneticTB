@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="MagneticTB Python hop reference with actual Wannier90 HR output.">
+  <title>hop · MagneticTB Python 用户帮助</title>
+  <link rel="stylesheet" href="../help.css?v=a0a09c187d71">
+  <script defer src="../help.js?v=6bee0b68d479"></script>
+</head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+  <div class="help-shell">
+    <aside id="helpSidebar" class="sidebar panel">
+      <a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a>
+      <nav class="nav" aria-label="hop 页面导航">
+        <a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a>
+        <p class="nav-group">hop</p>
+        <a class="active" href="#usage"><span>01</span><span>Usage</span></a>
+        <a href="#basic"><span>02</span><span>Basic Examples</span></a>
+        <a href="#options"><span>03</span><span>Options</span></a>
+        <p class="nav-group">Links</p>
+        <a href="readHR.html"><span>R</span><span>readHR</span></a>
+        <a href="symham.html"><span>H</span><span>symham</span></a>
+      </nav>
+      <div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">5 个示例</span><span class="locale-en">5 examples</span></div><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar panel"><button id="menuButton" class="icon-button" type="button" aria-label="打开导航">☰</button><div class="top-title"><strong><code>hop</code></strong><small>Reference Page</small></div><label class="search-wrap"><span>⌕</span><input id="helpSearch" type="search" aria-label="搜索本页"><small id="searchCount" class="search-count"></small></label><div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button">EN</button></div></header>
+      <main id="mainContent">
+        <section id="usage" class="help-section" data-searchable data-search="hop Wannier90 hr export hopping">
+          <div class="section-heading"><div><p class="eyebrow">Reference Page</p><h2><code>hop</code></h2><p class="locale-zh">把已求出的键层或有限指数形式的 Bloch Hamiltonian 写成 Wannier90 <code>hr.dat</code> 文本。</p><p class="locale-en">Write prepared shells or a finite-exponential Bloch Hamiltonian as Wannier90 <code>hr.dat</code> text.</p></div><span class="section-index">01</span></div>
+          <article class="card panel"><p class="signature">hop(selection, rules, *, Hermitian=True, KernelMethod="Iterative", ValidationLevel="Basic", hrExport=None, RealDigits=12, wcc="Automatic", TranslationTolerance=1e-9) → str</p><div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">参数</span><span class="locale-en">Parameter</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">作用</span><span class="locale-en">Purpose</span></th></tr></thead><tbody><tr><td><code>selection</code></td><td><span class="locale-zh">必填</span><span class="locale-en">required</span></td><td><span class="locale-zh">一个 <code>Hamiltonian</code>、一个 shell、shell 序列或普通符号矩阵；整数 <code>n</code> 表示第 1 至第 n 层。</span><span class="locale-en">A <code>Hamiltonian</code>, one shell, a shell sequence, or an ordinary symbolic matrix; integer <code>n</code> means shells 1 through n.</span></td></tr><tr><td><code>rules</code></td><td><span class="locale-zh">必填</span><span class="locale-en">required</span></td><td><span class="locale-zh">覆盖所选 Hamiltonian 参数的数值映射。</span><span class="locale-en">A numerical mapping covering the selected Hamiltonian parameters.</span></td></tr><tr><td><code>Hermitian</code></td><td><code>True</code></td><td><span class="locale-zh">按键层导出时选择相同的厄米求解设置。</span><span class="locale-en">Select the matching Hermitian solve setting when exporting shells.</span></td></tr><tr><td><code>KernelMethod</code></td><td><code>"Iterative"</code></td><td><span class="locale-zh"><code>"Iterative" / "Stacked" / "Cyclotomic"</code>。</span><span class="locale-en"><code>"Iterative" / "Stacked" / "Cyclotomic"</code>.</span></td></tr><tr><td><code>ValidationLevel</code></td><td><code>"Basic"</code></td><td><span class="locale-zh"><code>"None" / "Basic" / "Full"</code>。</span><span class="locale-en"><code>"None" / "Basic" / "Full"</code>.</span></td></tr><tr><td><code>hrExport</code></td><td><code>None</code></td><td><span class="locale-zh">打印并返回文本，或写入指定文件/目录。</span><span class="locale-en">Print and return text, or write the specified file/directory.</span></td></tr><tr><td><code>RealDigits</code></td><td><code>12</code></td><td><span class="locale-zh">输出小数位数，至少为 6。</span><span class="locale-en">Number of output decimal digits; at least 6.</span></td></tr><tr><td><code>wcc</code></td><td><code>"Automatic"</code></td><td><span class="locale-zh">从当前模型取得中心，或显式提供每个轨道的分数坐标。</span><span class="locale-en">Use current-model centres or supply one fractional centre per orbital.</span></td></tr><tr><td><code>TranslationTolerance</code></td><td><code>1e-9</code></td><td><span class="locale-zh">从用户矩阵的指数相位提取整数平移时使用的容差。</span><span class="locale-en">Tolerance used to recover integer translations from exponent phases in a user matrix.</span></td></tr></tbody></table></div><p class="locale-zh"><code>selection</code> 可为一个 <code>Hamiltonian</code> 对象、一个 shell、shell 序列，或普通符号矩阵。整数 <code>n</code> 表示第 1 至第 n 层；序列只导出列出的层。<code>rules</code> 是参数名到数值的映射。</p><p class="locale-en"><code>selection</code> may be a <code>Hamiltonian</code>, one shell, a shell sequence, or an ordinary symbolic matrix. Integer <code>n</code> means shells one through n, while a sequence exports only its listed shells. <code>rules</code> maps parameter names to values.</p><div class="formula" data-tex>H_{mn}(\mathbf R)=\frac{1}{N_k}\sum_{\mathbf k}H_{mn}(\mathbf k)e^{-i\mathbf k\cdot\mathbf R}.</div><div class="callout"><span class="locale-zh"><code>hrExport=None</code> 会返回并打印完整文本；给文件路径则写该文件，给已存在目录则写 <code>wannier90_hr.dat</code>。下例使用临时目录，实际程序会返回完整绝对路径。</span><span class="locale-en"><code>hrExport=None</code> returns and prints the complete text. A file path writes that file; an existing directory writes <code>wannier90_hr.dat</code>. The examples use a temporary directory; the actual program returns its full path.</span></div></article>
+        </section>
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+        <section id="basic" class="help-section" data-searchable data-search="Graphene full Hamiltonian first twelve lines shell three">
+          <div class="section-heading"><div><p class="eyebrow">Basic Examples</p><h2><span class="locale-zh">石墨烯 HR 文件</span><span class="locale-en">Graphene HR file</span></h2></div><span class="section-index">02</span></div>
+          <article class="card panel" data-example="1"><h3>Input 1 · <span class="locale-zh">初始化并组合三个键层</span><span class="locale-en">Initialize and combine three shells</span></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 初始化并组合三个键层</span><span class="code-comment locale-en"># Initialize and combine three shells</span>
+from fractions import Fraction
+from pathlib import Path
+from tempfile import TemporaryDirectory
+
+from magnetictb import (
+    gray, hamiltonian_object, hop, init, msgop,
+    readHR, sqrt, symbol, symham,
+)
+
+a, c = symbol("a"), symbol("c")
+third = Fraction(1, 3)
+init(
+    lattice=((a, 0, 0), (-a / 2, sqrt(3) * a / 2, 0), (0, 0, c)),
+    lattpar=(("a", 1), ("c", 3)),
+    wyckoffposition=(((third, 2 * third, 0), (0, 0, 0)),),
+    symminformation=msgop(gray[191]),
+    basisFunctions=(("pz",),),
+    InitialBondShells=3,
+    GenerateSymmetryGroup=False,
+)
+ham = hamiltonian_object(1) + hamiltonian_object(2) + hamiltonian_object(3)</pre></div><div class="code-block output"><pre>Magnetic space group (BNS): [191, 234]
+Lattice: HexagonalP
+Generators: [('"6z"', 'F'), ('"2x"', 'F'), ('"-1"', 'F'), ('"1"', 'T')]
+ham.shape == (2, 2)
+ham.parameter_names == ('e1', 't1', 'r1')</pre></div></article>
+          <article class="card panel" data-example="2"><h3>Input 2 · <span class="locale-zh">由完整 Hamiltonian 写出并显示前 12 行</span><span class="locale-en">Write the complete Hamiltonian and show its first 12 lines</span></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 由完整 Hamiltonian 写出并显示前 12 行</span><span class="code-comment locale-en"># Write the complete Hamiltonian and show its first 12 lines</span>
+with TemporaryDirectory() as directory:
+    hr_file = Path(directory) / "graphene_hr.dat"
+    written = hop(
+        ham,
+        {"e1": 0.05, "r1": 0.02, "t1": 0.5},
+        hrExport=hr_file,
+        wcc="Automatic",
+    )
+    print("\n".join(Path(written).read_text().splitlines()[:12]))</pre></div><div class="code-block output"><pre>Generated by MagneticTB
+2
+7
+1 1 1 1 1 1 1
+-1 -1 0 1 1 0.020000000000 0.000000000000
+-1 -1 0 2 1 0.000000000000 0.000000000000
+-1 -1 0 1 2 0.000000000000 0.000000000000
+-1 -1 0 2 2 0.020000000000 0.000000000000
+-1 0 0 1 1 0.020000000000 0.000000000000
+-1 0 0 2 1 0.000000000000 0.000000000000
+-1 0 0 1 2 0.500000000000 0.000000000000
+-1 0 0 2 2 0.020000000000 0.000000000000</pre></div></article>
+          <article class="card panel" data-example="3"><h3>Input 3 · <span class="locale-zh">只导出第 3 层</span><span class="locale-en">Export shell 3 only</span></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 只导出第 3 层</span><span class="code-comment locale-en"># Export shell 3 only</span>
+hop(
+    (3,),
+    {"e1": 0.05, "r1": 0.02, "t1": 0.5},
+    hrExport=hr_file,
+)
+print("\n".join(hr_file.read_text().splitlines()[:12]))</pre></div><div class="code-block output"><pre>Generated by MagneticTB
+2
+6
+1 1 1 1 1 1
+-1 -1 0 1 1 0.020000000000 0.000000000000
+-1 -1 0 2 1 0.000000000000 0.000000000000
+-1 -1 0 1 2 0.000000000000 0.000000000000
+-1 -1 0 2 2 0.020000000000 0.000000000000
+-1 0 0 1 1 0.020000000000 0.000000000000
+-1 0 0 2 1 0.000000000000 0.000000000000
+-1 0 0 1 2 0.000000000000 0.000000000000
+-1 0 0 2 2 0.020000000000 0.000000000000</pre></div></article>
+        </section>
+        <section id="options" class="help-section" data-searchable data-search="hrExport wcc RealDigits TranslationTolerance">
+          <div class="section-heading"><div><p class="eyebrow">Options</p><h2><span class="locale-zh">路径与轨道中心</span><span class="locale-en">Paths and Wannier centres</span></h2></div><span class="section-index">03</span></div>
+          <div class="content-grid">
+            <article class="card panel" data-example="4"><h3>Input 4 · <code>hrExport</code></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 导出并检查实空间 hopping 数据</span><span class="code-comment locale-en"># Export and inspect real-space hopping data</span>
+with TemporaryDirectory() as directory:
+    filename = Path(hop(
+        (1,), {"e1": 0.05}, hrExport=directory
+    )).name
+    print(filename)</pre></div><div class="code-block output"><pre>wannier90_hr.dat</pre></div></article>
+            <article class="card panel" data-example="5"><h3>Input 5 · <code>wcc</code></h3><div class="code-block"><pre><span class="code-comment locale-zh"># 导出并检查实空间 hopping 数据</span><span class="code-comment locale-en"># Export and inspect real-space hopping data</span>
+nearest = symham(2)
+written = hop(
+    nearest,
+    {"t1": 0.5},
+    hrExport=Path(directory) / "hop-explicit-wcc_hr.dat",
+    wcc=((third, 2 * third, 0), (2 * third, third, 0)),
+)
+print(readHR(written)["Translations"])</pre></div><div class="code-block output"><pre>[[-1, 0, 0], [0, -1, 0], [0, 0, 0],
+ [0, 1, 0], [1, 0, 0]]</pre></div></article>
+          </div>
+
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

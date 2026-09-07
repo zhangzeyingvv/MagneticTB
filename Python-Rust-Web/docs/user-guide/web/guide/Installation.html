@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>安装 · MagneticTB</title>
+  <link rel="stylesheet" href="../help.css?v=a0a09c187d71">
+  <script defer src="../help.js?v=6bee0b68d479"></script>
+</head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+  <div class="help-shell">
+    <aside id="helpSidebar" class="sidebar panel">
+      <a class="brand" href="../index.html" aria-label="MagneticTB 帮助主页"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a>
+      <nav class="nav" aria-label="帮助导航"><a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a><a href="#venv"><span>01</span><span class="locale-zh">venv 安装</span><span class="locale-en">Install with venv</span></a><a href="#conda"><span>02</span><span class="locale-zh">Conda 安装</span><span class="locale-en">Install with Conda</span></a><a href="#source"><span>03</span><span class="locale-zh">源码构建</span><span class="locale-en">Build from source</span></a></nav>
+      <div class="sidebar-foot"><a class="workbench-link" href="../index.html"><span class="locale-zh">← 帮助主页</span><span class="locale-en">← Help home</span></a></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar panel">
+        <button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
+        <div class="top-title"><strong><span class="locale-zh">安装</span><span class="locale-en">Installation</span></strong><small>MagneticTB</small></div>
+        <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="helpSearch" type="search" autocomplete="off" placeholder="搜索本页" aria-label="搜索帮助"><small id="searchCount" class="search-count" aria-live="polite"></small></label>
+        <div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button" aria-label="Switch to English">EN</button></div>
+      </header>
+      <main id="mainContent">
+        <section id="installation" class="help-section" data-searchable data-search="install venv conda Miniforge wheel source build Rust 源码 Windows macOS Linux Web FastAPI">
+          <div class="section-heading">
+            <div><p class="eyebrow">Guide · Installation</p><h2><span class="locale-zh">MagneticTB 安装</span><span class="locale-en">Install MagneticTB</span></h2><p class="locale-zh">选择一种安装方式：venv、Conda 或源码构建。前两种方式安装预编译 wheel，不需要 Rust；只有源码构建需要编译工具。</p><p class="locale-en">Choose one installation method: venv, Conda, or a source build. The first two install a prebuilt wheel without Rust; only source builds require compiler tools.</p></div>
+            <span class="section-index">G1</span>
+          </div>
+          <div class="content-grid three">
+            <article class="card panel wide">
+              <h3 id="venv"><span class="locale-zh">方式一：venv 安装</span><span class="locale-en">Method 1: Install with venv</span></h3>
+              <div class="callout success"><span class="locale-zh">wheel 已经包含编译后的 Rust 核心及其 Rust crate 依赖。普通用户不需要另外安装 Rust、Cargo 或 Maturin。</span><span class="locale-en">A wheel already contains the compiled Rust core and its Rust crate dependencies. End users do not install Rust, Cargo, or Maturin separately.</span></div>
+              <h4>Windows PowerShell</h4>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 创建环境并安装 wheel</span><span class="code-comment locale-en"># Create an environment and install the wheel</span>
+py -3 -m venv .venv
+.venv\Scripts\python.exe -m pip install --upgrade pip
+.venv\Scripts\python.exe -m pip install ".\magnetictb-0.1.0-cp39-abi3-PLATFORM.whl"
+
+<span class="code-comment locale-zh"># 检查安装，然后启动本地 Web 工作台</span><span class="code-comment locale-en"># Check the installation, then start the local Web workbench</span>
+.venv\Scripts\python.exe -c "import magnetictb; print(magnetictb.__version__)"
+.venv\Scripts\magnetictb-web.exe</pre></div>
+              <h4>macOS / Linux / WSL</h4>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 创建环境并安装 wheel</span><span class="code-comment locale-en"># Create an environment and install the wheel</span>
+python3 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install "./magnetictb-0.1.0-cp39-abi3-PLATFORM.whl"
+
+<span class="code-comment locale-zh"># 检查安装，然后启动本地 Web 工作台</span><span class="code-comment locale-en"># Check the installation, then start the local Web workbench</span>
+.venv/bin/python -c "import magnetictb; print(magnetictb.__version__)"
+.venv/bin/magnetictb-web</pre></div>
+              <p class="locale-zh">服务启动后，浏览器打开 <a href="http://127.0.0.1:8000/" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8000/</a>。下次使用时，在同一目录直接运行对应系统的 <code>magnetictb-web</code> 启动命令，无需重复安装。</p>
+              <p class="locale-en">Once the server starts, open <a href="http://127.0.0.1:8000/" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8000/</a>. Next time, run the corresponding <code>magnetictb-web</code> launcher from the same directory; no reinstallation is needed.</p>
+              <p class="locale-zh">当前尚未发布到 PyPI，因此不要使用未经提供的 <code>pip install magnetictb</code> 下载命令。</p>
+              <p class="locale-en">The package is not yet published on PyPI, so do not use an unprovided <code>pip install magnetictb</code> download command.</p>
+            </article>
+            <article class="card panel wide">
+              <h3 id="conda"><span class="locale-zh">方式二：Conda 安装</span><span class="locale-en">Method 2: Install with Conda</span></h3>
+              <p class="locale-zh">已有 Conda 可以直接使用；尚未安装时可按 <a href="https://github.com/conda-forge/miniforge#install" target="_blank" rel="noopener noreferrer">Miniforge 官方说明</a>安装与你的系统和 CPU 匹配的版本。Windows 打开 Miniforge Prompt（或已有的 Anaconda Prompt）；macOS / Linux 打开已启用 Conda 的终端。</p>
+              <p class="locale-en">Use an existing Conda installation, or follow the <a href="https://github.com/conda-forge/miniforge#install" target="_blank" rel="noopener noreferrer">official Miniforge instructions</a> for your OS and CPU. On Windows, open Miniforge Prompt (or an existing Anaconda Prompt); on macOS / Linux, use a Conda-enabled terminal.</p>
+              <div class="code-block"><pre><span class="code-comment locale-zh"># 创建独立环境；如果已有 magnetictb 环境，跳过创建这一步</span><span class="code-comment locale-en"># Create an isolated environment; skip creation if magnetictb already exists</span>
+conda create -n magnetictb --override-channels -c conda-forge python=3.12 pip
+conda activate magnetictb
+
+<span class="code-comment locale-zh"># 在 wheel 所在目录运行；将 PLATFORM 替换为实际平台标记</span><span class="code-comment locale-en"># Run in the wheel directory; replace PLATFORM with its actual platform tag</span>
+python -m pip install "./magnetictb-0.1.0-cp39-abi3-PLATFORM.whl"
+
+<span class="code-comment locale-zh"># 检查当前环境能否加载 MagneticTB，再启动网页</span><span class="code-comment locale-en"># Check the MagneticTB import in this environment, then start the Web UI</span>
+python -c "import magnetictb; print(magnetictb.__version__)"
+magnetictb-web</pre></div>
+              <p class="locale-zh">浏览器打开 <a href="http://127.0.0.1:8000/" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8000/</a>。以后重新打开终端，只需先执行 <code>conda activate magnetictb</code>，再运行 <code>magnetictb-web</code>。</p>
+              <p class="locale-en">Open <a href="http://127.0.0.1:8000/" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8000/</a>. In a new terminal, run <code>conda activate magnetictb</code> before <code>magnetictb-web</code>.</p>
+              <p class="locale-zh">这条路线由 Conda 管理 Python 环境、pip 安装本地 wheel 和 Web 依赖，不需要再创建 <code>.venv</code>，也不需要 Rust。</p>
+              <p class="locale-en">Conda manages Python, while pip installs the local wheel and Web dependencies. Do not create another <code>.venv</code>; wheel installation needs no Rust.</p>
+            </article>
+            <article class="card panel wide">
+              <h3 id="source"><span class="locale-zh">方式三：源码构建</span><span class="locale-en">Method 3: Build from source</span></h3>
+              <p class="locale-zh">需要修改程序或没有与你的系统匹配的 wheel 时，选择源码构建。先准备 Python、Rust toolchain、Cargo 和系统编译工具，再构建并安装。</p>
+              <p class="locale-en">Choose a source build if you need to modify the program or no wheel matches your system. Prepare Python, the Rust toolchain, Cargo, and platform compiler tools, then build and install.</p>
+              <p><a href="BuildFromSource.html"><span class="locale-zh">Windows、macOS、Linux 的环境准备与完整构建步骤 →</span><span class="locale-en">Requirements and complete build steps for Windows, macOS, and Linux →</span></a></p>
+            </article>
+          </div>
+        </section>
+
+        <section id="maintenance" class="help-section" data-searchable data-search="install update reinstall uninstall import version help 更新 卸载 加载">
+          <div class="section-heading"><div><p class="eyebrow">Installation · package management</p><h2><span class="locale-zh">更新、卸载与检查安装</span><span class="locale-en">Update, uninstall, and check the installation</span></h2><p class="locale-zh">以下命令中的 <code>python</code> 指已安装 MagneticTB 的环境：Conda 用户先激活环境；venv 用户使用对应的 <code>.venv</code> Python 路径。</p><p class="locale-en">Here <code>python</code> means the environment where MagneticTB is installed: activate it for Conda, or use its <code>.venv</code> Python path.</p></div></div>
+          <article class="card panel compact-top"><h3><span class="locale-zh">常用 Python 安装命令</span><span class="locale-en">Common Python installation commands</span></h3>
+            <div class="example-cell" data-example="1"><div class="code-block"><pre><span class="code-comment locale-zh"># 把 PLATFORM 替换为与你的 Python 和系统匹配的实际文件名</span><span class="code-comment locale-en"># Replace PLATFORM with the filename matching your Python and operating system</span>
+python -m pip install ./magnetictb-0.1.0-PLATFORM.whl</pre></div><div class="code-block output"><pre>Successfully installed magnetictb-0.1.0</pre></div><p class="locale-zh">实际 wheel 文件名必须匹配当前 Python 和操作系统。</p><p class="locale-en">The wheel filename must match the current Python and operating system.</p></div>
+            <div class="example-cell" data-example="2"><div class="code-block"><pre><span class="code-comment locale-zh"># 用新 wheel 覆盖当前安装</span><span class="code-comment locale-en"># Replace the current installation with a new wheel</span>
+python -m pip install --force-reinstall ./magnetictb-0.1.0-PLATFORM.whl</pre></div><p class="locale-zh">用于更新或重新安装同一环境中的软件包。</p><p class="locale-en">Use this to update or reinstall the package in the same environment.</p></div>
+            <div class="example-cell" data-example="3"><div class="code-block"><pre><span class="code-comment locale-zh"># 从当前 Python 环境卸载</span><span class="code-comment locale-en"># Uninstall from the current Python environment</span>
+python -m pip uninstall magnetictb</pre></div></div>
+            <div class="example-cell" data-example="4"><div class="code-block"><pre><span class="code-comment locale-zh"># 常用 Python 安装命令</span><span class="code-comment locale-en"># Common Python installation commands</span>
+import magnetictb
+print(magnetictb.__version__)</pre></div><div class="code-block output"><pre>0.1.0</pre></div></div>
+            <div class="example-cell" data-example="5"><div class="code-block"><pre><span class="code-comment locale-zh"># 在浏览器中打开 docs/user-guide/web/index.html，</span><span class="code-comment locale-en"># Open docs/user-guide/web/index.html in a browser,</span>
+<span class="code-comment locale-zh"># 或点击任意帮助页顶部的“帮助主页”。</span><span class="code-comment locale-en"># or click “Help home” at the top of any help page.</span></pre></div><p><a href="../index.html"><span class="locale-zh">打开本地 MagneticTB 帮助主页</span><span class="locale-en">Open the local MagneticTB help home</span></a></p></div>
+          </article>
+        </section>
+
+
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No matching section on this page.</span></div>
+      </main>
+      <footer><a href="../index.html"><span class="locale-zh">MagneticTB帮助主页</span><span class="locale-en">MagneticTB Help Home</span></a></footer>
+    </div>
+  </div>
+</body>
+</html>

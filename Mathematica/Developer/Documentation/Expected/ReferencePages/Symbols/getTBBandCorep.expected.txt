@@ -1,0 +1,6 @@
+getTBBandCorep
+prints the MSGCorep band-corepresentation table at every supplied reciprocal-fractional k point.
+Examples
+Related Functions
+MagneticTB/ref/getTBBandCorep
+Applications

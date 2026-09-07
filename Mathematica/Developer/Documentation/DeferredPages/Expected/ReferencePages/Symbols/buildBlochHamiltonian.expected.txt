@@ -1,0 +1,9 @@
+buildBlochHamiltonian
+sums numerical hopping blocks into the fully periodic Bloch Hamiltonian at reciprocal-fractional momentum k.
+Examples
+Related Functions
+MagneticTB/ref/buildBlochHamiltonian
+Options
+CellMatrix
+HermiticityTolerance
+Output

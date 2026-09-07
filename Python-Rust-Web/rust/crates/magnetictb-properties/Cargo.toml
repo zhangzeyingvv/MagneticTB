@@ -1,0 +1,18 @@
+[package]
+name = "magnetictb-properties"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Stable-aligned numerical post-processing for MagneticTB Hamiltonians"
+license = "GPL-3.0-only"
+
+[dependencies]
+nalgebra = { version = "=0.33.2", default-features = false, features = ["std"] }
+serde = { version = "1", features = ["derive"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"

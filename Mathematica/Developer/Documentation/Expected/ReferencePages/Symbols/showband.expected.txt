@@ -1,0 +1,13 @@
+showband
+draws a static band plot along standardKPath[] for the current initialized lattice.
+Examples
+Related Functions
+MagneticTB/ref/showband
+Options
+plotRange
+yTicks
+FontSize
+FontFamily
+ImageSize
+msgop[gray[221]]
+symham[2]

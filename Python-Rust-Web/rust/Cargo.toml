@@ -1,0 +1,19 @@
+[workspace]
+members = [
+    "crates/magnetictb-abstract-group",
+    "crates/magnetictb-crystal-geometry",
+    "crates/cyclotomic-nullspace",
+    "crates/magnetictb-data",
+    "crates/magnetictb-fitting",
+    "crates/magnetictb-linear-algebra",
+    "crates/magnetictb-python",
+    "crates/magnetictb-properties",
+    "crates/magnetictb-representation",
+    "crates/magnetictb-symmetry",
+    "crates/magnetictb-tight-binding",
+]
+resolver = "3"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1

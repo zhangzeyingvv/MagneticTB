@@ -1,0 +1,87 @@
+{
+  "scope": "Display-label G to Gamma only in web-help band figures",
+  "changed_figures": [
+    {
+      "file": "bandplot-basic.svg",
+      "before_sha256": "657a7a5edc5ec9c2ec9e3bbb1343949800567d8f2ca7b69b84c882d735bcf437",
+      "after_sha256": "508b3a9db7af95131149f81dfedd373109a5baa17a99c17add5b0c4318e07e48",
+      "has_Gamma": true
+    },
+    {
+      "file": "banddata-graphene.svg",
+      "before_sha256": "2ab8cd47340a7d453269e38f9134c7f183f3f182e430b6d68fa6b318b911b164",
+      "after_sha256": "28c7b75af2d6d2904bff43358c12e11da9c27623d9597a6b088c12d88c98e52b",
+      "has_Gamma": true
+    },
+    {
+      "file": "bandplot-option-5.svg",
+      "before_sha256": "ce8e422a675d3c4212b0e7b146d7ebf3012b65c18fe56afbf62f210c5dc15953",
+      "after_sha256": "fe51f0e09b07b4329aed38bbb997c4f07df01b5f1275d367015db62278573c05",
+      "has_Gamma": true
+    },
+    {
+      "file": "bandplot-option-4.svg",
+      "before_sha256": "0141f9e9e5c3814d23ffcbf3d0b35784f7e34d48a4f0de61d57fbbe8a7a2a2c3",
+      "after_sha256": "f4566dcdbcaa3a1eabd511915fc2e33500f2959bca94ba0a55aae13d5017a743",
+      "has_Gamma": true
+    },
+    {
+      "file": "bandplot-option-6.svg",
+      "before_sha256": "1ccb7d4df3b98ea9ed10999654a972e960ea13bde8f4ba1bc2008e1fe04e2550",
+      "after_sha256": "b1745eab35a48ef7606cd52510495856ed599a288c825a7ad82e3050351fb7cd",
+      "has_Gamma": true
+    },
+    {
+      "file": "bandplot-option-7.svg",
+      "before_sha256": "21720ae253aa469215cdafd8e6bf49afa01c45a2cf5ee5ad613aba7c5dfdb1a8",
+      "after_sha256": "b1fc22bfd379a44dce0f72916533104d072aba5c16218221d32a5ca03eee3fa1",
+      "has_Gamma": true
+    },
+    {
+      "file": "continuous-no-soc-bands.svg",
+      "before_sha256": "253870045e1dc683f14a60b1f3f1b2a0f92156fe3b6e412f872885534a5fcff2",
+      "after_sha256": "9a8df725a072fd6f6f9bbe5cec3830e2e279b4f6eb9546b62a089c200a715ce4",
+      "has_Gamma": true
+    },
+    {
+      "file": "kagome-induced-bands.svg",
+      "before_sha256": "e9f4e309f94fbe22932b57ccc1ac7f3e6564011d2f9a1c160477a0ccbb014a19",
+      "after_sha256": "59c0921219c3de190d8190a9d83ef6d5dfca3b102c0de131e08ad27ce93a03c5",
+      "has_Gamma": true
+    },
+    {
+      "file": "graphene-getting-started.svg",
+      "before_sha256": "5ebc0ce6e7e9208f31d00a188551e72bd7b3993d4e41b63a684b3d266dc3272b",
+      "after_sha256": "d598d0b4c8aa0329f6c1fa2293499df41b7114d05614cf04c03f646d95b929b5",
+      "has_Gamma": true
+    },
+    {
+      "file": "bandplot-option-8.svg",
+      "before_sha256": "035acf7e08dfa56b371a4c1313c41f990c59c6a829dc9dcfd97a773c67c3331b",
+      "after_sha256": "8b70f22d5de28b145710a692e8e0ad5f7ffe8e5d7ae396141daf8fee8869e5c2",
+      "has_Gamma": true
+    },
+    {
+      "file": "continuous-soc-bands.svg",
+      "before_sha256": "6a78bac3c78e726868bbaaaa6d2e63b215aca19caa37b8cd403e916ee6809226",
+      "after_sha256": "a6a914a8d1ed9420f5cb37d34d8c7c4d33f69e2ee543cec211c21461b0d1db1c",
+      "has_Gamma": true
+    },
+    {
+      "file": "graphene-material-bands.svg",
+      "before_sha256": "f094eba2e77d8f2d69dd550410b597e919a122ce05f096b6cc53bab037157316",
+      "after_sha256": "25f66270798ebf366492a1e1ce4a8339eca2244a038b793ba4f315f0c876435b",
+      "has_Gamma": true
+    }
+  ],
+  "unchanged_figure_count": 32,
+  "validation": {
+    "source_guard": "Runtime unchanged; Python AST identical after normalizing only G/Gamma string labels",
+    "exports": "Public result.savefig() methods; no SVG glyph editing",
+    "visual_review": [
+      "graphene-material-bands.svg",
+      "continuous-soc-bands.svg"
+    ],
+    "scope_limit": "Presentation update, not a new mathematical equivalence test"
+  }
+}

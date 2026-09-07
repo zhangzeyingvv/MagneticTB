@@ -1,0 +1,8 @@
+symhamold
+returns bond shell n of the symmetry-allowed Hamiltonian obtained with the original MagneticTB algorithm.
+Examples
+Related Functions
+MagneticTB/ref/symhamold
+Options
+symmetrysetold
+CartesianCoordinates

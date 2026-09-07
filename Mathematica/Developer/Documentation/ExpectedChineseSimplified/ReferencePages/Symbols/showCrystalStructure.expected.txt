@@ -1,0 +1,9 @@
+showCrystalStructure
+范例
+MagneticTB/ref/showCrystalStructure
+msgop[bnsdict[{75, 1}]]
+铁磁序
+反铁磁序
+亚铁磁序
+非共线磁序
+红色箭头

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="MagneticTB Python msgop reference: ordered magnetic-space-group operations.">
+  <title>msgop · MagneticTB Python 用户帮助</title>
+  <link rel="stylesheet" href="../help.css?v=a0a09c187d71">
+  <script defer src="../help.js?v=6bee0b68d479"></script>
+</head>
+<body data-locale="zh">
+  <a class="skip-link" href="#mainContent"><span class="locale-zh">跳到正文</span><span class="locale-en">Skip to content</span></a>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="关闭导航"></button>
+  <div class="help-shell">
+    <aside id="helpSidebar" class="sidebar panel">
+      <a class="brand" href="../index.html"><span class="brand-mark">M</span><span><strong>MagneticTB</strong><small><span class="locale-zh">Python 用户帮助</span><span class="locale-en">Python user help</span></small></span></a>
+      <nav class="nav" aria-label="msgop 页面导航">
+        <a href="../index.html"><span>00</span><span class="locale-zh">帮助主页</span><span class="locale-en">Help home</span></a>
+        <p class="nav-group">msgop</p>
+        <a href="#usage" class="active"><span>01</span><span>Usage</span></a>
+        <a href="#basic-examples"><span>02</span><span>Basic Examples</span></a>
+        <a href="#relations"><span>03</span><span>Properties &amp; Relations</span></a>
+        <p class="nav-group">Links</p>
+        <a href="../guide/FirstModel.html#guide"><span>G</span><span>Guide</span></a>
+        <a href="../tutorial/HamiltonianOutputs.html#tutorials"><span>T</span><span>Tutorials</span></a>
+        <a href="../guide/FirstModel.html#reference"><span>R</span><span>Reference Pages</span></a>
+      </nav>
+      <div class="sidebar-foot"><div class="local-pill"><i></i><span class="locale-zh">1 个示例</span><span class="locale-en">1 example</span></div><a class="workbench-link" href="../index.html"><span class="locale-zh">← 返回帮助主页</span><span class="locale-en">← Back to help home</span></a></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar panel">
+        <button id="menuButton" class="icon-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
+        <div class="top-title"><strong><code>msgop</code></strong><small>Reference Page</small></div>
+        <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="helpSearch" type="search" autocomplete="off" placeholder="搜索本页" aria-label="搜索本页"><small id="searchCount" class="search-count" aria-live="polite"></small></label>
+        <div class="top-actions"><button id="themeButton" class="text-button theme-button" type="button" aria-label="切换主题" disabled>主题：跟随系统</button><button id="languageButton" class="text-button" type="button" aria-label="Switch to English">EN</button></div>
+      </header>
+      <main id="mainContent">
+        <section id="usage" class="help-section" data-searchable data-search="msgop gray typeI typeIII typeIV BNS magnetic space group operations">
+          <div class="section-heading"><div><p class="eyebrow">Reference Page</p><h2><code>msgop(group)</code></h2><p class="locale-zh">读取一个磁空间群的完整、有序对称操作。</p><p class="locale-en">Read the complete ordered symmetry operations of a magnetic space group.</p></div><span class="section-index">01</span></div>
+          <div class="content-grid">
+            <article class="card panel">
+              <p class="signature">msgop(group) → list[list]</p><div class="api-table-wrap"><table class="api-table"><thead><tr><th><span class="locale-zh">参数</span><span class="locale-en">Parameter</span></th><th><span class="locale-zh">默认值</span><span class="locale-en">Default</span></th><th><span class="locale-zh">作用</span><span class="locale-en">Purpose</span></th></tr></thead><tbody><tr><td><code>group</code></td><td><span class="locale-zh">必填</span><span class="locale-en">required</span></td><td><span class="locale-zh">磁空间群 selector 或 stable 数据映射返回的 MSGOP 序号；函数返回对应群的完整有序操作表。</span><span class="locale-en">A magnetic-space-group selector or MSGOP index returned by a stable data mapping; the function returns the complete ordered operation table.</span></td></tr></tbody></table></div>
+              <p class="locale-zh"><code>group</code> 可以写成 <code>gray[n]</code>、<code>typeI[(n,m)]</code>、<code>typeIII[(n,m)]</code>、<code>typeIV[(n,m)]</code>，也可以使用 <code>bnsdict</code>、<code>ogdict</code>、<code>ognumdict</code> 或高级 <code>MSG(...)</code> 选择器。</p>
+              <p class="locale-en"><code>group</code> may be selected with <code>gray[n]</code>, <code>typeI[(n,m)]</code>, <code>typeIII[(n,m)]</code>, <code>typeIV[(n,m)]</code>, the <code>bnsdict</code>, <code>ogdict</code>, or <code>ognumdict</code> mappings, or the advanced <code>MSG(...)</code> selector.</p>
+
+            </article>
+            <article class="card panel">
+              <h3><span class="locale-zh">每条操作的结构</span><span class="locale-en">Operation record</span></h3>
+              <div class="code-block output"><pre>[label, rotation, translation, "F" or "T"]</pre></div>
+              <p class="locale-zh"><code>rotation</code> 是 3 行 3 列点操作矩阵，<code>translation</code> 是分数坐标平移。末项 <code>"F"</code> 表示幺正操作，<code>"T"</code> 表示反幺正操作。</p>
+              <p class="locale-en"><code>rotation</code> is a three-by-three point-operation matrix and <code>translation</code> is a fractional translation. The final flag is <code>"F"</code> for unitary and <code>"T"</code> for antiunitary operations.</p>
+            </article>
+          </div>
+        </section>
+        <div id="searchEmpty" class="search-empty panel"><span class="locale-zh">本页没有匹配章节。</span><span class="locale-en">No section on this page matched.</span></div>
+        <section id="basic-examples" class="help-section" data-searchable data-search="gray 191 operation identity 6z antiunitary actual output">
+          <div class="section-heading"><div><p class="eyebrow">Basic Examples</p><h2><span class="locale-zh">第 191 号灰磁空间群</span><span class="locale-en">Gray magnetic space group 191</span></h2></div><span class="section-index">02</span></div>
+          <article class="card panel" data-example="1">
+            <h3>Input 1</h3>
+            <p class="locale-zh">读取完整列表后可查看显示编号为 1、2、25 的记录。Python 容器从 0 开始，所以对应下标是 <code>0</code>、<code>1</code>、<code>24</code>。</p>
+            <p class="locale-en">After reading the full list, inspect display records 1, 2, and 25. Python containers are zero-based, so their indices are <code>0</code>, <code>1</code>, and <code>24</code>.</p>
+            <div class="code-block"><pre><span class="code-comment locale-zh"># 读取磁空间群的完整有序操作</span><span class="code-comment locale-en"># Read the complete ordered operations of a magnetic space group</span>
+from magnetictb import gray, msgop
+
+operations_191 = msgop(gray[191])
+print([operations_191[index] for index in (0, 1, 24)])</pre></div>
+            <div class="code-block output"><pre>Magnetic space group (BNS): [191, 234]
+Lattice: HexagonalP
+Primitive Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+Conventional Lattice Vactor: [['a', 0, 0], [(-1/2*a), (1/2*(3)^(1/2)*a), 0], [0, 0, 'c']]
+[
+  ['"1"',
+   [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+   [0, 0, 0],
+   'F'],
+  ['"6z"',
+   [[1, -1, 0], [1, 0, 0], [0, 0, 1]],
+   [0, 0, 0],
+   'F'],
+  ['"1"',
+   [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+   [0, 0, 0],
+   'T']
+]</pre></div>
+            <p class="locale-zh">前四行是当前 <code>msgop</code> 的真实控制台摘要。随后第一条是单位操作，第二条是六重旋转，第二十五条具有相同空间作用但带时间反演。完整列表可以直接传给 <code>init(..., symminformation=operations_191)</code>。</p>
+            <p class="locale-en">The first four lines are the current <code>msgop</code> console summary. The first returned record is the identity, the second is a sixfold rotation, and the twenty-fifth has the same spatial action combined with time reversal. The complete list can be passed directly to <code>init(..., symminformation=operations_191)</code>.</p>
+          </article>
+        </section>
+        <section id="relations" class="help-section" data-searchable data-search="bnsdict order init representation matrices session independent">
+          <div class="section-heading"><div><p class="eyebrow">Properties &amp; Relations</p><h2><span class="locale-zh">群选择器与表示顺序</span><span class="locale-en">Group selectors and representation order</span></h2></div><span class="section-index">03</span></div>
+          <article class="card panel">
+            <ul>
+              <li><span class="locale-zh"><code>gray[191]</code> 与对应的 <code>bnsdict[(191,234)]</code> 解析到同一磁空间群，因此 <code>msgop</code> 返回完全相同的有序列表。</span><span class="locale-en"><code>gray[191]</code> and its corresponding <code>bnsdict[(191,234)]</code> selector resolve to the same magnetic space group and therefore return the same ordered list.</span></li>
+              <li><span class="locale-zh">列表顺序同时规定 <code>initfromrep</code> 中显式表示矩阵的顺序；程序不会重新排列用户矩阵。</span><span class="locale-en">The list order also fixes the explicit representation-matrix order used by <code>initfromrep</code>; user matrices are not reordered.</span></li>
+              <li><span class="locale-zh"><code>msgop</code> 不依赖当前模型会话，可以在 <code>init</code> 之前独立调用。</span><span class="locale-en"><code>msgop</code> is independent of the current model session and may be called before <code>init</code>.</span></li>
+            </ul>
+          </article>
+        </section>
+      </main>
+      <footer><a href="../index.html"><span class="locale-zh">MagneticTB Python 帮助主页</span><span class="locale-en">MagneticTB Python help home</span></a></footer>
+    </div>
+  </div>
+</body>
+</html>

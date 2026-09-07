@@ -1,0 +1,3 @@
+brokenSymmetryInitRules
+范例
+MagneticTB/ref/brokenSymmetryInitRules

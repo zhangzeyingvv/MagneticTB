@@ -1,0 +1,13 @@
+berryCurvature
+computes occupied-subspace Berry curvature from the oriented flux through a small Wilson plaquette at k.
+Examples
+Related Functions
+MagneticTB/ref/berryCurvature
+Options
+Directions
+StepSize
+HermitianTolerance
+GapTolerance
+CovarianceTolerance
+OverlapTolerance
+Output

@@ -1,0 +1,7 @@
+compareBand
+overlays numerical tight-binding bands with supplied reference bands along a labeled path.
+Examples
+Related Functions
+MagneticTB/ref/compareBand
+Options
+plotRange
