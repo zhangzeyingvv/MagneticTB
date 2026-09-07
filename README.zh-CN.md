@@ -36,21 +36,39 @@ Needs["MagneticTB`"]
 
 ### Python + Rust
 
-Python 接口需要 CPython 3.9 或更高版本。从 Release 资源中下载与你的 Python 版本、操作系统和 CPU 架构匹配的 `.whl` 文件，然后使用 `pip` 安装：
+Python 接口需要 CPython 3.9 或更高版本。从 Release 资源中下载与你的 Python 版本、操作系统和 CPU 架构匹配的 `.whl` 文件。Wheel 已包含编译后的 Rust 核心，普通用户不需要另外安装 Rust 或 Cargo。
+
+在 macOS、Linux 或 WSL 中使用 `venv`：
 
 ```sh
-python3 -m pip install /absolute/path/to/downloaded-wheel.whl
+python3 -m venv .venv
+.venv/bin/python -m pip install /absolute/path/to/downloaded-wheel.whl
+.venv/bin/python -c "import magnetictb; print(magnetictb.__version__)"
+.venv/bin/magnetictb-web
 ```
 
-Wheel 已包含编译后的 Rust 核心，普通用户不需要另外安装 Rust 或 Cargo。
+在 Windows PowerShell 中使用 `venv`：
 
-检查安装结果：
+```powershell
+py -3 -m venv .venv
+.venv\Scripts\python.exe -m pip install C:\absolute\path\to\downloaded-wheel.whl
+.venv\Scripts\python.exe -c "import magnetictb; print(magnetictb.__version__)"
+.venv\Scripts\magnetictb-web.exe
+```
+
+推荐使用 Conda。请在已启用 Conda 的终端中运行；Windows 可以使用 Anaconda Prompt 或 Miniforge Prompt：
 
 ```sh
-python3 -c "import magnetictb; print(magnetictb.__version__)"
+conda create -n magnetictb --override-channels -c conda-forge python=3.12 pip
+conda activate magnetictb
+python -m pip install /absolute/path/to/downloaded-wheel.whl
+python -c "import magnetictb; print(magnetictb.__version__)"
+magnetictb-web
 ```
 
-当前程序包版本会输出 `0.1.0`。建议安装到 Python 虚拟环境中。
+当前程序包版本会输出 `0.1.0`。
+
+启动 `magnetictb-web` 后，在浏览器中打开 <http://127.0.0.1:8000/>。交互式 API 文档位于 <http://127.0.0.1:8000/api/docs>。服务默认只监听本机；按 `Ctrl+C` 停止。
 
 建模流程、API、精确输入和示例参见 [Python/Rust/Web 中文 README](Python-Rust-Web/README.zh-CN.md) 和 [Web 帮助中心](Python-Rust-Web/docs/user-guide/web/index.html)。
 

@@ -53,23 +53,45 @@ documentation, and examples.
 
 The Python interface requires CPython 3.9 or later. Download the `.whl` file
 matching your Python version, operating system, and CPU architecture from the
-release assets, then install it with `pip`:
+release assets. The wheel includes the compiled Rust core; users do not need
+to install Rust or Cargo separately.
+
+Using `venv` on macOS, Linux, or WSL:
 
 ```sh
-python3 -m pip install /absolute/path/to/downloaded-wheel.whl
+python3 -m venv .venv
+.venv/bin/python -m pip install /absolute/path/to/downloaded-wheel.whl
+.venv/bin/python -c "import magnetictb; print(magnetictb.__version__)"
+.venv/bin/magnetictb-web
 ```
 
-The wheel includes the compiled Rust core; users do not need to install Rust
-or Cargo separately.
+Using `venv` in Windows PowerShell:
 
-Check the installed package:
+```powershell
+py -3 -m venv .venv
+.venv\Scripts\python.exe -m pip install C:\absolute\path\to\downloaded-wheel.whl
+.venv\Scripts\python.exe -c "import magnetictb; print(magnetictb.__version__)"
+.venv\Scripts\magnetictb-web.exe
+```
+
+Using Conda is recommended. Open a Conda-enabled terminal (Anaconda Prompt or
+Miniforge Prompt on Windows), create an environment, and install the wheel
+with `pip` inside that environment:
 
 ```sh
-python3 -c "import magnetictb; print(magnetictb.__version__)"
+conda create -n magnetictb --override-channels -c conda-forge python=3.12 pip
+conda activate magnetictb
+python -m pip install /absolute/path/to/downloaded-wheel.whl
+python -c "import magnetictb; print(magnetictb.__version__)"
+magnetictb-web
 ```
 
-The current package version prints `0.1.0`. Installing into a Python virtual
-environment is recommended.
+The current package version prints `0.1.0`.
+
+After starting `magnetictb-web`, open <http://127.0.0.1:8000/> in a browser.
+Interactive API documentation is available at <http://127.0.0.1:8000/api/docs>.
+The service listens only on the local machine by default; press `Ctrl+C` to
+stop it.
 
 See the [Python/Rust/Web README](Python-Rust-Web/README.md) and the
 [Web help center](Python-Rust-Web/docs/user-guide/web/index.html) for the
